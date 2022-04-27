@@ -1,0 +1,33 @@
+color-link default "white,"
+color-link comment "#707070,"
+color-link identifier "#34EB95,"
+color-link constant "#34EB95," # D26937
+color-link constant.string "#A5E63E," # a5e63e # yellow
+color-link constant.string.char "#D3EBE9,"
+color-link statement "#599CAB,"
+color-link preproc "#C23127,"
+# Example is YAML selectors
+color-link type "#3040ef," # D26937
+color-link special "#D26937,"
+color-link underlined "#EDB443,"
+color-link error "bold #C23127,"
+color-link todo "bold #ffffff,#28969c"
+color-link hlsearch "#091F2E,#EDB443"
+# Bottom status bar line, with the file name
+color-link statusline "," # 091F2E, 599CAB
+color-link indent-char "#505050,"
+color-link line-number "gray," # 245361
+color-link current-line-number "#29aCff,"
+# git diff colors on the left
+color-link diff-modified "#FFAF00"
+color-link diff-deleted "#D70000"
+color-link gutter-error "#C23127,"
+color-link gutter-warning "#EDB443,"
+color-link cursor-line "#091F2E"
+color-link color-column "#00ff00"
+color-link symbol "#59a1c0,"
+
+# TODO
+# FIXME
+
+# TODO: THERE ARE MORE OPTIONS, SEE THEIR COLORSCHEME README
