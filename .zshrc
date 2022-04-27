@@ -32,11 +32,12 @@ if [ ${colors} = 256 ]
 	fi
   else
     # % for user, # for root
+    echo
 	echo "I see you're using an 8 color terminal, I'll switch over to an 8 color zsh theme."
-fast-theme mgz-8-color
+	fast-theme mgz-8-color
   	PROMPT+='%# '
 fi
-		
+
 # Use Emacs over Vim editing
 bindkey -e
 
