@@ -120,6 +120,7 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 # TODO: spicetify is inserted into PATH by default now, so this is no longer needed
 alias spicetify='~/spicetify-cli/spicetify'
 alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
+alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 alias ch='cd ~/Gaming && ./Clone\ Hero\ Launcher.AppImage'
 alias obsisdead='pkill obs && sudo modprobe -r v4l2loopback' # Virtual Camera Fix
 alias n='notion-app-enhanced'
