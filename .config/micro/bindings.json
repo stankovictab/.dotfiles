@@ -4,5 +4,7 @@
 	"CtrlRightSq": "HSplit",
 	"CtrlBackslash": "VSplit",
 	"CtrlDelete": "DeleteWordRight",
-	"OldBackspace": "DeleteWordLeft"
+	"OldBackspace": "DeleteWordLeft",
+	"CtrlB": "command:tree",
+	"CtrlN": "ShellMode"
 }
