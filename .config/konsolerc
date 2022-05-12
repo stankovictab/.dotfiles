@@ -1,0 +1,26 @@
+[Desktop Entry]
+DefaultProfile=zsh.profile
+
+[KFileDialog Settings]
+Recent Files[$e]=a.png,file:$HOME/Pictures/2022-03-04_20-43-58.png,file:$HOME/Pictures/a.png
+Recent URLs[$e]=file:$HOME/Pictures/,file:$HOME/
+iconViewIconSize=43
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+HDMI-A-1 Height 1920x1080=504
+HDMI-A-1 Height 800x600=362
+HDMI-A-1 Width 1920x1080=1030
+HDMI-A-1 Width 800x600=800
+HDMI-A-1 Window-Maximized 1024x768=true
+HDMI-A-1 Window-Maximized 1600x900=true
+HDMI-A-1 XPosition 1920x1080=360
+HDMI-A-1 XPosition 800x600=-88
+HDMI-A-1 YPosition 1920x1080=325
+HDMI-A-1 YPosition 800x600=276
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAEwAAACAfwCAAAAAfsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAeAAACAQAAANUBAAADAAADYwAAAVMAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAgAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAAAAAAD/////AAAAAAAAAAAAAAAcAHMAZQBzAHMAaQBvAG4AVABvAG8AbABiAGEAcgAAAAAA/////wAAAAAAAAAA
+StatusBar=Disabled
+ToolBarsMovable=Disabled
