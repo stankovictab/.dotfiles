@@ -114,6 +114,7 @@ alias sizes='du -sh *'
 # }
 
 alias update='sudo apt update && sudo apt upgrade -y'
+alias deb='sudo deb-get'
 alias ffmpeg='ffmpeg -hide_banner'
 alias mc='cd ~/Gaming/ && java -jar TLauncher.jar && exit'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
