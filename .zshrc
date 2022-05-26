@@ -91,6 +91,10 @@ source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # Disable highlight on paste
 zle_highlight=('paste:none')
 
+# Enable nvm
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # Aliases
 
 alias c='clear'
@@ -106,7 +110,7 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias sizes='du -sh *'
+alias sizes='sudo du -sh *'
 
 # Automatically ls after cd
 # function cd {
