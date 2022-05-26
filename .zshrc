@@ -95,7 +95,10 @@ zle_highlight=('paste:none')
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# Aliases
+# Aliases & PATH Exports
+
+# Spicetify
+export PATH=$PATH:/home/stankovictab/.spicetify
 
 alias c='clear'
 alias ..='cd ..'
@@ -122,8 +125,6 @@ alias deb='sudo deb-get'
 alias ffmpeg='ffmpeg -hide_banner'
 alias mc='cd ~/Gaming/ && java -jar TLauncher.jar && exit'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
-# TODO: spicetify is inserted into PATH by default now, so this is no longer needed
-alias spicetify='~/spicetify-cli/spicetify'
 alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
 alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 alias ch='cd ~/Gaming && ./Clone\ Hero\ Launcher.AppImage'
