@@ -1,0 +1,9 @@
+/* Removing the 'New Playlist' button */
+button.IPVjkkhh06nan7aZK7Bx {
+	display: none;
+}
+
+/* Removing the 'Your Episodes' button */
+a[href="/collection/episodes"] {
+	display: none;
+}
