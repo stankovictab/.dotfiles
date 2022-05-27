@@ -141,3 +141,4 @@ alias ports='sudo lsof -i -P -n | grep LISTEN'
 alias dotdesktops='cd ~/.local/share/applications && dolphin .'
 alias yt='yt-dlp'
 alias fd='fdfind -H' # -H is to include hidden files
+alias typeracer='toipe'
