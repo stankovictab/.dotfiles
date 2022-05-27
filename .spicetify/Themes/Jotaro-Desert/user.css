@@ -1,0 +1,42 @@
+/* Ovo menja boju pozadine za genius, override-uje ono u lyrics.css */
+.lyrics-color-container {
+    background-color: #d2a699 !important;
+}
+
+/*Thinner scrollbar*/
+::-webkit-scrollbar {
+	height: 6px !important;
+	width: 6px !important;
+	background-color: transparent;
+}
+
+/* Da upgrade dugme nestane, ali NewPlaylistButton nece da ode */
+.upgrade-button, .NewPlaylistButton { 
+	display: none !important;
+}
+
+/* Da New Playlist Button nestane */
+#new-playlist-button-mount-point { 
+	display: none !important;
+}
+  
+.SidebarListItem {
+  transition: background-color 0.3s linear;
+}
+  
+.SidebarListItem:hover {
+  background-color: #e6d5d1 !important;
+}
+
+.RootlistItem.RootlistItemPlaylist {
+  transition: background-color 0.3s linear;
+}
+  
+.RootlistItem.RootlistItemPlaylist:hover {
+  background-color: #e6d5d1 !important;
+}
+
+/* Menja boju ikonice za Search */
+.SearchInput {
+	color: #000000 !important;
+}

@@ -1,0 +1,66 @@
+/* Ovo gura ceo tekst malo na gore zbog whitespace-a */
+.lyrics-lines-container {
+    top: 10%;
+}
+
+/* Ovo menja boju pozadine za genius, override-uje ono u lyrics.css */
+.lyrics-color-container {
+    background-color: #0e0e0e !important;
+}
+
+/* Ovo menja boju standardnog genius teksta */
+.lyrics-list-full p {
+    color: #7695da !important;
+    font-size: 25px !important;
+    line-height: 35px !important; /* Ovo menja velicinu break-a izmedju linija teksta */
+}
+
+/* Ovo menja boju genius anotiranog teksta pesme */
+.lyrics-list-full p a {
+    color: #5b8eff !important;
+    background-color: #111f2c !important;
+}
+
+/* Isto to samo na hover */
+.lyrics-list-full a:hover {
+    background-color: #010f1c !important; 
+    /* Default je rgba(var(--modspotify_rgb_main_fg), .12) */
+}
+
+/*Thinner scrollbar*/
+::-webkit-scrollbar {
+	height: 6px !important;
+	width: 3px !important;
+	background-color: transparent;
+}
+
+/* Da upgrade dugme nestane, ali NewPlaylistButton nece da ode */
+.upgrade-button, .NewPlaylistButton { 
+	display: none !important;
+}
+
+/* Da New Playlist Button nestane */
+#new-playlist-button-mount-point { 
+	display: none !important;
+}
+
+.SidebarListItem {
+  transition: background-color 0.3s linear;
+}
+  
+.SidebarListItem:hover {
+  background-color: #101010 !important;
+}
+
+.RootlistItem.RootlistItemPlaylist {
+  transition: background-color 0.3s linear;
+}
+  
+.RootlistItem.RootlistItemPlaylist:hover {
+  background-color: #101010 !important;
+}
+
+/* Menja boju ikonice za Search */
+.SearchInput {
+	color: #000000 !important;
+}
