@@ -1,11 +1,17 @@
 [Background]
-Color=4,4,4
+Color=7,7,7
+RandomHueRange=360
+RandomSaturationRange=100
 
 [BackgroundFaint]
-Color=18,18,18
+Color=7,7,7
+RandomHueRange=360
+RandomSaturationRange=100
 
 [BackgroundIntense]
-Color=18,18,18
+Color=7,7,7
+RandomHueRange=360
+RandomSaturationRange=100
 
 [Color0]
 Color=71,71,71
@@ -26,13 +32,13 @@ Color=244,67,54
 Color=244,67,54
 
 [Color2]
-Color=76,175,80
+Color=84,167,70
 
 [Color2Faint]
-Color=76,175,80
+Color=84,167,70
 
 [Color2Intense]
-Color=76,175,80
+Color=84,167,70
 
 [Color3]
 Color=255,152,0
@@ -44,31 +50,31 @@ Color=255,152,0
 Color=255,152,0
 
 [Color4]
-Color=26,115,232
+Color=27,171,255
 
 [Color4Faint]
-Color=26,115,232
+Color=27,171,255
 
 [Color4Intense]
-Color=26,115,232
+Color=27,171,255
 
 [Color5]
-Color=156,39,176
+Color=149,90,231
 
 [Color5Faint]
-Color=156,39,176
+Color=149,90,231
 
 [Color5Intense]
-Color=156,39,176
+Color=149,90,231
 
 [Color6]
-Color=0,151,167
+Color=42,222,222
 
 [Color6Faint]
-Color=0,151,167
+Color=42,222,222
 
 [Color6Intense]
-Color=0,151,167
+Color=42,222,222
 
 [Color7]
 Color=255,255,255
@@ -81,16 +87,22 @@ Color=255,255,255
 
 [Foreground]
 Color=223,223,223
+RandomHueRange=360
+RandomSaturationRange=100
 
 [ForegroundFaint]
 Color=223,223,223
+RandomHueRange=360
+RandomSaturationRange=100
 
 [ForegroundIntense]
 Color=255,255,255
+RandomHueRange=360
+RandomSaturationRange=100
 
 [General]
 Blur=true
 ColorRandomization=false
-Description=MateriaDark
-Opacity=0.79
+Description=MGZ
+Opacity=0.82
 Wallpaper=
