@@ -102,6 +102,9 @@ export PATH=$PATH:/home/stankovictab/.spicetify
 
 alias c='clear'
 alias ..='cd ..'
+alias bat='batcat'
+alias exa='exa --all --icons'
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
