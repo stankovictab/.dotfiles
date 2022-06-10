@@ -23,6 +23,8 @@ nnoremap <c-q> <cmd>bdelete<cr> " Delete buffer (and window technically) - c-q b
 nnoremap <c-b> :NvimTreeToggle<cr> " Toggling the file explorer both in Normal and Insert Mode
 inoremap <c-b> <esc>:NvimTreeToggle<cr>
 
+" nnoremap <c-j> :ToggleTerm<cr> " Toggling the terminal
+
 """"" Vim Settings
 
 let loaded_netrwPlugin = 1 " Disables the builtin and buggy netrw file explorer
@@ -63,7 +65,8 @@ Plug 'nvim-telescope/telescope.nvim' " File browser
 Plug 'ap/vim-css-color' " Colours on hexadecimal values, like #33ffbc
 Plug 'jiangmiao/auto-pairs' " Automatically close brackets and quotes
 Plug 'akinsho/bufferline.nvim', {'tag': 'v2.*'} " Buffer bar at the top
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua' " File explorer in left sidebar
+Plug 'akinsho/toggleterm.nvim', {'tag': 'v1.*'} " A better terminal than the built in one
 " Colorschemes
 Plug 'tomasiser/vim-code-dark' " Default VSCode dark theme inspired
 Plug 'cocopon/iceberg.vim' " Similar to Nord
@@ -72,26 +75,28 @@ Plug 'marko-cerovac/material.nvim' " The Bosnian theme
 call plug#end()
 
 """"" Lua Plugins Import
+" TODO: All of these can be set in a single lua/stankovictab.lua
 
 lua require('stankovictab/lualine')
 lua require('stankovictab/nvim-web-devicons')
 lua require('stankovictab/dashboard')
 lua require('stankovictab/bufferline')
 lua require('stankovictab/nvim-tree')
+lua require('stankovictab/toggleterm')
 
 """"" Colorscheme
 
 let g:material_style = "deep ocean" " Setting for the Bosnian theme
 colorscheme material
-" highlight Normal guibg=none " Removes opaque background from the theme
 
 " Toggling transparent background
-let t:is_transparent = 0                     
+" If you want to change over to transparency, set this to 1
+let t:is_transparent = 1
 function! Toggle_transparent_background()                      
   if t:is_transparent == 0                   
-    hi Normal guibg=none ctermbg=none
-	hi LineNr guibg=none ctermbg=none 
-	hi SignColumn guibg=none ctermbg=none 
+    hi Normal guibg=none ctermbg=none " Removes opaque background from the theme
+	hi LineNr guibg=none ctermbg=none " Transparent line number gutter
+	hi SignColumn guibg=none ctermbg=none " Transparent sign column gutter
     let t:is_transparent = 1
   else
     hi Normal guibg=none ctermbg=none
@@ -99,4 +104,8 @@ function! Toggle_transparent_background()
     let t:is_transparent = 0                        
   endif
 endfunction
+if t:is_transparent == 1
+	:call Toggle_transparent_background()
+	:call Toggle_transparent_background()
+endif
 nnoremap <leader>t :call Toggle_transparent_background()<cr>

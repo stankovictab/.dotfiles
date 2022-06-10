@@ -17,12 +17,27 @@ setopt prompt_subst
 PROMPT='%B%F{green}%~ %F{cyan}${vcs_info_msg_0_}%f%b
 '
 
+# Autosuggestions
+# To fill the autosuggestion, press Right Arrow or End
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Autosuggest color set to 000 (black), because 8 color terminals will show white instead, they don't have grey (default is 008, which is in the 256 color scope)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
+
+# Pick one of these (I recommend F-Sy-H) :
+# Syntax Highlighting
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Fast Syntax Highlighting
+source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 # An easy check to see if you're working with a color terminal,
 # instead of doing the weird .bashrc way,
 # is to do the tput colors command - if it's 256, it's color, if it's 8, it's not 
+# $VIM check is for the integrated :terminal in Vim (the emoji screws up character print)
 colors=$(tput colors)
-if [ ${colors} = 256 ]
+if [ ${colors} = 256 ] && [ "$VIM" = '' ]
   then
+	fast-theme --quiet mgz # Reset fast-theme
   	# Root user check
 	if [ "$EUID" -ne 0 ]
 	  then 
@@ -31,11 +46,9 @@ if [ ${colors} = 256 ]
 	  	PROMPT+='💀 '
 	fi
   else
-    # % for user, # for root
-    echo
-	echo "I see you're using an 8 color terminal, I'll switch over to an 8 color zsh theme."
-	fast-theme mgz-8-color
-  	PROMPT+='%# '
+	echo "I see you're using an 8 color terminal, I'll switch to an 8 color zsh theme."
+	fast-theme --quiet mgz-8-color
+  	PROMPT+='%# ' # % for user, # for root
 fi
 
 # Use Emacs over Vim editing
@@ -74,19 +87,6 @@ zstyle ':completion:*' matcher-list '' '+m:{a-zA-Z}={A-Za-z}' '+r:|[._-]=* r:|=*
 # ?
 autoload -Uz compinit
 compinit
-
-# Autosuggestions
-# To fill the autosuggestion, press Right Arrow or End
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Autosuggest color set to 000 (black), because 8 color terminals will show white instead, they don't have grey (default is 008, which is in the 256 color scope)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
-
-# Pick one of these (I recommend F-Sy-H) :
-# Syntax Highlighting
-# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Fast Syntax Highlighting
-source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Disable highlight on paste
 zle_highlight=('paste:none')
