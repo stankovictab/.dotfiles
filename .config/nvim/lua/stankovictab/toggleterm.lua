@@ -1,15 +1,13 @@
 require("toggleterm").setup{
-	open_mapping = [[<c-j>]],
+	open_mapping = [[<c-j>]], -- Shortcut to open and close
+	-- hide_numbers = false, -- ??? - Default true
+	-- shading_factor = '3', -- ???
+	-- shade_terminals = false, -- ??? - Default true
 	direction = 'float',
-	highlights = {
-		Normal = {
-			guibg = '#ff0000',
-		}
-	},
-	shading_factor = '3',
-	shade_terminals = false,
 	float_opts = {
 		border = 'curved',
-		winblend = 0
+		-- width = x, -- The width of the floating terminal
+	    -- height = 1, -- The width of the floating terminal
+		winblend = 5 -- The transparency of the terminal, from 0 to 100
 	}
 }

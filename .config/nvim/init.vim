@@ -3,13 +3,13 @@
 
 """"" Custom Shortcuts
 
-" nnoremap <tab> <nop> " Supposed to remove the already set binding of Tab (that is Ctrl + i), but doesn't work since I'm using it as a leader key
-let mapleader="\<tab>" " Setting the leader key instead of the default \
+let mapleader="\<tab>" " Setting the leader key to Tab instead of the default \
 nnoremap <leader>, <cmd>e $MYVIMRC<cr> " Openning the init.vim
+
 " Space + ff, Space + p and Ctrl + p is all the same thing
 nnoremap <leader>p <cmd>Telescope find_files hidden=true<cr> 
 nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr> 
-" nnoremap <c-p> <cmd>Telescope find_files<cr> 
+nnoremap <c-p> <cmd>Telescope find_files<cr> 
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr> " Listing buffers
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -23,7 +23,9 @@ nnoremap <c-q> <cmd>bdelete<cr> " Delete buffer (and window technically) - c-q b
 nnoremap <c-b> :NvimTreeToggle<cr> " Toggling the file explorer both in Normal and Insert Mode
 inoremap <c-b> <esc>:NvimTreeToggle<cr>
 
-" nnoremap <c-j> :ToggleTerm<cr> " Toggling the terminal
+" Toggling comments with vim-commentary (c-_ is actually Ctrl + /)
+nnoremap <c-_> :Commentary<cr> 
+vnoremap <c-_> :Commentary<cr>
 
 """"" Vim Settings
 
@@ -67,22 +69,33 @@ Plug 'jiangmiao/auto-pairs' " Automatically close brackets and quotes
 Plug 'akinsho/bufferline.nvim', {'tag': 'v2.*'} " Buffer bar at the top
 Plug 'kyazdani42/nvim-tree.lua' " File explorer in left sidebar
 Plug 'akinsho/toggleterm.nvim', {'tag': 'v1.*'} " A better terminal than the built in one
+Plug 'tpope/vim-commentary' " gc (block) and gcc (line) to comment out code
 " Colorschemes
+Plug 'rafi/awesome-vim-colorschemes' " A colorscheme collection, including iceberg, nord, onedark, etc
 Plug 'tomasiser/vim-code-dark' " Default VSCode dark theme inspired
-Plug 'cocopon/iceberg.vim' " Similar to Nord
 Plug 'marko-cerovac/material.nvim' " The Bosnian theme
+" LSP
+Plug 'hrsh7th/nvim-cmp' " Completion engine
+Plug 'hrsh7th/cmp-buffer' " Completion engine - Adding buffer (file) sources
+Plug 'hrsh7th/cmp-path' " Completion engine - Adding path sources
+Plug 'rafamadriz/friendly-snippets' " Snippet collection
+Plug 'L3MON4D3/LuaSnip' " LuaSnip snippet engine
+Plug 'saadparwaiz1/cmp_luasnip' " Completion engine - LuaSnip snippet engine source
 
 call plug#end()
 
 """"" Lua Plugins Import
 " TODO: All of these can be set in a single lua/stankovictab.lua
 
+lua require('stankovictab/presence')
 lua require('stankovictab/lualine')
 lua require('stankovictab/nvim-web-devicons')
 lua require('stankovictab/dashboard')
 lua require('stankovictab/bufferline')
 lua require('stankovictab/nvim-tree')
 lua require('stankovictab/toggleterm')
+lua require('stankovictab/material')
+lua require('stankovictab/nvim-cmp')
 
 """"" Colorscheme
 
@@ -91,7 +104,7 @@ colorscheme material
 
 " Toggling transparent background
 " If you want to change over to transparency, set this to 1
-let t:is_transparent = 1
+let t:is_transparent = 0
 function! Toggle_transparent_background()                      
   if t:is_transparent == 0                   
     hi Normal guibg=none ctermbg=none " Removes opaque background from the theme

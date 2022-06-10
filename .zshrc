@@ -145,3 +145,4 @@ alias dotdesktops='cd ~/.local/share/applications && dolphin .'
 alias yt='yt-dlp'
 alias fd='fdfind -H' # -H is to include hidden files
 alias typeracer='toipe'
+alias :q='exit'
