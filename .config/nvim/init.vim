@@ -7,15 +7,18 @@ let mapleader="\<tab>" " Setting the leader key to Tab instead of the default \
 nnoremap <leader>, <cmd>e $MYVIMRC<cr> " Openning the init.vim
 
 " Space + ff, Space + p and Ctrl + p is all the same thing
-nnoremap <leader>p <cmd>Telescope find_files hidden=true<cr> 
-nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr> 
+" If you want to search hidden files, add hidden=true
+nnoremap <leader>p <cmd>Telescope find_files<cr> 
+nnoremap <leader>ff <cmd>Telescope find_files<cr> 
 nnoremap <c-p> <cmd>Telescope find_files<cr> 
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr> " TODO: Very useful - Live Grep is for searching inside of files
 nnoremap <leader>fb <cmd>Telescope buffers<cr> " Listing buffers
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-nnoremap <c-right> <cmd>bnext<cr> " Go to next buffer, works with bufferline
-nnoremap <c-left> <cmd>bprevious<cr> " Go to previous buffer, works with bufferline
+nnoremap <c-right> <cmd>bnext<cr> " Go to next buffer
+nnoremap <leader><right> <cmd>bnext<cr> " Go to next buffer, for tty
+nnoremap <c-left> <cmd>bprevious<cr> " Go to previous buffer
+nnoremap <leader><left> <cmd>bprevious<cr> " Go to previous buffer, for tty
 nnoremap <c-s-right> <cmd>BufferLineMoveNext<cr> " Move buffer to the right
 nnoremap <c-s-left> <cmd>BufferLineMovePrev<cr> " Move buffer to the right
 nnoremap <c-q> <cmd>bdelete<cr> " Delete buffer (and window technically) - c-q by default is visual block mode (which is also c-v)
@@ -26,6 +29,8 @@ inoremap <c-b> <esc>:NvimTreeToggle<cr>
 " Toggling comments with vim-commentary (c-_ is actually Ctrl + /)
 nnoremap <c-_> :Commentary<cr> 
 vnoremap <c-_> :Commentary<cr>
+
+inoremap <c-s> <esc><cmd>w<cr> " I'm very proud of this line, written in on a whim and it works first try
 
 """"" Vim Settings
 
@@ -45,7 +50,8 @@ set nohlsearch " Disables the highlight of a word after search is done (but then
 " incsearch is on by default, it searches by every inputed character
 set noerrorbells " Removes the stupid ass terminal bell sound
 set scrolloff=4 " Number of lines to keep at the cursor when scrolling up or down the file
-set signcolumn=yes " Column at the left, useful for linting errors and for the git gutter
+" set signcolumn=yes " Column at the left, useful for linting errors and for the git gutter - automatically opens when needed by default
+set updatetime=300 " The default update time is 4000ms (for things like vim-gitgutter), which is too long
 
 if (has("termguicolors"))
 	" By default Neovim uses the terminal emulator's colours (cterm), but this allows the use of hex values for colours (gui)
@@ -70,22 +76,26 @@ Plug 'akinsho/bufferline.nvim', {'tag': 'v2.*'} " Buffer bar at the top
 Plug 'kyazdani42/nvim-tree.lua' " File explorer in left sidebar
 Plug 'akinsho/toggleterm.nvim', {'tag': 'v1.*'} " A better terminal than the built in one
 Plug 'tpope/vim-commentary' " gc (block) and gcc (line) to comment out code
+Plug 'airblade/vim-gitgutter' " Git gutter integration
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes' " A colorscheme collection, including iceberg, nord, onedark, etc
 Plug 'tomasiser/vim-code-dark' " Default VSCode dark theme inspired
 Plug 'marko-cerovac/material.nvim' " The Bosnian theme
-" LSP
+" CMP & LSP
 Plug 'hrsh7th/nvim-cmp' " Completion engine
 Plug 'hrsh7th/cmp-buffer' " Completion engine - Adding buffer (file) sources
 Plug 'hrsh7th/cmp-path' " Completion engine - Adding path sources
 Plug 'rafamadriz/friendly-snippets' " Snippet collection
 Plug 'L3MON4D3/LuaSnip' " LuaSnip snippet engine
-Plug 'saadparwaiz1/cmp_luasnip' " Completion engine - LuaSnip snippet engine source
+Plug 'saadparwaiz1/cmp_luasnip' " Completion engine - LuaSnip snippet engine sources
+Plug 'hrsh7th/cmp-nvim-lsp' " Completion engine - LSP sources
+Plug 'neovim/nvim-lspconfig' " LSP - Configuration plugin
+Plug 'williamboman/nvim-lsp-installer' " LSP - Language Server installer
 
 call plug#end()
 
 """"" Lua Plugins Import
-" TODO: All of these can be set in a single lua/stankovictab.lua
+" All of these can be set in a single lua/stankovictab.lua, but this is cleaner
 
 lua require('stankovictab/presence')
 lua require('stankovictab/lualine')
@@ -96,6 +106,7 @@ lua require('stankovictab/nvim-tree')
 lua require('stankovictab/toggleterm')
 lua require('stankovictab/material')
 lua require('stankovictab/nvim-cmp')
+lua require('stankovictab/lsp')
 
 """"" Colorscheme
 

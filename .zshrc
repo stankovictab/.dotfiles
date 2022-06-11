@@ -37,6 +37,7 @@ source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 colors=$(tput colors)
 if [ ${colors} = 256 ] && [ "$VIM" = '' ]
   then
+    # TODO: This slows down the startup of zsh quite a lot, think about changing it
 	fast-theme --quiet mgz # Reset fast-theme
   	# Root user check
 	if [ "$EUID" -ne 0 ]

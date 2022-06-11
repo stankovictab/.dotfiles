@@ -31,6 +31,21 @@ local kind_icons = {
   TypeParameter = "",
 }
 
+-- TODO: Uncomment when you install treesitter
+-- This disables completion in comments, but in order to know you're in a comment, you need treesitter
+-- cmp.setup({
+    -- enabled = function()
+      -- local context = require 'cmp.config.context'
+      -- -- keep command mode completion enabled when cursor is in a comment
+      -- if vim.api.nvim_get_mode().mode == 'c' then
+        -- return true
+      -- else
+        -- return not context.in_treesitter_capture("comment")
+          -- and not context.in_syntax_group("Comment")
+      -- end
+    -- end
+--})
+
 cmp.setup{
 	snippet = {
 		expand = function(args)
@@ -63,6 +78,9 @@ cmp.setup{
       		return vim_item
     	end,
 	},
+	experimental = {
+		ghost_text = false -- Displays ghost text of the suggestion in the editor 
+	},
     mapping = cmp.mapping.preset.insert({
       -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -73,9 +91,10 @@ cmp.setup{
 	  ['<S-Tab>'] = cmp.mapping.select_prev_item() -- Shift + Tab to go up in the list
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' }, -- Importing LSP sources
-      { name = 'luasnip' }, -- Importing LuaSnip (friendly-snippets) sources
-      { name = 'buffer' }, -- Importing buffer (file) text sources
-	  { name = 'path' } -- Importing system path sources
+		-- Sources are laid out in this order, following a recommendation algorithm
+    	{ name = 'nvim_lsp' }, -- Importing LSP sources
+    	{ name = 'luasnip' }, -- Importing LuaSnip (friendly-snippets) sources
+    	{ name = 'buffer' }, -- Importing buffer (file) text sources
+		{ name = 'path' } -- Importing system path sources
     })
 }
