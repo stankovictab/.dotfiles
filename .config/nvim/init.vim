@@ -91,6 +91,7 @@ Plug 'saadparwaiz1/cmp_luasnip' " Completion engine - LuaSnip snippet engine sou
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion engine - LSP sources
 Plug 'neovim/nvim-lspconfig' " LSP - Configuration plugin
 Plug 'williamboman/nvim-lsp-installer' " LSP - Language Server installer
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Better syntax highlight
 
 call plug#end()
 
@@ -107,6 +108,7 @@ lua require('stankovictab/toggleterm')
 lua require('stankovictab/material')
 lua require('stankovictab/nvim-cmp')
 lua require('stankovictab/lsp')
+lua require('stankovictab/treesitter')
 
 """"" Colorscheme
 
@@ -115,7 +117,7 @@ colorscheme material
 
 " Toggling transparent background
 " If you want to change over to transparency, set this to 1
-let t:is_transparent = 0
+let t:is_transparent = 1
 function! Toggle_transparent_background()                      
   if t:is_transparent == 0                   
     hi Normal guibg=none ctermbg=none " Removes opaque background from the theme
