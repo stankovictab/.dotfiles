@@ -4,7 +4,7 @@
 """"" Custom Shortcuts
 
 let mapleader="\<tab>" " Setting the leader key to Tab instead of the default \
-nnoremap <leader>, <cmd>e $MYVIMRC<cr> " Openning the init.vim
+nnoremap <leader>, <cmd>e $MYVIMRC<cr> " Opening the init.vim
 
 " Space + ff, Space + p and Ctrl + p is all the same thing
 " If you want to search hidden files, add hidden=true
@@ -30,7 +30,7 @@ inoremap <c-b> <esc>:NvimTreeToggle<cr>
 nnoremap <c-_> :Commentary<cr> 
 vnoremap <c-_> :Commentary<cr>
 
-inoremap <c-s> <esc><cmd>w<cr> " I'm very proud of this line, written in on a whim and it works first try
+inoremap <c-s> <esc><cmd>w<cr> " I'm very proud of this line, wrote it on a whim and it works first try
 
 """"" Vim Settings
 
@@ -38,6 +38,7 @@ let loaded_netrwPlugin = 1 " Disables the builtin and buggy netrw file explorer
 set mouse=a " Enable mouse support - enables clicking, highlighting puts you into visual mode, scroll is fixed
 " set relativenumber " Line numbers will be relative to the current line
 set number " Set absolute line numbering
+set cursorline " Set highlight of the current line and line number
 set ignorecase " Set search to be case insensitive
 set splitbelow " On automatic split, split down instead of up (default)
 set splitright " On automatic split, split right instead of left (default)
@@ -77,6 +78,8 @@ Plug 'kyazdani42/nvim-tree.lua' " File explorer in left sidebar
 Plug 'akinsho/toggleterm.nvim', {'tag': 'v1.*'} " A better terminal than the built in one
 Plug 'tpope/vim-commentary' " gc (block) and gcc (line) to comment out code
 Plug 'airblade/vim-gitgutter' " Git gutter integration
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Better syntax highlight
+Plug 'lukas-reineke/indent-blankline.nvim' " Vertical lines on indentation, made off of Yggroot/indentLine
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes' " A colorscheme collection, including iceberg, nord, onedark, etc
 Plug 'tomasiser/vim-code-dark' " Default VSCode dark theme inspired
@@ -91,7 +94,6 @@ Plug 'saadparwaiz1/cmp_luasnip' " Completion engine - LuaSnip snippet engine sou
 Plug 'hrsh7th/cmp-nvim-lsp' " Completion engine - LSP sources
 Plug 'neovim/nvim-lspconfig' " LSP - Configuration plugin
 Plug 'williamboman/nvim-lsp-installer' " LSP - Language Server installer
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Better syntax highlight
 
 call plug#end()
 
@@ -109,6 +111,7 @@ lua require('stankovictab/material')
 lua require('stankovictab/nvim-cmp')
 lua require('stankovictab/lsp')
 lua require('stankovictab/treesitter')
+lua require('stankovictab/indent-blankline')
 
 """"" Colorscheme
 

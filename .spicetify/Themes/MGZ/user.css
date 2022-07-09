@@ -7,3 +7,20 @@ button.IPVjkkhh06nan7aZK7Bx {
 a[href="/collection/episodes"] {
 	display: none;
 }
+
+/* Thinner scrollbar */
+
+.os-scrollbar-track {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.os-scrollbar-handle {
+	/* height: 6px !important; */
+	width: 6px !important;
+	background-color: #1f1f1f !important;
+}
+
+.os-scrollbar-handle:hover {
+	background-color: #2e2e2e !important;
+}
