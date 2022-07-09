@@ -16,11 +16,23 @@ a[href="/collection/episodes"] {
 }
 
 .os-scrollbar-handle {
-	/* height: 6px !important; */
 	width: 6px !important;
 	background-color: #1f1f1f !important;
 }
 
 .os-scrollbar-handle:hover {
 	background-color: #2e2e2e !important;
+}
+
+/* Power Bar Customization */
+
+#power-bar-container {
+	--power-bar-background-color: #121212;
+	--power-bar-main-text-color: #ffffff;
+	--power-bar-subtext-color: #2adede;
+	/* --power-bar-active-background-color: #2adede;  */
+	--power-bar-active-background-color: #080808;
+	/* --power-bar-active-text-color: #000000; */
+	--power-bar-active-text-color: #ffffff;
+	--power-bar-border-color: #000000;
 }
