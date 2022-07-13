@@ -1,6 +1,8 @@
 " Neovim Configuration File "
 " ~~~~~~~~~~~~~~~~~~~~~~~~~ "
 
+" TODO: Enter, Space and Backspace need a new use in Normal Mode
+
 """"" Custom Shortcuts
 
 let mapleader="\<tab>" " Setting the leader key to Tab instead of the default \
@@ -31,6 +33,8 @@ nnoremap <c-_> :Commentary<cr>
 vnoremap <c-_> :Commentary<cr>
 
 inoremap <c-s> <esc><cmd>w<cr> " I'm very proud of this line, wrote it on a whim and it works first try
+
+set whichwrap+=<,>,[,] " This allows the arrow keys to go to the previous and next line
 
 """"" Vim Settings
 
