@@ -2,6 +2,8 @@
 " ~~~~~~~~~~~~~~~~~~~~~~~~~ "
 
 " TODO: Enter, Space and Backspace need a new use in Normal Mode
+" TODO: Fix the hex colors, you can't read them most of the time, make it just
+" a square next to the value or something, the font gets screwed up
 
 """"" Custom Shortcuts
 
@@ -15,7 +17,6 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <c-p> <cmd>Telescope find_files<cr> 
 nnoremap <leader>fg <cmd>Telescope live_grep<cr> " TODO: Very useful - Live Grep is for searching inside of files
 nnoremap <leader>fb <cmd>Telescope buffers<cr> " Listing buffers
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 nnoremap <c-right> <cmd>bnext<cr> " Go to next buffer
 nnoremap <leader><right> <cmd>bnext<cr> " Go to next buffer, for tty
@@ -42,6 +43,7 @@ let loaded_netrwPlugin = 1 " Disables the builtin and buggy netrw file explorer
 set mouse=a " Enable mouse support - enables clicking, highlighting puts you into visual mode, scroll is fixed
 " set relativenumber " Line numbers will be relative to the current line
 set number " Set absolute line numbering
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50 " A better, blinking and shapeshifting cursor -- TODO: Doesn't work?
 set cursorline " Set highlight of the current line and line number
 set ignorecase " Set search to be case insensitive
 set splitbelow " On automatic split, split down instead of up (default)

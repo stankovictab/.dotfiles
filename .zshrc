@@ -147,3 +147,8 @@ alias yt='yt-dlp'
 alias fd='fdfind -H' # -H is to include hidden files
 alias typeracer='toipe'
 alias :q='exit'
+
+alias t='tmux'
+alias ts='tmux ls'
+alias ta='tmux attach'
+alias tks='tmux kill-server'
