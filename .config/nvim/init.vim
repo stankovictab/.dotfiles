@@ -77,7 +77,7 @@ Plug 'nvim-lualine/lualine.nvim' " A way better status line than Airline
 Plug 'kyazdani42/nvim-web-devicons' " Icons (that use a Nerd Font)
 Plug 'nvim-lua/plenary.nvim' " Dependency for Telescope
 Plug 'nvim-telescope/telescope.nvim' " File browser
-Plug 'ap/vim-css-color' " Colours on hexadecimal values, like #33ffbc
+Plug 'norcalli/nvim-colorizer.lua' " Colours on hexadecimal values, like #123123, changed instead of 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs' " Automatically close brackets and quotes
 Plug 'akinsho/bufferline.nvim', {'tag': 'v2.*'} " Buffer bar at the top
 Plug 'kyazdani42/nvim-tree.lua' " File explorer in left sidebar
@@ -86,6 +86,7 @@ Plug 'tpope/vim-commentary' " gc (block) and gcc (line) to comment out code
 Plug 'airblade/vim-gitgutter' " Git gutter integration
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Better syntax highlight
 Plug 'lukas-reineke/indent-blankline.nvim' " Vertical lines on indentation, made off of Yggroot/indentLine
+Plug 'yamatsum/nvim-cursorline' " Includes cursorline and cursorword, the latter of which highlights all occurances of the selected word
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes' " A colorscheme collection, including iceberg, nord, onedark, etc
 Plug 'tomasiser/vim-code-dark' " Default VSCode dark theme inspired
@@ -104,21 +105,22 @@ Plug 'williamboman/nvim-lsp-installer' " LSP - Language Server installer
 call plug#end()
 
 """"" Lua Plugins Import
-" All of these can be set in a single lua/stankovictab.lua, but this is cleaner
+" NOTE: All of these can be set in a single lua/stankovictab.lua
 
+lua require('stankovictab/dashboard')
 lua require('stankovictab/presence')
 lua require('stankovictab/lualine')
 lua require('stankovictab/nvim-web-devicons')
-lua require('stankovictab/dashboard')
+lua require('stankovictab/nvim-colorizer')
 lua require('stankovictab/bufferline')
 lua require('stankovictab/nvim-tree')
 lua require('stankovictab/toggleterm')
+lua require('stankovictab/treesitter')
+lua require('stankovictab/indent-blankline')
+lua require('stankovictab/nvim-cursorline')
 lua require('stankovictab/material')
 lua require('stankovictab/nvim-cmp')
 lua require('stankovictab/lsp')
-lua require('stankovictab/treesitter')
-lua require('stankovictab/indent-blankline')
-
 """"" Colorscheme
 
 let g:material_style = "deep ocean" " Setting for the Bosnian theme
@@ -126,7 +128,9 @@ colorscheme material
 
 " Toggling transparent background
 " If you want to change over to transparency, set this to 1
-let t:is_transparent = 1
+" TODO: Turning back to opaque screws up nvim-cursorline and nvim-colorizer, I
+" think this is a known bug with nvim_set_hl(), see issue #18160 in neovim/neovim
+let t:is_transparent = 0
 function! Toggle_transparent_background()                      
   if t:is_transparent == 0                   
     hi Normal guibg=none ctermbg=none " Removes opaque background from the theme
@@ -134,13 +138,10 @@ function! Toggle_transparent_background()
 	hi SignColumn guibg=none ctermbg=none " Transparent sign column gutter
     let t:is_transparent = 1
   else
-    hi Normal guibg=none ctermbg=none
-	set background=dark
+	colorscheme material
+    " hi Normal guibg=none ctermbg=none
+	" set background=dark " ?
     let t:is_transparent = 0                        
   endif
 endfunction
-if t:is_transparent == 1
-	:call Toggle_transparent_background()
-	:call Toggle_transparent_background()
-endif
 nnoremap <leader>t :call Toggle_transparent_background()<cr>

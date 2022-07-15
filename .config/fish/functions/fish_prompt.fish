@@ -49,6 +49,7 @@ function fish_prompt
     printf '%s' (prompt_pwd -d 0)
     set_color normal
     printf $git_info
+	set_color normal
 
     echo
     printf '🦩 '

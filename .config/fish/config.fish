@@ -7,11 +7,18 @@ bind \b backward-kill-word
 # Ctrl + Delete
 bind \e\[3\;5~ kill-word
 # Shift + Enter
-bind -k enter accept-autosuggestion execute
+if test "$TERM" = "xterm-256color" # Konsole
+    bind -k enter accept-autosuggestion execute
+else if test "$TERM" = "xterm-kitty" # Kitty
+    bind \r accept-autosuggestion execute 
+else # TMUX
+    bind \n accept-autosuggestion execute
+end
 
 ### Aliases
 
 alias fishrc='micro ~/.config/fish/config.fish'
+alias reload='source ~/.config/fish/config.fish'
 
 alias c='clear'
 alias :q='exit'
