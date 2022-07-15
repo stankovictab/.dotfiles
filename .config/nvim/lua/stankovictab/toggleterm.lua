@@ -8,6 +8,6 @@ require("toggleterm").setup{
 		border = 'curved',
 		-- width = x, -- The width of the floating terminal
 	    -- height = 1, -- The width of the floating terminal
-		winblend = 5 -- The transparency of the terminal, from 0 to 100
+		winblend = 0 -- The transparency of the terminal, from 0 to 100, doesn't go well with zsh completion
 	}
 }

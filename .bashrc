@@ -1,0 +1,274 @@
+# BLESH
+# Checking if BLESH is installed
+if [ -d "/home/stankovictab/.config/ble.sh" ] 
+then 
+	# BLESH Initialization
+	[[ $- == *i* ]] && source /home/stankovictab/.config/ble.sh/ble.sh --noattach
+fi
+
+###########################################################
+
+# Disable highlighting text on paste
+bind 'set enable-bracketed-paste off'
+
+# Git Prompt at the end
+source /home/stankovictab/.git-prompt.sh
+
+# Postavljanje default-nog editor-a na micro, zbog ranger-a
+export VISUAL=micro;
+export EDITOR=micro;
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+# TODO: Add the rest of the colors and explain the \e[ structure
+BLACK="\e[30m"
+BOLDBLACK="\e[1;30m"
+RED="\e[31m"
+BOLDRED="\e[1;31m"
+GREEN="\e[32m"
+BOLDGREEN="\e[1;32m"
+YELLOW="\e[33m"
+BOLDYELLOW="\e[1;33m"
+BLUE="\e[34m"
+BOLDBLUE="\e[1;34m"
+MAGENTA="\e[35m"
+BOLDMAGENTA="\e[1;35m"
+CYAN="\e[36m"
+BOLDCYAN="\e[1;36m"
+LIGHTGRAY="\e[37m"
+BOLDLIGHTGRAY="\e[1;37m"
+
+GRAY="\e[90m"
+BOLDGRAY="\e[1;90m"
+LIGHTRED="\e[91m"
+BOLDLIGHTRED="\e[1;91m"
+LIGHTGREEN="\e[92m"
+BOLDLIGHTGREEN="\e[1;92m"
+LIGHTYELLOW="\e[93m"
+BOLDLIGHTYELLOW="\e[1;93m"
+LIGHTBLUE="\e[94m"
+BOLDLIGHTBLUE="\e[1;94m"
+LIGHTMAGENTA="\e[95m"
+BOLDLIGHTMAGENTA="\e[1;95m"
+LIGHTCYAN="\e[96m"
+BOLDLIGHTCYAN="\e[1;96m"
+WHITE="\e[97m"
+BOLDWHITE="\e[1;97m"
+
+RESETCOLOR="\e[0m"
+
+# Mora da se koriste "" umesto '' da bi ${} radilo
+
+    # BACKUP: PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # Ovo menja samo color prompt-ove (Konsole, ne Xterm ili tty)
+    PS1="${debian_chroot:+($debian_chroot)}"
+	# PS1+="${BOLDCYAN}\u " # Username
+	PS1+="${BOLDGREEN}\w" # Working Directory
+	PS1+='\[\033[01;36m\]$(__git_ps1 " (%s)") \n' # Git Prompt, ovde mora ''
+	PS1+="${RESETCOLOR}" # Color Reset
+
+	# Emoji or $, depending on root user and color prompt
+	if [ "$color_prompt" = yes ]
+	  then
+	  	# Root user check
+		if [ "$EUID" -ne 0 ]
+		  then 
+		  	PS1+="$ " 
+		  else 
+		  	PS1+="# "
+		fi
+	  else
+	  	# Root user check
+		if [ "$EUID" -ne 0 ]
+		  then 
+		  	PS1+="$ " 
+		  else 
+		  	PS1+="# "
+		fi
+	fi
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+#################################################################################################
+#################################################################################################
+
+alias c='clear'
+alias update='sudo apt update && sudo apt upgrade -y'
+alias gitcom='git commit -m '
+# l = All in one column, a = All, including hidden, h = Human readable sizes
+alias lah='ls -lah --color=auto'
+alias sizes='du -sh *'
+alias ..='cd ..'
+
+alias ffmpeg='ffmpeg -hide_banner'
+alias mc='cd ~/Gaming/ && java -jar TLauncher.jar && exit'
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+# TODO: Spicetify je dodao ovo u PATH od skoro, ovo mozda nije potrebno
+alias spicetify='~/spicetify-cli/spicetify'
+alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restart KWin-a
+alias ch='cd ~/Gaming && ./Clone\ Hero\ Launcher.AppImage'
+alias obsisdead='pkill obs && sudo modprobe -r v4l2loopback' # Virtual Camera Fix
+alias n='notion-app-enhanced'
+alias pipes='cd /usr/local/bin && ./pipes.sh'
+alias lpf='sudo chown root:root ~/Documents/Private'
+alias upf='sudo chown stankovictab:stankovictab ~/Documents/Private'
+alias mvnfull='mvn clean install -DskipTests'
+
+#################################################################################################
+#################################################################################################
+
+# Dodao sam ovaj root user check na conda prompt deo, jer se automatski palio za root user-a
+
+# Root user check
+if [ "$EUID" -ne 0 ]
+	then 
+		# Njihov deo
+	
+		# >>> conda initialize >>>
+		# !! Contents within this block are managed by 'conda init' !!
+		__conda_setup="$('/home/stankovictab/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+		if [ $? -eq 0 ]; then
+		    eval "$__conda_setup"
+		else
+		    if [ -f "/home/stankovictab/miniconda3/etc/profile.d/conda.sh" ]; then
+		        . "/home/stankovictab/miniconda3/etc/profile.d/conda.sh"
+		    else
+		        export PATH="/home/stankovictab/miniconda3/bin:$PATH"
+		    fi
+		fi
+		unset __conda_setup
+		# <<< conda initialize <<<
+fi
+
+###########################################################
+# BLESH END
+
+# Checking if BLESH is installed
+if [ -d "/home/stankovictab/.config/ble.sh" ] 
+then 
+	shopt -s cdspell
+
+	# Turning off the EOF, exit and elapsed time info
+	# Setting it to nothing turns the message off
+	bleopt prompt_eol_mark=
+	bleopt exec_errexit_mark="${RED}[🥵 %d]${RESETCOLOR}"
+	# bleopt exec_elapsed_mark=''
+
+	# Missing command color (default is red highlight)
+	ble-color-setface syntax_error fg=203
+	# cd, echo, source command colors (default is red for some reason)
+	ble-color-setface command_builtin fg=106
+	ble-color-setface command_builtin_dot fg=106
+
+	# Autocomplete color (default is white highlight)
+	# Gray can't be seen in non-color prompts
+	if [ "$color_prompt" = yes ]
+		then
+			ble-color-setface auto_complete fg=gray
+		else
+			ble-color-setface auto_complete fg=lightgray
+	fi
+	unset color_prompt force_color_prompt
+
+	# Not to make new lines on terminal resize
+	# This is especially annoying in VSCode
+	# See https://github.com/akinomyoga/ble.sh/issues/142
+	bleopt canvas_winch_action=redraw-prev
+
+	# BLESH End
+	[[ ${BLE_VERSION-} ]] && ble-attach
+fi

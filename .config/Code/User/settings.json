@@ -62,7 +62,7 @@
 	],
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.gpuAcceleration": "canvas",
-	"terminal.integrated.defaultProfile.linux": "zsh",
+	"terminal.integrated.defaultProfile.linux": "fish",
 	"terminal.integrated.persistentSessionReviveProcess": "never",
 	"color-highlight.markRuler": false,
 	"workbench.colorTheme": "MGZ Dark Theme",
@@ -71,12 +71,12 @@
 	"workbench.startupEditor": "newUntitledFile",
 	"editor.inlineSuggest.enabled": true,
 	"files.autoSaveDelay": 100,
-	"terminal.integrated.fontFamily": "hack",
-	"debug.console.fontFamily": "hack",
+	"terminal.integrated.fontFamily": "Hack NF",
+	"debug.console.fontFamily": "Hack NF",
 	"editor.smoothScrolling": true,
 	"workbench.list.smoothScrolling": true,
 	"editor.mouseWheelScrollSensitivity": 2,
-	"editor.fontFamily": "hack, monospace",
+	"editor.fontFamily": "Hack NF, monospace",
 	"workbench.tree.indent": 16,
 	"editor.fontSize": 15,
 	"github.copilot.enable": {
@@ -91,7 +91,7 @@
 	"workbench.editor.untitled.hint": "hidden",
 	"workbench.editor.untitled.labelFormat": "name",
 	"glassit.alpha": 255,
-	"debug.inlineValues": true,
+	"debug.inlineValues": "on",
 	"jupyter.debugJustMyCode": false,
 	"debug.console.acceptSuggestionOnEnter": "on",
 	"java.import.generatesMetadataFilesAtProjectRoot": true,
@@ -105,5 +105,6 @@
 	"markdown.preview.fontSize": 15,
 	"markdown.styles": [
 		"https://raw.githubusercontent.com/stankovictab/.dotfiles/main/vscode-markdown-mgz.css"
-	]
+	],
+	"terminal.integrated.shellIntegration.enabled": true
 }

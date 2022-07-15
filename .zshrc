@@ -1,3 +1,5 @@
+start=`date +%s%N`
+
 # Git Integration
 # vcs_info (Version Control System Info) is the integrated framework to get the git information,  we don’t need a seperate script
 autoload -Uz vcs_info
@@ -25,17 +27,21 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
 
 # Pick one of these (I recommend F-Sy-H) :
-# Syntax Highlighting
+# -----
+# - Zsh Syntax Highlighting
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Fast Syntax Highlighting
+# - Fast Syntax Highlighting
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# - F-Sy-H
+# source ~/.zsh/F-Sy-H/F-Sy-H.plugin.zsh
+
 
 # An easy check to see if you're working with a color terminal,
 # instead of doing the weird .bashrc way,
 # is to do the tput colors command - if it's 256, it's color, if it's 8, it's not 
 # $VIM check is for the integrated :terminal in Vim (the emoji screws up character print)
-colors=$(tput colors)
-if [ ${colors} = 256 ] && [ "$VIM" = '' ]
+
+if [ $(tput colors) = 256 ] && [ "$VIM" = '' ]
   then
     # TODO: This slows down the startup of zsh quite a lot, think about changing it
 	fast-theme --quiet mgz # Reset fast-theme
@@ -102,22 +108,28 @@ export NVM_DIR=~/.nvm
 export PATH=$PATH:/home/stankovictab/.spicetify
 
 alias c='clear'
+alias :q='exit'
 alias ..='cd ..'
-alias bat='batcat'
-alias exa='exa --all --icons'
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-# l = All in one column, a = All, including hidden, h = Human readable sizes
-alias lah='ls -lah --color=auto'
 alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias sizes='sudo du -sh *'
+alias lah='ls -lah --color=auto' # l = All in one column, a = All, including hidden, h = Human readable sizes
+alias bat='batcat'
+alias exa='exa --all --icons --group-directories-first'
+alias e='exa'
+alias el='exa -l'
+
+alias t='tmux'
+alias ts='tmux ls'
+alias ta='tmux attach'
+alias tks='tmux kill-server'
+
+alias g='lazygit'
+alias lg='lazygit'
+alias gs'git status'
+alias ga='git add .'
+alias gc='git commit'
+alias gp='git push'
+alias gd='git diff'
 
 # Automatically ls after cd
 # function cd {
@@ -126,6 +138,7 @@ alias sizes='sudo du -sh *'
 
 alias update='sudo apt update && sudo apt upgrade -y'
 alias deb='sudo deb-get'
+alias sizes='sudo du -sh *'
 alias ffmpeg='ffmpeg -hide_banner'
 alias mc='cd ~/Gaming/ && java -jar TLauncher.jar && exit'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
@@ -146,9 +159,7 @@ alias dotdesktops='cd ~/.local/share/applications && dolphin .'
 alias yt='yt-dlp'
 alias fd='fdfind -H' # -H is to include hidden files
 alias typeracer='toipe'
-alias :q='exit'
 
-alias t='tmux'
-alias ts='tmux ls'
-alias ta='tmux attach'
-alias tks='tmux kill-server'
+
+end=`date +%s%N`
+echo Execution time was `expr $end - $start` nanoseconds.

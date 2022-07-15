@@ -1,12 +1,15 @@
 [Appearance]
+AntiAliasFonts=true
 ColorScheme=MGZ
-Font=Hack,11,-1,5,50,0,0,0,0,0
+Font=Hack NF,12,-1,5,50,0,0,0,0,0
 
 [General]
-Command=/bin/zsh
-Icon=/home/stankovictab/Pictures/2022-03-04_20-43-58.png
-Name=zsh
+Command=/usr/bin/fish
+DimWhenInactive=false
+Icon=bluefish
+Name=MGZ
 Parent=FALLBACK/
+TerminalCenter=false
 TerminalMargin=5
 
 [Scrolling]
