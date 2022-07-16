@@ -26,7 +26,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Autosuggest color set to 000 (black), because 8 color terminals will show white instead, they don't have grey (default is 008, which is in the 256 color scope)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=000"
 
-# Pick one of these (I recommend F-Sy-H) :
+# Pick one of these (I recommend fast-syntax-highlighting, although it is slow) :
 # -----
 # - Zsh Syntax Highlighting
 # source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -35,7 +35,6 @@ source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # - F-Sy-H
 # source ~/.zsh/F-Sy-H/F-Sy-H.plugin.zsh
 
-
 # An easy check to see if you're working with a color terminal,
 # instead of doing the weird .bashrc way,
 # is to do the tput colors command - if it's 256, it's color, if it's 8, it's not 
@@ -43,7 +42,6 @@ source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 if [ $(tput colors) = 256 ] && [ "$VIM" = '' ]
   then
-    # TODO: This slows down the startup of zsh quite a lot, think about changing it
 	fast-theme --quiet mgz # Reset fast-theme
   	# Root user check
 	if [ "$EUID" -ne 0 ]
@@ -159,7 +157,6 @@ alias dotdesktops='cd ~/.local/share/applications && dolphin .'
 alias yt='yt-dlp'
 alias fd='fdfind -H' # -H is to include hidden files
 alias typeracer='toipe'
-
 
 end=`date +%s%N`
 echo Execution time was `expr $end - $start` nanoseconds.

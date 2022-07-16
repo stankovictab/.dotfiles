@@ -10,8 +10,7 @@
 	"editor.suggestSelection": "first",
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"extensions.ignoreRecommendations": false,
-	"discord.detailsEditing": "pićka",
-	"discord.lowerDetailsEditing": "🎷🐛🎷🐍🎷🐬",
+	"discord.lowerDetailsEditing": "🎷🐛 pićka 🎷🐬",
 	"discord.detailsDebugging": "Debugging in {workspace}",
 	"discord.lowerDetailsDebugging": "god help us all 🙏",
 	"git.enableSmartCommit": true,
@@ -57,7 +56,7 @@
 		{
 			"text": "TODO:",
 			"color": "#ffffff",
-			"backgroundColor": "#28969c"
+			"backgroundColor": "#106670"
 		}
 	],
 	"terminal.integrated.cursorBlinking": true,

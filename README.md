@@ -1,11 +1,10 @@
 # .dotfiles
 Linux config dotfiles for easier setup.
 
-It's recommended to clone this repo into `~/.dotfiles`, \
-and to make symbolic links to the files in the cloned repository.\
-To do that, just run `./sync.sh`.
+Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./sync.sh`.
 
-`TODO:` The script needs to be able to sync with already existing configs, test this out!!!!!!
+TODO: Sync up the bashrc, zshrc and fish config to the super user folder
+TODO: Add font installation to sync.sh
 
 # The Shortcuts
 `Make sure these are up to date!`
@@ -41,12 +40,12 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 TODO: Ctrl + a + a to be the current Ctrl + a + w, don't use Ctrl + a + s ever, and have Ctrl + a + w close the window, and Ctrl + a + q close the whole session - that way it's consistent everywhere, just find a different shortcut for the number layout.\
 TODO: Also find a better way to move panes around, maybe something like Ctrl + a + ArrowKeys, since that isn't used anymore. See how it's done in VSCode first though.\
 TODO: Maybe Ctrl + a + e can kill the pane? So that it's like Ctrl + a + {q for session, w for window, e for pane}?\
-TODO: Have a different system for switching between sessions
-TODO: Ctrl + t can open a new window?
+TODO: Have a different system for switching between sessions\
+TODO: Ctrl (+ a?) + t can open a new window?
 
 ## NeoVim - Window Navigation in Normal Mode
 `Ctrl + w + v` - Split vertically\
-`Ctrl + w + s` - Split horizontally\ -- TODO: Change over to `Ctrl + w + h`
+`Ctrl + w + s` - Split horizontally -- TODO: Change over to `Ctrl + w + h`\
 `Ctrl + w + w` - Go through windows\
 `Ctrl + w + q` - Close window (not a buffer)\
 `Ctrl + w + ArrowKeys` - Move through windows\
@@ -76,5 +75,10 @@ TODO: Ctrl + t can open a new window?
 
 ## KDE
 `Meta + Enter`, `Ctrl + Alt + t` - Open Konsole\
+`Meta + c` - Resize window\
+`Meta + v` - Move window\
 `Meta + b` - Toggle window border\
+`Meta + Number` - Open an app from the task manager\
+`Ctrl + Meta + ArrowKeys` - Move between virtual desktops\
+`Meta + Tab` - Alt-tab through virtual desktops
 ...

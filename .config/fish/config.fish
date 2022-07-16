@@ -10,7 +10,8 @@ bind \e\[3\;5~ kill-word
 if test "$TERM" = "xterm-256color" # Konsole
     bind -k enter accept-autosuggestion execute
 else if test "$TERM" = "xterm-kitty" # Kitty
-    bind \r accept-autosuggestion execute 
+	# TODO: Kitty can't distinguish Shift + Enter from just Enter, both are "\r"
+    # bind \r accept-autosuggestion execute 
 else # TMUX
     bind \n accept-autosuggestion execute
 end

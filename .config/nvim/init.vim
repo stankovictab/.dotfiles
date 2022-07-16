@@ -107,7 +107,7 @@ call plug#end()
 """"" Lua Plugins Import
 " NOTE: All of these can be set in a single lua/stankovictab.lua
 
-lua require('stankovictab/dashboard')
+lua require('stankovictab/dashboard-nvim')
 lua require('stankovictab/presence')
 lua require('stankovictab/lualine')
 lua require('stankovictab/nvim-web-devicons')

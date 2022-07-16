@@ -31,20 +31,19 @@ local kind_icons = {
   TypeParameter = "",
 }
 
--- TODO: Uncomment when you install treesitter
--- This disables completion in comments, but in order to know you're in a comment, you need treesitter
--- cmp.setup({
-    -- enabled = function()
-      -- local context = require 'cmp.config.context'
-      -- -- keep command mode completion enabled when cursor is in a comment
-      -- if vim.api.nvim_get_mode().mode == 'c' then
-        -- return true
-      -- else
-        -- return not context.in_treesitter_capture("comment")
-          -- and not context.in_syntax_group("Comment")
-      -- end
-    -- end
---})
+-- This disables completion in comments, but in order to know you're in a comment, you need Treesitter
+cmp.setup({
+    enabled = function()
+		  local context = require 'cmp.config.context'
+		  -- keep command mode completion enabled when cursor is in a comment
+		  if vim.api.nvim_get_mode().mode == 'c' then
+			return true
+		  else
+			return not context.in_treesitter_capture("comment")
+			  and not context.in_syntax_group("Comment")
+		  end
+    end
+})
 
 cmp.setup{
 	snippet = {
