@@ -65,10 +65,55 @@ TODO: Ctrl (+ a?) + t can open a new window?
 
 ## VSCode
 
-### TODO - See `keybindings.json`
+`Ctrl + p` - Search files\
+`Ctrl + Shift + p` - Command palette\
+`Ctrl + ,` - Settings\
+`Ctrl + Shift + ,` - Settings JSON
 
+`Ctrl + t`, `Ctrl + n` - New tab (new file)\
+`Ctrl + Shift + n` - New window\
+`Ctrl + w` - Close tab\
+`Ctrl + q` - Quit
+
+`Ctrl + b` - Toggle sidebar\
+`Ctrl + j` - Toggle panel\
 `Ctrl + Alt + b` - Toggle Activity Bar (far left)\
-`Ctrl + Alt + s` - Toggle Status Bar (far bottom)
+`Ctrl + Alt + s` - Toggle Status Bar (far bottom)\
+`Ctrl + Shift + e` - Focus on Explorer (or you can just `Ctrl + p`)\
+`Ctrl + Shift + f` - Focus on Search
+
+`Ctrl + k + Ctrl + t` - Change theme\
+`Ctrl + k + z` - Zen mode\
+`Ctrl + k + v` - Markdown preview\
+
+`Ctrl + PgUp/PgDn` - Switch between tabs, through panels\
+`Ctrl + Tab` - Alt-Tab between tabs (sucks ass)\
+`Ctrl + Alt + ArrowKeys` - Move between panes\
+`Ctrl + Number` - Go to pane {Number}\
+
+`Ctrl + =/-/0` - Zoom in/out/reset text\
+`Ctrl + Shift + =/-/0` - Zoom in/out/reset UI
+
+
+### Editing
+
+`F2` - Rename anything\
+`Ctrl + /` - Toggle comment\
+`Alt + Up/Down` - Move line\
+`Ctrl + Shift + Up/Down`, `Alt + Shift + Up/Down`, `Alt + Click` - Add more cursors\
+`Ctrl + Space` - Intellisense completion\
+`Ctrl + x` - Cut line
+
+### Running & Debugging
+
+`Ctrl + F5` - Run\
+`F5` - Debug\
+`F5` - Continue to the next breakpoint\
+`Shift + F5` - Stop\
+`Ctrl + Shift + F5` - Restart\
+`F10` - Step over\
+`F11` - Step into\
+`Shift + F11` - Step out\
 
 ## Vivaldi
 
@@ -109,3 +154,11 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Ctrl + Shift + f` - Search\
 `Ctrl + Shift + t` - New tab\
 `Ctrl + Shift + w` - Close tab
+
+## Alacritty
+`Shift + ArrowUp/ArrowDown` - Move up or down\
+`Shift + PgUp/PgDown` - Move up or down, but faster!\
+`Shift + Home` - Go to start\
+`Shift + End` - Go to end\
+`Ctrl + Shift + f` - Search\
+`Ctrl + Shift + Space` - Vi mode

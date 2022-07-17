@@ -6,7 +6,6 @@
 " a square next to the value or something, the font gets screwed up
 
 """"" Custom Shortcuts
-
 let mapleader="\<tab>" " Setting the leader key to Tab instead of the default \
 nnoremap <leader>, <cmd>e $MYVIMRC<cr> " Opening the init.vim
 
@@ -43,7 +42,9 @@ let loaded_netrwPlugin = 1 " Disables the builtin and buggy netrw file explorer
 set mouse=a " Enable mouse support - enables clicking, highlighting puts you into visual mode, scroll is fixed
 " set relativenumber " Line numbers will be relative to the current line
 set number " Set absolute line numbering
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50 " A better, blinking and shapeshifting cursor -- TODO: Doesn't work?
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
 set cursorline " Set highlight of the current line and line number
 set ignorecase " Set search to be case insensitive
 set splitbelow " On automatic split, split down instead of up (default)
@@ -123,7 +124,6 @@ lua require('stankovictab/nvim-cmp')
 lua require('stankovictab/lsp')
 """"" Colorscheme
 
-let g:material_style = "deep ocean" " Setting for the Bosnian theme
 colorscheme material
 
 " Toggling transparent background

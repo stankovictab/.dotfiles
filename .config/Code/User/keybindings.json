@@ -64,5 +64,37 @@
 	{
 		"key": "ctrl+alt+s",
 		"command": "workbench.action.toggleStatusbarVisibility"
+	},
+	{
+		"key": "ctrl+alt+left",
+		"command": "-workbench.action.moveEditorToPreviousGroup"
+	},
+	{
+		"key": "ctrl+alt+right",
+		"command": "-workbench.action.moveEditorToNextGroup"
+	},
+	{
+		"key": "ctrl+alt+left",
+		"command": "workbench.action.navigateLeft"
+	},
+	{
+		"key": "ctrl+alt+up",
+		"command": "workbench.action.navigateUp"
+	},
+	{
+		"key": "ctrl+alt+down",
+		"command": "workbench.action.navigateDown"
+	},
+	{
+		"key": "ctrl+alt+right",
+		"command": "workbench.action.navigateRight"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "-workbench.action.showAllSymbols"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.files.newUntitledFile"
 	}
 ]

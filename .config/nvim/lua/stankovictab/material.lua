@@ -1,6 +1,11 @@
 -- None of these settings are default
 
+vim.g.material_style = "deep ocean"
+
 require('material').setup{
+	disable = {
+		colored_cursor = true -- Disables the yellow cursor
+	},
 	contrast = {
 		sidebars = true, -- Darker background in NvimTree
 		-- popup_menu = false, -- Lighter background on (first) cmp completion window
