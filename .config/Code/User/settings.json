@@ -70,17 +70,17 @@
 	"workbench.startupEditor": "newUntitledFile",
 	"editor.inlineSuggest.enabled": true,
 	"files.autoSaveDelay": 100,
-	"terminal.integrated.fontFamily": "Hack NF",
-	"debug.console.fontFamily": "Hack NF",
+	"editor.mouseWheelScrollSensitivity": 2,
 	"editor.smoothScrolling": true,
 	"workbench.list.smoothScrolling": true,
-	"editor.mouseWheelScrollSensitivity": 2,
+	"terminal.integrated.fontFamily": "Hack NF",
+	"debug.console.fontFamily": "Hack NF",
 	"editor.fontFamily": "Hack NF, monospace",
-	"workbench.tree.indent": 16,
 	"editor.fontSize": 15,
+	"workbench.tree.indent": 16,
 	"github.copilot.enable": {
 		"*": true,
-		"yaml": false,
+		"yaml": true,
 		"plaintext": true,
 		"markdown": true
 	},
@@ -103,7 +103,7 @@
 	"markdown.preview.lineHeight": 1.4,
 	"markdown.preview.fontSize": 15,
 	"markdown.styles": [
-		"https://raw.githubusercontent.com/stankovictab/.dotfiles/main/vscode-markdown-mgz.css"
+		"https://stankovictab.github.io/vscode-markdown-mgz.css"
 	],
 	"terminal.integrated.shellIntegration.enabled": true
 }

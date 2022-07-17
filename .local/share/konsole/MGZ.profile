@@ -1,7 +1,7 @@
 [Appearance]
 AntiAliasFonts=true
 ColorScheme=MGZ
-Font=JetBrainsMono NF,12,-1,5,50,0,0,0,0,0
+Font=Hack NF,12,-1,5,50,0,0,0,0,0
 
 [General]
 Command=/usr/bin/fish

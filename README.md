@@ -4,7 +4,6 @@ Linux config dotfiles for easier setup.
 Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./sync.sh`.
 
 TODO: Sync up the bashrc, zshrc and fish config to the super user folder
-TODO: Add font installation to sync.sh
 
 # The Shortcuts
 `Make sure these are up to date!`
@@ -73,6 +72,26 @@ TODO: Ctrl (+ a?) + t can open a new window?
 
 ## Vivaldi
 
+`Ctrl + ,` - Open settings\
+`Ctrl + Alt + s` - Status bar\
+Mouse Upwards, `Ctrl + Alt + d` - Address bar\
+Mouse Downwards, `Ctrl + Space`, `Ctrl + F11` - Show UI\
+Mouse to the Right, `Ctrl + Shift + b` - Bookmark bar\
+Mouse to the Left, `Alt + LeftArrow` - Go back\
+`Alt + RightArrow` - Go forward\
+`Ctrl + e`, `F2` - Command bar (make sure to be in a page that doesn’t override it)\
+`Ctrl + b` - Panel\
+`Ctrl + j` - Downloads
+
+`Ctrl + PgUp/PgDn` - Switch between tabs\
+`Ctrl + Shift + PgUp/PgDn` - Move tabs around
+
+`Ctrl + t` - New tab\
+`Ctrl + w` - Close tab\
+`Ctrl + Shift + t` - Reopen closed tab\
+`Ctrl + n` - New window\
+`Ctrl + Shift + n` - New incognito window
+
 ## KDE
 `Meta + Enter`, `Ctrl + Alt + t` - Open Konsole\
 `Meta + c` - Resize window\
@@ -81,4 +100,12 @@ TODO: Ctrl (+ a?) + t can open a new window?
 `Meta + Number` - Open an app from the task manager\
 `Ctrl + Meta + ArrowKeys` - Move between virtual desktops\
 `Meta + Tab` - Alt-tab through virtual desktops
-...
+
+## Konsole
+`Shift + ArrowUp/ArrowDown` - Move up or down\
+`Shift + PgUp/PgDown` - Move up or down, but faster!\
+`Shift + Home` - Go to start\
+`Shift + End` - Go to end\
+`Ctrl + Shift + f` - Search\
+`Ctrl + Shift + t` - New tab\
+`Ctrl + Shift + w` - Close tab

@@ -18,7 +18,7 @@ end
 
 ### Aliases
 
-alias fishrc='micro ~/.config/fish/config.fish'
+alias fishrc='nvim ~/.config/fish/config.fish'
 alias reload='source ~/.config/fish/config.fish'
 
 alias c='clear'
@@ -32,9 +32,13 @@ alias exa='exa --all --icons --group-directories-first'
 alias e='exa'
 alias el='exa -l'
 
+alias ls='e'
+alias ll='el'
+
 alias t='tmux'
-alias ts='tmux ls'
+alias tls='tmux ls'
 alias ta='tmux attach'
+alias td='tmux detach'
 alias tks='tmux kill-server'
 
 alias g='lazygit'
@@ -60,6 +64,7 @@ alias pipes='cd /usr/local/bin && ./pipes.sh'
 alias lpf='sudo chown root:root ~/Documents/Private && pkill nomacs && pkill mpv'
 alias upf='sudo chown stankovictab:stankovictab ~/Documents/Private'
 alias mvnfull='mvn clean install -DskipTests'
+alias python='python3' # No need for python-is-python3
 alias p='ipython3 --no-banner --no-confirm-exit'
 alias switchjava='sudo update-alternatives --config java'
 alias switchjavac='sudo update-alternatives --config javac'
