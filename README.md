@@ -1,4 +1,5 @@
 # .dotfiles
+
 Linux config dotfiles for easier setup.
 
 Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./sync.sh`.
@@ -6,11 +7,24 @@ Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./syn
 TODO: Sync up the bashrc, zshrc and fish config to the super user folder
 
 # The Shortcuts
+
 `Make sure these are up to date!`
 
 The point of this is to make sure all of the shortcuts that I use (both default and custom) are consistent across the environments, to avoid confusion.
 
+## Universal Shell Shortcuts
+
+`Ctrl + d` - Kill shell (but not when a process is running)\
+`Ctrl + l` - Clear whole terminal\
+`Ctrl + u` - Clear line\
+`Ctrl + r` - Search history of commands by query in prompt\
+`Ctrl + c` - Stop program or prompt line\
+`Ctrl + z` - Suspend program (to go back, use `fg` command)\
+`Ctrl + Shift + c` - Copy selected text\
+`Ctrl + Shift + v`, `Ctrl + v`, `Shift + Insert` - Paste text
+
 ## TMUX
+
 `Ctrl + a + d` - Detach session\
 `Ctrl + a + v` - Split vertically\
 `Ctrl + a + h` - Split horizontally\
@@ -43,6 +57,7 @@ TODO: Have a different system for switching between sessions\
 TODO: Ctrl (+ a?) + t can open a new window?
 
 ## NeoVim - Window Navigation in Normal Mode
+
 `Ctrl + w + v` - Split vertically\
 `Ctrl + w + s` - Split horizontally -- TODO: Change over to `Ctrl + w + h`\
 `Ctrl + w + w` - Go through windows\
@@ -138,15 +153,42 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Ctrl + Shift + n` - New incognito window
 
 ## KDE
+
+`Alt + Space`, `Alt + F2` - KRunner\
+`Alt + F3` - Show KDE window menu (for when you're in Fullscreen or No Border)\
 `Meta + Enter`, `Ctrl + Alt + t` - Open Konsole\
 `Meta + c` - Resize window\
 `Meta + v` - Move window\
 `Meta + b` - Toggle window border\
+`Ctrl + M`, `Ctrl + Shift + M` - Toggle menubar in KDE apps\
 `Meta + Number` - Open an app from the task manager\
+`Meta + w` - Overview effect (on newer versions of Plasma)\
+`Meta + d` - Show desktop\
+`Meta + ArrowKeys` - Pin window to a side of the screen\
+`Meta + PgUp` - Maximize window\
+`Meta + PgDn` - Minimize window
+
+`Ctrl + Alt + F2-F6` - TTY (F1 is always the standard GUI)\
 `Ctrl + Meta + ArrowKeys` - Move between virtual desktops\
-`Meta + Tab` - Alt-tab through virtual desktops
+`Meta + Tab` - Alt-tab through virtual desktops\
+`Ctrl + F8` - Virtual desktop grid\
+`Ctrl + F{Number}` - Go to virtual desktop {Number}\
+`Ctrl + Alt + Esc` - Run `xkill` to kill a process with a window
+
+## Dolphin
+
+`F2` - Rename\
+`F4` - Open terminal\
+`F9` - Toggle sidebar\
+`F10` - New folder\
+`Backspace` - Go back\
+`Ctrl + Backspace`, `Alt + Up` - Go up\
+`Ctrl + t` - New tab\
+`Ctrl + w` - Close tab\
+`Ctrl + h` - Show hidden files (the ones starting with .)
 
 ## Konsole
+
 `Shift + ArrowUp/ArrowDown` - Move up or down\
 `Shift + PgUp/PgDown` - Move up or down, but faster!\
 `Shift + Home` - Go to start\
@@ -156,6 +198,7 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Ctrl + Shift + w` - Close tab
 
 ## Alacritty
+
 `Shift + ArrowUp/ArrowDown` - Move up or down\
 `Shift + PgUp/PgDown` - Move up or down, but faster!\
 `Shift + Home` - Go to start\
