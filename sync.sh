@@ -60,6 +60,8 @@ rm -rf ~/.config/BetterDiscord
 ln -sf ~/.dotfiles/.config/BetterDiscord ~/.config/BetterDiscord
 rm -rf ~/.config/htop
 ln -sf ~/.dotfiles/.config/htop ~/.config/htop
+rm -rf ~/.config/alacritty
+ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
 
 # Fonts
 
@@ -67,4 +69,4 @@ sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/FiraCode\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/RobotoMono\ NF/ /usr/share/fonts/
-sudo cp ~/.dotfiles/fonts/impact.ttf/ /usr/share/fonts/
+sudo cp ~/.dotfiles/fonts/impact.ttf /usr/share/fonts/
