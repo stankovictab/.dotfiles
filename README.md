@@ -25,36 +25,35 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## TMUX
 
-`Ctrl + a + d` - Detach session\
+TODO: Is there a way to not let go of the prefix while doing the key chord? The `bind -n C-a-C-g` doesn't seem to work.
+
+`Ctrl + t`, `Ctrl + a + t` - New window\
 `Ctrl + a + v` - Split vertically\
 `Ctrl + a + h` - Split horizontally\
-`Ctrl + a + c` - Create window\
 `Alt + ArrowKeys`, `Ctrl + a + ArrowKeys` (TTY) - Switch between panes\
 `Ctrl + PgUp/PgDn` - Switch between windows\
 `Ctrl + a + (/)` - Switch between sessions\
 `Ctrl + a + {Number}` - Switch to window {Number}\
-`Ctrl + a + q` - Show pane numbers. You can switch to a specific pane with `Ctrl + a + q + {Number}`\
-`Ctrl + a + {/}` - Move pane\
-`Ctrl + a + Ctrl + ArrowKeys` - Resize pane\
-`Ctrl + a + x` - Soft kill pane - needs confirmation\
-`Ctrl + a + &` - Soft kill window - needs confirmation\
-(You can also hard kill a pane or window with the kill shell shortcut `Ctrl + d`)
+`Ctrl + a + f` - Show pane numbers. You can switch to a specific pane with `Ctrl + a + f + {Number}`\
+`Ctrl + Alt + Left/Right`, `Ctrl + a + {/}` - Swap pane with previous/next position\
+`Ctrl + a + Ctrl + ArrowKeys` - Resize pane
 
-`Ctrl + a + s` - Session overview (useless)\
-`Ctrl + a + w` - Window and session overview (useless)\
-`Ctrl + a + $` - Rename session\
-`Ctrl + a + ,` - Rename window
+`Ctrl + a + d` - Detach session\
+`Ctrl + a + e`, `Ctrl + d` (kill shell only) - Kill pane\
+`Ctrl + a + w` - Kill window\
+`Ctrl + a + q` - Kill session
+
+`Ctrl + a + :` - Enter command mode\
+`Ctrl + a + a` - Window overview\
+(there is no pane overview, so you'll have to expand the panes in the tree)\
+`Ctrl + a + . + Number` - Move window to position {Number}
+`Ctrl + a + s` - Rename session\
+`Ctrl + a + x` - Rename window\
 
 `Ctrl + a + z` - Fullscreen pane (zoom)\
-`Ctrl + a + t` - Big ass clock\
+`Ctrl + a + c` - Big ass clock\
 `Ctrl + a + ?` - Show all commands, including your config changes\
 `Ctrl + a + I` - Install plugins with tpm
-
-TODO: Ctrl + a + a to be the current Ctrl + a + w, don't use Ctrl + a + s ever, and have Ctrl + a + w close the window, and Ctrl + a + q close the whole session - that way it's consistent everywhere, just find a different shortcut for the number layout.\
-TODO: Also find a better way to move panes around, maybe something like Ctrl + a + ArrowKeys, since that isn't used anymore. See how it's done in VSCode first though.\
-TODO: Maybe Ctrl + a + e can kill the pane? So that it's like Ctrl + a + {q for session, w for window, e for pane}?\
-TODO: Have a different system for switching between sessions\
-TODO: Ctrl (+ a?) + t can open a new window?
 
 ## NeoVim - Window Navigation in Normal Mode
 
@@ -64,7 +63,7 @@ TODO: Ctrl (+ a?) + t can open a new window?
 `Ctrl + w + q` - Close window (not a buffer)\
 `Ctrl + w + ArrowKeys` - Move through windows\
 `Ctrl + w + r` - Shuffle windows\
-`Ctrl + w + =` - Reset window dimensions\
+`Ctrl + w + =` - Reset window dimensions
 
 `Ctrl + q` - Close buffer (and the window)\
 `Ctrl + ArrowKeys`, `Tab + ArrowKeys` (TTY) - Move through buffers\
@@ -91,7 +90,7 @@ TODO: Ctrl (+ a?) + t can open a new window?
 `Ctrl + q` - Quit
 
 `Ctrl + b` - Toggle sidebar\
-`Ctrl + j` - Toggle panel\
+`Ctrl + j` - Toggle panel (with terminal)\
 `Ctrl + Alt + b` - Toggle Activity Bar (far left)\
 `Ctrl + Alt + s` - Toggle Status Bar (far bottom)\
 `Ctrl + Shift + e` - Focus on Explorer (or you can just `Ctrl + p`)\
@@ -100,15 +99,17 @@ TODO: Ctrl (+ a?) + t can open a new window?
 `Ctrl + k + Ctrl + t` - Change theme\
 `Ctrl + k + z` - Zen mode\
 `Ctrl + k + v` - Markdown preview\
+`Ctrl + Up/Down` - Scroll
 
-`Ctrl + PgUp/PgDn` - Switch between tabs, through panels\
-`Ctrl + Tab` - Alt-Tab between tabs (sucks ass)\
-`Ctrl + Alt + ArrowKeys` - Move between panes\
-`Ctrl + Number` - Go to pane {Number}\
+`Ctrl + PgUp/PgDn` - Switch between tabs, through windows\
+`Ctrl + Shift + PgUp/PgDn` - Move tab position in window\
+`Ctrl + Alt + ArrowKeys` - Move between windows\
+`Ctrl + Shift + Alt + ArrowKeys` - Move tab beween windows\
+`Ctrl + Number` - Go to window {Number}\
+`Ctrl + Tab` - Alt-Tab between tabs (sucks ass)
 
 `Ctrl + =/-/0` - Zoom in/out/reset text\
 `Ctrl + Shift + =/-/0` - Zoom in/out/reset UI
-
 
 ### Editing
 
@@ -128,7 +129,7 @@ TODO: Ctrl (+ a?) + t can open a new window?
 `Ctrl + Shift + F5` - Restart\
 `F10` - Step over\
 `F11` - Step into\
-`Shift + F11` - Step out\
+`Shift + F11` - Step out
 
 ## Vivaldi
 
@@ -178,7 +179,8 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 ## Dolphin
 
 `F2` - Rename\
-`F4` - Open terminal\
+`F4` - Open terminal inside of Dolphin\
+`t`, `Shift + F4` - Open folder in terminal emulator\
 `F9` - Toggle sidebar\
 `F10` - New folder\
 `Backspace` - Go back\
@@ -205,3 +207,16 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Shift + End` - Go to end\
 `Ctrl + Shift + f` - Search\
 `Ctrl + Shift + Space` - Vi mode
+
+## Discord
+
+Hold Shift when over a message to have more options.
+
+`Ctrl + /` - Shortcut List\
+`Alt + Up/Down` - Go through channels\
+`Ctrl + Alt + Up/Down` - Go through servers\
+`Ctrl + T (or Ctrl + K)` - Channel, Server or DM search (!!!)\
+`Ctrl + F` - Search\
+`Ctrl + S` - Stickers\
+`Ctrl + G` - Gifs\
+`Ctrl + E` - Emojis

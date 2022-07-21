@@ -39,19 +39,14 @@
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+shift+alt+down",
-		"command": "-editor.action.copyLinesDownAction",
+		"key": "ctrl+shift+alt+up",
+		"command": "-editor.action.copyLinesUpAction",
 		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
-		"key": "ctrl+k n",
-		"command": "git.unstageSelectedRanges",
-		"when": "isInDiffEditor"
-	},
-	{
-		"key": "ctrl+k ctrl+n",
-		"command": "-git.unstageSelectedRanges",
-		"when": "isInDiffEditor"
+		"key": "ctrl+shift+alt+down",
+		"command": "-editor.action.copyLinesDownAction",
+		"when": "editorTextFocus && !editorReadonly"
 	},
 	{
 		"key": "ctrl+k n",
@@ -66,12 +61,12 @@
 		"command": "workbench.action.toggleStatusbarVisibility"
 	},
 	{
-		"key": "ctrl+alt+left",
-		"command": "-workbench.action.moveEditorToPreviousGroup"
+		"key": "ctrl+shift+alt+left",
+		"command": "workbench.action.moveEditorToPreviousGroup"
 	},
 	{
-		"key": "ctrl+alt+right",
-		"command": "-workbench.action.moveEditorToNextGroup"
+		"key": "ctrl+shift+alt+right",
+		"command": "workbench.action.moveEditorToNextGroup"
 	},
 	{
 		"key": "ctrl+alt+left",
@@ -96,5 +91,10 @@
 	{
 		"key": "ctrl+t",
 		"command": "workbench.action.files.newUntitledFile"
+	},
+	{
+		"key": "ctrl+shift+v",
+		"command": "-markdown.showPreview",
+		"when": "!notebookEditorFocused && editorLangId == 'markdown'"
 	}
 ]

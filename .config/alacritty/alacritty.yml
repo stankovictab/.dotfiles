@@ -2,14 +2,14 @@
 
 window:
   dimensions:
-    columns: 110
-    lines: 25
+    columns: 106
+    lines: 30
   #position:
   #  x: 0
   #  y: 0
   padding:
-    x: 5
-    y: 7
+    x: 5 # Left and right
+    y: 2 # Top and bottom
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -103,7 +103,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

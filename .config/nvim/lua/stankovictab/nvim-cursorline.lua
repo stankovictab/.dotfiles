@@ -12,6 +12,6 @@ require('nvim-cursorline').setup {
   cursorword = {
     enable = true,
     min_length = 1,
-    hl = { underline = false, bg = "#223252" }, -- See nvim_set_hl() for parameters
+    hl = { underline = false, bg = "#1D2638" }, -- See nvim_set_hl() for parameters
   }
 }
