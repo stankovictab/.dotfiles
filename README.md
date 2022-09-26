@@ -31,7 +31,7 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + a + v` - Split vertically\
 `Ctrl + a + h` - Split horizontally\
 `Alt + ArrowKeys`, `Ctrl + a + ArrowKeys` (TTY) - Switch between panes\
-`Ctrl + PgUp/PgDn` - Switch between windows\
+`Ctrl + Shift + PgUp/PgDn` - Switch between windows\
 `Ctrl + a + (/)` - Switch between sessions\
 `Ctrl + a + {Number}` - Switch to window {Number}\
 `Ctrl + a + f` - Show pane numbers. You can switch to a specific pane with `Ctrl + a + f + {Number}`\
@@ -66,7 +66,7 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + w + =` - Reset window dimensions
 
 `Ctrl + q` - Close buffer (and the window)\
-`Ctrl + ArrowKeys`, `Tab + ArrowKeys` (TTY) - Move through buffers\
+`Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
 `Ctrl + Shift + ArrowKeys` - Move buffers in bufferline
 
 `Tab + ,` - Open config file\

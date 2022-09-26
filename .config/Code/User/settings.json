@@ -36,7 +36,7 @@
 	"python.pythonPath": "/home/stankovictab/miniconda3/bin/python",
 	"git.confirmSync": false,
 	"telemetry.telemetryLevel": "off",
-	"java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/stankovictab/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+	"java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m",
 	"vetur.ignoreProjectWarning": true,
 	"discord.detailsIdling": "Idling 💤",
 	"files.hotExit": "off",
@@ -105,5 +105,17 @@
 	"markdown.styles": [
 		"https://stankovictab.github.io/vscode-markdown-mgz.css"
 	],
-	"terminal.integrated.shellIntegration.enabled": true
+	"terminal.integrated.shellIntegration.enabled": true,
+	"svelte.enable-ts-plugin": true,
+	// Colour of the matching brackets if the option is turned on
+	"editor.bracketPairColorization.enabled": false,
+	"workbench.colorCustomizations": {
+		"[MGZ Dark Theme]": {
+			"editorBracketHighlight.foreground1": "#30bdff",
+			"editorBracketHighlight.foreground2": "#fff129",
+			"editorBracketHighlight.foreground3": "#ff67a1",
+		}
+	},
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"svelte.plugin.svelte.note-new-transformation": false,
 }

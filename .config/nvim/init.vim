@@ -17,10 +17,11 @@ nnoremap <c-p> <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr> " TODO: Very useful - Live Grep is for searching inside of files
 nnoremap <leader>fb <cmd>Telescope buffers<cr> " Listing buffers
 
-nnoremap <c-right> <cmd>bnext<cr> " Go to next buffer
+nnoremap <c-PageDown> <cmd>bnext<cr> " Go to next buffer
+nnoremap <c-PageUp> <cmd>bprevious<cr> " Go to previous buffer
 nnoremap <leader><right> <cmd>bnext<cr> " Go to next buffer, for tty
-nnoremap <c-left> <cmd>bprevious<cr> " Go to previous buffer
 nnoremap <leader><left> <cmd>bprevious<cr> " Go to previous buffer, for tty
+
 nnoremap <c-s-right> <cmd>BufferLineMoveNext<cr> " Move buffer to the right
 nnoremap <c-s-left> <cmd>BufferLineMovePrev<cr> " Move buffer to the right
 nnoremap <c-q> <cmd>bdelete<cr> " Delete buffer (and window technically) - c-q by default is visual block mode (which is also c-v)
@@ -60,6 +61,7 @@ set noerrorbells " Removes the stupid ass terminal bell sound
 set scrolloff=4 " Number of lines to keep at the cursor when scrolling up or down the file
 " set signcolumn=yes " Column at the left, useful for linting errors and for the git gutter - automatically opens when needed by default
 set updatetime=300 " The default update time is 4000ms (for things like vim-gitgutter), which is too long
+set linebreak " Word wrap / line break on word, not on character
 
 if (has("termguicolors"))
 	" By default Neovim uses the terminal emulator's colours (cterm), but this allows the use of hex values for colours (gui)
@@ -88,6 +90,7 @@ Plug 'airblade/vim-gitgutter' " Git gutter integration
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Better syntax highlight
 Plug 'lukas-reineke/indent-blankline.nvim' " Vertical lines on indentation, made off of Yggroot/indentLine
 Plug 'yamatsum/nvim-cursorline' " Includes cursorline and cursorword, the latter of which highlights all occurances of the selected word
+Plug 'petertriho/nvim-scrollbar' " Scrollbar so that I don't get lost
 " Colorschemes
 Plug 'rafi/awesome-vim-colorschemes' " A colorscheme collection, including iceberg, nord, onedark, etc
 Plug 'tomasiser/vim-code-dark' " Default VSCode dark theme inspired
@@ -122,6 +125,8 @@ lua require('stankovictab/nvim-cursorline')
 lua require('stankovictab/material')
 lua require('stankovictab/nvim-cmp')
 lua require('stankovictab/lsp')
+lua require('stankovictab/nvim-scrollbar')
+
 """"" Colorscheme
 
 colorscheme material
@@ -130,18 +135,23 @@ colorscheme material
 " If you want to change over to transparency, set this to 1
 " TODO: Turning back to opaque screws up nvim-cursorline and nvim-colorizer, I
 " think this is a known bug with nvim_set_hl(), see issue #18160 in neovim/neovim
-let t:is_transparent = 0
-function! Toggle_transparent_background()                      
-  if t:is_transparent == 0                   
-    hi Normal guibg=none ctermbg=none " Removes opaque background from the theme
-	hi LineNr guibg=none ctermbg=none " Transparent line number gutter
-	hi SignColumn guibg=none ctermbg=none " Transparent sign column gutter
-    let t:is_transparent = 1
-  else
-	colorscheme material
-    " hi Normal guibg=none ctermbg=none
-	" set background=dark " ?
-    let t:is_transparent = 0                        
-  endif
-endfunction
-nnoremap <leader>t :call Toggle_transparent_background()<cr>
+" let t:is_transparent = 1
+
+hi Normal guibg=none ctermbg=none " Removes opaque background from the theme
+hi LineNr guibg=none ctermbg=none " Transparent line number gutter
+hi SignColumn guibg=none ctermbg=none " Transparent sign column gutter
+
+" function! Toggle_transparent_background()                      
+"   if t:is_transparent == 0                   
+"     hi Normal guibg=none ctermbg=none " Removes opaque background from the theme
+" 	hi LineNr guibg=none ctermbg=none " Transparent line number gutter
+" 	hi SignColumn guibg=none ctermbg=none " Transparent sign column gutter
+"     let t:is_transparent = 1
+"   else
+" 	colorscheme material
+"     " hi Normal guibg=none ctermbg=none
+" 	" set background=dark " ?
+"     let t:is_transparent = 0                        
+"   endif
+" endfunction
+" nnoremap <leader>t :call Toggle_transparent_background()<cr>

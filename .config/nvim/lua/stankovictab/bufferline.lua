@@ -8,6 +8,6 @@ require('bufferline').setup{
 		show_buffer_close_icons = false, -- Buffer close button
 		show_close_icon = false, -- Tab close button
 		separator_style = "thin", -- The character at the beginning and end of the buffer tab - {'any','any'} means you can set whatever character
-		always_show_bufferline = false, -- No bar when one buffer is loaded
+		always_show_bufferline = true, -- No bar when one buffer is loaded
 	}
 }
