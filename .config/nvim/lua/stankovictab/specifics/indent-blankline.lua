@@ -3,6 +3,6 @@
 require("indent_blankline").setup {
     show_current_context = true, -- Highlight vertically
     -- show_current_context_start = true, -- Highlight horizontally
-	-- char = "i", -- The vertical character
+	char = ".", -- The vertical character
 	filetype_exclude = {"dashboard", "lspinfo", "packer", "checkhealth", "help", "man", ""} -- Excluding specific file types, like the dashboard plugin
 }

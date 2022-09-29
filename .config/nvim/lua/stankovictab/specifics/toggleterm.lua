@@ -3,7 +3,7 @@ require("toggleterm").setup{
 	-- hide_numbers = false, -- ??? - Default true
 	-- shading_factor = '3', -- ???
 	-- shade_terminals = false, -- ??? - Default true
-	direction = 'float',
+	direction = 'float', -- vertical, horizontal, tab, float
 	float_opts = {
 		border = 'curved',
 		-- width = x, -- The width of the floating terminal

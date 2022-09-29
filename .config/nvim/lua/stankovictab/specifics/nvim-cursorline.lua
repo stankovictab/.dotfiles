@@ -4,14 +4,10 @@ require('nvim-cursorline').setup {
     -- timeout = 1000,
     -- number = false,
   },
-
-  -- You can change the style of the highlight with this command
-  -- :highlight CursorWord guibg=#222222
-  -- The default behaviour is :highlight CursorWord gui=underline
-
   cursorword = {
     enable = true,
-    min_length = 1,
+    min_length = 2,
     hl = { underline = false, bg = "#1D2638" }, -- See nvim_set_hl() for parameters
   }
 }
+

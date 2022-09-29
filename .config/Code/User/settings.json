@@ -118,4 +118,5 @@
 	},
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 	"svelte.plugin.svelte.note-new-transformation": false,
+	"python.defaultInterpreterPath": "/bin/python3",
 }

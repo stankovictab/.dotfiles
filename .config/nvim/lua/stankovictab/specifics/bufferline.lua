@@ -1,4 +1,10 @@
 require('bufferline').setup{
+	highlights = {
+		buffer_selected = {
+			fg = '#2adede',
+			italic = false -- Disable italic on selected buffer
+		}
+	},
 	options = {
 		-- indicator_icon = 'ﳗ', -- Indicator of the currently opened buffer
 		modified_icon = '', -- Indicator of an edit having been made, the default dot is too big

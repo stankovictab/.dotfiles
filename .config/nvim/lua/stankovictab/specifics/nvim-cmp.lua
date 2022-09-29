@@ -31,7 +31,7 @@ local kind_icons = {
   TypeParameter = "",
 }
 
--- This disables completion in comments, but in order to know you're in a comment, you need Treesitter
+-- This disables completion in comments, but in order to know you're in a comment, you need Treeshitter
 cmp.setup({
     enabled = function()
 		  local context = require 'cmp.config.context'

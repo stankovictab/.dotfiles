@@ -57,6 +57,8 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 
 ## NeoVim - Window Navigation in Normal Mode
 
+TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
+
 `Ctrl + w + v` - Split vertically\
 `Ctrl + w + s` - Split horizontally -- TODO: Change over to `Ctrl + w + h`\
 `Ctrl + w + w` - Go through windows\
@@ -65,17 +67,19 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + w + r` - Shuffle windows\
 `Ctrl + w + =` - Reset window dimensions
 
-`Ctrl + q` - Close buffer (and the window)\
+`Ctrl + q` - Close buffer\
 `Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
-`Ctrl + Shift + ArrowKeys` - Move buffers in bufferline
+`Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
 
-`Tab + ,` - Open config file\
-`Tab + p`, `Tab + ff`, `Ctrl + p` - Open Telescope file search\
-`Tab + fg` - Open Telescope live grep\
-`Tab + fb` - Open Telescope buffer search
+`Tab + ,` - Open config files\
+`Tab + f`, `Ctrl + p` - Open Telescope file search\
+`Tab + g` - Open Telescope live grep\
+`Tab + b` - Open Telescope buffer search
 
 `Ctrl + b` - Toggle file explorer (NvimTree)\
 `Ctrl + /` - Toggle comment
+`Ctrl + s` - Save
+`Tab + p + s` - Sync packages
 
 ## VSCode
 
