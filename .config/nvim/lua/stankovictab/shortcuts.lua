@@ -40,6 +40,12 @@ map('c', '<cr>', '<cr>:nohlsearch<cr>', {noremap = true, silent = true}) -- Clea
 -- Same thing for n and N (go to next / previous match)
 map('n', 'n', 'n:nohlsearch<cr>', {noremap = true, silent = true})
 map('n', 'N', 'N:nohlsearch<cr>', {noremap = true, silent = true})
+map('n', '#', '#:nohlsearch<cr>', {noremap = true, silent = true})
+map('n', '*', '*:nohlsearch<cr>', {noremap = true, silent = true})
+
+-- Ctrl + r to search and replace instead of redo (why is it redo by default???)
+map('n', '<c-r>', ':%s/', bljak)
+map('i', '<c-r>', ':%s/', bljak)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", bljak) -- Update plugins
 
@@ -50,6 +56,8 @@ map('n', '<c-z>', ':undo<cr>', bljak) -- Ctrl + z is undo
 map('i', '<c-z>', '<esc>:undo<cr>', bljak) -- Ctrl + z is undo
 map('n', '<c-y>', ':redo<cr>', bljak) -- Ctrl + y is redo
 map('i', '<c-y>', '<esc>:redo<cr>', bljak) -- Ctrl + y is redo
+
+map('n', '<c-n>', ':e ', bljak) -- Ctrl + n to either open an existing, or start editing a new file
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
 -- silent just means don't abbreviate the shortcut in the command bar

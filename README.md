@@ -77,12 +77,14 @@ TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
 `Tab + b` - Open Telescope buffer search
 
 `Ctrl + b` - Toggle file explorer (NvimTree)\
-`Ctrl + /` - Toggle comment
-`Ctrl + s` - Save
-`Ctrl + f` - Search
-`Tab + p + s` - Sync packages
-`Ctrl + z` - Undo
-`Ctrl + y` - Redo
+`Ctrl + /` - Toggle comment\
+`Ctrl + s` - Save\
+`Ctrl + f` - Search\
+`Ctrl + r` - Search and replace\
+`Tab + p + s` - Sync packages\
+`Ctrl + z` - Undo\
+`Ctrl + y` - Redo\
+`Ctrl + n` - Open an existing or start editing a new file
 
 ## VSCode
 
