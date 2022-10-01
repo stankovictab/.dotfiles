@@ -1,5 +1,19 @@
+-- Selecting flavours
+
 vim.g.material_style = "deep ocean"
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+
+-- MGZ Theme Settings
+
+vim.g.mgz_contrast = true -- Make sidebars and popup menus (nvim-tree, telescope) have a different background (default false)
+vim.g.mgz_borders = true -- Enable the border between verticaly split windows visible (default false)
+vim.g.mgz_disable_background = true -- Disable the setting of background color so that NeoVim can use your terminal background (default false)
+vim.g.mgz_cursorline_transparent = false -- Set the cursorline transparent/visible (default false)
+vim.g.mgz_enable_sidebar_background = false -- Re-enables the background of the sidebar if you disabled the background of everything (default false)
+vim.g.mgz_italic = false -- Whether to render comments in italics (default tru)
+vim.g.mgz_uniform_diff_background = true -- enables/disables colorful backgrounds when used in *diff* mode (default false)
+
+-- Material Theme Settings
 
 require('material').setup{
 	disable = {
@@ -13,8 +27,10 @@ require('material').setup{
 	}
 }
 
+
+
 -- Applying the theme
-vim.cmd('colorscheme ayu') -- For the settings to apply, this needs to be at the end
+vim.cmd('colorscheme mgz') -- For the settings to apply, this needs to be at the end
 
 -- Removing the background color
-vim.cmd('hi Normal guibg=NONE')
+-- vim.cmd('hi Normal guibg=NONE')

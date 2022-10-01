@@ -79,7 +79,10 @@ TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
 `Ctrl + b` - Toggle file explorer (NvimTree)\
 `Ctrl + /` - Toggle comment
 `Ctrl + s` - Save
+`Ctrl + f` - Search
 `Tab + p + s` - Sync packages
+`Ctrl + z` - Undo
+`Ctrl + y` - Redo
 
 ## VSCode
 

@@ -64,7 +64,6 @@
 	"terminal.integrated.defaultProfile.linux": "fish",
 	"terminal.integrated.persistentSessionReviveProcess": "never",
 	"color-highlight.markRuler": false,
-	"workbench.colorTheme": "MGZ Dark Theme",
 	"discord.suppressNotifications": true,
 	"editor.insertSpaces": false,
 	"workbench.startupEditor": "newUntitledFile",
@@ -119,4 +118,5 @@
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 	"svelte.plugin.svelte.note-new-transformation": false,
 	"python.defaultInterpreterPath": "/bin/python3",
+	"workbench.colorTheme": "MGZ Dark Theme",
 }

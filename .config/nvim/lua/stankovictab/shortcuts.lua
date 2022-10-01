@@ -1,3 +1,5 @@
+-- TODO: Ctrl + v in every mode?
+
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap -- Macro for aesthetic reasons
@@ -25,11 +27,38 @@ map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', bljak) -- Toggle file explorer in 
 -- Toggle comments with vim-commentary (c-_ is Ctrl + /)
 map('n', '<c-_>', ':Commentary<cr>', bljak)
 map('v', '<c-_>', ':Commentary<cr>', bljak)
+map('i', '<c-_>', "<esc>:Commentary<cr>a", bljak)
 
-map('n', '<c-s>', ':w<cr>', bljak) -- Ctrl + s please come back
-map('i', '<c-s>', '<esc>:w<cr>', bljak) -- Ctrl + s please come back
+-- Ctrl + s please come back
+map('n', '<c-s>', ':w<cr>', bljak)
+map('i', '<c-s>', '<esc>:w<cr>', bljak)
 
-map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", bljak) -- PackerSync
+-- Ctrl + f please come back
+map('n', '<c-f>', '/', bljak)
+map('i', '<c-f>', '<esc>/', bljak)
+map('c', '<cr>', '<cr>:nohlsearch<cr>', {noremap = true, silent = true}) -- Clear highlights on search, only in command mode (in search mode) (this will occur on any command, but that's fine)
+-- Same thing for n and N (go to next / previous match)
+map('n', 'n', 'n:nohlsearch<cr>', {noremap = true, silent = true})
+map('n', 'N', 'N:nohlsearch<cr>', {noremap = true, silent = true})
 
-map('n', '<PageUp>', '<c-u>', bljak) -- PageUp je Ctrl + u
-map('n', '<PageDown>', '<c-d>', bljak) -- PageDown je Ctrl + d
+map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", bljak) -- Update plugins
+
+map('n', '<PageUp>', '<c-u>', bljak) -- PageUp is Ctrl + u
+map('n', '<PageDown>', '<c-d>', bljak) -- PageDown is Ctrl + d
+
+map('n', '<c-z>', ':undo<cr>', bljak) -- Ctrl + z is undo
+map('i', '<c-z>', '<esc>:undo<cr>', bljak) -- Ctrl + z is undo
+map('n', '<c-y>', ':redo<cr>', bljak) -- Ctrl + y is redo
+map('i', '<c-y>', '<esc>:redo<cr>', bljak) -- Ctrl + y is redo
+
+-- This allows moving accross wrapped lines without skipping, like in vscode
+-- silent just means don't abbreviate the shortcut in the command bar
+-- If you want to use things like 3g or 5j, this fucks with that, so see this
+-- https://stackoverflow.com/questions/20975928/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
+-- Also, v:count doesn't need to exist for insert mode
+map('n', 'j', 'gj', {noremap = true, silent = true})
+map('n', 'k', 'gk', {noremap = true, silent = true})
+map('n', '<Down>', 'gj', {noremap = true, silent = true})
+map('n', '<Up>', 'gk', {noremap = true, silent = true})
+map('i', '<Down>', '<C-o>gj', {noremap = true, silent = true})
+map('i', '<Up>', '<C-o>gk', {noremap = true, silent = true})

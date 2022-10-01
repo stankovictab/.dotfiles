@@ -1,7 +1,7 @@
 require('bufferline').setup{
 	highlights = {
 		buffer_selected = {
-			fg = '#2adede',
+			-- fg = '#2adede',
 			italic = false -- Disable italic on selected buffer
 		}
 	},
@@ -15,5 +15,13 @@ require('bufferline').setup{
 		show_close_icon = false, -- Tab close button
 		separator_style = "thin", -- The character at the beginning and end of the buffer tab - {'any','any'} means you can set whatever character
 		always_show_bufferline = true, -- No bar when one buffer is loaded
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "File Explorer",
+				text_align = "center",
+				separator = true
+			}
+		}
 	}
 }

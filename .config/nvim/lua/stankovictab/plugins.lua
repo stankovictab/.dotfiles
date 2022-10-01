@@ -20,11 +20,13 @@ return require('packer').startup(function(use)
 
 	use 'wbthomason/packer.nvim' -- Packer itself
 	use 'lewis6991/impatient.nvim' -- Faster loading of packages
+	use 'stankovictab/mgz.nvim' -- The best theme
 	use 'marko-cerovac/material.nvim' -- Bosnian theme
 	use 'tomasiser/vim-code-dark' -- Default VSCode dark theme inspired
 	-- use 'rafi/awesome-vim-colorschemes' -- Collection of colorschemes, including iceberg, nord, onedark, etc
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { "Shatur/neovim-ayu" } -- Darker color theme
+	use { "shaunsingh/nord.nvim" } -- Nord theme, the one mgz is based on
 	use { "kyazdani42/nvim-web-devicons", event="BufWinEnter" } -- A weird dependency
 	use {
 		"goolord/alpha-nvim", -- Dashboard shown at nvim start with no file
@@ -78,6 +80,10 @@ return require('packer').startup(function(use)
 		'nvim-treesitter/nvim-treesitter', -- Treeshitter for better syntax highlighting
 		config = "require('stankovictab.specifics.treesitter')",
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
+	}
+	use {
+		'nvim-treesitter/playground', -- Treeshitter AST preview on :TSPlaygroundToggle
+		config = "require('stankovictab.specifics.playground')"
 	}
 	use {
 		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation
