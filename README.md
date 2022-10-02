@@ -71,7 +71,7 @@ TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
 `Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
 `Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
 
-`Tab + ,` - Open config files\
+`Tab + ,` - Open config files location\
 `Tab + f`, `Ctrl + p` - Open Telescope file search\
 `Tab + g` - Open Telescope live grep\
 `Tab + b` - Open Telescope buffer search
@@ -81,10 +81,12 @@ TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
 `Ctrl + s` - Save\
 `Ctrl + f` - Search\
 `Ctrl + r` - Search and replace\
+`Space` - Clear search highlighting\
 `Tab + p + s` - Sync packages\
 `Ctrl + z` - Undo\
 `Ctrl + y` - Redo\
-`Ctrl + n` - Open an existing or start editing a new file
+`Ctrl + n` - Open an existing or start editing a new file\
+`Alt + ArrowKeys` - Move lines around
 
 ## VSCode
 
