@@ -86,7 +86,8 @@ TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
 `Ctrl + z` - Undo\
 `Ctrl + y` - Redo\
 `Ctrl + n` - Open an existing or start editing a new file\
-`Alt + ArrowKeys` - Move lines around
+`Alt + ArrowKeys` - Move lines around\
+`jk`, `kj` - Exit Insert Mode
 
 ## VSCode
 

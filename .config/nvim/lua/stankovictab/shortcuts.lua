@@ -1,5 +1,16 @@
+-- TODO: Enter, Space and Backspace need a new use in Normal Mode
+-- TODO: Fix the hex colors, you can't read them most of the time, make it just
+-- a square next to the value or something, the font gets screwed up
+-- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0 is a setting I had that did something regarding tmux, don't know what
+-- TODO: When opening a file from alpha, there's a weird tab in the top left corner
+-- TODO: PgDn as Ctrl + d and PgUp as Ctrl + u ?
+-- TODO: Ctrl + Backspace and Ctrl + Del in edit mode should not be stupid
+
 -- TODO: Ctrl + v in every mode?
 -- TODO: Shortcut for vim.lsp.buf.format(), maybe even do it on Ctrl + s? or is that overkill?
+-- TODO: Shift + ArrowKeys = Shift + v + Up/Down
+-- TODO: Shift + , on :e isn't good because it places you in that directory,
+-- a better way is to use Telescope to search only ~/.config/nvim
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
@@ -7,7 +18,12 @@ local map = vim.api.nvim_set_keymap -- Macro for aesthetic reasons
 local bljak = { noremap = true } -- Macro for aesthetic reasons
 local fuj = { noremap = true, silent = true } -- Same
 
-map('n', '<leader>,', ':e ~/.config/nvim/lua/stankovictab/<cr>', bljak) -- Opening this config file
+-- Quick mode switch - this lags things out when searching with j or k for example
+-- map('i', 'jk', '<esc>', fuj)
+-- map('i', 'kj', '<esc>', fuj)
+
+-- map('n', '<leader>,', ':e ~/.config/nvim/lua/stankovictab/<cr>', bljak) -- Opening the config file directory
+map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', bljak) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
 map('n', '<leader>f', ':Telescope find_files<cr>', bljak) -- File browser
 map('n', '<c-p>', ':Telescope find_files<cr>', bljak) -- File browser
 map('n', '<leader>g', ':Telescope live_grep<cr>', bljak) -- Search inside of files

@@ -287,6 +287,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('stankovictab.specifics.nvim-cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: nvim-cursorline
+time([[Config for nvim-cursorline]], true)
+require('stankovictab.specifics.nvim-cursorline')
+time([[Config for nvim-cursorline]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('stankovictab.specifics.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('stankovictab.specifics.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-scrollbar
+time([[Config for nvim-scrollbar]], true)
+require('stankovictab.specifics.nvim-scrollbar')
+time([[Config for nvim-scrollbar]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require('stankovictab.specifics.lualine')
@@ -303,6 +323,14 @@ time([[Config for playground]], false)
 time([[Config for indent-blankline.nvim]], true)
 require('stankovictab.specifics.indent-blankline')
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require('stankovictab.specifics.presence')
+time([[Config for presence.nvim]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 require('stankovictab.specifics.nvim-colorizer')
@@ -311,40 +339,12 @@ time([[Config for nvim-colorizer.lua]], false)
 time([[Config for bufferline.nvim]], true)
 require('stankovictab.specifics.bufferline')
 time([[Config for bufferline.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('stankovictab.specifics.nvim-cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('stankovictab.specifics.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
--- Config for: presence.nvim
-time([[Config for presence.nvim]], true)
-require('stankovictab.specifics.presence')
-time([[Config for presence.nvim]], false)
--- Config for: nvim-cursorline
-time([[Config for nvim-cursorline]], true)
-require('stankovictab.specifics.nvim-cursorline')
-time([[Config for nvim-cursorline]], false)
--- Config for: nvim-scrollbar
-time([[Config for nvim-scrollbar]], true)
-require('stankovictab.specifics.nvim-scrollbar')
-time([[Config for nvim-scrollbar]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('stankovictab.specifics.treesitter')
-time([[Config for nvim-treesitter]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Alpha lua require("packer.load")({'alpha-nvim'}, { cmd = "Alpha", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file AlphaRedraw lua require("packer.load")({'alpha-nvim'}, { cmd = "AlphaRedraw", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
