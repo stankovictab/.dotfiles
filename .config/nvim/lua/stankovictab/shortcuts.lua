@@ -1,54 +1,41 @@
--- TODO: Enter, Space and Backspace need a new use in Normal Mode
--- TODO: Fix the hex colors, you can't read them most of the time, make it just
--- a square next to the value or something, the font gets screwed up
+-- TODO: Enter and Backspace need a new use in Normal Mode
+-- TODO: Ctrl + u needs a new use, as Ctrl + d is already used to duplicate lines
 -- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0 is a setting I had that did something regarding tmux, don't know what
--- TODO: When opening a file from alpha, there's a weird tab in the top left corner
--- TODO: PgDn as Ctrl + d and PgUp as Ctrl + u ?
-
--- TODO: Ctrl + v in every mode?
--- TODO: Shortcut for vim.lsp.buf.format(), maybe even do it on Ctrl + s? or is that overkill?
--- TODO: Shift + ArrowKeys = Shift + v + Up/Down
--- TODO: Shift + , on :e isn't good because it places you in that directory,
--- a better way is to use Telescope to search only ~/.config/nvim
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
-local map = vim.api.nvim_set_keymap -- Macro for aesthetic reasons
-local bljak = { noremap = true } -- Macro for aesthetic reasons
-local fuj = { noremap = true, silent = true } -- Same
+local map = vim.api.nvim_set_keymap
+local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
--- Quick mode switch - this lags things out when searching with j or k for example
--- map('i', 'jk', '<esc>', fuj)
--- map('i', 'kj', '<esc>', fuj)
+map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
+map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
+map('n', '<c-p>', ':Telescope find_files<cr>', fuj) -- File browser
+map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
+map('n', '<leader>b', ':Telescope buffers<cr>', fuj) -- Buffer browser
 
--- map('n', '<leader>,', ':e ~/.config/nvim/lua/stankovictab/<cr>', bljak) -- Opening the config file directory
-map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', bljak) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
-map('n', '<leader>f', ':Telescope find_files<cr>', bljak) -- File browser
-map('n', '<c-p>', ':Telescope find_files<cr>', bljak) -- File browser
-map('n', '<leader>g', ':Telescope live_grep<cr>', bljak) -- Search inside of files
-map('n', '<leader>b', ':Telescope buffers<cr>', bljak) -- Buffer browser
+map('n', '<c-PageDown>', ':bnext<cr>', fuj) -- Go to next buffer
+map('n', '<c-PageUp>', ':bprevious<cr>', fuj) -- Go to previous buffer
+map('n', '<leader><right>', ':bnext<cr>', fuj) -- Go to next buffer (TTY)
+map('n', '<leader><left>', ':bprevious<cr>', fuj) -- Go to previous buffer (TTY)
 
-map('n', '<c-PageDown>', ':bnext<cr>', bljak) -- Go to next buffer
-map('n', '<c-PageUp>', ':bprevious<cr>', bljak) -- Go to previous buffer
-map('n', '<leader><right>', ':bnext<cr>', bljak) -- Go to next buffer (TTY)
-map('n', '<leader><left>', ':bprevious<cr>', bljak) -- Go to previous buffer (TTY)
+map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', fuj) -- Move buffer to the right
+map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', fuj) -- Move buffer to the left
 
-map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', bljak) -- Move buffer to the right
-map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', bljak) -- Move buffer to the left
-
-map('n', '<c-q>', ':bdelete<cr>', bljak) -- Close buffer
+map('n', '<c-q>', ':bdelete<cr>', fuj) -- Close buffer
 
 map('n', '<c-b>', ':NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Normal
 map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Insert
 
 -- Toggle comments with vim-commentary (c-_ is Ctrl + /)
-map('n', '<c-_>', ':Commentary<cr>', bljak)
-map('v', '<c-_>', ':Commentary<cr>', bljak)
-map('i', '<c-_>', "<esc>:Commentary<cr>a", bljak)
+map('n', '<c-_>', ':Commentary<cr>', fuj)
+map('v', '<c-_>', ':Commentary<cr>', fuj)
+map('i', '<c-_>', "<esc>:Commentary<cr>a", fuj)
 
 -- Ctrl + s please come back
-map('n', '<c-s>', ':w<cr>', fuj)
-map('i', '<c-s>', '<esc>:w<cr>', fuj)
+-- Saving like this formats the file through LSP if the LSP client supports it
+-- This is also a fast way to get out of insert mode
+map('n', '<c-s>', ':lua vim.lsp.buf.format()<cr>:w<cr>', fuj)
+map('i', '<c-s>', '<esc>:lua vim.lsp.buf.format()<cr>:w<cr>', fuj)
 
 -- Ctrl + f please come back
 map('n', '<c-f>', '/', fuj)
@@ -59,24 +46,24 @@ map('i', '<c-f>', '<esc>/', fuj)
 map('n', ' ', ':nohlsearch<cr>', fuj)
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
-map('n', '<c-r>', ':%s/', bljak)
-map('i', '<c-r>', '<esc>:%s/', bljak)
+map('n', '<c-r>', ':%s/', fuj)
+map('i', '<c-r>', '<esc>:%s/', fuj)
 
 -- Alt + ArrowKeys to move lines around
 map('n', '<a-Up>', 'ddkP', fuj)
 map('n', '<a-Down>', 'ddp', fuj)
 
-map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", bljak) -- Update plugins
+map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugins
 
-map('n', '<PageUp>', '<c-u>', bljak) -- PageUp is Ctrl + u
-map('n', '<PageDown>', '<c-d>', bljak) -- PageDown is Ctrl + d
+map('n', '<PageUp>', '<c-u>', fuj) -- PageUp is Ctrl + u
+map('n', '<PageDown>', '<c-d>', fuj) -- PageDown is Ctrl + d
 
-map('n', '<c-z>', ':undo<cr>', bljak) -- Ctrl + z is undo
-map('i', '<c-z>', '<esc>:undo<cr>', bljak) -- Ctrl + z is undo
-map('n', '<c-y>', ':redo<cr>', bljak) -- Ctrl + y is redo
-map('i', '<c-y>', '<esc>:redo<cr>', bljak) -- Ctrl + y is redo
+map('n', '<c-z>', ':undo<cr>', fuj) -- Ctrl + z is undo
+map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
+map('n', '<c-y>', ':redo<cr>', fuj) -- Ctrl + y is redo
+map('i', '<c-y>', '<esc>:redo<cr>', fuj) -- Ctrl + y is redo
 
-map('n', '<c-n>', ':e ', bljak) -- Ctrl + n to either open an existing, or start editing a new file
+map('n', '<c-n>', ':e ', fuj) -- Ctrl + n to either open an existing, or start editing a new file
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
 -- silent just means don't abbreviate the shortcut in the command bar
@@ -90,10 +77,18 @@ map('n', '<Up>', 'gk', fuj)
 map('i', '<Down>', '<C-o>gj', fuj)
 map('i', '<Up>', '<C-o>gk', fuj)
 
--- TODO: Ctrl + Backspace and Ctrl + Del in Insert Mode should not be stupid
--- This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
+-- These need to be below the PageUp/PageDown bindings
+map('n', '<c-d>', 'yyp', fuj)
+map('i', '<c-d>', '<esc>yypi', fuj)
+
+-- Ctrl + Backspace and Ctrl + Del in Insert Mode should not be stupid
+-- TODO: This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
 -- :(
 map('i', '<c-BS>', '<esc>cb', fuj) -- Doesn't work
 map('i', '<c-Del>', '<esc>lcw', fuj)
 map('n', '<c-BS>', 'cb', fuj) -- Doesn't work
 map('n', '<c-Del>', 'cw', fuj)
+
+-- TODO: Doesn't work?
+map('n', '<S-Up>', '<s-v>k', fuj) -- Shift + Up = Visual line mode up
+map('n', '<S-Down>', '<s-v>j', fuj) -- Shift + Down = Visual line mode down
