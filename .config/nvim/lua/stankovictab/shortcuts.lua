@@ -4,7 +4,6 @@
 -- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0 is a setting I had that did something regarding tmux, don't know what
 -- TODO: When opening a file from alpha, there's a weird tab in the top left corner
 -- TODO: PgDn as Ctrl + d and PgUp as Ctrl + u ?
--- TODO: Ctrl + Backspace and Ctrl + Del in edit mode should not be stupid
 
 -- TODO: Ctrl + v in every mode?
 -- TODO: Shortcut for vim.lsp.buf.format(), maybe even do it on Ctrl + s? or is that overkill?
@@ -90,3 +89,11 @@ map('n', '<Down>', 'gj', fuj)
 map('n', '<Up>', 'gk', fuj)
 map('i', '<Down>', '<C-o>gj', fuj)
 map('i', '<Up>', '<C-o>gk', fuj)
+
+-- TODO: Ctrl + Backspace and Ctrl + Del in Insert Mode should not be stupid
+-- This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
+-- :(
+map('i', '<c-BS>', '<esc>cb', fuj) -- Doesn't work
+map('i', '<c-Del>', '<esc>lcw', fuj)
+map('n', '<c-BS>', 'cb', fuj) -- Doesn't work
+map('n', '<c-Del>', 'cw', fuj)

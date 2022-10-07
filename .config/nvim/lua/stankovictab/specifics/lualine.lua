@@ -1,12 +1,22 @@
 require('lualine').setup {
   options = {
-    icons_enabled = true,
-    theme = 'auto', -- horizon is a good one!
-    component_separators = { left = '', right = ''},
+    theme = 'auto', -- If the current colorscheme has a lualine theme built in, it'll recognize it
+	-- The color of component_separators is the same as the text
+    -- component_separators = { left = '', right = ''},
+    -- component_separators = { left = '', right = ''},
+    component_separators = { left = '|', right = '|'},
+    -- component_separators = { left = '', right = ''},
+	-- The color of section_separators is the same as the background
     section_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
     disabled_filetypes = {},
-    always_divide_middle = true,
-    globalstatus = false,
+	ignore_focus = {'NvimTree'},       -- If current filetype is in this list it'll
+                             -- always be drawn as inactive statusline
+                             -- and the last window will be drawn as active statusline.
+                             -- for example if you don't want statusline of
+                             -- your file tree / sidebar window to have active
+                             -- statusline you can add their filetypes here.
   },
   sections = {
     lualine_a = {'mode'},
@@ -16,11 +26,11 @@ require('lualine').setup {
     lualine_y = {'filetype'}, -- Removed 'progress'
     lualine_z = {'location'}
   },
-  inactive_sections = {
+  inactive_sections = { -- Styling of the inactive version, for when you're in the ignored filetype (NvimTree)
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_c = {},
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {}
   },
