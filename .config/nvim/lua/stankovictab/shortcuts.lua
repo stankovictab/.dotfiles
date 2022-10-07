@@ -1,5 +1,4 @@
 -- TODO: Enter and Backspace need a new use in Normal Mode
--- TODO: Ctrl + u needs a new use, as Ctrl + d is already used to duplicate lines
 -- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0 is a setting I had that did something regarding tmux, don't know what
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
@@ -32,10 +31,12 @@ map('v', '<c-_>', ':Commentary<cr>', fuj)
 map('i', '<c-_>', "<esc>:Commentary<cr>a", fuj)
 
 -- Ctrl + s please come back
--- Saving like this formats the file through LSP if the LSP client supports it
 -- This is also a fast way to get out of insert mode
-map('n', '<c-s>', ':lua vim.lsp.buf.format()<cr>:w<cr>', fuj)
-map('i', '<c-s>', '<esc>:lua vim.lsp.buf.format()<cr>:w<cr>', fuj)
+map('n', '<c-s>', ':w<cr>', fuj)
+map('i', '<c-s>', '<esc>:w<cr>', fuj)
+-- Formatting through the LSP, if the LSP client supports it
+map('n', '<c-u>', ':lua vim.lsp.buf.format()<cr>', fuj)
+map('i', '<c-u>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 
 -- Ctrl + f please come back
 map('n', '<c-f>', '/', fuj)
@@ -55,8 +56,8 @@ map('n', '<a-Down>', 'ddp', fuj)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugins
 
-map('n', '<PageUp>', '<c-u>', fuj) -- PageUp is Ctrl + u
-map('n', '<PageDown>', '<c-d>', fuj) -- PageDown is Ctrl + d
+map('n', '<PageUp>', '<c-u>', fuj) -- Best way to scroll up
+map('n', '<PageDown>', '<c-d>', fuj) -- Best way to scroll down
 
 map('n', '<c-z>', ':undo<cr>', fuj) -- Ctrl + z is undo
 map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
