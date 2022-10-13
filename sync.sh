@@ -3,8 +3,8 @@
 # Files
 
 ln -sf ~/.dotfiles/startup.sh ~/startup.sh
-ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/.bashrc ~/.bashrc
+# ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
+# ln -sf ~/.dotfiles/.bashrc ~/.bashrc # Don't need bash
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 
 # Folders
@@ -17,8 +17,9 @@ ln -sf ~/.dotfiles/.local/share/konsole/ ~/.local/share/konsole
 mkdir -p ~/.local/share/color-schemes/
 ln -sf ~/.dotfiles/.local/share/color-schemes/MGZTheme.colors ~/.local/share/color-schemes/MGZTheme.colors
 
-rm -rf ~/.zsh
-ln -sf ~/.dotfiles/.zsh ~/.zsh
+# Don't need zsh
+# rm -rf ~/.zsh
+# ln -sf ~/.dotfiles/.zsh ~/.zsh
 
 mkdir -p ~/.spicetify/Themes/
 rm -rf ~/.spicetify/Themes/MGZ
@@ -72,10 +73,9 @@ rm -rf ~/.config/alacritty
 ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
 
 # Fonts
-echo "Insert password to install fonts:"
 sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/FiraCode\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/RobotoMono\ NF/ /usr/share/fonts/
 sudo cp ~/.dotfiles/fonts/impact.ttf /usr/share/fonts/
-echo "Sync finished!"
+echo "🎉 Sync finished! 🎉"

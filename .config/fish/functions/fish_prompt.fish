@@ -78,7 +78,8 @@ function fish_prompt
     end
 
     set_color -o $fish_color_cwd
-    printf '%s' (prompt_pwd -d 0)
+    set -g fish_prompt_pwd_dir_length 0 # A new way of doing things
+    printf '%s' (prompt_pwd)
     set_color normal
     printf $git_info
     set_color normal
@@ -86,15 +87,17 @@ function fish_prompt
     echo
     # tput colors check is to see if we're in a color terminal or tty
     # $VIM check is for the Vim terminal, which doesn't have good emoji support
-    if [ $(tput colors) = 256 -a "$VIM" = '' ]
-        if [ "$EUID" -ne 0 ] # Root user check
-            printf '🦩 '
-        else
-            printf '💀 '
-        end
-    else
-        printf '> '
-    end
+    # TODO: FIX THIS!?!?!?
+    printf '> '
+    #if [ (tput colors) = 256 -a "$VIM" = '' ]
+    #    if [ "$EUID" -ne 0 ] # Root user check
+    #        printf '🦩 '
+    #    else
+    #        printf '💀 '
+    #    end
+    #else
+    #    printf '> '
+    #end
 end
 
 function fish_right_prompt
