@@ -5,6 +5,6 @@
 -- TODO: Uncomment when you figure out how to load this first in a clean NeoVim environment without bugs
 -- require("impatient") -- Faster startup (this is a packer package)
 require('stankovictab.settings') -- Vim Settings
-require('stankovictab.shortcuts') -- Custom shortcuts
 require('stankovictab.plugins') -- All plugins
+require('stankovictab.shortcuts') -- Custom shortcuts
 require('stankovictab.themes') -- Theming

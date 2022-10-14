@@ -30,7 +30,7 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 					ignored = "◌",
 				},
 			},
-			git_placement = "after" -- Git info goes after name of file or folder
+			git_placement = "after", -- Git info goes after name of file or folder
 		},
 	},
 	actions = {

@@ -20,6 +20,8 @@ vim.opt.signcolumn = 'yes' -- Column left of number line, used by git gutter and
 vim.opt.updatetime = 250 -- The default update time is 4000ms (for things like vim-gitgutter), which is too long
 vim.opt.linebreak = true -- Word wrap / line break on word, not on character
 vim.opt.termguicolors = true -- TODO: Necessary for colorschemes in gui nvim, but I don't know how to make the if for tty colors
-vim.opt.whichwrap:append "<>[]" -- This allows the arrow keys to go to the previous and next line
+-- This allows the arrow keys to go to the previous and next line
+-- vim.opt.whichwrap:append "<>[]" -- This is for left and right
+vim.opt.whichwrap:append "h,l" -- This is for h and l
 -- vim.opt.ls = 0 -- Removes the status line, default is 2 (always have it) - just make sure you're not using lualine or something like that
 -- vim.opt.ch = 0 -- Hides the command line until you start writing one

@@ -6,14 +6,6 @@ vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 local map = vim.api.nvim_set_keymap
 local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
--- Heresy
--- I want to personally speak to the man in charge of hjkl and maybe even beat him up
--- Switch between Normal and Insert with a and Ctrl + s
-map('n', 'i', 'gk', fuj) -- gk for moving accross wrapped lines, see below
-map('n', 'k', 'gj', fuj) -- gj for moving accross wrapped lines, see below
-map('n', 'j', 'h', fuj)
--- l is the same
-
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
 map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
 map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
@@ -41,9 +33,11 @@ map('v', '<c-_>', ':Commentary<cr>', fuj)
 map('i', '<c-_>', "<esc>:Commentary<cr>a", fuj)
 
 -- Ctrl + s please come back
--- This is also a fast way to get out of insert mode
+-- This is also a fast way to get out of modes
 map('n', '<c-s>', ':w<cr>', fuj)
 map('i', '<c-s>', '<esc>:w<cr>', fuj)
+map('v', '<c-s>', '<esc>:w<cr>', fuj)
+map('c', '<c-s>', '<esc>:w<cr>', fuj)
 
 -- Ctrl + f please come back
 map('n', '<c-f>', '/', fuj)
@@ -68,8 +62,10 @@ map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugi
 -- Better scrolling through the document
 map('n', '<PageUp>', '<c-u>', fuj)
 map('n', '<PageDown>', '<c-d>', fuj)
-map('n', '<c-i>', '<c-u>', fuj)
-map('n', '<c-k>', '<c-d>', fuj)
+
+-- Home and End are too far away
+map('n', '<c-h>', '<Home>', fuj)
+map('n', '<c-l>', '<End>', fuj)
 
 map('n', '<c-z>', ':undo<cr>', fuj) -- Ctrl + z is undo
 map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
@@ -87,6 +83,8 @@ map('n', '<Down>', 'gj', fuj)
 map('n', '<Up>', 'gk', fuj)
 map('i', '<Down>', '<C-o>gj', fuj)
 map('i', '<Up>', '<C-o>gk', fuj)
+map('n', 'j', 'gj', fuj)
+map('n', 'k', 'gk', fuj)
 
 -- These need to be below the PageUp/PageDown bindings
 map('n', '<c-d>', 'yyp', fuj)
@@ -108,7 +106,7 @@ map('n', '<c-Del>', 'cw', fuj)
 -- TODO: What are all these things?
 map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<cr>', fuj) -- Go to definition
 map('n', '<leader>gD', ':lua vim.lsp.buf.declaration()<cr>', fuj) -- Go to declaration (what's the difference?)
-map('n', '<c-p>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
+map('n', '<c-k>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
 map('n', '<leader>gi', ':lua vim.lsp.buf.implementation()<cr>', fuj) -- Go to implementation
 map('n', '<leader>sh', ':lua vim.lsp.buf.signature_help()<cr>', fuj) -- See signature help, or, info for function parameters
 map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
@@ -117,3 +115,9 @@ map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj) -- See code ac
 map('n', '<leader>gr', ':lua vim.lsp.buf.references()<cr>', fuj) -- Go to references
 map('n', '<c-u>', ':lua vim.lsp.buf.format()<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
 map('i', '<c-u>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
+
+-- For me to stop using the arrow keys
+map('n', '<Up>', '', fuj)
+map('n', '<Down>', '', fuj)
+map('n', '<Left>', '', fuj)
+map('n', '<Right>', '', fuj)
