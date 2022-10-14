@@ -3,8 +3,8 @@
 # Files
 
 ln -sf ~/.dotfiles/startup.sh ~/startup.sh
-ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/.bashrc ~/.bashrc
+# ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
+# ln -sf ~/.dotfiles/.bashrc ~/.bashrc # Don't need bash
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 
 # Folders
@@ -13,11 +13,15 @@ ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 rm -rf ~/.local/share/konsole
 ln -sf ~/.dotfiles/.local/share/konsole/ ~/.local/share/konsole
 
+# ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
+mkdir -p ~/.local/share/color-schemes/
 ln -sf ~/.dotfiles/.local/share/color-schemes/MGZTheme.colors ~/.local/share/color-schemes/MGZTheme.colors
 
-rm -rf ~/.zsh
-ln -sf ~/.dotfiles/.zsh ~/.zsh
+# Don't need zsh
+# rm -rf ~/.zsh
+# ln -sf ~/.dotfiles/.zsh ~/.zsh
 
+mkdir -p ~/.spicetify/Themes/
 rm -rf ~/.spicetify/Themes/MGZ
 ln -sf ~/.dotfiles/.spicetify/Themes/MGZ ~/.spicetify/Themes/MGZ
 rm -rf ~/.spicetify/Themes/Jotaro
@@ -36,6 +40,7 @@ ln -sf ~/.dotfiles/.spicetify/Themes/Jotaro-Vapor ~/.spicetify/Themes/Jotaro-Vap
 ln -sf ~/.dotfiles/.config/konsolerc ~/.config/konsolerc
 ln -sf ~/.dotfiles/.config/shapecornersrc ~/.config/shapecornersrc
 
+mkdir -p ~/.config/fish/
 ln -sf ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 rm -rf ~/.config/fish/functions
 ln -sf ~/.dotfiles/.config/fish/functions ~/.config/fish/functions
@@ -45,11 +50,15 @@ rm -rf ~/.config/lazygit
 ln -sf ~/.dotfiles/.config/lazygit ~/.config/lazygit
 rm -rf ~/.config/nvim
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
+
+mkdir -p ~/.config/spicetify/
 ln -sf ~/.dotfiles/.config/spicetify/config-xpui.ini ~/.config/spicetify/config-xpui.ini
 rm -rf ~/.config/micro
 ln -sf ~/.dotfiles/.config/micro ~/.config/micro
 rm -rf ~/.config/mpv
 ln -sf ~/.dotfiles/.config/mpv ~/.config/mpv
+
+mkdir -p ~/.config/Code/User/
 ln -sf ~/.dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/.dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
 rm -rf ~/.config/nomacs
@@ -64,9 +73,9 @@ rm -rf ~/.config/alacritty
 ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
 
 # Fonts
-
 sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/FiraCode\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/RobotoMono\ NF/ /usr/share/fonts/
 sudo cp ~/.dotfiles/fonts/impact.ttf /usr/share/fonts/
+echo "🎉 Sync finished! 🎉"
