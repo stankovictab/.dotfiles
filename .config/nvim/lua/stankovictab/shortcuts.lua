@@ -6,11 +6,22 @@ vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 local map = vim.api.nvim_set_keymap
 local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
+-- Heresy
+-- I want to personally speak to the man in charge of hjkl and maybe even beat him up
+-- Switch between Normal and Insert with a and Ctrl + s
+map('n', 'i', 'gk', fuj) -- gk for moving accross wrapped lines, see below
+map('n', 'k', 'gj', fuj) -- gj for moving accross wrapped lines, see below
+map('n', 'j', 'h', fuj)
+-- l is the same
+
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
 map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
 map('n', '<c-p>', ':Telescope find_files<cr>', fuj) -- File browser
 map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
 map('n', '<leader>b', ':Telescope buffers<cr>', fuj) -- Buffer browser
+
+map('n', '<c-Left>', 'b', fuj) -- So that Ctrl + Left isn't dumb
+map('n', '<c-Right>', 'e', fuj) -- So that Ctrl + Right isn't dumb
 
 map('n', '<c-PageDown>', ':bnext<cr>', fuj) -- Go to next buffer
 map('n', '<c-PageUp>', ':bprevious<cr>', fuj) -- Go to previous buffer
@@ -34,9 +45,6 @@ map('i', '<c-_>', "<esc>:Commentary<cr>a", fuj)
 -- This is also a fast way to get out of insert mode
 map('n', '<c-s>', ':w<cr>', fuj)
 map('i', '<c-s>', '<esc>:w<cr>', fuj)
--- Formatting through the LSP, if the LSP client supports it
-map('n', '<c-u>', ':lua vim.lsp.buf.format()<cr>', fuj)
-map('i', '<c-u>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 
 -- Ctrl + f please come back
 map('n', '<c-f>', '/', fuj)
@@ -50,9 +58,11 @@ map('n', ' ', ':nohlsearch<cr>', fuj)
 map('n', '<c-r>', ':%s/', fuj)
 map('i', '<c-r>', '<esc>:%s/', fuj)
 
--- Alt + ArrowKeys to move lines around
+-- Alt + movement keys to move lines around
 map('n', '<a-Up>', 'ddkP', fuj)
 map('n', '<a-Down>', 'ddp', fuj)
+map('n', '<a-i>', 'ddkP', fuj)
+map('n', '<a-k>', 'ddp', fuj)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugins
 
@@ -71,8 +81,6 @@ map('n', '<c-n>', ':e ', fuj) -- Ctrl + n to either open an existing, or start e
 -- If you want to use things like 3g or 5j, this fucks with that, so see this
 -- https://stackoverflow.com/questions/20975928/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
 -- Also, v:count doesn't need to exist for insert mode
-map('n', 'j', 'gj', fuj)
-map('n', 'k', 'gk', fuj)
 map('n', '<Down>', 'gj', fuj)
 map('n', '<Up>', 'gk', fuj)
 map('i', '<Down>', '<C-o>gj', fuj)
@@ -90,6 +98,20 @@ map('i', '<c-Del>', '<esc>lcw', fuj)
 map('n', '<c-BS>', 'cb', fuj) -- Doesn't work
 map('n', '<c-Del>', 'cw', fuj)
 
--- TODO: Doesn't work?
-map('n', '<S-Up>', '<s-v>k', fuj) -- Shift + Up = Visual line mode up
-map('n', '<S-Down>', '<s-v>j', fuj) -- Shift + Down = Visual line mode down
+-- TODO: Doesn't work
+-- map('n', '<S-Up>', '<s-v>k', fuj) -- Shift + Up = Visual line mode up
+-- map('n', '<S-Down>', '<s-v>j', fuj) -- Shift + Down = Visual line mode down
+
+-- LSP shortcuts
+-- TODO: What are all these things?
+map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<cr>', fuj) -- Go to definition
+map('n', '<leader>gD', ':lua vim.lsp.buf.declaration()<cr>', fuj) -- Go to declaration (what's the difference?)
+map('n', '<c-k>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
+map('n', '<leader>gi', ':lua vim.lsp.buf.implementation()<cr>', fuj) -- Go to implementation
+map('n', '<leader>sh', ':lua vim.lsp.buf.signature_help()<cr>', fuj) -- See signature help, or, info for function parameters
+map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
+map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', fuj) -- Rename variable
+map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj) -- See code actions
+map('n', '<leader>gr', ':lua vim.lsp.buf.references()<cr>', fuj) -- Go to references
+map('n', '<c-u>', ':lua vim.lsp.buf.format()<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
+map('i', '<c-u>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)

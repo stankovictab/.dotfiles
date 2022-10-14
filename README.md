@@ -231,4 +231,6 @@ Hold Shift when over a message to have more options.
 `Ctrl + F` - Search\
 `Ctrl + S` - Stickers\
 `Ctrl + G` - Gifs\
-`Ctrl + E` - Emojis
+`Ctrl + E` - Emojis\
+`Ctrl + Shift + M` - Mute\
+`Ctrl + Shift + D` - Deafen

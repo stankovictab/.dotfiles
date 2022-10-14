@@ -58,7 +58,7 @@ cmp.setup{
 		-- custom is the default look, wildmenu is a bar at the bottom, and native just doesn't work
 		-- Makes the menu appear above if the cursor is near the bottom of the screen
 		entries = {name = 'custom', selection_order = 'near_cursor' }
-	},  
+	},
 	formatting = { -- This adds icons and type next to suggestion text
 		-- fields changes the order, available terms are 'kind', 'abbr' and 'menu' (I think)
     	-- fields = { "kind", "abbr", "menu" },
@@ -66,7 +66,7 @@ cmp.setup{
     	format = function(entry, vim_item)
       		-- Kind Icons /
       		-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      		vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind	
+      		vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			-- Source
       		-- vim_item.menu = ({ -- If you leave this on while not using menu, you'll have a large margin on the right
         		-- nvim_lsp = "[LSP]",
