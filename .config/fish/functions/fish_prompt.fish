@@ -88,16 +88,16 @@ function fish_prompt
     # tput colors check is to see if we're in a color terminal or tty
     # $VIM check is for the Vim terminal, which doesn't have good emoji support
     # TODO: FIX THIS!?!?!?
-    printf '> '
-    #if [ (tput colors) = 256 -a "$VIM" = '' ]
-    #    if [ "$EUID" -ne 0 ] # Root user check
-    #        printf '🦩 '
-    #    else
-    #        printf '💀 '
-    #    end
-    #else
-    #    printf '> '
-    #end
+    # printf '> '
+    if [ (tput colors) = 256 -a "$VIM" = '' ]
+        if [ "$EUID" -ne 0 ] # Root user check
+            printf '🦩 '
+        else
+            printf '💀 '
+        end
+    else
+        printf '> '
+    end
 end
 
 function fish_right_prompt

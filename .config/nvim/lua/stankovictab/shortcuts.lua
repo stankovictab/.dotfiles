@@ -16,7 +16,6 @@ map('n', 'j', 'h', fuj)
 
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
 map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
-map('n', '<c-p>', ':Telescope find_files<cr>', fuj) -- File browser
 map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
 map('n', '<leader>b', ':Telescope buffers<cr>', fuj) -- Buffer browser
 
@@ -66,8 +65,11 @@ map('n', '<a-k>', 'ddp', fuj)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugins
 
-map('n', '<PageUp>', '<c-u>', fuj) -- Best way to scroll up
-map('n', '<PageDown>', '<c-d>', fuj) -- Best way to scroll down
+-- Better scrolling through the document
+map('n', '<PageUp>', '<c-u>', fuj)
+map('n', '<PageDown>', '<c-d>', fuj)
+map('n', '<c-i>', '<c-u>', fuj)
+map('n', '<c-k>', '<c-d>', fuj)
 
 map('n', '<c-z>', ':undo<cr>', fuj) -- Ctrl + z is undo
 map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
@@ -106,7 +108,7 @@ map('n', '<c-Del>', 'cw', fuj)
 -- TODO: What are all these things?
 map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<cr>', fuj) -- Go to definition
 map('n', '<leader>gD', ':lua vim.lsp.buf.declaration()<cr>', fuj) -- Go to declaration (what's the difference?)
-map('n', '<c-k>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
+map('n', '<c-p>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
 map('n', '<leader>gi', ':lua vim.lsp.buf.implementation()<cr>', fuj) -- Go to implementation
 map('n', '<leader>sh', ':lua vim.lsp.buf.signature_help()<cr>', fuj) -- See signature help, or, info for function parameters
 map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
