@@ -56,6 +56,9 @@ ln -sf ~/.dotfiles/.config/lazygit ~/.config/lazygit
 rm -rf ~/.config/nvim
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
 
+rm -rf ~/.config/ranger/
+ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
+
 mkdir -p ~/.config/spicetify/
 ln -sf ~/.dotfiles/.config/spicetify/config-xpui.ini ~/.config/spicetify/config-xpui.ini
 rm -rf ~/.config/micro
