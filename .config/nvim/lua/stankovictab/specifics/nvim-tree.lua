@@ -3,7 +3,9 @@
 -- ...and there are a lot of settings
 
 require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
-	disable_netrw = true, -- Disables the builtin NeoVim explorer
+	disable_netrw = true, -- Disables the builtin NeoVim explorer, default false
+	open_on_setup = true, -- Automatically open nvim-tree on directory open (default is false)
+	open_on_setup_file = false, -- Automatically open nvim-tree on file open (default is false)
 	hijack_cursor = true, -- Resets the cursor to the first letter of file names
 	renderer = {
 		icons = {

@@ -54,8 +54,8 @@ map('i', '<c-r>', '<esc>:%s/', fuj)
 -- Alt + movement keys to move lines around
 map('n', '<a-Up>', 'ddkP', fuj)
 map('n', '<a-Down>', 'ddp', fuj)
-map('n', '<a-i>', 'ddkP', fuj)
-map('n', '<a-k>', 'ddp', fuj)
+map('n', '<a-k>', 'ddkP', fuj)
+map('n', '<a-j>', 'ddp', fuj)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugins
 
@@ -72,6 +72,7 @@ map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
 map('n', '<c-y>', ':redo<cr>', fuj) -- Ctrl + y is redo
 map('i', '<c-y>', '<esc>:redo<cr>', fuj) -- Ctrl + y is redo
 
+-- TODO: This has lag
 map('n', '<c-n>', ':e ', fuj) -- Ctrl + n to either open an existing, or start editing a new file
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
