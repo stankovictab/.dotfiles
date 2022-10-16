@@ -67,7 +67,7 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + h/j/k/l` - Go through windows\
 `Space` - Reset window sizes\
 `Shift + h/l` - Go to beginning / end of line\
-`Ctrl + t` - Terminal\
+`Ctrl + n` - Terminal\
 `Tab + s + h` - Horizontal split\
 `Tab + s + v` - Vertical split\
 `Shift + j/k`, `Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
@@ -82,7 +82,7 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Tab + p + s` - Sync packages\
 `Ctrl + z` - Undo\
 `Ctrl + y` - Redo\
-`Ctrl + n` - Open an existing or start editing a new file\
+`Ctrl + t` - Open an existing or start editing a new file\
 `Alt + j/k/Up/Down` - Move lines around\
 `Alt + z` - Zen Mode
 

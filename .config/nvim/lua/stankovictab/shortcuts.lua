@@ -34,6 +34,7 @@ map('n', '<c-h>', ':wincmd h<cr>', fuj)
 map('n', '<c-j>', ':wincmd j<cr>', fuj)
 map('n', '<c-k>', ':wincmd k<cr>', fuj)
 map('n', '<c-l>', ':wincmd l<cr>', fuj)
+-- No reason for a "move windows around" shortcut, when you can just move between buffers with BufferLine easily
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', fuj) -- Split horizontally
@@ -92,7 +93,7 @@ map('n', '<c-y>', ':redo<cr>', fuj) -- Ctrl + y is redo
 map('i', '<c-y>', '<esc>:redo<cr>', fuj) -- Ctrl + y is redo
 
 -- TODO: This has lag
-map('n', '<c-n>', ':e ', fuj) -- Ctrl + n to either open an existing, or start editing a new file
+map('n', '<c-t>', ':e ', fuj) -- Ctrl + n to either open an existing, or start editing a new file
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
 -- silent just means don't abbreviate the shortcut in the command bar
