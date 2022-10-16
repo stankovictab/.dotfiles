@@ -1,5 +1,5 @@
 require("toggleterm").setup{
-	open_mapping = [[<c-j>]], -- Shortcut to open and close
+	open_mapping = [[<c-t>]], -- Shortcut to open and close
 	-- hide_numbers = false, -- ??? - Default true
 	-- shading_factor = '3', -- ???
 	-- shade_terminals = false, -- ??? - Default true

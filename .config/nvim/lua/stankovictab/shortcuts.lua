@@ -11,9 +11,13 @@ map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
 map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
 map('n', '<leader>b', ':Telescope buffers<cr>', fuj) -- Buffer browser
 
+-- ToggleTerm's shortcut is specific and it's set in its config
+
 map('n', '<c-Left>', 'b', fuj) -- So that Ctrl + Left isn't dumb
 map('n', '<c-Right>', 'e', fuj) -- So that Ctrl + Right isn't dumb
 
+map('n', '<s-k>', ':bnext<cr>', fuj) -- Go to next buffer
+map('n', '<s-j>', ':bprevious<cr>', fuj) -- Go to previous buffer
 map('n', '<c-PageDown>', ':bnext<cr>', fuj) -- Go to next buffer
 map('n', '<c-PageUp>', ':bprevious<cr>', fuj) -- Go to previous buffer
 map('n', '<leader><right>', ':bnext<cr>', fuj) -- Go to next buffer (TTY)
@@ -22,7 +26,20 @@ map('n', '<leader><left>', ':bprevious<cr>', fuj) -- Go to previous buffer (TTY)
 map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', fuj) -- Move buffer to the right
 map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', fuj) -- Move buffer to the left
 
-map('n', '<c-q>', ':bdelete<cr>', fuj) -- Close buffer
+map('n', '<c-w>', ':bdelete<cr>', fuj) -- Close buffer
+map('n', '<c-q>', ':wq<cr>', fuj) -- Quit
+
+-- Better nvim navigation through windows
+map('n', '<c-h>', ':wincmd h<cr>', fuj)
+map('n', '<c-j>', ':wincmd j<cr>', fuj)
+map('n', '<c-k>', ':wincmd k<cr>', fuj)
+map('n', '<c-l>', ':wincmd l<cr>', fuj)
+
+-- Splits
+map('n', '<leader>sh', ':split<cr>', fuj) -- Split horizontally
+map('n', '<leader>sv', ':vsplit<cr>', fuj) -- Split vertically
+
+map('n', '<a-z>', ':ZenMode<cr>', fuj) -- Zen mode, like in vscode
 
 map('n', '<c-b>', ':NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Normal
 map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Insert
@@ -42,10 +59,12 @@ map('c', '<c-s>', '<esc>:w<cr>', fuj)
 -- Ctrl + f please come back
 map('n', '<c-f>', '/', fuj)
 map('i', '<c-f>', '<esc>/', fuj)
+
 -- Everyone has their own fix for clearing highlights on search, so here's mine - just press space
 -- Mapping enter when completing the search to do this will mess up other commands, like it did with :hi
 -- This in turn now works with /, n, N, *, # and :%s
-map('n', ' ', ':nohlsearch<cr>', fuj)
+-- Also, this is good to reset the sizes of windows if they get screwed up
+map('n', ' ', ':nohlsearch<cr><c-w>=', fuj)
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
 map('n', '<c-r>', ':%s/', fuj)
@@ -64,8 +83,8 @@ map('n', '<PageUp>', '<c-u>', fuj)
 map('n', '<PageDown>', '<c-d>', fuj)
 
 -- Home and End are too far away
-map('n', '<c-h>', '<Home>', fuj)
-map('n', '<c-l>', '<End>', fuj)
+map('n', '<s-h>', '<Home>', fuj)
+map('n', '<s-l>', '<End>', fuj)
 
 map('n', '<c-z>', ':undo<cr>', fuj) -- Ctrl + z is undo
 map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
@@ -94,6 +113,7 @@ map('i', '<c-d>', '<esc>yypi', fuj)
 -- Ctrl + Backspace and Ctrl + Del in Insert Mode should not be stupid
 -- TODO: This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
 -- :(
+
 map('i', '<c-BS>', '<esc>cb', fuj) -- Doesn't work
 map('i', '<c-Del>', '<esc>lcw', fuj)
 map('n', '<c-BS>', 'cb', fuj) -- Doesn't work
@@ -107,9 +127,9 @@ map('n', '<c-Del>', 'cw', fuj)
 -- TODO: What are all these things?
 map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<cr>', fuj) -- Go to definition
 map('n', '<leader>gD', ':lua vim.lsp.buf.declaration()<cr>', fuj) -- Go to declaration (what's the difference?)
-map('n', '<c-k>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
+map('n', '<c-;>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
 map('n', '<leader>gi', ':lua vim.lsp.buf.implementation()<cr>', fuj) -- Go to implementation
-map('n', '<leader>sh', ':lua vim.lsp.buf.signature_help()<cr>', fuj) -- See signature help, or, info for function parameters
+map('n', '<leader>sg', ':lua vim.lsp.buf.signature_help()<cr>', fuj) -- See signature help, or, info for function parameters
 map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
 map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', fuj) -- Rename variable
 map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj) -- See code actions

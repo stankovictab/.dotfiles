@@ -11,7 +11,7 @@ require('lualine').setup {
     -- section_separators = { left = '', right = ''},
     -- section_separators = { left = '', right = ''},
     disabled_filetypes = {},
-	ignore_focus = {'NvimTree'},       -- If current filetype is in this list it'll
+	-- ignore_focus = {'NvimTree'},       -- If current filetype is in this list it'll
                              -- always be drawn as inactive statusline
                              -- and the last window will be drawn as active statusline.
                              -- for example if you don't want statusline of
@@ -22,14 +22,14 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat'},
+    lualine_x = {"require'lsp-status'.status()"}, -- Was 'encoding' and 'fileformat'
     lualine_y = {'filetype'}, -- Removed 'progress'
     lualine_z = {'location'}
   },
-  inactive_sections = { -- Styling of the inactive version, for when you're in the ignored filetype (NvimTree)
+  inactive_sections = { -- Styling of the inactive version, for when you're in the ignored filetype (NvimTree), or when splitting the window, the lualine of the inactive pane
     lualine_a = {},
-    lualine_b = {},
-    lualine_c = {},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}

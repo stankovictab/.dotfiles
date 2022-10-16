@@ -9,7 +9,7 @@ vim.cmd('packadd packer.nvim') -- packadd is vim's command to add a local packag
 require('packer').init {
 	display = {
 		open_fn = function()
-			return require('packer.util').float {border = 'rounded'}
+			return require('packer.util').float { border = 'rounded' }
 		end
 	}
 }
@@ -27,16 +27,16 @@ return require('packer').startup(function(use)
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { "Shatur/neovim-ayu" } -- Darker color theme
 	use { "shaunsingh/nord.nvim" } -- Nord theme, the one mgz is based on
-	use { "kyazdani42/nvim-web-devicons", event="BufWinEnter" } -- A weird dependency
+	use { "kyazdani42/nvim-web-devicons", event = "BufWinEnter" } -- A weird dependency
 	use {
 		"goolord/alpha-nvim", -- Dashboard shown at nvim start with no file
-		requires = {"kyazdani42/nvim-web-devicons"},
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = "require('stankovictab.specifics.alpha')", -- Opens specific config file
 		cmd = {
-		  "Alpha",
-		  "AlphaRedraw"
+			"Alpha",
+			"AlphaRedraw"
 		},
-		event="BufWinEnter"
+		event = "BufWinEnter"
 	}
 	use {
 		'andweeb/presence.nvim', -- The best Discord rich presence plugin
@@ -49,7 +49,13 @@ return require('packer').startup(function(use)
 	use "nvim-lua/plenary.nvim" -- A weird dependency
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0', -- File Finder
-		requires = { 'nvim-lua/plenary.nvim' }
+		requires = { 'nvim-lua/plenary.nvim' },
+		config = function() require("telescope").setup({
+				defaults = {
+					file_ignore_patterns = { "node_modules" } -- Ignore node_modules folder
+				}
+			})
+		end
 	}
 	use {
 		"norcalli/nvim-colorizer.lua", -- Colours on hexadecimal values, like #1155aa
@@ -72,14 +78,17 @@ return require('packer').startup(function(use)
 	use {
 		"akinsho/toggleterm.nvim", tag = '*', -- A better terminal than the builtin
 		config = "require('stankovictab.specifics.toggleterm')",
-		event="BufWinEnter"
+		event = "BufWinEnter"
 	}
 	use "tpope/vim-commentary" -- gc (block) and gcc (line) to comment out code
 	use 'airblade/vim-gitgutter'
 	use {
 		'nvim-treesitter/nvim-treesitter', -- Treeshitter for better syntax highlighting
 		config = "require('stankovictab.specifics.treesitter')",
-		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end
+		run = function() require('nvim-treesitter.install').update({
+				with_sync = true
+			})
+		end
 	}
 	use {
 		'nvim-treesitter/playground', -- Treeshitter AST preview on :TSPlaygroundToggle
@@ -104,7 +113,7 @@ return require('packer').startup(function(use)
 	use { "L3MON4D3/LuaSnip" } -- LuaSnip snippet engine
 	use {
 		'hrsh7th/nvim-cmp', -- Completion engine
-    	config = "require('stankovictab.specifics.nvim-cmp')"
+		config = "require('stankovictab.specifics.nvim-cmp')"
 	}
 	use {
 		'hrsh7th/cmp-buffer' -- Completion engine - Adding buffer (file) sources
@@ -121,16 +130,26 @@ return require('packer').startup(function(use)
 	-- The configuration for the following 3 packages is in lsp-hell,
 	-- and it needs to be in the 3rd use, apparently
 	use "williamboman/mason.nvim" -- LSP installer and manager, a new replacement for nvim-lsp-installer
-	    -- cmd = {
-    		-- "MasonInstall",
-    		-- "MasonUninstall",
- 		   	-- "Mason",
-    		-- "MasonUninstallAll",
-    		-- "MasonLog",
-   		-- },
+	-- cmd = {
+	-- "MasonInstall",
+	-- "MasonUninstall",
+	-- "Mason",
+	-- "MasonUninstallAll",
+	-- "MasonLog",
+	-- },
 	use "williamboman/mason-lspconfig.nvim" -- Bridge between Mason and lspconfig
-	use	{
+	use {
 		"neovim/nvim-lspconfig", -- LSP configuration, this is an integral part
-   		config = "require('stankovictab.specifics.lsp-hell')"
+		config = "require('stankovictab.specifics.lsp-hell')"
+	}
+	use {
+		"folke/zen-mode.nvim", -- Like zen mode in vscode, activate with :ZenMode
+		config = function()
+			require("zen-mode").setup {
+				window = {
+					-- backdrop = 0.5 -- Default is 0.95
+				}
+			}
+		end
 	}
 end)

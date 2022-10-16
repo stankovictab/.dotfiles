@@ -57,37 +57,34 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 
 ## NeoVim - Window Navigation in Normal Mode
 
-TODO: Ctrl + w to close buffer, Ctrl + q to close window, etc
-
-`Ctrl + w + v` - Split vertically\
-`Ctrl + w + s` - Split horizontally -- TODO: Change over to `Ctrl + w + h`\
-`Ctrl + w + w` - Go through windows\
-`Ctrl + w + q` - Close window (not a buffer)\
-`Ctrl + w + ArrowKeys` - Move through windows\
-`Ctrl + w + r` - Shuffle windows\
-`Ctrl + w + =` - Reset window dimensions
-
-`Ctrl + q` - Close buffer\
-`Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
-`Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
-
 `Tab + ,` - Open config files location\
 `Tab + f`, `Ctrl + p` - Open Telescope file search\
 `Tab + g` - Open Telescope live grep\
 `Tab + b` - Open Telescope buffer search
 
+`Ctrl + q` - Close window (and quit)\
+`Ctrl + w` - Close buffer\
+`Ctrl + h/j/k/l` - Go through windows\
+`Space` - Reset window sizes\
+`Shift + h/l` - Go to beginning / end of line\
+`Ctrl + t` - Terminal\
+`Tab + s + h` - Horizontal split\
+`Tab + s + v` - Vertical split\
+`Shift + j/k`, `Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
+`Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
+
 `Ctrl + b` - Toggle file explorer (NvimTree)\
 `Ctrl + /` - Toggle comment\
-`Ctrl + s` - Save\
-`Ctrl + f` - Search\
+`Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
+`/`, `Ctrl + f` - Search\
 `Ctrl + r` - Search and replace\
 `Space` - Clear search highlighting\
 `Tab + p + s` - Sync packages\
 `Ctrl + z` - Undo\
 `Ctrl + y` - Redo\
 `Ctrl + n` - Open an existing or start editing a new file\
-`Alt + ArrowKeys` - Move lines around\
-`jk`, `kj` - Exit Insert Mode
+`Alt + j/k/Up/Down` - Move lines around\
+`Alt + z` - Zen Mode
 
 ## VSCode
 
