@@ -79,6 +79,8 @@ rm -rf ~/.config/htop
 ln -sf ~/.dotfiles/.config/htop ~/.config/htop
 rm -rf ~/.config/alacritty
 ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
+rm -rf ~/.config/qtile
+ln -sf ~/.dotfiles/.config/qtile ~/.config/qtile
 
 # Fonts
 sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/

@@ -176,7 +176,8 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Meta + d` - Show desktop\
 `Meta + ArrowKeys` - Pin window to a side of the screen\
 `Meta + PgUp` - Maximize window\
-`Meta + PgDn` - Minimize window
+`Meta + PgDn` - Minimize window\
+`Meta + Space` - Switch keyboard layout
 
 `Ctrl + Alt + F2-F6` - TTY (F1 is always the standard GUI)\
 `Ctrl + Meta + ArrowKeys` - Move between virtual desktops\
@@ -231,3 +232,7 @@ Hold Shift when over a message to have more options.
 `Ctrl + E` - Emojis\
 `Ctrl + Shift + M` - Mute\
 `Ctrl + Shift + D` - Deafen
+
+## Qtile
+
+:)
