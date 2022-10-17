@@ -1,3 +1,6 @@
+# Qtile config file
+# Note - If the config file has errors, Qtile won't update
+
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -5,6 +8,9 @@ from libqtile.utils import guess_terminal
 
 mod = "mod4" # Meta key
 terminal = guess_terminal() # Guesses alacritty by default, works fine
+
+# TODO: Does this work?
+lazy.screen.set_wallpaper("~/Pictures/venti-views-bS5OwMjMc1I-unsplash.jpg")
 
 # Keybindings
 keys = [
@@ -41,16 +47,20 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    # Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating for window"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key(['mod1'], "F4", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "Tab", lazy.screen.next_group(), desc="Go through groups"), # TODO: How to avoid empty ones?
+    Key(["mod1"], "Tab", lazy.group.next_window(), desc="Go through windows"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+# TODO: Groups can be hidden when empty, see Groups in the docs
+groups = [Group(i) for i in "1234"]
 
 for i in groups:
     keys.extend(
@@ -77,7 +87,17 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        # If border_x elements are a list, there'll be more colors in the border
+        border_focus="#076090", # Active window border
+        border_focus_stack="#037331", # Active column stack border
+        border_normal="#000000", # Inactive window border TODO: How to disable?
+        border_normal_stack="#220000", # Inactive column stack border
+        border_width=2,
+        grow_amount=1, # Resize amount in pixels
+        insert_position=1, # Insert new windows below the current one
+        margin=5, # Margin around windows (gap)
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -93,7 +113,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="hack", # sans
     fontsize=12,
     padding=3,
 )
@@ -137,7 +157,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = False # Whether focus follows mouse hovering over windows
+follow_mouse_focus = True # Whether focus follows mouse hovering over windows
 bring_front_click = True # Whether clicking on a window brings it up
 cursor_warp = False
 floating_layout = layout.Floating(
