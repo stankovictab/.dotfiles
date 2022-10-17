@@ -9,9 +9,6 @@ from libqtile.utils import guess_terminal
 mod = "mod4" # Meta key
 terminal = guess_terminal() # Guesses alacritty by default, works fine
 
-# TODO: Does this work?
-lazy.screen.set_wallpaper("~/Pictures/venti-views-bS5OwMjMc1I-unsplash.jpg")
-
 # Keybindings
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -56,6 +53,8 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "Tab", lazy.screen.next_group(), desc="Go through groups"), # TODO: How to avoid empty ones?
+    Key([mod, "control"], "Left", lazy.screen.prev_group(), desc="Go through groups"),
+    Key([mod, "control"], "Right", lazy.screen.next_group(), desc="Go through groups"),
     Key(["mod1"], "Tab", lazy.group.next_window(), desc="Go through windows"),
 ]
 
@@ -94,9 +93,11 @@ layouts = [
         border_normal="#000000", # Inactive window border TODO: How to disable?
         border_normal_stack="#220000", # Inactive column stack border
         border_width=2,
-        grow_amount=1, # Resize amount in pixels
+        grow_amount=2, # Resize amount in pixels
         insert_position=1, # Insert new windows below the current one
-        margin=5, # Margin around windows (gap)
+        margin=5, # Margin around windows (gap),
+        border_on_single=False, # Whether to render border when 1 window is opened
+        margin_on_single=False, # Whether to render margin when 1 window is opened
     ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -110,41 +111,57 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
+    # The Floating layout isn't defined here, see below
 ]
 
+# Settings for bar widgets
 widget_defaults = dict(
-    font="hack", # sans
-    fontsize=12,
-    padding=3,
+    font="Hack NF", # Default is sans
+    fontsize=10,
+    padding=2,
 )
+
+# Settings for extensions (copies widget settings)
 extension_defaults = widget_defaults.copy()
 
+# The Bar
 screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
+                widget.GroupBox( # Group list
+                    disable_drag=True,
+                    active="#ffffff", # Color of a populated group
+                    block_highlight_text_color="#2ADEDE", # Color of current group
+                    borderwidth=0,
+                ),
+                widget.CurrentLayout(
+                    foreground="#1BABFF"
+                ),
+                widget.Prompt( # Spawn command input, hidden until provoked
+                    foreground="#955AE7"
+                ),
+                widget.WindowName(
+                    foreground="#ffffff"
+                ),
+                widget.Chord( # TODO: ?
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.TextBox("todor picka najveca", foreground="#d75f5f", scroll=True, width=70, scroll_delay=1, scroll_step=1, scroll_interval=0.05),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Systray(), # System tray for apps
+                widget.Clock(format="%a %d-%m-%Y %H:%M"),
             ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            20, # Height of bar
+            # border_width=[5, 0, 5, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]
         ),
+        wallpaper="~/Pictures/venti-views-bS5OwMjMc1I-unsplash.jpg", # No need for nitrogen
+        wallpaper_mode="fill",
     ),
 ]
 
@@ -160,7 +177,12 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True # Whether focus follows mouse hovering over windows
 bring_front_click = True # Whether clicking on a window brings it up
 cursor_warp = False
+
+# The Floating layout is defined here
 floating_layout = layout.Floating(
+    border_focus="#ffffff",
+    border_normal="#000000",
+    border_width=2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
@@ -172,6 +194,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
