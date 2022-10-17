@@ -86,14 +86,12 @@ function fish_prompt
 
     echo
     # tput colors check is to see if we're in a color terminal or tty
-    # $VIM check is for the Vim terminal, which doesn't have good emoji support
-    # TODO: FIX THIS!?!?!?
-    # printf '> '
+    # $VIM check is for the NeoVim builtin terminal, which doesn't have good emoji support it seems
     if [ (tput colors) = 256 -a "$VIM" = '' ]
-        if [ "$EUID" -ne 0 ] # Root user check
-            printf '🦩 '
-        else
+        if fish_is_root_user # Root user check
             printf '💀 '
+        else
+            printf '🦩 '
         end
     else
         printf '> '
