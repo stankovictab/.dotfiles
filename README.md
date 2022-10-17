@@ -235,4 +235,18 @@ Hold Shift when over a message to have more options.
 
 ## Qtile
 
-:)
+`Meta + h/j/k/l` - Move between windows\
+`Meta + Space` - Go through windows\
+`Meta + Shift + h/j/k/l` - Move windows around\
+`Meta + Ctrl + h/j/k/l` - Change size of window\
+`Meta + n` - Reset window sizes\
+`Meta + Enter` - Spawn terminal\
+`Meta + Tab` - Go through layouts\
+`Meta + f` - Toggle floating for window\
+`Meta + w` - Kill window\
+`Meta + Ctrl + r` - Reload Qtile config\
+`Meta + Ctrl + q` - Shutdown Qtile\
+`Meta + r` - Open spawn prompt\
+`Meta + Number` - Go to group {Number}\
+`Meta + Shift + Number` - Move window to group {Number}\
+`Meta + Shift + Enter` - Toggle stack splitting for column layout
