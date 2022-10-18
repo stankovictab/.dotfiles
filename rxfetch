@@ -53,7 +53,7 @@ message2="  shit from a butt   "
 message3="wanna play minecraft "
 message4=" my mom uses macos   "
 message5=" btw this isnt arch  "
-message6=" my little bro     "
+message6="   hi r/unixporn!    "
 message7="  kid named finger   "
 message8="  i miss vscode      "
 message9="   i  cocaine       "
@@ -283,6 +283,7 @@ echo -e "                     ${c4}who${c3}    $(whoami)${c4}@${c3}$(hostname)"
 
 num=$(shuf -i 0-9 -n 1)
 
+# echo -en, -e to keep whitespace, -n to not make newline
 if [ $num = 0 ]; then
 	echo -en "$message0"
 elif [ $num = 1 ]; then
