@@ -3,22 +3,24 @@
  * (https://notion-enhancer.github.io/) under the MIT license
  */
 
+/* TODO: Change font from here? */
+
 :root.dark {
-  --mgz--main: #000000; /* #180915 */
-  --mgz--sec: #941414; /* #1d0919 */
-  --mgz--tet: #492341;
-  --mgz--info: #9b6890;
-  --mgz--accent: #bf799b;
-  --mgz--light_gray: #ADADAD;
-  --mgz--gray: #8a8a8a;
-  --mgz--brown: #755241;
-  --mgz--orange: #e6846b;
-  --mgz--yellow: #d7b56e;
-  --mgz--green: #8f9b4f;
-  --mgz--blue: #6ebdb7;
-  --mgz--purple: #813d63;
-  --mgz--pink: #d86f71;
-  --mgz--red: #a33232;
+  --mgz--main: #070707; /* #180915 */
+  --mgz--sec: #141414; /* #1d0919 */
+  --mgz--tet: #ff00ff; /* #492341 */
+  --mgz--info: #00ff00; /* #9b6890 */
+  --mgz--accent: #ff0000; /* #bf799b */
+  --mgz--light_gray: #BBBBBB;/* #ADADAD */
+  --mgz--gray: #474747; /* #8a8a8a */
+  --mgz--brown: #B14A10; /* #755241 */
+  --mgz--orange: #FF9800; /* #e6846b */
+  --mgz--yellow: #FFB800; /* #d7b56e */
+  --mgz--green: #54A746; /* #8f9b4f */
+  --mgz--blue: #1BABFF; /* #6ebdb7 */
+  --mgz--purple: #955AE7; /* #813d63 */
+  --mgz--pink: #FF6D59; /* #d86f71 */
+  --mgz--red: #f44336; /* #a33232 */
 
   --theme--accent_blue: var(--mgz--accent);
   --theme--accent_blue-selection: rgba(78, 32, 69, 0.5);
@@ -30,12 +32,12 @@
   --theme--accent_red-text: #fff;
 
   --theme--bg: var(--mgz--main); /* Background */
-  --theme--bg_secondary: #ffff00; /* Sidebar background */
-  --theme--bg_card: #00ff00; /* Code block */
+  --theme--bg_secondary: var(--mgz--sec); /* TODO: --mgz--sec */ /* Sidebar background */
+  --theme--bg_card: var(--mgz--sec); /* TODO: --mgz--sec */ /* Menu that pops up when pressing /, or the 6 dots */
 
-  --theme--scrollbar_track: transparent;
-  --theme--scrollbar_thumb: var(--mgz--sec);
-  --theme--scrollbar_thumb-hover: var(--mgz--accent);
+  --theme--scrollbar_track: transparent; /* Scrollbar background */
+  --theme--scrollbar_thumb: var(--mgz--sec); /* Inactive color of scrollbar thumb */
+  --theme--scrollbar_thumb-hover: var(--mgz--accent); /* Active color of scrollbar thumb */
 
   --theme--ui_divider: rgba(73, 35, 65, 0.7);
   --theme--ui_interactive-hover: var(--mgz--tet);
@@ -153,7 +155,7 @@
   --theme--code_inline: var(--mgz--main);
   --theme--code_inline-text: var(--mgz--accent);
 
-  --theme--code: var(--mgz--sec);
+  --theme--code: var(--mgz--sec); /* Standalone code block */
   --theme--code_function: var(--theme--text_blue);
   --theme--code_keyword: var(--theme--text_pink);
   --theme--code_tag: var(--theme--text_pink);
