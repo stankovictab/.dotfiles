@@ -46,16 +46,17 @@ c25=${dimpurple}
 c26=${dimcyan}
 c27=${dimwhite}
 
-message0="death to windows"
-message1="fuck you nvidia"
-message2="shit from a butt"
-message3="wanna play minecraft"
-message4="my mom uses macos"
-message5="btw this isnt arch"
-message6="my little bro  "
-message7="kid named finger"
-message8="i miss vscode"
-message9=" kmahjongg "
+# Make sure the strings are this exact length
+message0="  death to windows   "
+message1="  fuck you nvidia    "
+message2="  shit from a butt   "
+message3="wanna play minecraft "
+message4=" my mom uses macos   "
+message5=" btw this isnt arch  "
+message6=" my little bro     "
+message7="  kid named finger   "
+message8="  i miss vscode      "
+message9="   i  cocaine       "
 
 # Get the kernel
 # This will decide the further actionsvand command usages as bsd and gnu tools even with same name are DIFFERENT.
@@ -278,42 +279,45 @@ get_de_wm() {
 if [ "$kernel" = Android ]; then
 	echo -e "               ${c5}phone${c3}  $(getprop ro.product.brand) $(getprop ro.product.model)"
 fi
-echo -e "                  ${c4}who${c3}    $(whoami)${c4}@${c3}$(hostname)"
-echo -e "death to windows  ${c1}os${c3}     $(get_distro_name) $(uname -m)"
-echo -e "      \\           ${c2}krnl${c3}   $(uname -r)"
-echo -e "        ${c3}•${c8}_${c3}•${c0}       ${c7}pkgs${c3}   $(get_package_info)"
-echo -e "        ${c8}${c0}${c9}oo${c0}${c8}|${c0}       ${c4}sh${c3}     ${SHELL##*/}"
-echo -e "       ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}      ${c6}ram${c3}    $(get_mem)"
-echo -e "      ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}      ${c1}init${c3}   $(get_init)"
-
-if [ -n "$DISPLAY" ]; then
-	echo -e "                  ${c2}de/wm${c3}  $(get_de_wm)"
-fi
-echo -e "                  ${c7}up${c3}    $(get_uptime)"
-echo -e "                  ${c6}disk${c3}   $(get_storage_info)"
-echo -e "                  "
-echo -e "                  ${c11}  ${c5}  ${c2}  ${c6}ﳨ  ${c4}  ${c1}  ${c7}  ${c0}ﮧ  \033[0m"
-echo -e "                  ${c20}  ${c21}ﮊ  ${c22}  ${c23}  ${c24}  ${c25}  ${c26}  ${c27}  \033[0m"
+echo -e "                     ${c4}who${c3}    $(whoami)${c4}@${c3}$(hostname)"
 
 num=$(shuf -i 0-9 -n 1)
+
 if [ $num = 0 ]; then
-	echo $message0
+	echo -en "$message0"
 elif [ $num = 1 ]; then
-	echo $message1
+	echo -en "$message1"
 elif [ $num = 2 ]; then
-	echo $message2
+	echo -en "$message2"
 elif [ $num = 3 ]; then
-	echo $message3
+	echo -en "$message3"
 elif [ $num = 4 ]; then
-	echo $message4
+	echo -en "$message4"
 elif [ $num = 5 ]; then
-	echo $message5
+	echo -en "$message5"
 elif [ $num = 6 ]; then
-	echo $message6
+	echo -en "$message6"
 elif [ $num = 7 ]; then
-	echo $message7
+	echo -en "$message7"
 elif [ $num = 8 ]; then
-	echo $message8
+	echo -en "$message8"
 else
-	echo $message9
+	echo -en "$message9"
 fi
+
+echo -e "${c1}os${c3}    $(get_distro_name) $(uname -m)"
+echo -e "      \\              ${c2}krnl${c3}   $(uname -r)"
+echo -e "        ${c3}•${c8}_${c3}•${c0}          ${c7}pkgs${c3}   $(get_package_info)"
+echo -e "        ${c8}${c0}${c9}oo${c0}${c8}|${c0}          ${c4}sh${c3}     ${SHELL##*/}"
+echo -e "       ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}         ${c6}ram${c3}    $(get_mem)"
+echo -e "      ${c9}(${c0}${c8}\_;/${c0}${c9})${c0}         ${c1}init${c3}   $(get_init)"
+
+if [ -n "$DISPLAY" ]; then
+	echo -e "                     ${c2}de/wm${c3}  $(get_de_wm)"
+fi
+echo -e "                     ${c7}up${c3}    $(get_uptime)"
+echo -e "                     ${c6}disk${c3}   $(get_storage_info)"
+echo -e "                  "
+echo -e "            ${c11}  ${c5}  ${c2}  ${c6}ﳨ  ${c4}  ${c1}  ${c7}  ${c0}ﮧ  \033[0m"
+echo -e "            ${c20}  ${c21}ﮊ  ${c22}  ${c23}  ${c24}  ${c25}  ${c26}  ${c27}  \033[0m"
+
