@@ -46,6 +46,17 @@ c25=${dimpurple}
 c26=${dimcyan}
 c27=${dimwhite}
 
+message0="death to windows"
+message1="fuck you nvidia"
+message2="shit from a butt"
+message3="wanna play minecraft"
+message4="my mom uses macos"
+message5="btw this isnt arch"
+message6="my little bro  "
+message7="kid named finger"
+message8="i miss vscode"
+message9=" kmahjongg "
+
 # Get the kernel
 # This will decide the further actionsvand command usages as bsd and gnu tools even with same name are DIFFERENT.
 kernel=$(uname -s)
@@ -283,3 +294,26 @@ echo -e "                  ${c6}disk${c3}   $(get_storage_info)"
 echo -e "                  "
 echo -e "                  ${c11}  ${c5}  ${c2}  ${c6}ﳨ  ${c4}  ${c1}  ${c7}  ${c0}ﮧ  \033[0m"
 echo -e "                  ${c20}  ${c21}ﮊ  ${c22}  ${c23}  ${c24}  ${c25}  ${c26}  ${c27}  \033[0m"
+
+num=$(shuf -i 0-9 -n 1)
+if [ $num = 0 ]; then
+	echo $message0
+elif [ $num = 1 ]; then
+	echo $message1
+elif [ $num = 2 ]; then
+	echo $message2
+elif [ $num = 3 ]; then
+	echo $message3
+elif [ $num = 4 ]; then
+	echo $message4
+elif [ $num = 5 ]; then
+	echo $message5
+elif [ $num = 6 ]; then
+	echo $message6
+elif [ $num = 7 ]; then
+	echo $message7
+elif [ $num = 8 ]; then
+	echo $message8
+else
+	echo $message9
+fi
