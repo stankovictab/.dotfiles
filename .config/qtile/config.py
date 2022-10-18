@@ -154,6 +154,15 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(), # System tray for apps
+                widget.Memory(),
+                # widget.MemoryGraph(
+                #     type='line',
+                #     line_width=1,
+                # ),
+                widget.Volume(
+                    # TODO: Borked, needs setup
+                    emoji=True,
+                ),
                 widget.Clock(format="%a %d-%m-%Y %H:%M"),
             ],
             20, # Height of bar
