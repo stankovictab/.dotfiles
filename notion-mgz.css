@@ -3,7 +3,6 @@
  * (https://notion-enhancer.github.io/) under the MIT license
  */
 
-/* TODO: Change font from here? */
 
 :root.dark {
   --mgz--main: #070707; /* #180915 */
@@ -22,14 +21,19 @@
 
   --mgz--cyan: #2ADEDE;
 
+  --mgz--storage: #4E79F0;
+  --mgz--comment: #658595;
+  --mgz--functions: #FF6176;
+  --mgz--teal: #58F5AB;
+
   --mgz--brown: #B14A10; /* #755241 */
   --mgz--pink: #E88EFF; /* #d86f71 */
 
   --mgz--brightblack: #bbbbbb;
   --mgz--brightred: #FF6D59;
   --mgz--brightgreen: #5FD24B;
-  --mgz--brightyellow: #FFB800;
-  --mgz--brightblue: #5BCEFF;
+  --mgz--brightyellow: #f4da58;
+  --mgz--brightblue: #8edfff;
   --mgz--brightmagenta: #B66CFF;
   --mgz--brightcyan: #78FFFF;
   --mgz--brightwhite: #ffffff;
@@ -44,12 +48,12 @@
   --mgz--dimwhite: #333333;
 
   --theme--accent_blue: var(--mgz--cyan); /* Link color */
-  --theme--accent_blue-selection: rgba(33, 172, 193, 0.35); /* Color of selected text and selected blocks, needs to be transparent */
-  --theme--accent_blue-hover: #b0d090;
-  --theme--accent_blue-active: #cc86a8;
+  --theme--accent_blue-selection: rgba(33, 165, 180, 0.3); /* Color of selected text and selected blocks, needs to be transparent */
+  --theme--accent_blue-hover: #b0d090; /* TODO: ??? */
+  --theme--accent_blue-active: var(--mgz--gray); /* When you press the 6 dots on a block, the outline of the search field */
   --theme--accent_blue-text: #fff;
   --theme--accent_red: var(--mgz--pink); /* Danger zone button foreground (delete workspace, profile, etc) */
-  --theme--accent_red-button: #0ffffb63; /* #bf799b63 */
+  --theme--accent_red-button: #0ffffb63; /* #bf799b63 */ /* TODO: ??? */
   --theme--accent_red-text: #fff;
 
   --theme--bg: var(--mgz--main); /* Background */
@@ -57,22 +61,25 @@
   --theme--bg_card: var(--mgz--sec); /* Menu that pops up when pressing /, or the 6 dots */
 
   --theme--scrollbar_track: transparent; /* Scrollbar background */
-  --theme--scrollbar_thumb: var(--mgz--sec); /* Inactive color of scrollbar thumb */
-  --theme--scrollbar_thumb-hover: var(--mgz--accent); /* Active color of scrollbar thumb */
+  --theme--scrollbar_thumb: var(--mgz--gray); /* Inactive color of scrollbar thumb */
+  --theme--scrollbar_thumb-hover: var(--mgz--brightblack); /* Active color of scrollbar thumb */
 
-  --theme--ui_divider: rgba(73, 35, 65, 0.7);
+  --theme--ui_divider: var(--mgz--dimwhite); /* Border of callout with default background (not the --- divider) */
   --theme--ui_interactive-hover: var(--mgz--dimwhite); /* Background of Change Cover and Reposition buttons, and also some other small buttons, not very noticable */
-  --theme--ui_interactive-active: #ffff00; /* Same, but on click and hold */
-  --theme--ui_toggle-off: rgba(73, 35, 65, 0.7);
+  --theme--ui_interactive-active: var(--mgz--storage); /* Same, but on click and hold */
+  --theme--ui_toggle-off: var(--mgz--dimwhite); /* Background of on-off toggle when off */
+  /* TODO: Don't know what these do */
   --theme--ui_corner_action: var(--theme--bg_card);
   --theme--ui_corner_action-hover: var(--theme--ui_interactive-hover);
   --theme--ui_corner_action-active: var(--theme--ui_interactive-active);
 
-  --theme--icon: #fff;
-  --theme--icon_secondary: var(--mgz--info);
+  --theme--icon: #fff; /* TODO: ??? */
+  --theme--icon_secondary: #fff; /* Color of all the little icons in the UI */
 
-  --theme--text: #fff;
-  --theme--text_secondary: var(--mgz--info);
+  --theme--text: #fff; /* Main text color, for all text except page title */
+  --theme--text_secondary: #fff; /* Text in sidebar */
+
+  /* TODO: These colors are used in code blocks */
   --theme--text_gray: var(--mgz--gray);
   --theme--text_brown: var(--mgz--brown);
   --theme--text_orange: var(--mgz--orange);
@@ -83,8 +90,8 @@
   --theme--text_pink: var(--mgz--pink);
   --theme--text_red: var(--mgz--red);
 
-  --theme--highlight_gray: var(--theme--tag_gray);
-  --theme--highlight_gray-text: var(--theme--tag-text);
+  --theme--highlight_gray: #00ffff; /* var(--theme--tag_gray) */
+  --theme--highlight_gray-text: #ff00ff; /* var(--theme--tag_text) */
   --theme--highlight_brown: var(--theme--tag_brown);
   --theme--highlight_brown-text: var(--theme--tag-text);
   --theme--highlight_orange: var(--theme--tag_orange);
@@ -173,22 +180,28 @@
   --theme--board_red-text: var(--mgz--main);
   --theme--board_red-card: var(--theme--tag_red);
 
-  --theme--code_inline: var(--mgz--main);
-  --theme--code_inline-text: var(--mgz--accent);
+  /* Font for code */
+  --theme--font_code: hack, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-  --theme--code: var(--mgz--sec); /* Standalone code block */
-  --theme--code_function: var(--theme--text_blue);
-  --theme--code_keyword: var(--theme--text_pink);
-  --theme--code_tag: var(--theme--text_pink);
-  --theme--code_operator: var(--theme--text_yellow);
+  --theme--code_inline: var(--mgz--dimwhite); /* Background of inline code span, default color */
+  --theme--code_inline-text: #fff; /* Foreground of the same thing */
+
+  --theme--code: var(--mgz--sec); /* Standalone code block background */
+  --theme--code_function: var(--mgz--functions);
+  --theme--code_keyword: var(--mgz--storage);
+  --theme--code_tag: var(--mgz--blue);
+  --theme--code_operator: var(--mgz--brightyellow);
   --theme--code_property: var(--theme--text_pink);
   --theme--code_builtin: var(--theme--text_yellow);
-  --theme--code_attr-name: var(--theme--text_yellow);
-  --theme--code_comment: var(--theme--text_gray);
-  --theme--code_punctuation: var(--theme--text_gray);
+  --theme--code_attr-name: var(--mgz--brightblue);
+  --theme--code_attr-value: var(--mgz--teal);
+  --theme--code_comment: var(--mgz--comment);
+  --theme--code_punctuation: #fff;
   --theme--code_doctype: var(--theme--text_gray);
-  --theme--code_number: var(--theme--text_purple);
+  --theme--code_number: var(--mgz--teal);
   --theme--code_selector: var(--theme--text_orange);
   --theme--code_atrule: var(--theme--text_orange);
   --theme--code_regex: var(--theme--text_yellow);
+  --theme--code_class-name: var(--mgz--pink);
+  --theme--code_string: var(--mgz--teal);
 }
