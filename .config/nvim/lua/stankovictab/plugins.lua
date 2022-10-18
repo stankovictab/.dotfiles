@@ -61,6 +61,15 @@ return require('packer').startup(function(use)
 		"norcalli/nvim-colorizer.lua", -- Colours on hexadecimal values, like #1155aa
 		config = "require('stankovictab.specifics.nvim-colorizer')"
 	}
+	-- use {
+	-- 	"brenoprata10/nvim-highlight-colors", -- Same, but this one does var() in css, however, it's very laggy in large css files
+	-- 	config = function() require('nvim-highlight-colors').setup({
+	-- 			render = 'background', -- or 'foreground' or 'first_column'
+	-- 			enable_named_colors = true,
+	-- 			enable_tailwind = false
+	-- 		})
+	-- 	end
+	-- }
 	use {
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		config = function() require("nvim-autopairs").setup({}) end

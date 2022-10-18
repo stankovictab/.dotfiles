@@ -233,6 +233,14 @@ Hold Shift when over a message to have more options.
 `Ctrl + Shift + M` - Mute\
 `Ctrl + Shift + D` - Deafen
 
+## Notion
+
+`Ctrl + p` - Global search\
+`Ctrl + \` - Sidebar\
+`Ctrl + Shift + Up/Down` - Move block up/down\
+`Ctrl + e` - Code\
+`Ctrl + Shift + e` - Inline equation
+
 ## Qtile
 
 `Meta + h/j/k/l` - Move between windows\

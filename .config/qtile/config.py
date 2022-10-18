@@ -5,6 +5,7 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from spotify import Spotify
 
 mod = "mod4" # Meta key
 terminal = guess_terminal() # Guesses alacritty by default, works fine
@@ -56,6 +57,8 @@ keys = [
     Key([mod, "control"], "Left", lazy.screen.prev_group(), desc="Go through groups"),
     Key([mod, "control"], "Right", lazy.screen.next_group(), desc="Go through groups"),
     Key(["mod1"], "Tab", lazy.group.next_window(), desc="Go through windows"),
+    Key([], "Print", lazy.spawn("flameshot gui"), desc="Flameshot GUI + copy to clipboard"),
+    Key(["shift"], "Print", lazy.spawn("flameshot full --clipboard"), desc="Flameshot fullscreen screenshot + copy to clipboard"),
 ]
 
 # TODO: Groups can be hidden when empty, see Groups in the docs
@@ -118,7 +121,7 @@ layouts = [
 widget_defaults = dict(
     font="Hack NF", # Default is sans
     fontsize=10,
-    padding=2,
+    padding=5, # Only horizontal padding
 )
 
 # Settings for extensions (copies widget settings)
@@ -127,6 +130,8 @@ extension_defaults = widget_defaults.copy()
 # The Bar
 screens = [
     Screen(
+        wallpaper="~/Pictures/venti-views-bS5OwMjMc1I-unsplash.jpg", # No need for nitrogen
+        wallpaper_mode="fill",
         bottom=bar.Bar(
             [
                 widget.GroupBox( # Group list
@@ -136,7 +141,8 @@ screens = [
                     borderwidth=0,
                 ),
                 widget.CurrentLayout(
-                    foreground="#1BABFF"
+                    background="#041824",
+                    foreground="#ffffff"
                 ),
                 widget.Prompt( # Spawn command input, hidden until provoked
                     foreground="#955AE7"
@@ -145,16 +151,35 @@ screens = [
                     foreground="#ffffff"
                 ),
                 widget.Chord( # TODO: ?
+                    background="#123321",
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("todor picka najveca", foreground="#d75f5f", scroll=True, width=70, scroll_delay=1, scroll_step=1, scroll_interval=0.05),
+                Spotify( # https://github.com/BenGH28/qtile-spotify-widget
+                    update_interval=1,
+                    format="{icon} {artist} - {track}"
+                    ),
+                widget.TextBox("todor picka najveca", foreground="#d75f5f", scroll=True, width=77, scroll_delay=1, scroll_step=1, scroll_interval=0.05),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(), # System tray for apps
-                widget.Memory(),
+                widget.CPU(
+                    background="#041824",
+                    format="CPU: {load_percent}%",
+                    update_interval=2
+                ),
+                widget.Memory(
+                    background="#0A3535",
+                    format="MEM: {MemPercent:.0f}%"
+                ),
+                widget.DF(
+                    background="#281641",
+                    partition='/',
+                    format="DISK: {r:.0f}% ({uf}{m}B free)",
+                    visible_on_warn=False, # Display always, not just when warning
+                ),
                 # widget.MemoryGraph(
                 #     type='line',
                 #     line_width=1,
@@ -169,8 +194,6 @@ screens = [
             # border_width=[5, 0, 5, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]
         ),
-        wallpaper="~/Pictures/venti-views-bS5OwMjMc1I-unsplash.jpg", # No need for nitrogen
-        wallpaper_mode="fill",
     ),
 ]
 
