@@ -8,40 +8,61 @@
 :root.dark {
   --mgz--main: #070707; /* #180915 */
   --mgz--sec: #141414; /* #1d0919 */
-  --mgz--tet: #ff00ff; /* #492341 */
   --mgz--info: #00ff00; /* #9b6890 */
   --mgz--accent: #ff0000; /* #bf799b */
+
   --mgz--light_gray: #BBBBBB;/* #ADADAD */
   --mgz--gray: #474747; /* #8a8a8a */
-  --mgz--brown: #B14A10; /* #755241 */
   --mgz--orange: #FF9800; /* #e6846b */
   --mgz--yellow: #FFB800; /* #d7b56e */
   --mgz--green: #54A746; /* #8f9b4f */
   --mgz--blue: #1BABFF; /* #6ebdb7 */
   --mgz--purple: #955AE7; /* #813d63 */
-  --mgz--pink: #FF6D59; /* #d86f71 */
   --mgz--red: #f44336; /* #a33232 */
 
-  --theme--accent_blue: var(--mgz--accent);
-  --theme--accent_blue-selection: rgba(78, 32, 69, 0.5);
-  --theme--accent_blue-hover: #bd6992;
+  --mgz--cyan: #2ADEDE;
+
+  --mgz--brown: #B14A10; /* #755241 */
+  --mgz--pink: #E88EFF; /* #d86f71 */
+
+  --mgz--brightblack: #bbbbbb;
+  --mgz--brightred: #FF6D59;
+  --mgz--brightgreen: #5FD24B;
+  --mgz--brightyellow: #FFB800;
+  --mgz--brightblue: #5BCEFF;
+  --mgz--brightmagenta: #B66CFF;
+  --mgz--brightcyan: #78FFFF;
+  --mgz--brightwhite: #ffffff;
+
+  --mgz--dimblack: #141414;
+  --mgz--dimred: #31100D;
+  --mgz--dimgreen: #11230e;
+  --mgz--dimyellow: #1e1200;
+  --mgz--dimblue: #041824;
+  --mgz--dimmagenta: #281641;
+  --mgz--dimcyan: #0a3535;
+  --mgz--dimwhite: #333333;
+
+  --theme--accent_blue: var(--mgz--cyan); /* Link color */
+  --theme--accent_blue-selection: rgba(33, 172, 193, 0.35); /* Color of selected text and selected blocks, needs to be transparent */
+  --theme--accent_blue-hover: #b0d090;
   --theme--accent_blue-active: #cc86a8;
   --theme--accent_blue-text: #fff;
-  --theme--accent_red: var(--mgz--accent);
-  --theme--accent_red-button: #bf799b63;
+  --theme--accent_red: var(--mgz--pink); /* Danger zone button foreground (delete workspace, profile, etc) */
+  --theme--accent_red-button: #0ffffb63; /* #bf799b63 */
   --theme--accent_red-text: #fff;
 
   --theme--bg: var(--mgz--main); /* Background */
-  --theme--bg_secondary: var(--mgz--sec); /* TODO: --mgz--sec */ /* Sidebar background */
-  --theme--bg_card: var(--mgz--sec); /* TODO: --mgz--sec */ /* Menu that pops up when pressing /, or the 6 dots */
+  --theme--bg_secondary: var(--mgz--sec); /* Sidebar background */
+  --theme--bg_card: var(--mgz--sec); /* Menu that pops up when pressing /, or the 6 dots */
 
   --theme--scrollbar_track: transparent; /* Scrollbar background */
   --theme--scrollbar_thumb: var(--mgz--sec); /* Inactive color of scrollbar thumb */
   --theme--scrollbar_thumb-hover: var(--mgz--accent); /* Active color of scrollbar thumb */
 
   --theme--ui_divider: rgba(73, 35, 65, 0.7);
-  --theme--ui_interactive-hover: var(--mgz--tet);
-  --theme--ui_interactive-active: var(--mgz--tet);
+  --theme--ui_interactive-hover: var(--mgz--dimwhite); /* Background of Change Cover and Reposition buttons, and also some other small buttons, not very noticable */
+  --theme--ui_interactive-active: #ffff00; /* Same, but on click and hold */
   --theme--ui_toggle-off: rgba(73, 35, 65, 0.7);
   --theme--ui_corner_action: var(--theme--bg_card);
   --theme--ui_corner_action-hover: var(--theme--ui_interactive-hover);
