@@ -82,6 +82,9 @@ ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
 rm -rf ~/.config/qtile
 ln -sf ~/.dotfiles/.config/qtile ~/.config/qtile
 
+sudo rm -rf /usr/bin/rxfetch
+sudo ln -sf ~/.dotfiles/rxfetch /usr/bin/rxfetch
+
 # Fonts
 sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ NF/ /usr/share/fonts/

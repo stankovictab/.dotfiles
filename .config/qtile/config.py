@@ -180,9 +180,9 @@ cursor_warp = False
 
 # The Floating layout is defined here
 floating_layout = layout.Floating(
-    border_focus="#ffffff",
+    border_focus="#333333",
     border_normal="#000000",
-    border_width=2,
+    border_width=1,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

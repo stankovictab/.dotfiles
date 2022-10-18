@@ -75,6 +75,8 @@ alias dotdesktops='cd ~/.local/share/applications && dolphin .'
 alias fd='fdfind -H' # -H is to include hidden files
 alias typeracer='toipe'
 alias shortcuts='nvim ~/.dotfiles/README.md'
+alias nf='neofetch'
+alias rx='rxfetch'
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
