@@ -48,8 +48,8 @@ class Spotify(base.ThreadPoolText):
         self.add_defaults(Spotify.defaults)
         self.add_callbacks(
             {
-                "Button3": self.toggle_between_groups,
-                "Button1": self.toggle_music,
+                "Button1": self.toggle_between_groups,
+                "Button3": self.toggle_music,
             }
         )
 
