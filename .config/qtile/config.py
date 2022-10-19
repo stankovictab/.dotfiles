@@ -19,6 +19,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    # TODO: This is free
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -45,7 +46,7 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    # Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "s", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating for window"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key(['mod1'], "F4", lazy.window.kill(), desc="Kill focused window"),
@@ -110,7 +111,7 @@ layouts = [
     # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    layout.Tile(),
+    # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -147,8 +148,18 @@ screens = [
                 widget.Prompt( # Spawn command input, hidden until provoked
                     foreground="#955AE7"
                 ),
-                widget.WindowName(
-                    foreground="#ffffff"
+                # widget.WindowName(
+                #     foreground="#ffffff"
+                # ),
+                widget.TaskList(
+                    highlight_method="block",
+                    # background="#000000",
+                    border="#076090", # Active tab color
+                    max_title_width=200,
+                    padding_y=2,
+                    padding_x=10,
+                    margin=2,
+                    icon_size=0
                 ),
                 widget.Chord( # TODO: ?
                     background="#123321",
@@ -197,11 +208,14 @@ screens = [
     ),
 ]
 
-# Drag floating layouts.
+# Mouse buttons :
+# left click, middle click, right click, wheel up, wheel down, wheel left, wheel right, previous, next
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([], "Button9", lazy.next_layout()),
+    # Click([], "Button9", lazy.window.toggle_fullscreen()),
 ]
 
 dgroups_key_binder = None
