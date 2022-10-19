@@ -223,12 +223,10 @@
 	color: #fff !important;
 }
 
-/* Text Colors (which aren't white) - All of them are set on the element level, need to do it like this */
+/* ---- Text Colors ---- */
 
-/* All text : */
-/* .notion-enable-hover { */
-/*   color: red !important; */
-/* } */
+/* This is for all text that isn't white (without highlight) 
+ * All of them are set on the element level, so we need to do it like this */
 
 /* These are css attribute selectors that includes some specific value somewhere */
 /* And that specific value needs to be an EXACT substring of the value of the style attribute, otherwise it won't bind to it */
@@ -251,6 +249,152 @@
   background: rgba(200, 100, 100, 1) !important;
 }
 
-/* <span style="color:rgba(155, 155, 155, 1);fill:rgba(155, 155, 155, 1)" data-token-index="5" class="notion-enable-hover">Test </span> */
+/* Brown text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Brown inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Brown inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Brown background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Orange text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Orange inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Orange inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Orange background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Yellow text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Yellow inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Yellow inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Yellow background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Green text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Green inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Green inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Green background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Blue text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Blue inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Blue inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Blue background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Purple text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Purple inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Purple inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Purple background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Pink text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Pink inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Pink inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Pink background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* Red text : */
+.notion-enable-hover[style*="color:rgba(223, 84, 82, 1)"] {
+  color: yellow !important;
+}
+/* Red inline code text */
+.notion-enable-hover[style*="color:rgba(223, 84, 82, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Red inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(223, 84, 82, 1)"] {
+  color: blue !important;
+}
+/* Red background text */
+.notion-enable-hover[style*="background:rgba(82, 46, 42, 1)"] {
+  background: rgba(00, 100, 100, 1) !important;
+}
 
 /* TODO: Add styling for callouts, same way */
+
+/* ---- Callout Colors ---- */
+
+
