@@ -3,21 +3,21 @@
  * (https://notion-enhancer.github.io/) under the MIT license
  */
 
+/* TODO: All inline code should have my dim background and normal foreground for colors, just like hints in nvim */
+/* TODO: I need to do some hacks to change the colors of text, it's not that easy, see catppucicn notion theme */
 
 :root.dark {
-  --mgz--main: #070707; /* #180915 */
-  --mgz--sec: #141414; /* #1d0919 */
-  --mgz--info: #00ff00; /* #9b6890 */
-  --mgz--accent: #ff0000; /* #bf799b */
+  --mgz--main: #070707;
+  --mgz--sec: #141414;
 
-  --mgz--light_gray: #BBBBBB;/* #ADADAD */
-  --mgz--gray: #474747; /* #8a8a8a */
-  --mgz--orange: #FF9800; /* #e6846b */
-  --mgz--yellow: #FFB800; /* #d7b56e */
-  --mgz--green: #54A746; /* #8f9b4f */
-  --mgz--blue: #1BABFF; /* #6ebdb7 */
-  --mgz--purple: #955AE7; /* #813d63 */
-  --mgz--red: #f44336; /* #a33232 */
+  --mgz--light_gray: #BBBBBB;
+  --mgz--gray: #474747;
+  --mgz--orange: #FF9800;
+  --mgz--yellow: #FFB800;
+  --mgz--green: #54A746;
+  --mgz--blue: #1BABFF;
+  --mgz--purple: #955AE7;
+  --mgz--red: #f44336;
 
   --mgz--cyan: #2ADEDE;
 
@@ -26,8 +26,8 @@
   --mgz--functions: #FF6176;
   --mgz--teal: #58F5AB;
 
-  --mgz--brown: #B14A10; /* #755241 */
-  --mgz--pink: #E88EFF; /* #d86f71 */
+  --mgz--brown: #B14A10;
+  --mgz--pink: #E88EFF;
 
   --mgz--brightblack: #bbbbbb;
   --mgz--brightred: #FF6D59;
@@ -204,4 +204,53 @@
   --theme--code_regex: var(--theme--text_yellow);
   --theme--code_class-name: var(--mgz--pink);
   --theme--code_string: var(--mgz--teal);
+ 
+  /* Text Colors & TODO: Quotes */
+
+  /* .notion-dark-theme *[style*="color:rgba(115, 115, 115, 1)"], */
+  /* .notion-dark-theme *[style*="color: rgb(115, 115, 115)"] { */
+  /*   color: var(--mgz--teal) !important; */
+  /* } */
+
+  .notion-enable-hover {
+	  color: red !important;
+  }
+  
 }
+
+/* Page title is a little transparent by default for some reason */
+.notion-page-block {
+	color: #fff !important;
+}
+
+/* Text Colors (which aren't white) - All of them are set on the element level, need to do it like this */
+
+/* All text : */
+/* .notion-enable-hover { */
+/*   color: red !important; */
+/* } */
+
+/* These are css attribute selectors that includes some specific value somewhere */
+/* And that specific value needs to be an EXACT substring of the value of the style attribute, otherwise it won't bind to it */
+
+/* Gray text : */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+  color: yellow !important;
+}
+/* Gray inline code text */
+.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+  color: #bf35bf !important;
+  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+}
+/* Gray inline LaTeX text */
+.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+  color: pink !important;
+}
+/* Gray background text */
+.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+  background: rgba(200, 100, 100, 1) !important;
+}
+
+/* <span style="color:rgba(155, 155, 155, 1);fill:rgba(155, 155, 155, 1)" data-token-index="5" class="notion-enable-hover">Test </span> */
+
+/* TODO: Add styling for callouts, same way */
