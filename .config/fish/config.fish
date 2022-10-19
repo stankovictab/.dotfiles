@@ -61,7 +61,7 @@ alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
 alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 alias ch='cd ~/Gaming && ./Clone\ Hero\ Launcher.AppImage'
 alias obsisdead='pkill obs && sudo modprobe -r v4l2loopback' # Virtual Camera Fix
-alias n='notion-app-enhanced'
+alias notion='notion-app-enhanced'
 alias pipes='cd /usr/local/bin && ./pipes.sh'
 alias lpf='sudo chown root:root ~/Documents/Private && pkill nomacs && pkill mpv'
 alias upf='sudo chown stankovictab:stankovictab ~/Documents/Private'
@@ -77,6 +77,9 @@ alias typeracer='toipe'
 alias shortcuts='nvim ~/.dotfiles/README.md'
 alias nf='neofetch'
 alias rx='rxfetch'
+alias colors='gpick'
+alias n='nsxiv -ab' # -a to play gifs, -b to hide status bar
+alias v='nvim'
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
