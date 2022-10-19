@@ -238,7 +238,7 @@
 /* Gray inline code text */
 .notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Gray inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
@@ -250,139 +250,139 @@
 }
 
 /* Brown text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-enable-hover[style*="color:rgba(186, 133, 111, 1)"] {
   color: yellow !important;
 }
 /* Brown inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+.notion-enable-hover[style*="color:rgba(186, 133, 111, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Brown inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-text-equation-token[style*="color:rgba(186, 133, 111, 1)"] {
   color: pink !important;
 }
 /* Brown background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+.notion-enable-hover[style*="background:rgba(74, 50, 40, 1)"] {
   background: rgba(200, 100, 100, 1) !important;
 }
 
 /* Orange text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-enable-hover[style*="color:rgba(199, 125, 72, 1)"] {
   color: yellow !important;
 }
 /* Orange inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+.notion-enable-hover[style*="color:rgba(199, 125, 72, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Orange inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-text-equation-token[style*="color:rgba(199, 125, 72, 1)"] {
   color: pink !important;
 }
 /* Orange background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+.notion-enable-hover[style*="background:rgba(92, 59, 35, 1)"] {
   background: rgba(200, 100, 100, 1) !important;
 }
 
 /* Yellow text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-enable-hover[style*="color:rgba(202, 152, 73, 1)"] {
   color: yellow !important;
 }
 /* Yellow inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+.notion-enable-hover[style*="color:rgba(202, 152, 73, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Yellow inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-text-equation-token[style*="color:rgba(202, 152, 73, 1)"] {
   color: pink !important;
 }
 /* Yellow background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+.notion-enable-hover[style*="background:rgba(86, 67, 40, 1)"] {
   background: rgba(200, 100, 100, 1) !important;
 }
 
 /* Green text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-enable-hover[style*="color:rgba(82, 158, 114, 1)"] {
   color: yellow !important;
 }
 /* Green inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+.notion-enable-hover[style*="color:rgba(82, 158, 114, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Green inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-text-equation-token[style*="color:rgba(82, 158, 114, 1)"] {
   color: pink !important;
 }
 /* Green background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+.notion-enable-hover[style*="background:rgba(36, 61, 48, 1)"] {
   background: rgba(200, 100, 100, 1) !important;
 }
 
 /* Blue text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-enable-hover[style*="color:rgba(94, 135, 201, 1)"] {
   color: yellow !important;
 }
 /* Blue inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+.notion-enable-hover[style*="color:rgba(94, 135, 201, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Blue inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-text-equation-token[style*="color:rgba(94, 135, 201, 1)"] {
   color: pink !important;
 }
 /* Blue background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+.notion-enable-hover[style*="background:rgba(20, 58, 78, 1)"] {
   background: rgba(200, 100, 100, 1) !important;
 }
 
 /* Purple text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-enable-hover[style*="color:rgba(157, 104, 211, 1)"] {
   color: yellow !important;
 }
 /* Purple inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
+.notion-enable-hover[style*="color:rgba(157, 104, 211, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Purple inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
+.notion-text-equation-token[style*="color:rgba(157, 104, 211, 1)"] {
   color: pink !important;
 }
 /* Purple background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
+.notion-enable-hover[style*="background:rgba(60, 45, 73, 1)"] {
   background: rgba(200, 100, 100, 1) !important;
 }
 
 /* Pink text : */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
-  color: yellow !important;
+.notion-enable-hover[style*="color:rgba(209, 87, 150, 1)"] {
+  color: green !important;
 }
 /* Pink inline code text */
-.notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+.notion-enable-hover[style*="color:rgba(209, 87, 150, 1);border-radius:3px"] {
+  color: #0f35bf !important;
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Pink inline LaTeX text */
-.notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
-  color: pink !important;
+.notion-text-equation-token[style*="color:rgba(209, 87, 150, 1)"] {
+  color: yellow !important;
 }
 /* Pink background text */
-.notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+.notion-enable-hover[style*="background:rgba(78, 44, 60, 1)"] {
+  background: rgba(000, 200, 100, 1) !important;
 }
 
 /* Red text : */
 .notion-enable-hover[style*="color:rgba(223, 84, 82, 1)"] {
-  color: yellow !important;
+  color: red !important;
 }
 /* Red inline code text */
 .notion-enable-hover[style*="color:rgba(223, 84, 82, 1);border-radius:3px"] {
   color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important; /* TODO: Should add some transparency */
+  background: rgba(200,110,205,0.15) !important;
 }
 /* Red inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(223, 84, 82, 1)"] {
@@ -397,4 +397,72 @@
 
 /* ---- Callout Colors ---- */
 
+/* Normal callout */
+div[style*="background-color: transparent; padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(00, 00, 00) !important;
+}
 
+/* Gray callout */
+div[style*="background: rgb(37, 37, 37); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(50, 50, 100) !important;
+}
+
+/* Brown callout */
+div[style*="background: rgb(47, 39, 35); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(150, 50, 100) !important;
+}
+
+/* Orange callout */
+div[style*="background: rgb(56, 40, 30); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(50, 150, 100) !important;
+}
+
+/* Yellow callout */
+div[style*="background: rgb(57, 46, 30); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(50, 50, 150) !important;
+}
+
+/* Green callout */
+div[style*="background: rgb(34, 43, 38); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(30, 10, 100) !important;
+}
+
+/* Blue callout */
+div[style*="background: rgb(29, 40, 46); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(150, 150, 100) !important;
+}
+
+/* Purple callout */
+div[style*="background: rgb(43, 36, 49); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(150, 50, 50) !important;
+}
+
+/* Pink callout */
+div[style*="background: rgb(48, 34, 40); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(0, 250, 200) !important;
+}
+
+/* Red callout */
+div[style*="background: rgb(54, 36, 34); padding: 16px 16px 16px 12px;"] {
+	padding: 12px !important;
+	border-radius: 6px !important;
+	background: rgb(0, 50, 0) !important;
+}
