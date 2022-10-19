@@ -3,20 +3,15 @@
  * (https://notion-enhancer.github.io/) under the MIT license
  */
 
-/* TODO: All inline code should have my dim background and normal foreground for colors, just like hints in nvim */
-/* TODO: I need to do some hacks to change the colors of text, it's not that easy, see catppucicn notion theme */
-
 :root.dark {
   --mgz--main: #070707;
   --mgz--sec: #141414;
 
-  --mgz--light_gray: #BBBBBB;
   --mgz--gray: #474747;
-  --mgz--orange: #FF9800;
-  --mgz--yellow: #FFB800;
+  --mgz--yellow: #FF9800;
   --mgz--green: #54A746;
   --mgz--blue: #1BABFF;
-  --mgz--purple: #955AE7;
+  --mgz--purple: #a86aff;
   --mgz--red: #f44336;
 
   --mgz--cyan: #2ADEDE;
@@ -26,15 +21,19 @@
   --mgz--functions: #FF6176;
   --mgz--teal: #58F5AB;
 
-  --mgz--brown: #B14A10;
-  --mgz--pink: #E88EFF;
+  --mgz--brown: #bb6132;
+  --mgz--dimbrown: #241812;
+  --mgz--pink: #E57BFF;
+  --mgz--dimpink: #402E44;
+  --mgz--orange: #F85E2D;
+  --mgz--dimorange: #2a160e;
 
   --mgz--brightblack: #bbbbbb;
   --mgz--brightred: #FF6D59;
   --mgz--brightgreen: #5FD24B;
   --mgz--brightyellow: #f4da58;
   --mgz--brightblue: #8edfff;
-  --mgz--brightmagenta: #B66CFF;
+  --mgz--brightpurple: #B66CFF;
   --mgz--brightcyan: #78FFFF;
   --mgz--brightwhite: #ffffff;
 
@@ -43,9 +42,11 @@
   --mgz--dimgreen: #11230e;
   --mgz--dimyellow: #1e1200;
   --mgz--dimblue: #041824;
-  --mgz--dimmagenta: #281641;
+  --mgz--dimpurple: #221534;
   --mgz--dimcyan: #0a3535;
-  --mgz--dimwhite: #333333;
+  --mgz--dimwhite: #333333; 
+
+  --mgz--specialgray: #202020;
 
   --theme--accent_blue: var(--mgz--cyan); /* Link color */
   --theme--accent_blue-selection: rgba(33, 165, 180, 0.3); /* Color of selected text and selected blocks, needs to be transparent */
@@ -68,6 +69,7 @@
   --theme--ui_interactive-hover: var(--mgz--dimwhite); /* Background of Change Cover and Reposition buttons, and also some other small buttons, not very noticable */
   --theme--ui_interactive-active: var(--mgz--storage); /* Same, but on click and hold */
   --theme--ui_toggle-off: var(--mgz--dimwhite); /* Background of on-off toggle when off */
+
   /* TODO: Don't know what these do */
   --theme--ui_corner_action: var(--theme--bg_card);
   --theme--ui_corner_action-hover: var(--theme--ui_interactive-hover);
@@ -79,7 +81,7 @@
   --theme--text: #fff; /* Main text color, for all text except page title */
   --theme--text_secondary: #fff; /* Text in sidebar */
 
-  /* TODO: These colors are used in code blocks */
+  /* TODO: These colors are used in code blocks ??? */
   --theme--text_gray: var(--mgz--gray);
   --theme--text_brown: var(--mgz--brown);
   --theme--text_orange: var(--mgz--orange);
@@ -128,7 +130,7 @@
   --theme--callout_red: var(--theme--tag_red);
   --theme--callout_red-text: var(--theme--tag-text);
 
-  --theme--tag_light_gray: var(--mgz--light_gray);
+  --theme--tag_light_gray: var(--mgz--brightblack);
   --theme--tag_light_gray-text: var(--mgz--main);
   --theme--tag_gray: var(--mgz--gray);
   --theme--tag_gray-text: var(--mgz--main);
@@ -149,7 +151,7 @@
   --theme--tag_red: var(--mgz--red);
   --theme--tag_red-text: #ffffff;
 
-  --theme--board_light_gray: var(--mgz--light_gray);
+  --theme--board_light_gray: var(--mgz--brightblack);
   --theme--board_light_gray-text: var(--mgz--main);
   --theme--board_light_gray-card: var(--theme--tag_light_gray);
   --theme--board_gray: var(--mgz--gray);
@@ -233,236 +235,250 @@
 
 /* Gray text : */
 .notion-enable-hover[style*="color:rgba(155, 155, 155, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--gray) !important;
 }
 /* Gray inline code text */
 .notion-enable-hover[style*="color:rgba(155, 155, 155, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--brightblack) !important;
+  background: var(--mgz--specialgray) !important;
 }
 /* Gray inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(155, 155, 155, 1)"] {
-  color: pink !important;
+  color: var(--mgz--gray) !important;
 }
 /* Gray background text */
 .notion-enable-hover[style*="background:rgba(47, 47, 47, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--specialgray) !important;
 }
 
 /* Brown text : */
 .notion-enable-hover[style*="color:rgba(186, 133, 111, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--brown) !important;
 }
 /* Brown inline code text */
 .notion-enable-hover[style*="color:rgba(186, 133, 111, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--brown) !important;
+  background: var(--mgz--dimbrown) !important;
 }
 /* Brown inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(186, 133, 111, 1)"] {
-  color: pink !important;
+  color: var(--mgz--brown) !important;
 }
 /* Brown background text */
 .notion-enable-hover[style*="background:rgba(74, 50, 40, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--dimbrown) !important;
 }
 
 /* Orange text : */
 .notion-enable-hover[style*="color:rgba(199, 125, 72, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--orange) !important;
 }
 /* Orange inline code text */
 .notion-enable-hover[style*="color:rgba(199, 125, 72, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--orange) !important;
+  background: var(--mgz--dimorange) !important;
 }
 /* Orange inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(199, 125, 72, 1)"] {
-  color: pink !important;
+  color: var(--mgz--orange) !important;
 }
 /* Orange background text */
 .notion-enable-hover[style*="background:rgba(92, 59, 35, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--dimorange) !important;
 }
 
 /* Yellow text : */
 .notion-enable-hover[style*="color:rgba(202, 152, 73, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--yellow) !important;
 }
 /* Yellow inline code text */
 .notion-enable-hover[style*="color:rgba(202, 152, 73, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--yellow) !important;
+  background: var(--mgz--dimyellow) !important;
 }
 /* Yellow inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(202, 152, 73, 1)"] {
-  color: pink !important;
+  color: var(--mgz--yellow) !important;
 }
 /* Yellow background text */
 .notion-enable-hover[style*="background:rgba(86, 67, 40, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--dimyellow) !important;
 }
 
 /* Green text : */
 .notion-enable-hover[style*="color:rgba(82, 158, 114, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--green) !important;
 }
 /* Green inline code text */
 .notion-enable-hover[style*="color:rgba(82, 158, 114, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--green) !important;
+  background: var(--mgz--dimgreen) !important;
 }
 /* Green inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(82, 158, 114, 1)"] {
-  color: pink !important;
+  color: var(--mgz--green) !important;
 }
 /* Green background text */
 .notion-enable-hover[style*="background:rgba(36, 61, 48, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--dimgreen) !important;
 }
 
 /* Blue text : */
 .notion-enable-hover[style*="color:rgba(94, 135, 201, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--blue) !important;
 }
 /* Blue inline code text */
 .notion-enable-hover[style*="color:rgba(94, 135, 201, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--blue) !important;
+  background: var(--mgz--dimblue) !important;
 }
 /* Blue inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(94, 135, 201, 1)"] {
-  color: pink !important;
+  color: var(--mgz--blue) !important;
 }
 /* Blue background text */
 .notion-enable-hover[style*="background:rgba(20, 58, 78, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--dimblue) !important;
 }
 
 /* Purple text : */
 .notion-enable-hover[style*="color:rgba(157, 104, 211, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--purple) !important;
 }
 /* Purple inline code text */
 .notion-enable-hover[style*="color:rgba(157, 104, 211, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--purple) !important;
+  background: var(--mgz--dimpurple) !important;
 }
 /* Purple inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(157, 104, 211, 1)"] {
-  color: pink !important;
+  color: var(--mgz--purple) !important;
 }
 /* Purple background text */
 .notion-enable-hover[style*="background:rgba(60, 45, 73, 1)"] {
-  background: rgba(200, 100, 100, 1) !important;
+  background: var(--mgz--dimpurple) !important;
 }
 
 /* Pink text : */
 .notion-enable-hover[style*="color:rgba(209, 87, 150, 1)"] {
-  color: green !important;
+  color: var(--mgz--pink) !important;
 }
 /* Pink inline code text */
 .notion-enable-hover[style*="color:rgba(209, 87, 150, 1);border-radius:3px"] {
-  color: #0f35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--pink) !important;
+  background: var(--mgz--dimpink) !important;
 }
 /* Pink inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(209, 87, 150, 1)"] {
-  color: yellow !important;
+  color: var(--mgz--pink) !important;
 }
 /* Pink background text */
 .notion-enable-hover[style*="background:rgba(78, 44, 60, 1)"] {
-  background: rgba(000, 200, 100, 1) !important;
+  background: var(--mgz--dimpink) !important;
 }
 
 /* Red text : */
 .notion-enable-hover[style*="color:rgba(223, 84, 82, 1)"] {
-  color: red !important;
+  color: var(--mgz--red) !important;
 }
 /* Red inline code text */
 .notion-enable-hover[style*="color:rgba(223, 84, 82, 1);border-radius:3px"] {
-  color: #bf35bf !important;
-  background: rgba(200,110,205,0.15) !important;
+  color: var(--mgz--red) !important;
+  background: var(--mgz--dimred) !important;
 }
 /* Red inline LaTeX text */
 .notion-text-equation-token[style*="color:rgba(223, 84, 82, 1)"] {
-  color: blue !important;
+  color: var(--mgz--red) !important;
 }
 /* Red background text */
 .notion-enable-hover[style*="background:rgba(82, 46, 42, 1)"] {
-  background: rgba(00, 100, 100, 1) !important;
+  background: var(--mgz--dimred) !important;
 }
 
 /* TODO: Add styling for callouts, same way */
 
 /* ---- Callout Colors ---- */
 
+/* Callouts in general */
+div[style*="padding: 16px 16px 16px 12px;"] {
+	border-radius: 10px !important;
+	padding: 12px !important;
+}
+
 /* Normal callout */
 div[style*="background-color: transparent; padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(00, 00, 00) !important;
+	background: var(--mgz--dimblack) !important;
+	border: none !important;
 }
 
 /* Gray callout */
 div[style*="background: rgb(37, 37, 37); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(50, 50, 100) !important;
+	background: var(--mgz--specialgray) !important;
 }
 
 /* Brown callout */
 div[style*="background: rgb(47, 39, 35); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(150, 50, 100) !important;
+	background: var(--mgz--dimbrown) !important;
 }
 
 /* Orange callout */
 div[style*="background: rgb(56, 40, 30); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(50, 150, 100) !important;
+	background: var(--mgz--dimorange) !important;
 }
 
 /* Yellow callout */
 div[style*="background: rgb(57, 46, 30); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(50, 50, 150) !important;
+	background: var(--mgz--dimyellow) !important;
 }
 
 /* Green callout */
 div[style*="background: rgb(34, 43, 38); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(30, 10, 100) !important;
+	background: var(--mgz--dimgreen) !important;
 }
 
 /* Blue callout */
 div[style*="background: rgb(29, 40, 46); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(150, 150, 100) !important;
+	background: var(--mgz--dimblue) !important;
 }
 
 /* Purple callout */
 div[style*="background: rgb(43, 36, 49); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(150, 50, 50) !important;
+	background: var(--mgz--dimpurple) !important;
 }
 
 /* Pink callout */
 div[style*="background: rgb(48, 34, 40); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(0, 250, 200) !important;
+	background: var(--mgz--dimpink) !important;
 }
 
 /* Red callout */
 div[style*="background: rgb(54, 36, 34); padding: 16px 16px 16px 12px;"] {
-	padding: 12px !important;
-	border-radius: 6px !important;
-	background: rgb(0, 50, 0) !important;
+	background: var(--mgz--dimred) !important;
+
 }
+
+/* Code block */
+div[style*="flex-grow: 1; border-radius: 3px; text-align: left; position: relative;"] {
+	border-radius: 10px !important;
+}
+
+/* GitHub Preview Paste Thing and Bookmark - two birds with one stone */
+.notion-focusable[style*="border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 3px;"]{
+	border-radius: 10px !important;
+}
+
+/* Checked checkbox */
+/* div[style*="justify-content: stretch; flex-shrink: 0; flex-grow: 0; cursor: pointer; background: rgb(35, 131, 226);"]{ */
+/* 	border-radius: 4px !important; */
+/* 	background: #242 !important; */
+/* } */
+
+/* Unchecked checkbox */
+/* svg[style*="display: block;fill: inherit;flex-shrink: 0;backface-visibility: hidden;"]{ */
+/* 	border-radius: 4px !important; */
+/* 	background: #247 !important; */
+/* } */
+
+/* .checkboxSquare { */
+/* 	border-radius: 4px !important; */
+/* } */
