@@ -3,6 +3,10 @@
  * (https://notion-enhancer.github.io/) under the MIT license
  */
 
+/* TODO: The default sans font on Ubuntu has weird arrows (→, ←, ↔),
+ * changing the font will fix that, so find a nicer system font!
+ */
+
 :root.dark {
   --mgz--main: #070707;
   --mgz--sec: #141414;
@@ -460,6 +464,10 @@ div[style*="background: rgb(54, 36, 34); padding: 16px 16px 16px 12px;"] {
 /* Code block */
 div[style*="flex-grow: 1; border-radius: 3px; text-align: left; position: relative;"] {
 	border-radius: 10px !important;
+}
+/* Code block, pt2 */
+div[style*="padding: 34px 16px 32px 32px; min-height: 1em; color: rgba(255, 255, 255, 0.81);"] {
+	padding: 26px !important;
 }
 
 /* GitHub Preview Paste Thing and Bookmark - two birds with one stone */

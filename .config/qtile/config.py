@@ -27,6 +27,10 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod], "left", lazy.layout.shuffle_left(), desc=""),
+    Key([mod], "right", lazy.layout.shuffle_right(), desc=""),
+    Key([mod], "down", lazy.layout.shuffle_down(), desc=""),
+    Key([mod], "up", lazy.layout.shuffle_up(), desc=""),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
@@ -50,6 +54,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating for window"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key(['mod1'], "F4", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -63,7 +68,26 @@ keys = [
 ]
 
 # TODO: Groups can be hidden when empty, see Groups in the docs
-groups = [Group(i) for i in "1234"]
+groups = [
+    Group(
+        name="1", # Shortcut
+        label="1" # Only display name
+    ),
+    Group(
+        name="2",
+        label="2"
+    ),
+    Group(
+        name="3",
+        label=""
+    ),
+    Group(
+        name="4"
+    ),
+    Group(
+        name="5"
+    )
+]
 
 for i in groups:
     keys.extend(
@@ -96,7 +120,7 @@ layouts = [
         border_focus_stack="#037331", # Active column stack border
         border_normal="#000000", # Inactive window border TODO: How to disable?
         border_normal_stack="#220000", # Inactive column stack border
-        border_width=2,
+        border_width=0, # 2 is pretty nice
         grow_amount=2, # Resize amount in pixels
         insert_position=1, # Insert new windows below the current one
         margin=5, # Margin around windows (gap),
@@ -121,7 +145,7 @@ layouts = [
 # Settings for bar widgets
 widget_defaults = dict(
     font="Hack NF", # Default is sans
-    fontsize=10,
+    fontsize=11,
     padding=5, # Only horizontal padding
 )
 
@@ -131,7 +155,7 @@ extension_defaults = widget_defaults.copy()
 # The Bar
 screens = [
     Screen(
-        wallpaper="~/Pictures/venti-views-bS5OwMjMc1I-unsplash.jpg", # No need for nitrogen
+        wallpaper="~/Pictures/Wallpapers/dynamic-wang-jcD0oAsGSi8-unsplash.jpg", # No need for nitrogen
         wallpaper_mode="fill",
         bottom=bar.Bar(
             [
@@ -159,7 +183,10 @@ screens = [
                     padding_y=2,
                     padding_x=10,
                     margin=2,
-                    icon_size=0
+                    icon_size=0,
+                    txt_floating='[F] ',
+                    txt_maximized='[M] ',
+                    txt_minimized='[m] ',
                 ),
                 widget.Chord( # TODO: ?
                     background="#123321",
@@ -170,8 +197,9 @@ screens = [
                 ),
                 Spotify( # https://github.com/BenGH28/qtile-spotify-widget
                     update_interval=1,
-                    format="{icon} {artist} - {track}"
-                    ),
+                    format="{icon} {artist} - {track}",
+                    # foreground="#0C8F8F"
+                ),
                 widget.TextBox("todor picka najveca", foreground="#d75f5f", scroll=True, width=77, scroll_delay=1, scroll_step=1, scroll_interval=0.05),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),

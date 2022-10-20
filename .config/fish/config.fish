@@ -80,6 +80,7 @@ alias rx='rxfetch'
 alias colors='gpick'
 alias n='nsxiv -ab' # -a to play gifs, -b to hide status bar
 alias v='nvim'
+alias sound='pavucontrol-qt'
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify

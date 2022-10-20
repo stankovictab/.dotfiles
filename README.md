@@ -250,7 +250,7 @@ Hold Shift when over a message to have more options.
 `Meta + n` - Reset window sizes\
 `Meta + Enter` - Spawn terminal\
 `Meta + f` - Toggle floating for window\
-`Meta + w`, `Alt + F4` - Kill window\
+`Meta + c`, `Meta + w`, `Alt + F4` - Kill window\
 `Meta + Ctrl + r` - Reload Qtile config\
 `Meta + Shift + r` - Restart Qtile\
 `Meta + Ctrl + q` - Shutdown Qtile\
