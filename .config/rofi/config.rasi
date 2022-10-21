@@ -247,3 +247,4 @@ element-icon {
 element-text {
     text-color: inherit;
 }
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"

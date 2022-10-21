@@ -1,6 +1,9 @@
 -- TODO: Enter and Backspace need a new use in Normal Mode
 -- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 is a setting I had that did something regarding tmux, don't know what
 
+-- TODO: Commenting on an empty line doesn't work anymore?
+-- TODO: Bind incrementing (and decrementing, but idk what the original shortcut is) to something else, as Ctrl + a is select all now 
+
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap
@@ -149,9 +152,6 @@ map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 -- map('n', '<Right>', '', fuj)
 -- map('i', '<Right>', '', fuj)
 -- map('v', '<Right>', '', fuj)
-
--- TODO: Commenting on an empty line doesn't work anymore?
--- TODO: Ctrl + a bind to select all, and bind incrementing (and decrementing, but idk what the original shortcut is) to something else
 
 -- Select all
 map('n', '<c-a>', '<esc>gg0vG$', fuj)
