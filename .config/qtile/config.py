@@ -8,6 +8,7 @@ from libqtile.utils import guess_terminal
 from spotify import Spotify
 
 mod = "mod4" # Meta key
+# "mod1" is the Alt key
 terminal = guess_terminal() # Guesses alacritty by default, works fine
 
 # Keybindings
@@ -65,6 +66,17 @@ keys = [
     Key(["mod1"], "Tab", lazy.group.next_window(), desc="Go through windows"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Flameshot GUI + copy to clipboard"),
     Key(["shift"], "Print", lazy.spawn("flameshot full --clipboard"), desc="Flameshot fullscreen screenshot + copy to clipboard"),
+    Key([mod], "b", lazy.hide_show_bar("bottom")), # Show and hide bar
+    # Keyboard's Media Keys
+    # Change is by 4 because pactl somehow changes it like that
+    # Some require playerctl, and only work with spotify, as I've configured it
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -4%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +4%")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl -p spotify play-pause")),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl -p spotify play-pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl -p spotify next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl -p spotify previous")),
 ]
 
 # TODO: Groups can be hidden when empty, see Groups in the docs
@@ -183,7 +195,7 @@ screens = [
                 widget.TaskList(
                     highlight_method="block",
                     # background="#000000",
-                    border="#076090", # Active tab color
+                    border="#0A3535", # Active tab color
                     max_title_width=200,
                     padding_y=2,
                     padding_x=10,
@@ -224,13 +236,14 @@ screens = [
                     format="DISK: {r:.0f}% ({uf}{m}B free)",
                     visible_on_warn=False, # Display always, not just when warning
                 ),
-                # widget.MemoryGraph(
-                #     type='line',
-                #     line_width=1,
-                # ),
-                widget.Volume(
-                    # TODO: Borked, needs setup
-                    emoji=True,
+                widget.PulseVolume( # Regular Volume() doesn't work with PipeWire
+                        fmt=' {}',
+                        step=1,
+                        update_interval=0.1,
+                        mouse_callbacks={
+                            'Button1': lazy.spawn("pavucontrol-qt"), # Audio device interface
+                            'Button3': lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") # PulseAudioCTL command to mute the default audio device (Right Click)
+                        }
                 ),
                 widget.Clock(format="%a %d-%m-%Y %H:%M"),
             ],
