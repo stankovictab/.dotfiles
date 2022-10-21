@@ -65,6 +65,8 @@ rm -rf ~/.config/micro
 ln -sf ~/.dotfiles/.config/micro ~/.config/micro
 rm -rf ~/.config/mpv
 ln -sf ~/.dotfiles/.config/mpv ~/.config/mpv
+rm -rf ~/.config/rofi
+ln -sf ~/.dotfiles/.config/rofi ~/.config/rofi
 
 mkdir -p ~/.config/Code/User/
 ln -sf ~/.dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json

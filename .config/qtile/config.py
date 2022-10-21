@@ -20,8 +20,11 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    # TODO: This is free
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+
+    # TODO: A keyboard layout changer
+    Key([mod], "space", lazy.spawn("rofi -show run"), desc="Rofi"),
+    Key([mod], "period", lazy.spawn("rofimoji"), desc="Rofi Emoji"),
+
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -68,8 +71,8 @@ keys = [
     Key(["shift"], "Print", lazy.spawn("flameshot full --clipboard"), desc="Flameshot fullscreen screenshot + copy to clipboard"),
     Key([mod], "b", lazy.hide_show_bar("bottom")), # Show and hide bar
     # Keyboard's Media Keys
-    # Change is by 4 because pactl somehow changes it like that
-    # Some require playerctl, and only work with spotify, as I've configured it
+    # Change is by 4 because pactl sees it as 5 somehow
+    # Media controls require playerctl to be installed, configured to only run with spotify
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -4%")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +4%")),
@@ -87,7 +90,7 @@ groups = [
     ),
     Group(
         name="2",
-        label="2"
+        label="ﭮ"
     ),
     Group(
         name="3",
@@ -181,6 +184,7 @@ screens = [
                     active="#ffffff", # Color of a populated group
                     block_highlight_text_color="#2ADEDE", # Color of current group
                     borderwidth=0,
+                    # hide_unused=True
                 ),
                 widget.CurrentLayout(
                     background="#041824",
@@ -224,7 +228,7 @@ screens = [
                 widget.CPU(
                     background="#041824",
                     format="CPU: {load_percent}%",
-                    update_interval=2
+                    update_interval=1
                 ),
                 widget.Memory(
                     background="#0A3535",
@@ -239,7 +243,7 @@ screens = [
                 widget.PulseVolume( # Regular Volume() doesn't work with PipeWire
                         fmt=' {}',
                         step=1,
-                        update_interval=0.1,
+                        update_interval=0.05, # TODO: This is weird, doesn't work as expected. It's ok at 0.005, but it might tank the CPU
                         mouse_callbacks={
                             'Button1': lazy.spawn("pavucontrol-qt"), # Audio device interface
                             'Button3': lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") # PulseAudioCTL command to mute the default audio device (Right Click)
