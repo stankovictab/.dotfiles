@@ -140,6 +140,11 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
     # The Floating layout isn't defined here, see below
+    layout.Floating(
+        border_width=0,
+        border_focus="#000000",
+        border_normal="#000000",
+    )
 ]
 
 # Settings for bar widgets

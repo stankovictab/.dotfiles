@@ -409,11 +409,21 @@ div[style*="padding: 16px 16px 16px 12px;"] {
 	padding: 12px !important;
 }
 
-/* Normal callout */
+/* Normal callout changes it's own inline style after changing the block back to it */
+/* Normal callout - Before */
 div[style*="background-color: transparent; padding: 16px 16px 16px 12px;"] {
 	background: var(--mgz--dimblack) !important;
 	border: none !important;
 }
+/* Normal callout - After */
+div[style*="padding: 16px 16px 16px 12px; border: 1px solid rgba(255, 255, 255, 0.13); color: rgba(255, 255, 255, 0.81);"] {
+	background: var(--mgz--dimblack) !important;
+	border: none !important;
+}
+
+/* style="display: flex; width: 100%; border-radius: 3px; border: 1px solid rgba(255, 255, 255, 0.13); background-color: transparent; padding: 16px 16px 16px 12px; color: rgba(255, 255, 255, 0.81);" */
+
+/* style="display: flex; width: 100%; border-radius: 3px; padding: 16px 16px 16px 12px; border: 1px solid rgba(255, 255, 255, 0.13); color: rgba(255, 255, 255, 0.81);" */
 
 /* Gray callout */
 div[style*="background: rgb(37, 37, 37); padding: 16px 16px 16px 12px;"] {
