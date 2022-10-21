@@ -1,5 +1,5 @@
 -- TODO: Enter and Backspace need a new use in Normal Mode
--- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0 is a setting I had that did something regarding tmux, don't know what
+-- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 is a setting I had that did something regarding tmux, don't know what
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
@@ -57,10 +57,6 @@ map('i', '<c-s>', '<esc>:w<cr>', fuj)
 map('v', '<c-s>', '<esc>:w<cr>', fuj)
 map('c', '<c-s>', '<esc>:w<cr>', fuj)
 
--- Ctrl + f please come back
-map('n', '<c-f>', '/', fuj)
-map('i', '<c-f>', '<esc>/', fuj)
-
 -- Everyone has their own fix for clearing highlights on search, so here's mine - just press space
 -- Mapping enter when completing the search to do this will mess up other commands, like it did with :hi
 -- This in turn now works with /, n, N, *, # and :%s
@@ -82,6 +78,8 @@ map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugi
 -- Better scrolling through the document
 map('n', '<PageUp>', '<c-u>', fuj)
 map('n', '<PageDown>', '<c-d>', fuj)
+map('i', '<c-u>', '<esc><c-u>', fuj)
+map('i', '<c-d>', '<esc><c-d>', fuj)
 
 -- Home and End are too far away
 map('n', '<s-h>', '<Home>', fuj)
@@ -97,8 +95,8 @@ map('n', '<c-t>', ':e ', fuj) -- Ctrl + n to either open an existing, or start e
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
 -- silent just means don't abbreviate the shortcut in the command bar
--- If you want to use things like 3g or 5j, this fucks with that, so see this
--- https://stackoverflow.com/questions/20975928/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
+-- If you want to use things like 4g or 5j, this fucks with that, so see this
+-- https://stackoverflow.com/questions/20975929/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
 -- Also, v:count doesn't need to exist for insert mode
 map('n', '<Down>', 'gj', fuj)
 map('n', '<Up>', 'gk', fuj)
@@ -107,9 +105,9 @@ map('i', '<Up>', '<C-o>gk', fuj)
 map('n', 'j', 'gj', fuj)
 map('n', 'k', 'gk', fuj)
 
--- These need to be below the PageUp/PageDown bindings
-map('n', '<c-d>', 'yyp', fuj)
-map('i', '<c-d>', '<esc>yypi', fuj)
+-- Duplicate line
+map('n', '<a-d>', 'yyp', fuj)
+map('i', '<a-d>', '<esc>yypi', fuj)
 
 -- Ctrl + Backspace and Ctrl + Del in Insert Mode should not be stupid
 -- TODO: This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
@@ -135,11 +133,27 @@ map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to t
 map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', fuj) -- Rename variable
 map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj) -- See code actions
 map('n', '<leader>gr', ':lua vim.lsp.buf.references()<cr>', fuj) -- Go to references
-map('n', '<c-u>', ':lua vim.lsp.buf.format()<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
-map('i', '<c-u>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
+map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
+map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 
 -- For me to stop using the arrow keys
-map('n', '<Up>', '', fuj)
-map('n', '<Down>', '', fuj)
-map('n', '<Left>', '', fuj)
-map('n', '<Right>', '', fuj)
+-- map('n', '<Up>', '', fuj)
+-- map('i', '<Up>', '', fuj)
+-- map('v', '<Up>', '', fuj)
+-- map('n', '<Down>', '', fuj)
+-- map('i', '<Down>', '', fuj)
+-- map('v', '<Down>', '', fuj)
+-- map('n', '<Left>', '', fuj)
+-- map('i', '<Left>', '', fuj)
+-- map('v', '<Left>', '', fuj)
+-- map('n', '<Right>', '', fuj)
+-- map('i', '<Right>', '', fuj)
+-- map('v', '<Right>', '', fuj)
+
+-- TODO: Commenting on an empty line doesn't work anymore?
+-- TODO: Ctrl + a bind to select all, and bind incrementing (and decrementing, but idk what the original shortcut is) to something else
+
+-- Select all
+map('n', '<c-a>', '<esc>gg0vG$', fuj)
+map('i', '<c-a>', '<esc>gg0vG$', fuj)
+map('v', '<c-a>', '<esc>gg0vG$', fuj)

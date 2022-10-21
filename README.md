@@ -55,7 +55,7 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + a + ?` - Show all commands, including your config changes\
 `Ctrl + a + I` - Install plugins with tpm
 
-## NeoVim - Window Navigation in Normal Mode
+## NeoVim
 
 `Tab + ,` - Open config files location\
 `Tab + f`, `Ctrl + p` - Open Telescope file search\
@@ -76,7 +76,7 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + b` - Toggle file explorer (NvimTree)\
 `Ctrl + /` - Toggle comment\
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
-`/`, `Ctrl + f` - Search\
+`/` - Search\
 `Ctrl + r` - Search and replace\
 `Space` - Clear search highlighting\
 `Tab + p + s` - Sync packages\
@@ -84,7 +84,8 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + y` - Redo\
 `Ctrl + t` - Open an existing or start editing a new file\
 `Alt + j/k/Up/Down` - Move lines around\
-`Alt + z` - Zen Mode
+`Alt + z` - Zen Mode\
+`Alt + d` - Duplicate line
 
 ## VSCode
 
