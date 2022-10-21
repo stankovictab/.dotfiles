@@ -95,8 +95,8 @@ map('n', '<c-t>', ':e ', fuj) -- Ctrl + n to either open an existing, or start e
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
 -- silent just means don't abbreviate the shortcut in the command bar
--- If you want to use things like 4g or 5j, this fucks with that, so see this
--- https://stackoverflow.com/questions/20975929/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
+-- If you want to use things like 3k or 5j, this fucks with that, so see this
+-- https://stackoverflow.com/questions/20975928/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
 -- Also, v:count doesn't need to exist for insert mode
 map('n', '<Down>', 'gj', fuj)
 map('n', '<Up>', 'gk', fuj)
