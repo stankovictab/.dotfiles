@@ -78,9 +78,11 @@ alias shortcuts='nvim ~/.dotfiles/README.md'
 alias nf='neofetch'
 alias rx='rxfetch'
 alias colors='gpick'
-alias n='nsxiv -ab' # -a to play gifs, -b to hide status bar
+alias nsx='nsxiv -ab' # -a to play gifs, -b to hide status bar
+alias vim='nvim'
 alias v='nvim'
 alias sound='pavucontrol-qt'
+alias dc='discord --enable-gpu-rasterization --disable-smooth-scrolling'
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
