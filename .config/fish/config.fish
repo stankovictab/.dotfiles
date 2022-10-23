@@ -78,7 +78,8 @@ alias shortcuts='nvim ~/.dotfiles/README.md'
 alias nf='neofetch'
 alias rx='rxfetch'
 alias colors='gpick'
-alias nsx='nsxiv -ab' # -a to play gifs, -b to hide status bar
+set res $(xdpyinfo | awk '/dimensions/{print $2}')
+alias nsx='nsxiv -a -b -g $res' # -a to play gifs, -b to hide status bar, -g to maximize
 alias vim='nvim'
 alias v='nvim'
 alias sound='pavucontrol-qt'
