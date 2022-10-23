@@ -132,11 +132,11 @@ for i in groups:
 layouts = [
     layout.Columns(
         # If border_x elements are a list, there'll be more colors in the border
-        border_focus="#076090", # Active window border
+        border_focus="#333333", # Active window border
         border_focus_stack="#037331", # Active column stack border
-        border_normal="#000000", # Inactive window border TODO: How to disable?
+        border_normal="#333333", # Inactive window border TODO: How to disable?
         border_normal_stack="#220000", # Inactive column stack border
-        border_width=0, # 2 is pretty nice
+        border_width=1, # 2 is pretty nice
         grow_amount=2, # Resize amount in pixels
         insert_position=1, # Insert new windows below the current one
         margin=5, # Margin around windows (gap),
@@ -157,9 +157,9 @@ layouts = [
     # layout.Zoomy(),
     # The Floating layout isn't defined here, see below
     layout.Floating(
-        border_width=0,
-        border_focus="#000000",
-        border_normal="#000000",
+        border_width=1,
+        border_focus="#333333",
+        border_normal="#333333",
     )
 ]
 
@@ -279,7 +279,7 @@ cursor_warp = False
 # The Floating layout is defined here
 floating_layout = layout.Floating(
     border_focus="#333333",
-    border_normal="#000000",
+    border_normal="#333333",
     border_width=1,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
