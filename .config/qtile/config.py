@@ -70,6 +70,8 @@ keys = [
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Flameshot GUI + copy to clipboard"),
     Key(["shift"], "Print", lazy.spawn("flameshot full --clipboard"), desc="Flameshot fullscreen screenshot + copy to clipboard"),
     Key([mod], "b", lazy.hide_show_bar("bottom")), # Show and hide bar
+
+    # TODO: What to do when you don't have pactl (pulseaudio?) (like i dont now?)
     # Keyboard's Media Keys
     # Change is by 4 because pactl sees it as 5 somehow
     # Media controls require playerctl to be installed, configured to only run with spotify
@@ -82,7 +84,6 @@ keys = [
     Key([], "XF86AudioPrev", lazy.spawn("playerctl -p spotify previous")),
 ]
 
-# TODO: Groups can be hidden when empty, see Groups in the docs
 groups = [
     Group(
         name="1", # Shortcut
@@ -175,7 +176,7 @@ extension_defaults = widget_defaults.copy()
 # The Bar
 screens = [
     Screen(
-        wallpaper="~/Pictures/Wallpapers/dynamic-wang-jcD0oAsGSi8-unsplash.jpg", # No need for nitrogen
+        wallpaper="~/Pictures/Wallpapers/ali-bakhtiari-sdpSqDSuzeM-unsplash.jpg", # No need for nitrogen
         wallpaper_mode="fill",
         bottom=bar.Bar(
             [
@@ -241,6 +242,7 @@ screens = [
                     visible_on_warn=False, # Display always, not just when warning
                 ),
                 widget.PulseVolume( # Regular Volume() doesn't work with PipeWire
+                        background="#041824",
                         fmt=' {}',
                         step=1,
                         update_interval=0.05, # TODO: This is weird, doesn't work as expected. It's ok at 0.005, but it might tank the CPU

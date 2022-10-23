@@ -83,6 +83,8 @@ rm -rf ~/.config/alacritty
 ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
 rm -rf ~/.config/qtile
 ln -sf ~/.dotfiles/.config/qtile ~/.config/qtile
+rm -rf ~/.config/picom
+ln -sf ~/.dotfiles/.config/picom ~/.config/picom
 
 sudo rm -rf /usr/bin/rxfetch
 sudo ln -sf ~/.dotfiles/rxfetch /usr/bin/rxfetch
