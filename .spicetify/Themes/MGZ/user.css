@@ -28,25 +28,26 @@ div.GlueDropTarget[data-id*="/collection/episodes"] {
 	display: none;
 }
 
-/* Thinner scrollbar */
+/* Artist and profile images aren't a circle, but still a little rounded (inherited) */
+.main-cardImage-circular {
+	border-radius: 4px;
+}
 
+/* Thinner scrollbar */
 .os-scrollbar-track {
 	display: flex;
 	justify-content: flex-end;
 }
-
 .os-scrollbar-handle {
 	width: 6px !important;
 	background-color: #1f1f1f !important;
 	border-radius: 6px;
 }
-
 .os-scrollbar-handle:hover {
 	background-color: #2e2e2e !important;
 }
 
 /* Power Bar Customization */
-
 #power-bar-container {
 	--power-bar-background-color: #121212;
 	--power-bar-main-text-color: #ffffff;
