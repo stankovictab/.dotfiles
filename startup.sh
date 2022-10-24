@@ -7,7 +7,8 @@ xset r rate 220 35
 
 # Changing mouse speed
 # It goes from -1 to 1
-xinput --set-prop 8 'libinput Accel Speed' -0.6
+# Comment when on KDE
+# xinput --set-prop 8 'libinput Accel Speed' -0.6
 
 xbindkeys
 

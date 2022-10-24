@@ -1,10 +1,30 @@
-/* Removing the 'New Playlist' button */
-button.IPVjkkhh06nan7aZK7Bx {
+/* Main navbar (top-left) into flexbox */
+ul.main-navBar-entryPoints {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px !important;
+}
+ul.main-navBar-entryPoints li a span {
+	display: none;
+}
+nav.Root__nav-bar {
+	width: 290px;
+}
+
+/* Removing the 'Create Playlist' button */
+div.GlueDropTarget[data-id*="/add"] {
 	display: none;
 }
 
+/* Active playlist color  */
+.main-rootlist-rootlistItemLink.main-rootlist-rootlistItemLinkActive {
+	color: #2ADEDE;
+}
+
 /* Removing the 'Your Episodes' button */
-a[href="/collection/episodes"] {
+div.GlueDropTarget[data-id*="/collection/episodes"] {
 	display: none;
 }
 
@@ -18,6 +38,7 @@ a[href="/collection/episodes"] {
 .os-scrollbar-handle {
 	width: 6px !important;
 	background-color: #1f1f1f !important;
+	border-radius: 6px;
 }
 
 .os-scrollbar-handle:hover {

@@ -87,3 +87,5 @@ alias dc='discord --enable-gpu-rasterization --disable-smooth-scrolling'
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
+
+export EDITOR="nvim" # Default editor for sudoedit for example
