@@ -1,0 +1,1 @@
+/home/stankovictab/.dotfiles/scripts/startup.sh

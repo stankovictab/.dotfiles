@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# This is a script that loads up every image from a folder into nsxiv
-# See https://codeberg.org/nsxiv/nsxiv-extra/src/branch/master/scripts/nsxiv-rifle
-# I've configured it to run with -a, -b and -g
+# This is a script that loads up every image from a folder into nsxiv, see https://codeberg.org/nsxiv/nsxiv-extra/src/branch/master/scripts/nsxiv-rifle
+# This is also in turn the way that nsxiv is launched, either from CLI or from a .desktop file (opening an image from Dolphin, for example)
+# I've configured it to run with -a, -b and -g (see below)
 # Also, configured images to load by modified date instead of alphabetically, this is something that the load-dir nsxiv extension doesn't do
 
 TMPDIR="${TMPDIR:-/tmp}"
@@ -31,6 +31,7 @@ open_img() {
         count="$(listfilesbymodifieddate "///${file%/*}" | grep -nF "$file")"
     fi
     if [ -n "$count" ]; then
+		# XXX: This is how nsxiv is launched, if you want to change arguments, do it here
 		res=$(xdpyinfo | awk '/dimensions/{print $2}')
         nsxiv -ab -g $res -i -n "${count%%:*}" "$@" -- < "$tmp"
     else
