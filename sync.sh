@@ -85,9 +85,11 @@ rm -rf ~/.config/qtile
 ln -sf ~/.dotfiles/.config/qtile ~/.config/qtile
 rm -rf ~/.config/picom
 ln -sf ~/.dotfiles/.config/picom ~/.config/picom
+rm -rf ~/.config/nsxiv
+ln -sf ~/.dotfiles/.config/nsxiv ~/.config/nsxiv
 
-sudo rm -rf /usr/bin/rxfetch
-sudo ln -sf ~/.dotfiles/rxfetch /usr/bin/rxfetch
+rm -rf ~/scripts
+ln -sf ~/.dotfiles/scripts ~/scripts
 
 # Fonts
 sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/

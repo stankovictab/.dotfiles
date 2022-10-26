@@ -1,0 +1,40 @@
+#!/bin/sh
+
+while read file
+do 
+	case "$1" in
+		# Here you can specify what key comes after Ctrl + x
+		#
+		# BugsWriter's copying can't work with pngs with spaces in their names, that's why you need cat "$file"
+		# Because xclip is stupid with it's -t flag, I need to check for the file type
+		
+		"c") 
+			notify-send "start"
+			extension=$(echo "$file" | tail -c 4)
+			if [ "$extension" = "jpg" ] 
+			then  
+				# TODO: xclip can't copy jpg files, neither image/jpg nor image/jpeg work
+				cat "$file" | xclip -sel c -t image/jpg
+				notify-send "Copied $file to clipboard."
+			elif [ "$extension" = "png" ]
+			then
+				cat "$file" | xclip -sel c -t image/png
+				notify-send "Copied $file to clipboard."
+			else
+				notify-send "NEITHER"
+			fi ;;
+
+		"r")
+			# This may compress the image
+			# ffmpeg's -vf transpose also compresses it
+			convert -rotate 90 "$file" "$file"
+			notify-send "Image rotated."
+			;;
+		"d")
+			# gio trash moves to trash, better than rm (permanent)?
+			# rm "$file"
+			gio trash "$file"
+			notify-send "Image moved to trash."
+			;;
+	esac
+done

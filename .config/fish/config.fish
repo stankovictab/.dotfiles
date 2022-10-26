@@ -78,8 +78,7 @@ alias shortcuts='nvim ~/.dotfiles/README.md'
 alias nf='neofetch'
 alias rx='rxfetch'
 alias colors='gpick'
-set res $(xdpyinfo | awk '/dimensions/{print $2}')
-alias nsx='nsxiv -ab -g $res' # -a to play gifs, -b to hide status bar, -g to maximize
+alias nsx='nsxiv-rifle'
 alias vim='nvim'
 alias v='nvim'
 alias sound='pavucontrol-qt'
@@ -87,5 +86,6 @@ alias dc='discord --enable-gpu-rasterization --disable-smooth-scrolling'
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
+fish_add_path /home/stankovictab/scripts
 
 export EDITOR="nvim" # Default editor for sudoedit for example
