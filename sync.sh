@@ -5,8 +5,6 @@
 # ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
 # ln -sf ~/.dotfiles/.bashrc ~/.bashrc # Don't need bash
 
-rm ~/scripts/startup.sh 
-ln -sf ~/.dotfiles/scripts/startup.sh ~/scripts/startup.sh
 rm ~/.tmux.conf
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 
