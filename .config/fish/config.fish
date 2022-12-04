@@ -27,7 +27,6 @@ alias ..='cd ..'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias lah='ls -lah --color=auto' # l = All in one column, a = All, including hidden, h = Human readable sizes
-alias bat='batcat'
 
 alias exa='exa --all --icons --group-directories-first'
 alias e='exa'
@@ -46,6 +45,7 @@ alias tks='tmux kill-server'
 alias g='lazygit'
 alias lg='lazygit'
 alias gs='git status'
+alias gf='git fetch'
 alias ga='git add .'
 alias gc='git commit'
 alias gp='git push'
@@ -55,15 +55,15 @@ alias update='sudo apt update && sudo apt upgrade -y'
 alias deb='sudo deb-get'
 alias sizes='sudo du -sh *'
 alias ffmpeg='ffmpeg -hide_banner'
-alias mc='cd ~/Gaming/ && java -jar TLauncher.jar && exit'
+alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
 alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
-alias ch='cd ~/Gaming && ./Clone\ Hero\ Launcher.AppImage'
+alias ch='cd ~/Games && ./Clone\ Hero\ Launcher.AppImage'
 alias obsisdead='pkill obs && sudo modprobe -r v4l2loopback' # Virtual Camera Fix
 alias notion='notion-app-enhanced'
 alias pipes='cd /usr/local/bin && ./pipes.sh'
-alias lpf='sudo chown root:root ~/Documents/Private && pkill nomacs && pkill mpv'
+alias lpf='pkill nsxiv && pkill mpv && sudo chown root:root ~/Documents/Private' # If nomacs isn't installed, it'll silently fail
 alias upf='sudo chown stankovictab:stankovictab ~/Documents/Private'
 alias mvnfull='mvn clean install -DskipTests'
 alias python='python3' # No need for python-is-python3
