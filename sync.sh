@@ -69,6 +69,10 @@ ln -sf ~/.dotfiles/.config/mpv ~/.config/mpv
 rm -rf ~/.config/rofi
 ln -sf ~/.dotfiles/.config/rofi ~/.config/rofi
 
+rm -rf ~/.config/xournalpp/
+mkdir -p ~/.config/xournalpp/
+ln -sf ~/.dotfiles/.config/xournalpp/settings.xml ~/.config/xournalpp/settings.xml
+
 mkdir -p ~/.config/Code/User/
 ln -sf ~/.dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/.dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json

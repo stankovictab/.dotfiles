@@ -82,7 +82,7 @@ alias nsx='nsxiv-rifle'
 alias vim='nvim'
 alias v='nvim'
 alias sound='pavucontrol-qt'
-alias dc='discord --enable-gpu-rasterization --disable-smooth-scrolling'
+alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' # setsid launches it detached from terminal
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
