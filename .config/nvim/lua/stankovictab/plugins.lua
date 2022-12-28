@@ -19,7 +19,7 @@ require('packer').init {
 return require('packer').startup(function(use)
 
 	use 'wbthomason/packer.nvim' -- Packer itself
-	use 'lewis6991/impatient.nvim' -- Faster loading of packages
+	-- use 'lewis6991/impatient.nvim' -- Faster loading of packages
 	use 'stankovictab/mgz.nvim' -- The best theme
 	use 'marko-cerovac/material.nvim' -- Bosnian theme
 	use 'tomasiser/vim-code-dark' -- Default VSCode dark theme inspired
@@ -27,10 +27,11 @@ return require('packer').startup(function(use)
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { "Shatur/neovim-ayu" } -- Darker color theme
 	use { "shaunsingh/nord.nvim" } -- Nord theme, the one mgz is based on
-	use { "kyazdani42/nvim-web-devicons", event = "BufWinEnter" } -- A weird dependency
+	-- Adding event = "BufWinEnter" screws with nvim-tree's nerd icons
+	use { "nvim-tree/nvim-web-devicons" } -- A dependency for a lot of packages
 	use {
 		"goolord/alpha-nvim", -- Dashboard shown at nvim start with no file
-		requires = { "kyazdani42/nvim-web-devicons" },
+		requires = { "nvim-tree/nvim-web-devicons" },
 		config = "require('stankovictab.specifics.alpha')", -- Opens specific config file
 		cmd = {
 			"Alpha",
@@ -76,12 +77,12 @@ return require('packer').startup(function(use)
 	}
 	use {
 		'akinsho/bufferline.nvim', tag = "v2.*", -- Buffer line at the top (tab bar)
-		requires = 'kyazdani42/nvim-web-devicons',
+		requires = 'nvim-tree/nvim-web-devicons',
 		config = "require('stankovictab.specifics.bufferline')"
 	}
 	use {
-		'kyazdani42/nvim-tree.lua', -- File explorer in the left sidebar
-		requires = { 'kyazdani42/nvim-web-devicons' },
+		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
+		requires = { 'nvim-tree/nvim-web-devicons' },
 		config = "require('stankovictab.specifics.nvim-tree')"
 	}
 	use {

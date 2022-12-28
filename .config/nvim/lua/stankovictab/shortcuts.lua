@@ -11,6 +11,7 @@ local fuj = { noremap = true, silent = true } -- Make all actions be silent, to 
 
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
 map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
+-- TODO: live grep lags, waits for another key (1s delay)
 map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
 map('n', '<leader>b', ':Telescope buffers<cr>', fuj) -- Buffer browser
 
@@ -76,7 +77,8 @@ map('n', '<a-Down>', 'ddp', fuj)
 map('n', '<a-k>', 'ddkP', fuj)
 map('n', '<a-j>', 'ddp', fuj)
 
-map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>", fuj) -- Update plugins
+map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>", fuj) -- Update plugins
+-- TODO: Maybe add :TSUpdate in here, as treeshitter often crashes when updating and gives off weird errors
 
 -- Better scrolling through the document
 map('n', '<PageUp>', '<c-u>', fuj)

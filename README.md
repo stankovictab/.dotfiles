@@ -4,8 +4,6 @@ Linux config dotfiles for easier setup.
 
 Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./sync.sh`.
 
-TODO: Sync up the bashrc, zshrc and fish config to the super user folder
-
 # The Shortcuts
 
 `Make sure these are up to date!`

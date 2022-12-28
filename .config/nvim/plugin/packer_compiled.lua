@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/stankovictab/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["impatient.nvim"] = {
-    loaded = true,
-    path = "/home/stankovictab/.local/share/nvim/site/pack/packer/start/impatient.nvim",
-    url = "https://github.com/lewis6991/impatient.nvim"
-  },
   ["indent-blankline.nvim"] = {
     config = { "require('stankovictab.specifics.indent-blankline')" },
     loaded = true,
@@ -211,7 +206,7 @@ _G.packer_plugins = {
     config = { "require('stankovictab.specifics.nvim-tree')" },
     loaded = true,
     path = "/home/stankovictab/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "require('stankovictab.specifics.treesitter')" },
@@ -220,11 +215,9 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/stankovictab/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    loaded = true,
+    path = "/home/stankovictab/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -294,14 +287,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('stankovictab.specifics.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n€\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\2\0\0\17node_modules\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 require('stankovictab.specifics.indent-blankline')
@@ -310,10 +295,6 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for nvim-cursorline]], true)
 require('stankovictab.specifics.nvim-cursorline')
 time([[Config for nvim-cursorline]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require('stankovictab.specifics.lualine')
@@ -326,26 +307,14 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for playground]], true)
 require('stankovictab.specifics.playground')
 time([[Config for playground]], false)
--- Config for: presence.nvim
-time([[Config for presence.nvim]], true)
-require('stankovictab.specifics.presence')
-time([[Config for presence.nvim]], false)
--- Config for: nvim-scrollbar
-time([[Config for nvim-scrollbar]], true)
-require('stankovictab.specifics.nvim-scrollbar')
-time([[Config for nvim-scrollbar]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 require('stankovictab.specifics.nvim-colorizer')
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require('stankovictab.specifics.bufferline')
-time([[Config for bufferline.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('stankovictab.specifics.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-scrollbar
+time([[Config for nvim-scrollbar]], true)
+require('stankovictab.specifics.nvim-scrollbar')
+time([[Config for nvim-scrollbar]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('stankovictab.specifics.nvim-cmp')
@@ -354,19 +323,61 @@ time([[Config for nvim-cmp]], false)
 time([[Config for zen-mode.nvim]], true)
 try_loadstring("\27LJ\2\nL\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\vwindow\1\0\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
 time([[Config for zen-mode.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('stankovictab.specifics.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require('stankovictab.specifics.presence')
+time([[Config for presence.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('stankovictab.specifics.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\n€\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\2\0\0\17node_modules\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require('stankovictab.specifics.bufferline')
+time([[Config for bufferline.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file AlphaRedraw lua require("packer.load")({'alpha-nvim'}, { cmd = "AlphaRedraw", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Alpha lua require("packer.load")({'alpha-nvim'}, { cmd = "Alpha", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.api.nvim_create_user_command, 'Alpha', function(cmdargs)
+          require('packer.load')({'alpha-nvim'}, { cmd = 'Alpha', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'alpha-nvim'}, { cmd = 'Alpha' }, _G.packer_plugins)
+          return vim.fn.getcompletion('Alpha ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'AlphaRedraw', function(cmdargs)
+          require('packer.load')({'alpha-nvim'}, { cmd = 'AlphaRedraw', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'alpha-nvim'}, { cmd = 'AlphaRedraw' }, _G.packer_plugins)
+          return vim.fn.getcompletion('AlphaRedraw ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'StartupTime', function(cmdargs)
+          require('packer.load')({'vim-startuptime'}, { cmd = 'StartupTime', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-startuptime'}, { cmd = 'StartupTime' }, _G.packer_plugins)
+          return vim.fn.getcompletion('StartupTime ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'toggleterm.nvim', 'alpha-nvim', 'nvim-web-devicons'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'alpha-nvim', 'toggleterm.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
