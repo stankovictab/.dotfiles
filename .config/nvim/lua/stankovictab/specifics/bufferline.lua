@@ -1,7 +1,7 @@
 require('bufferline').setup{
 	options = {
 		-- indicator_icon = 'ﳗ', -- Indicator of the currently opened buffer
-		modified_icon = 'ﭾ', -- Indicator of an edit having been made, the default dot is too big
+		modified_icon = '', -- Indicator of an edit having been made, the default dot is too big
 		-- 
 		-- ﭾ
 		-- 

@@ -51,12 +51,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0', -- File Finder
 		requires = { 'nvim-lua/plenary.nvim' },
-		config = function() require("telescope").setup({
-				defaults = {
-					file_ignore_patterns = { "node_modules" } -- Ignore node_modules folder
-				}
-			})
-		end
+		config = "require('stankovictab.specifics.telescope')"
 	}
 	use {
 		"norcalli/nvim-colorizer.lua", -- Colours on hexadecimal values, like #1155aa
@@ -71,6 +66,9 @@ return require('packer').startup(function(use)
 	-- 		})
 	-- 	end
 	-- }
+
+
+
 	use {
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		config = function() require("nvim-autopairs").setup({}) end

@@ -9,6 +9,9 @@ vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 local map = vim.api.nvim_set_keymap
 local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
+map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>', fuj) -- Reload config
+
+-- Telescope is configured in a seperate file. find_files and live_grep search hidden files
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
 map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
 -- TODO: live grep lags, waits for another key (1s delay)
