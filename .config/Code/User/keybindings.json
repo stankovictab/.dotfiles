@@ -1,5 +1,15 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+	// Toggle between terminal and editor focus
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.terminal.focus"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when": "terminalFocus"
+	},
 	{
 		"key": "ctrl+=",
 		"command": "editor.action.fontZoomIn"

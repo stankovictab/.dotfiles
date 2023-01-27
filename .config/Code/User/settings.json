@@ -122,4 +122,5 @@
 	"oracledevtools.download.otherFolder": "/home/stankovictab/downloads",
 	"oracledevtools.connectionConfiguration.configFilesFolder": "/home/stankovictab/Oracle/network/admin",
 	"oracledevtools.connectionConfiguration.walletFileFolder": "/home/stankovictab/Oracle/network/admin",
+	"notebook.output.textLineLimit": 50,
 }

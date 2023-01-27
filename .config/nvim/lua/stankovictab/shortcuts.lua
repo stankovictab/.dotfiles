@@ -2,13 +2,15 @@
 -- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 is a setting I had that did something regarding tmux, don't know what
 
 -- TODO: Commenting on an empty line doesn't work anymore?
--- TODO: Bind incrementing (and decrementing, but idk what the original shortcut is) to something else, as Ctrl + a is select all now 
+-- TODO: Bind incrementing (and decrementing, but idk what the original shortcut is) to something else, as Ctrl + a is select all now
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap
 local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
+-- TODO: This lags aswell
+-- TODO: :source % is the old way, and that just reloads the file (buffer) you're currently in, so it won't work in the wild. In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, then the rest of the files, and that makes no sense. :luafile also doesn't work. nvim-reload also doesn't seem to work.
 map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>', fuj) -- Reload config
 
 -- Telescope is configured in a seperate file. find_files and live_grep search hidden files
@@ -83,6 +85,8 @@ map('n', '<a-j>', 'ddp', fuj)
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>", fuj) -- Update plugins
 -- TODO: Maybe add :TSUpdate in here, as treeshitter often crashes when updating and gives off weird errors
 
+map('n', '<leader>m', ":MarkdownPreview<cr>", fuj) -- Markdown Preview
+
 -- Better scrolling through the document
 map('n', '<PageUp>', '<c-u>', fuj)
 map('n', '<PageDown>', '<c-d>', fuj)
@@ -141,7 +145,7 @@ map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to t
 map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', fuj) -- Rename variable
 map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj) -- See code actions
 map('n', '<leader>gr', ':lua vim.lsp.buf.references()<cr>', fuj) -- Go to references
-map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
+map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
 map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 
 -- For me to stop using the arrow keys

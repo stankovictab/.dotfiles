@@ -1,1 +1,10 @@
-{}
+{
+    "Hide Channels": true,
+    "BetterAnimations": false,
+    "BetterRoleColors": true,
+    "TypingUsersAvatars": false,
+    "TypingIndicator": false,
+    "ReadAllNotificationsButton": true,
+    "BDFDB": true,
+    "ZeresPluginLibrary": true
+}

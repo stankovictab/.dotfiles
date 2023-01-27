@@ -77,7 +77,8 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `/` - Search\
 `Ctrl + r` - Search and replace\
 `Space` - Clear search highlighting\
-`Tab + p + s` - Sync packages\
+`Tab + p + s` - Sync packages and TreeSitter parsers\
+`Tab + m` - Markdown preview\
 `Ctrl + z` - Undo\
 `Ctrl + y` - Redo\
 `Ctrl + t` - Open an existing or start editing a new file\
