@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<style-scheme id="commodorev2" name="Commodore V2    承太郎    Monospace Bold 14" version="1.0">
+	<author>Djordje Stankovic</author>
+	<_description>The Vice City Rockstar Bootup Intro Theme {Monospace Bold 14 || Ubuntu Mono Bold 17}</_description>
+	<style bold="true" background="#3936a9" foreground="#acacff" name="text"/> <!--  Background = CEELA pozadina!  -->
+	<style background="#ffae00" foreground="#800000" name="search-match"/> <!--  CTRL-F  -->
+	<style background="#3f3cae" name="current-line"/> <!--  Color of the highlighted line  -->
+	<style background="#9393ff" foreground="#3936a9" name="line-numbers"/> <!--  Brojevi levo - 3936a9 i 9393ff permutacije za v1 i v2  -->
+	
+	<style bold="true" foreground="#ffffff" name="def:function"/> <!--  ?  -->
+	<style foreground="#20B2AA" name="def:specials"/> <!--  ?  -->
+	<style foreground="#20B2AA" name="def:constant"/> <!--  NULL, PI u C-u  -->
+	<style bold="true" foreground="#20B5AA" name="def:number"/> <!--  Svi brojevi u C-u  -->
+	
+	<style bold="true" foreground="#33d2fb" name="def:statement"/> <!--  CEO ASEMBLER, for, while, if, return -->
+	<style bold="true" foreground="#2ccad7" name="def:preprocessor"/> <!--  .section, #include  -->
+	<style bold="true" foreground="#f463ff" name="def:string"/> <!-- 9b73ff SVE POD NAVODNICIMA ba6fff -->
+	
+	<style bold="true" background="#2020b0" foreground="#ff73ff" name="bracket-match"/> <!--  Self explanatory  -->
+	<style bold="true" background="#ff0000" foreground="#ffffff" name="bracket-mismatch"/>
+	
+	<style bold="true" background="#3936a9" foreground="#ee6b4e" italic="true" name="def:comment"/> <!--  Background = isto kao za tekst, foreground = boja komentara  -->
+	<style bold="true" background="#3936a9" foreground="#00bccb" italic="true" name="def:shebang"/> <!--  ?  -->
+	<style bold="true" foreground="#33d2fb" name="def:type"/> <!--  Sve sto je ovde background, foreground, registar  -->
+	<style bold="true" background="#ff0000" foreground="#ffffff" name="def:error"/> <!--  Boja greske , proveri kad razdvojis prvi komentar  -->
+	<style bold="true" foreground="#f030a0" name="def:identifier"/> <!--  <style> je ove boje  -->
+	
+	<style background="#9393ff" foreground="#3936a9" name="selection"/>
+	
+	<style foreground="#20B5AA" name="def:special-char"/> <!-- %d u printf-u -->
+	<style foreground="#00cbff" bold="true" name="cursor"/> <!-- Insert i obican kursor u editoru -->
+</style-scheme>
