@@ -54,8 +54,9 @@ alias gl='git log'
 
 alias update='sudo nala update && sudo nala upgrade -y' # Maybe change over to deb update since that pulls apt update?
 alias deb='sudo deb-get'
-alias sizes='sudo du -sh *'
+alias sizes='du -shc -- * | sort -h' # Shows sizes of folders, sorted ascendingly, may require sudo, if you want descending, do sort -rh (r is for reverse), remove c from -shc to remove total
 alias ffmpeg='ffmpeg -hide_banner'
+alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
