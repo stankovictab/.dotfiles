@@ -54,7 +54,9 @@ alias gl='git log'
 
 alias update='sudo nala update && sudo nala upgrade -y' # Maybe change over to deb update since that pulls apt update?
 alias deb='sudo deb-get'
-alias sizes='du -shc -- * | sort -h' # Shows sizes of folders, sorted ascendingly, may require sudo, if you want descending, do sort -rh (r is for reverse), remove c from -shc to remove total
+alias oldsizes='du -shc -- * | sort -h' # Shows sizes of folders, sorted ascendingly, may require sudo, if you want descending, do sort -rh (r is for reverse), remove c from -shc to remove total
+alias sizes='dua'
+alias sizesinteractive='dua i'
 alias ffmpeg='ffmpeg -hide_banner'
 alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
@@ -88,6 +90,7 @@ alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' 
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify
-fish_add_path /home/stankovictab/scripts
+fish_add_path /home/stankovictab/scripts/
+fish_add_path /home/stankovictab/.cargo/bin/
 
 export EDITOR="nvim" # Default editor for sudoedit for example
