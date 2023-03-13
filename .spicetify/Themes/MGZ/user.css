@@ -58,3 +58,11 @@ div.GlueDropTarget[data-id*="/collection/episodes"] {
 	--power-bar-active-text-color: #ffffff;
 	--power-bar-border-color: #000000;
 }
+
+/* Cover Ambiance Weird Gradients in Text Fix */
+.eSMjmiD29Ox35O95waw6:before {
+	display: none;
+}
+.eSMjmiD29Ox35O95waw6:after {
+	display: none;
+}
