@@ -2,7 +2,7 @@
 	"editor.minimap.enabled": false,
 	"editor.wordWrap": "on",
 	"editor.cursorBlinking": "smooth",
-	"editor.cursorSmoothCaretAnimation": true,
+	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorWidth": 3,
 	"editor.detectIndentation": false,
 	"editor.formatOnSave": true,
