@@ -85,7 +85,7 @@ cmp.setup{
       -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(), -- Ctrl + Space to show all suggestions
       -- ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	  ['<Tab>'] = cmp.mapping.select_next_item(), -- Tab to go down in the list
 	  ['<S-Tab>'] = cmp.mapping.select_prev_item() -- Shift + Tab to go up in the list
     }),
