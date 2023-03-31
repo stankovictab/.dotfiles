@@ -50,16 +50,14 @@ ln -sf ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 # Shell for sudo
 sudo rm -rf /root/.config/fish/
 sudo mkdir -p /root/.config/fish/
-sudo cp -r /home/$USER/.dotfiles/.config/fish/ /root/.config/
+sudo cp -r /home/$USER/.dotfiles/.config/fish/ /root/.config/ # $USER is still stankovictab
 
 rm -rf ~/.config/lazygit
 ln -sf ~/.dotfiles/.config/lazygit ~/.config/lazygit
 rm -rf ~/.config/nvim
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
-
 rm -rf ~/.config/ranger
 ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
-
 mkdir -p ~/.config/spicetify/
 ln -sf ~/.dotfiles/.config/spicetify/config-xpui.ini ~/.config/spicetify/config-xpui.ini
 rm -rf ~/.config/micro
@@ -76,6 +74,7 @@ ln -sf ~/.dotfiles/.config/xournalpp/settings.xml ~/.config/xournalpp/settings.x
 mkdir -p ~/.config/Code/User/
 ln -sf ~/.dotfiles/.config/Code/User/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/.dotfiles/.config/Code/User/keybindings.json ~/.config/Code/User/keybindings.json
+
 rm -rf ~/.config/nomacs
 ln -sf ~/.dotfiles/.config/nomacs ~/.config/nomacs
 rm -rf ~/.config/flameshot
@@ -92,6 +91,8 @@ rm -rf ~/.config/picom
 ln -sf ~/.dotfiles/.config/picom ~/.config/picom
 rm -rf ~/.config/nsxiv
 ln -sf ~/.dotfiles/.config/nsxiv ~/.config/nsxiv
+rm -rf ~/.config/qimgv
+ln -sf ~/.dotfiles/.config/qimgv ~/.config/qimgv
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
