@@ -1,11 +1,12 @@
 # This script will sync up all dotfiles' symlinks
+# Linux distro agnostic
 
 # Files
 
 # ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
 # ln -sf ~/.dotfiles/.bashrc ~/.bashrc # Don't need bash
 
-rm ~/.tmux.conf
+rm -rf ~/.tmux.conf
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 
 # Folders
