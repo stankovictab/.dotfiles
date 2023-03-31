@@ -117,7 +117,7 @@
 	},
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 	"svelte.plugin.svelte.note-new-transformation": false,
-	"workbench.colorTheme": "MGZ Dark Theme",
+	"workbench.colorTheme": "MGZ Gray Theme",
 	"oracledevtools.bookmarkFileFolder": "/home/stankovictab/Oracle/oracle.oracledevtools",
 	"oracledevtools.download.otherFolder": "/home/stankovictab/downloads",
 	"oracledevtools.connectionConfiguration.configFilesFolder": "/home/stankovictab/Oracle/network/admin",

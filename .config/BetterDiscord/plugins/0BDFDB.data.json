@@ -141,7 +141,8 @@
 		}},
 		"MediaEngineUtils": {"props": ["setOutputDevice", "setInputDevice"]},
 		"MemberDisplayUtils": {"strings": ["getUserProfile", "getGuildMemberProfile", "_userProfile"], "exported": false, "value": "exports", "map": {
-			"getDisplayProfile": [");return null"]
+			"getDisplayProfile": ["getUserProfile"],
+			"getUserProfile": ["function(){return"]
 		}},
 		"MentionUtils": {"strings": ["rawMessage", "mention_everyone", "mentionUsers"], "exported": false, "value": "exports", "map": {
 			"isRawMessageMentioned": ["rawMessage", "mention_everyone", "mentionUsers"]
@@ -253,12 +254,14 @@
 		"Anchor": {"strings": ["anchorUnderlineOnHover", "noreferrer noopener"]},
 		"Animations": {"props": ["Controller", "Spring"]},
 		"AppReferencePositionLayer": {"strings": [".LayerProvider,", ".LayerContainer,", ".layerContext,"], "funcStrings": [",{children:(", "({ref:"]},
+		"AvatarConstants": {"strings": ["\"SIZE_20\"", "\"SIZE_32\""], "exported": false, "value": "exports", "map": {
+			"Sizes": ["\"SIZE_20\"", "\"SIZE_32\""]
+		}},
 		"Avatars": {"strings": ["\"statusColor\"", "ONLINE", "isMobile"], "exported": false, "value": "exports", "map": {
 			"AnimatedAvatar": ["compare"],
-			"Avatar": ["statusColor"],
-			"Sizes": ["SIZE_32"]
+			"Avatar": ["statusColor"]
 		}},
-		"Badges": {"strings": ["baseShapeRound", "textBadge"], "exported": false, "value": "exports", "map": {
+		"Badges": {"strings": ["disableColor", "baseShapeRound", "textBadge"], "exported": false, "value": "exports", "map": {
 			"BadgeShapes": ["baseShapeRoundRight", "baseShapeRoundLeft"],
 			"IconBadge": [".iconBadge"],
 			"NumberBadge": [".numberBadge"],
@@ -328,15 +331,14 @@
 			"LinkButton": [".apply(this"]
 		}},
 		"RoleMention": {"strings": ["rolePopout", "inlinePreview"], "funcStrings": ["inlinePreview"]},
-		"Scrollers": {"strings": ["().thin", "().none", "().auto", "().fade"], "exported": false, "value": "exports"},
+		"Scrollers": {"strings": ["().thin", "().none", "().auto", "().fade)}"], "exported": false, "value": "exports"},
 		"SpinnerComponents": {"strings": ["WANDERING_CUBES", "wanderingCubes", ".spinningCircleInner"], "exported": false, "value": "exports", "map": {
 			"Spinner": [".spinningCircleInner"],
 			"Types": ["WANDERING_CUBES", "wanderingCubes"]
 		}},
-		"StatusComponents": {"strings": ["{mask", ".mask,", "UNKNOWN"], "exported": false, "value": "exports", "map": {
-			"AnimatedStatus": ["useSpring"],
-			"Status": [".mask,"],
-			"Types": ["UNKNOWN", "INVISIBLE"]
+		"StatusComponents": {"strings": ["().status}", ".isMobile", ".ONLINE"], "exported": false, "value": "exports", "map": {
+			"Status": ["().status}", ".isMobile", ".ONLINE"],
+			"Types": ["\"online\"", "\"unknown\""]
 		}},
 		"Text": {"strings": ["lineClamp:", ".selectable", ".defaultColor"]},
 		"TextElement": {"strings": [".strong,", ".STANDARD"]},
@@ -1387,6 +1389,7 @@
 		"ApplicationStore": {"props": ["applicationStore", "navigation"]},
 		"AppOuter": {"props": ["app", "mobileApp"]},
 		"Attachment": {"props": ["wrapper", "video", "metadataDownload"]},
+		"AttachmentCover": {"props": ["cover", "icon", "iconWrapper"]},
 		"AuditLog": {"props": ["auditLog", "divider"]},
 		"AuthBox": {"props": ["authBox"]},
 		"Autocomplete": {"props": ["autocomplete", "autocompleteRow"]},
@@ -1471,7 +1474,7 @@
 		"GuildSettingsEmoji": {"props": ["emojiRow", "emojiAliasPlaceholder"]},
 		"GuildSettingsInvite": {"props": ["countdownColumn", "inviteSettingsInviteRow"]},
 		"GuildSettingsMember": {"props": ["member", "membersFilterPopout"]},
-		"GuildsListItem": {"props": ["listItemWrapper", "listItemTooltip"]},
+		"GuildsListItem": {"props": ["listItemWrapper", "listItemTooltip"], "length": 6, "smaller": true},
 		"GuildsItems": {"props": ["circleIcon", "guildsError"]},
 		"GuildsWrapper": {"props": ["scroller", "unreadMentionsBar", "wrapper"]},
 		"HeaderBar": {"props": ["container", "children", "toolbar"]},
@@ -1621,7 +1624,7 @@
 		"UserSettingsSocialLinks": {"props": ["socialLinks", "link"]},
 		"UserSummaryItem": {"props": ["avatarContainerMasked", "container"]},
 		"UserTheme": {"props": ["userPopoutOuter", "userProfileOuter"]},
-		"Video": {"props": ["video", "fullScreen"]},
+		"Video": {"props": ["video", "fullScreen", "chatSidebarOpen"]},
 		"VoiceChannel": {"props": ["avatarSpeaking", "voiceUser"]},
 		"VoiceChannelLimit": {"props": ["total", "users", "wrapper"]},
 		"VoiceChannelList": {"props": ["list", "collapsed"]},
@@ -1882,7 +1885,11 @@
 		"applayers": ["AppInner", "layers"],
 		"applicationstore": ["ApplicationStore", "applicationStore"],
 		"attachment": ["Attachment", "wrapper"],
+		"attachmentcontrolshidden": ["Attachment", "wrapperControlsHidden"],
+		"attachmentcover": ["AttachmentCover", "cover"],
+		"attachmentcovericon": ["AttachmentCover", "icon"],
 		"attachmentvideo": ["Attachment", "video"],
+		"attachmentvideocontrols": ["Attachment", "videoControls"],
 		"auditlog": ["AuditLog", "auditLog"],
 		"auditlogoverflowellipsis": ["AuditLog", "overflowEllipsis"],
 		"auditlogtimestamp": ["AuditLog", "timestamp"],
