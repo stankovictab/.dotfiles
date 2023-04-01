@@ -1,6 +1,6 @@
 -- NeoVim Config File --
 
--- If this is your first time running NeoVim, run :PackerClean and :PackerSync
+-- If this is your first time running NeoVim, do Tab + p + s
 
 -- TODO: Uncomment impatient when you figure out how to load this first in a clean NeoVim environment without bugs
 -- TODO: Not requiring impatient screws with nvim-tree's nerd icons not loading. Makes me think what else it screws with.
