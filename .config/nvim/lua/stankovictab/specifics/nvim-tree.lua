@@ -2,11 +2,19 @@
 -- To see a specific setting, see :help nvim-tree.SETTING
 -- ...and there are a lot of settings
 
+-- The open_on_setup configuration is now depricated, now you need to use this ugly ass function
+-- You can configure it to open only on folders, not on files, on empty buffers, etc, see more here
+-- https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
+local function open_nvim_tree()
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
 require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 	disable_netrw = true, -- Disables the builtin NeoVim explorer, default false
-	open_on_setup = true, -- Automatically open nvim-tree on directory open (default is false)
-	open_on_setup_file = false, -- Automatically open nvim-tree on file open (default is false)
-	hijack_cursor = true, -- Resets the cursor to the first letter of file names
+	hijack_cursor = true, -- Locks the cursor to the first letter of file names
 	renderer = {
 		icons = {
 			glyphs = {
@@ -37,7 +45,7 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 	},
 	actions = {
 		open_file = {
-			quit_on_open = true, -- quit_on_open = false,
+			quit_on_open = true, -- Whether to close nvim-tree when opening a file from it
 		},
 	},
 }

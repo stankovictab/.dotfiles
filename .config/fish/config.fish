@@ -52,7 +52,6 @@ alias gp='git push'
 alias gd='git diff'
 alias gl='git log'
 
-alias btop='sudo btop'
 alias update='sudo nala update && sudo nala upgrade -y' # Maybe change over to deb update since that pulls apt update?
 alias deb='sudo deb-get'
 alias oldsizes='du -shc -- * | sort -h' # Shows sizes of folders, sorted ascendingly, may require sudo, if you want descending, do sort -rh (r is for reverse), remove c from -shc to remove total
