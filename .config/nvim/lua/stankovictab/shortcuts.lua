@@ -1,7 +1,4 @@
--- TODO: Enter and Backspace need a new use in Normal Mode
--- TODO: let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 is a setting I had that did something regarding tmux, don't know what
-
--- TODO: Commenting on an empty line doesn't work anymore?
+-- TODO: Enter and Backspace need a new use in Normal Mode. But maybe keep Enter as it allows for spamming ok in the popup message (the Press Enter to Continue)
 -- TODO: Bind incrementing (and decrementing, but idk what the original shortcut is) to something else, as Ctrl + a is select all now
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
@@ -83,7 +80,6 @@ map('n', '<a-k>', 'ddkP', fuj)
 map('n', '<a-j>', 'ddp', fuj)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>", fuj) -- Update plugins
--- TODO: Maybe add :TSUpdate in here, as treeshitter often crashes when updating and gives off weird errors
 
 map('n', '<leader>m', ":MarkdownPreview<cr>", fuj) -- Markdown Preview
 
@@ -102,7 +98,7 @@ map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
 map('n', '<c-y>', ':redo<cr>', fuj) -- Ctrl + y is redo
 map('i', '<c-y>', '<esc>:redo<cr>', fuj) -- Ctrl + y is redo
 
--- TODO: This has lag
+-- TODO: This has lag, it appears as soon as you start typing
 map('n', '<c-t>', ':e ', fuj) -- Ctrl + n to either open an existing, or start editing a new file
 
 -- This allows moving accross wrapped lines without skipping, like in vscode
@@ -149,18 +145,23 @@ map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜
 map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 
 -- For me to stop using the arrow keys
--- map('n', '<Up>', '', fuj)
--- map('i', '<Up>', '', fuj)
--- map('v', '<Up>', '', fuj)
--- map('n', '<Down>', '', fuj)
--- map('i', '<Down>', '', fuj)
--- map('v', '<Down>', '', fuj)
--- map('n', '<Left>', '', fuj)
--- map('i', '<Left>', '', fuj)
--- map('v', '<Left>', '', fuj)
--- map('n', '<Right>', '', fuj)
--- map('i', '<Right>', '', fuj)
--- map('v', '<Right>', '', fuj)
+-- The biggest problem here is moving around in insert mode
+map('n', '<Up>', '', fuj)
+map('i', '<Up>', '', fuj)
+map('v', '<Up>', '', fuj)
+map('n', '<Down>', '', fuj)
+map('i', '<Down>', '', fuj)
+map('v', '<Down>', '', fuj)
+map('n', '<Left>', '', fuj)
+map('i', '<Left>', '', fuj)
+map('v', '<Left>', '', fuj)
+map('n', '<Right>', '', fuj)
+map('i', '<Right>', '', fuj)
+map('v', '<Right>', '', fuj)
+
+-- Incrementing and decrementing (as Ctrl + a no longer increments), + and - moved across lines before
+map('n', '+', '<esc><c-a>', fuj)
+map('n', '-', '<esc><c-x>', fuj)
 
 -- Select all
 map('n', '<c-a>', '<esc>gg0vG$', fuj)
