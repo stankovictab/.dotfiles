@@ -218,9 +218,10 @@
   /*   color: var(--mgz--teal) !important; */
   /* } */
 
-  .notion-enable-hover {
-	  color: red !important;
-  }
+  /* Don't know what this was for, but it breaks text colors now */
+  /* .notion-enable-hover { */
+	  /* color: red !important; */
+  /* } */
   
 }
 
