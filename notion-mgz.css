@@ -3,7 +3,7 @@
  * (https://notion-enhancer.github.io/) under the MIT license
  */
 
-/* TODO: The default sans font on Ubuntu has weird arrows (→, ←, ↔),
+/* TODO: The default sans font on KDE has weird arrows (→, ←, ↔),
  * changing the font will fix that, so find a nicer system font!
  */
 
@@ -216,11 +216,6 @@
   /* .notion-dark-theme *[style*="color:rgba(115, 115, 115, 1)"], */
   /* .notion-dark-theme *[style*="color: rgb(115, 115, 115)"] { */
   /*   color: var(--mgz--teal) !important; */
-  /* } */
-
-  /* Don't know what this was for, but it breaks text colors now */
-  /* .notion-enable-hover { */
-	  /* color: red !important; */
   /* } */
   
 }
