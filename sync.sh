@@ -105,4 +105,6 @@ sudo cp -r ~/.dotfiles/fonts/FiraCode\ NF/ /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/RobotoMono\ NF/ /usr/share/fonts/
 sudo cp ~/.dotfiles/fonts/impact.ttf /usr/share/fonts/
 sudo cp ~/.dotfiles/fonts/alpha\ kufi\ regular.ttf /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/Montserrat /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/Poppins /usr/share/fonts/
 echo "🎉 Sync finished! 🎉"
