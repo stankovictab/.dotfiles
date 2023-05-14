@@ -27,4 +27,5 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- As there is no xml parser yet, we can use the html parser instead
-require('nvim-treesitter.parsers').filetype_to_parsername.xml = "html"
+-- TODO - This doesn't work anymore it seems, filetype_to_parsername is depricated
+-- require('nvim-treesitter.parsers').filetype_to_parsername.xml = "html"

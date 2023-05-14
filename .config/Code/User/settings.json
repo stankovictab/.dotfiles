@@ -70,8 +70,6 @@
 	"editor.inlineSuggest.enabled": true,
 	"files.autoSaveDelay": 100,
 	"editor.mouseWheelScrollSensitivity": 2,
-	"editor.smoothScrolling": true,
-	"workbench.list.smoothScrolling": true,
 	"terminal.integrated.fontFamily": "Hack NF",
 	"debug.console.fontFamily": "Hack NF",
 	"editor.fontFamily": "Hack NF, monospace",
@@ -123,4 +121,7 @@
 	"oracledevtools.connectionConfiguration.configFilesFolder": "/home/stankovictab/Oracle/network/admin",
 	"oracledevtools.connectionConfiguration.walletFileFolder": "/home/stankovictab/Oracle/network/admin",
 	"notebook.output.textLineLimit": 50,
+	"window.zoomLevel": -1,
+	"editor.smoothScrolling": true,
+	"workbench.list.smoothScrolling": true,
 }

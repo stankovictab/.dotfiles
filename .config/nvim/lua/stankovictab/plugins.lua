@@ -66,9 +66,6 @@ return require('packer').startup(function(use)
 	-- 		})
 	-- 	end
 	-- }
-
-
-
 	use {
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		config = function() require("nvim-autopairs").setup({}) end

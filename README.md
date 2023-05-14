@@ -23,7 +23,8 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## TMUX
 
-TODO: Is there a way to not let go of the prefix while doing the key chord? The `bind -n C-a-C-g` doesn't seem to work.
+`Ctrl + a + I` - Install plugins with tpm (make sure you git cloned tpm)
+`Ctrl + a + r` - Refresh config
 
 `Ctrl + t`, `Ctrl + a + t` - New window\
 `Ctrl + a + v` - Split vertically\
@@ -51,7 +52,6 @@ TODO: Is there a way to not let go of the prefix while doing the key chord? The 
 `Ctrl + a + z` - Fullscreen pane (zoom)\
 `Ctrl + a + c` - Big ass clock\
 `Ctrl + a + ?` - Show all commands, including your config changes\
-`Ctrl + a + I` - Install plugins with tpm
 
 ## NeoVim
 
