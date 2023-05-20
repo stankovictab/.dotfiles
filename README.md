@@ -45,7 +45,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + a + :` - Enter command mode\
 `Ctrl + a + a` - Window overview\
 (there is no pane overview, so you'll have to expand the panes in the tree)\
-`Ctrl + a + . + Number` - Move window to position {Number}
+`Ctrl + a + . + Number` - Move window to position {Number}\
 `Ctrl + a + s` - Rename session\
 `Ctrl + a + x` - Rename window\
 
@@ -76,15 +76,39 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
 `/` - Search\
 `Ctrl + r` - Search and replace\
+`u`, `Shift + u` - Undo and redo\
 `Space` - Clear search highlighting\
 `Tab + p + s` - Sync packages and TreeSitter parsers\
 `Tab + m` - Markdown preview\
-`Ctrl + z` - Undo\
-`Ctrl + y` - Redo\
 `Ctrl + t` - Open an existing or start editing a new file\
 `Alt + j/k/Up/Down` - Move lines around\
 `Alt + z` - Zen Mode\
 `Alt + d` - Duplicate line
+
+`Tab` - Copilot - Accept suggestion\
+`Ctrl + h` - Copilot - Previous suggestion\
+`Ctrl + l` - Copilot - Next suggestion
+
+`:cd` - Change working directory for NeoVim and NvimTree
+
+### NvimTree - File Browser in the Sidebar
+
+`g?` - Show shortcuts\
+`a` - New file or folder. If you want to make a folder, add a / at the end\
+`r` - Rename selected item (you can also rename it to ../{name} to move it up)\
+`R` - Refresh files\
+`d` - Delete selected item\
+`x` - Cut item\
+`c` - Copy item\
+`p` - Paste item (you can move items around with `x` and `p`)\
+`y` - Copy selected item name\
+`W` - Collapse all\
+`s` - Open selected file, like an image, in system app\
+`f` - Find, or filter, files\
+`F` - Close the find window\
+`Ctrl + k` - Show info about selected file\
+`Ctrl + x` - Open selected file in a horizontal split\
+`Ctrl + v` - Open selected file in a vertical split
 
 ## VSCode
 

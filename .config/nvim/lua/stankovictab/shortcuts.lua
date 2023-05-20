@@ -1,5 +1,6 @@
 -- TODO: Enter and Backspace need a new use in Normal Mode. But maybe keep Enter as it allows for spamming ok in the popup message (the Press Enter to Continue)
 -- TODO: Bind incrementing (and decrementing, but idk what the original shortcut is) to something else, as Ctrl + a is select all now
+-- TODO: As ctrl + z and ctrl + y aren't undo and redo anymore, you can bind them to something else, but optionally leave out ctrl + z for suspending the process
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
@@ -93,10 +94,8 @@ map('i', '<c-d>', '<esc><c-d>', fuj)
 map('n', '<s-h>', '<Home>', fuj)
 map('n', '<s-l>', '<End>', fuj)
 
-map('n', '<c-z>', ':undo<cr>', fuj) -- Ctrl + z is undo
-map('i', '<c-z>', '<esc>:undo<cr>', fuj) -- Ctrl + z is undo
-map('n', '<c-y>', ':redo<cr>', fuj) -- Ctrl + y is redo
-map('i', '<c-y>', '<esc>:redo<cr>', fuj) -- Ctrl + y is redo
+-- u is undo, U is redo
+map('n', '<s-u>', ':redo<cr>', fuj)
 
 -- TODO: This has lag, it appears as soon as you start typing
 map('n', '<c-t>', ':e ', fuj) -- Ctrl + n to either open an existing, or start editing a new file
@@ -167,3 +166,9 @@ map('n', '-', '<esc><c-x>', fuj)
 map('n', '<c-a>', '<esc>gg0vG$', fuj)
 map('i', '<c-a>', '<esc>gg0vG$', fuj)
 map('v', '<c-a>', '<esc>gg0vG$', fuj)
+
+-- Copilot
+map("i", "<C-.>", 'copilot#Accept("<CR>")', { silent = true, expr = true }) -- This fixes Copilot's startup error because of the Tab leader key map
+-- However, Tab still accepts for some reason
+map("i", "<C-h>", 'copilot#Previous()', { silent = true, expr = true }) -- Cycle through suggestions
+map("i", "<C-l>", 'copilot#Next()', { silent = true, expr = true }) -- Cycle through suggestions

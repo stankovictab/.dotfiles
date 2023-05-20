@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 	disable_netrw = true, -- Disables the builtin NeoVim explorer, default false
 	hijack_cursor = true, -- Locks the cursor to the first letter of file names
+	sync_root_with_cwd = true, -- To be able to change the working directory of NeoVim with :cd, default false
 	renderer = {
 		icons = {
 			glyphs = {

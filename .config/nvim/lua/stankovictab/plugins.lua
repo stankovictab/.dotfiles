@@ -170,4 +170,10 @@ return require('packer').startup(function(use)
 		end,
 		ft = { "markdown" },
 	}
+	-- This Copilot config needs to be here, can't load it anywhere else
+	-- By default, Copilot is disabled for yaml, markdown, help and gitcommit filetypes 
+	vim.g.copilot_filetypes = { markdown = true, yaml = true }
+	use { 
+		"github/copilot.vim"
+	}
 end)
