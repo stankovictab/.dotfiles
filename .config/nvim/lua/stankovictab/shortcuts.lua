@@ -3,6 +3,7 @@
 -- TODO: Map ctrl + y to something
 -- TODO: Ctrl + t is used by tmux, so you shouldn't really bind it (or rebind it in tmux)
 -- TODO: Think about using Ctrl + h,l to rebind w and b, but it's already used to move between windows in neovim
+-- TODO: Ctrl + a to select all doesn't really work with tmux if that is the leader key
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
