@@ -23,8 +23,13 @@ require('lualine').setup {
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
     lualine_x = {"require'lsp-status'.status()"}, -- Was 'encoding' and 'fileformat'
+	
+	-- TODO: Fix this if the copilot-status dude replied to the issue I opened
     lualine_y = {'filetype'}, -- Removed 'progress'
-    lualine_z = {'location'}
+    -- lualine_y = {'filetype', require('copilot_status').status_string}, -- Removed 'progress'
+    -- lualine_y = {require('copilot_status').status_string}, -- Removed 'progress'
+    
+	lualine_z = {'location'}
   },
   inactive_sections = { -- Styling of the inactive version, for when you're in the ignored filetype (NvimTree), or when splitting the window, the lualine of the inactive pane
     lualine_a = {},

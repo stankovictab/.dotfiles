@@ -99,12 +99,13 @@ rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
 
 # Fonts
-sudo cp -r ~/.dotfiles/fonts/Hack\ NF/ /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ NF/ /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/FiraCode\ NF/ /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/RobotoMono\ NF/ /usr/share/fonts/
-sudo cp ~/.dotfiles/fonts/impact.ttf /usr/share/fonts/
-sudo cp ~/.dotfiles/fonts/alpha\ kufi\ regular.ttf /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/Montserrat /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/Poppins /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/Hack\ Nerd\ Font\ Mono/                 /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ Nerd\ Font\ Mono/        /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/JetBrainsMonoNL\ Nerd\ Font\ Mono/      /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/FiraCode\ Nerd\ Font\ Mono/             /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/RobotoMono\ Nerd\ Font\ Mono/           /usr/share/fonts/
+sudo cp ~/.dotfiles/fonts/impact.ttf                              /usr/share/fonts/
+sudo cp ~/.dotfiles/fonts/alpha\ kufi\ regular.ttf                /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/Montserrat                           /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/Poppins                              /usr/share/fonts/
 echo "🎉 Sync finished! 🎉"

@@ -23,6 +23,8 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## TMUX
 
+`t`, `ta`, `td`, `tls`, `tks` - Fish shell aliases
+
 `Ctrl + a + I` - Install plugins with tpm (make sure you git cloned tpm)
 `Ctrl + a + r` - Refresh config
 
@@ -73,6 +75,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 `Ctrl + b` - Toggle file explorer (NvimTree)\
 `Ctrl + /` - Toggle comment\
+`Ctrl + f` - Format document\
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
 `/` - Search\
 `Ctrl + r` - Search and replace\

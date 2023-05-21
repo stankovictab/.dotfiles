@@ -43,10 +43,6 @@ return require('packer').startup(function(use)
 		'andweeb/presence.nvim', -- The best Discord rich presence plugin
 		config = "require('stankovictab.specifics.presence')"
 	}
-	use {
-		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
-		config = "require('stankovictab.specifics.lualine')"
-	}
 	use "nvim-lua/plenary.nvim" -- A weird dependency
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0', -- File Finder
@@ -170,10 +166,73 @@ return require('packer').startup(function(use)
 		end,
 		ft = { "markdown" },
 	}
-	-- This Copilot config needs to be here, can't load it anywhere else
-	-- By default, Copilot is disabled for yaml, markdown, help and gitcommit filetypes 
-	vim.g.copilot_filetypes = { markdown = true, yaml = true }
-	use { 
-		"github/copilot.vim"
+	
+	-- Using this Copilot plugin instead of "github/copilot.vim" as this is supposedly better?
+	use {
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enabled = true,
+					auto_trigger = true, -- Changed
+					debounce = 75,
+					keymap = {
+					  accept = "<Tab>", -- Changed
+					  accept_word = false,
+					  accept_line = false,
+					  next = "<C-h>", -- Changed
+					  prev = "<C-l>", -- Changed
+					  dismiss = "<C-]>",
+					},
+				  },
+				filetypes = {
+					yaml = true, -- Changed
+					markdown = true, -- Changed
+					help = false,
+					gitcommit = false,
+					gitrebase = false,
+					hgcommit = false,
+					svn = false,
+					cvs = false,
+					["."] = false,
+				  },
+			})
+		end
+	}
+	-- This bunch of shit makes it so that Tab completes the suggestion
+	vim.keymap.set("i", '<Tab>', function()
+	  if require("copilot.suggestion").is_visible() then
+		require("copilot.suggestion").accept()
+	  else
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+	  end
+	end, {
+	  silent = true,
+	})
+	
+	use {
+		"jonahgoldwastaken/copilot-status.nvim",
+		-- after = { "zbirenbaum/copilot.lua" },
+		event = "BufReadPost",
+		-- config = function()
+		-- 	require('copilot_status').setup({
+		-- 		icons = {
+		-- 			idle = " ",
+		-- 			error = " ",
+		-- 			offline = " ",
+		-- 			warning = "𥉉 ",
+		-- 			loading = " ",
+		-- 		},
+		-- 		debug = false,
+		-- 	})
+		-- end
+	}
+	-- This needs to be after copilot-status, as it requires it to function
+	use {
+		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
+		-- after = {"jonahgoldwastaken/copilot-status.nvim"},
+		config = "require('stankovictab.specifics.lualine')"
 	}
 end)

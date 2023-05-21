@@ -36,7 +36,6 @@ alias l='exa -l'
 alias la='exa -l'
 
 alias t='tmux'
-alias ts='tmux ls'
 alias tls='tmux ls'
 alias ta='tmux attach'
 alias td='tmux detach'

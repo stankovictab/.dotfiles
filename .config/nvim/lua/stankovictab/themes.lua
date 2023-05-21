@@ -26,3 +26,6 @@ vim.cmd('colorscheme mgz') -- For the settings to apply, this needs to be at the
 
 -- Forcefully remove the background color
 -- vim.cmd('hi Normal guibg=NONE')
+
+-- TODO: Transfer this to the theme
+vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg="#444444" })

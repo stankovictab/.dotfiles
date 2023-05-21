@@ -1,15 +1,55 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = "all",
+  -- ensure_installed = "all",
+  ensure_installed = {
+	"bash",
+	"c",
+	"cmake",
+	"comment",
+	"cpp",
+	"css",
+	"dockerfile",
+	"fish",
+	"git_config",
+	"git_rebase",
+	"gitcommit",
+	"gitignore",
+	"go",
+	"gomod",
+	"html",
+	"java",
+	"javascript",
+	"jq",
+	"jsdoc",
+	"json",
+	"jsonc",
+	"kotlin",
+	"latex",
+	"lua",
+	"markdown",
+	"markdown_inline",
+	"matlab", 
+	"python",
+	"r",
+	"regex",
+	"rust",
+	"scala",
+	"scss",
+	"sql",
+	"svelte",
+	"terraform",
+	"toml",
+	"typescript",
+	"vim",
+	"yaml",
+	"zig"
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = { "" },
-
   highlight = {
-    -- `false` will disable the whole extension
+    -- `false` will disable the whole reason for treeshitter
     enable = true,
 
     -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
