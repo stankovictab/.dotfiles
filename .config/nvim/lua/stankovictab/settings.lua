@@ -22,7 +22,7 @@ vim.opt.updatetime = 250 -- The default update time is 4000ms (for things like v
 vim.opt.linebreak = true -- Word wrap / line break on word, not on character
 vim.opt.termguicolors = true -- TODO: Necessary for colorschemes in gui nvim, but I don't know how to make the if for tty colors
 -- This allows the arrow keys to go to the previous and next line when going left at the stand and right at the end of the line
--- vim.opt.whichwrap:append "<>[]" -- This is for left and right arrow keys
+vim.opt.whichwrap:append "<>[]" -- This is for left and right arrow keys
 vim.opt.whichwrap:append "h,l" -- This is for h and l
 -- vim.opt.ls = 0 -- Removes the status line, default is 2 (always have it) - just make sure you're not using lualine or something like that
 -- vim.opt.ch = 0 -- Hides the command line until you start writing one

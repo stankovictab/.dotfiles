@@ -57,7 +57,7 @@ function fish_prompt
         set -l git_branch_name (_git_branch_name)
         set -l git_ahead_count (_git_ahead_count $git_branch_name)
         set -l salmon (set_color -o $fish_color_end)
-        set git_info "$salmon שׂ $git_branch_name"
+        set git_info "$salmon 󰘬 $git_branch_name"
 
         if [ (_is_git_dirty) ]
             set -l yellow (set_color -o yellow)
