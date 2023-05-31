@@ -73,7 +73,6 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Shift + j/k`, `Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
 `Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
 
-`Ctrl + b` - Toggle file explorer (NvimTree)\
 `Ctrl + /` - Toggle comment\
 `Ctrl + f` - Format document\
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
@@ -96,7 +95,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ### NvimTree - File Browser in the Sidebar
 
-`g?` - Show shortcuts\
+`Ctrl + b` - Toggle file browser\
 `a` - New file or folder. If you want to make a folder, add a / at the end\
 `r` - Rename selected item (you can also rename it to ../{name} to move it up)\
 `R` - Refresh files\
@@ -107,11 +106,14 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `y` - Copy selected item name\
 `W` - Collapse all\
 `s` - Open selected file, like an image, in system app\
-`f` - Find, or filter, files\
+`f` - Find, or filter, files (Telescope is better than this though)\
 `F` - Close the find window\
+`-` - Go up\
+`Ctrl + ]` - `cd` into selected folder, but only in NvimTree (doesn't affect Vim's :cd)\
 `Ctrl + k` - Show info about selected file\
 `Ctrl + x` - Open selected file in a horizontal split\
 `Ctrl + v` - Open selected file in a vertical split
+`g?` - Show shortcuts\
 
 ## VSCode
 

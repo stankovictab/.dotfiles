@@ -41,6 +41,7 @@ require'nvim-treesitter.configs'.setup {
 	"toml",
 	"typescript",
 	"vim",
+	-- XML is not a thing yet
 	"yaml",
 	"zig"
   },
@@ -65,7 +66,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = true, -- Default is false
   },
 }
-
--- As there is no xml parser yet, we can use the html parser instead
--- TODO - This doesn't work anymore it seems, filetype_to_parsername is depricated
--- require('nvim-treesitter.parsers').filetype_to_parsername.xml = "html"

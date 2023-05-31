@@ -1,43 +1,37 @@
--- TODO: Enter and Backspace need a new use in Normal Mode. But maybe keep Enter as it allows for spamming ok in the popup message (the Press Enter to Continue)
--- TODO: Bind incrementing (and decrementing, but idk what the original shortcut is) to something else, as Ctrl + a is select all now
--- TODO: Map ctrl + y to something
--- TODO: Ctrl + t is used by tmux, so you shouldn't really bind it (or rebind it in tmux)
--- TODO: Think about using Ctrl + h,l to rebind w and b, but it's already used to move between windows in neovim
--- TODO: Ctrl + a to select all doesn't really work with tmux if that is the leader key
-
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap
 local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
--- TODO: This lags aswell
--- TODO: :source % is the old way, and that just reloads the file (buffer) you're currently in, so it won't work in the wild. In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, then the rest of the files, and that makes no sense. :luafile also doesn't work. nvim-reload also doesn't seem to work.
+-- TODO: :source % is the old way, and that just reloads the config (sources) from the file (buffer) you're currently in, so it won't work in the wild.
+-- In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, and then also the rest of the files, and that makes no sense.
+-- :luafile also doesn't work. nvim-reload also doesn't seem to work.
+-- This shortcut will basically reload the current config file you're in, so, if you're in lualine's config and you make a change, you can reload instantly
 map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>', fuj) -- Reload config
 
 -- Telescope is configured in a seperate file. find_files and live_grep search hidden files
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
-map('n', '<leader>f', ':Telescope find_files<cr>', fuj) -- File browser
--- TODO: live grep lags, waits for another key (1s delay)
-map('n', '<leader>g', ':Telescope live_grep<cr>', fuj) -- Search inside of files
-map('n', '<leader>b', ':Telescope buffers<cr>', fuj) -- Buffer browser
+map('n', '<leader>f', ':Telescope find_files<cr>', fuj)                                                   -- File browser
+map('n', '<leader>g', ':Telescope live_grep<cr>', fuj)                                                    -- Search inside of files
+map('n', '<leader>b', ':Telescope buffers<cr>', fuj)                                                      -- Buffer browser
 
--- ToggleTerm's shortcut is specific and it's set in its config
+-- ToggleTerm's shortcut (Ctrl + n) is specific and it's set in its config (~/.config/nvim/lua/stankovictab/specifics/toggleterm.lua)
 
-map('n', '<c-Left>', 'b', fuj) -- So that Ctrl + Left isn't dumb
-map('n', '<c-Right>', 'e', fuj) -- So that Ctrl + Right isn't dumb
+map('n', '<c-Left>', 'b', fuj)                             -- So that Ctrl + Left isn't dumb
+map('n', '<c-Right>', 'e', fuj)                            -- So that Ctrl + Right isn't dumb
 
-map('n', '<s-k>', ':bnext<cr>', fuj) -- Go to next buffer
-map('n', '<s-j>', ':bprevious<cr>', fuj) -- Go to previous buffer
-map('n', '<c-PageDown>', ':bnext<cr>', fuj) -- Go to next buffer
-map('n', '<c-PageUp>', ':bprevious<cr>', fuj) -- Go to previous buffer
-map('n', '<leader><right>', ':bnext<cr>', fuj) -- Go to next buffer (TTY)
-map('n', '<leader><left>', ':bprevious<cr>', fuj) -- Go to previous buffer (TTY)
+map('n', '<s-k>', ':bnext<cr>', fuj)                       -- Go to next buffer
+map('n', '<s-j>', ':bprevious<cr>', fuj)                   -- Go to previous buffer
+map('n', '<c-PageDown>', ':bnext<cr>', fuj)                -- Go to next buffer
+map('n', '<c-PageUp>', ':bprevious<cr>', fuj)              -- Go to previous buffer
+map('n', '<leader><right>', ':bnext<cr>', fuj)             -- Go to next buffer (TTY)
+map('n', '<leader><left>', ':bprevious<cr>', fuj)          -- Go to previous buffer (TTY)
 
 map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', fuj) -- Move buffer to the right
-map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', fuj) -- Move buffer to the left
+map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', fuj)   -- Move buffer to the left
 
-map('n', '<c-w>', ':bdelete<cr>', fuj) -- Close buffer
-map('n', '<c-q>', ':wq<cr>', fuj) -- Quit
+map('n', '<c-w>', ':bdelete<cr>', fuj)                     -- Close buffer
+map('n', '<c-q>', ':wq<cr>', fuj)                          -- Quit
 
 -- Better nvim navigation through windows
 map('n', '<c-h>', ':wincmd h<cr>', fuj)
@@ -47,12 +41,12 @@ map('n', '<c-l>', ':wincmd l<cr>', fuj)
 -- No reason for a "move windows around" shortcut, when you can just move between buffers with BufferLine easily
 
 -- Splits
-map('n', '<leader>sh', ':split<cr>', fuj) -- Split horizontally
-map('n', '<leader>sv', ':vsplit<cr>', fuj) -- Split vertically
+map('n', '<leader>sh', ':split<cr>', fuj)          -- Split horizontally
+map('n', '<leader>sv', ':vsplit<cr>', fuj)         -- Split vertically
 
-map('n', '<a-z>', ':ZenMode<cr>', fuj) -- Zen mode, like in vscode
+map('n', '<a-z>', ':ZenMode<cr>', fuj)             -- Zen mode, like in vscode
 
-map('n', '<c-b>', ':NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Normal
+map('n', '<c-b>', ':NvimTreeToggle<cr>', fuj)      -- Toggle file explorer in Normal
 map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Insert
 
 -- Toggle comments with vim-commentary (c-_ is Ctrl + /)
@@ -85,7 +79,7 @@ map('n', '<a-j>', 'ddp', fuj)
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>", fuj) -- Update plugins
 
-map('n', '<leader>m', ":MarkdownPreview<cr>", fuj) -- Markdown Preview
+map('n', '<leader>m', ":MarkdownPreview<cr>", fuj)                            -- Markdown Preview
 
 -- Better scrolling through the document
 map('n', '<PageUp>', '<c-u>', fuj)
@@ -116,30 +110,25 @@ map('n', 'k', 'gk', fuj)
 map('n', '<a-d>', 'yyp', fuj)
 map('i', '<a-d>', '<esc>yypi', fuj)
 
--- Ctrl + Backspace and Ctrl + Del in Insert Mode should not be stupid
+-- Ctrl + Backspace in Insert Mode should not be stupid
 -- TODO: This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
 -- :(
 
 map('i', '<c-BS>', '<esc>cb', fuj) -- Doesn't work
 map('i', '<c-Del>', '<esc>lcw', fuj)
-map('n', '<c-BS>', 'cb', fuj) -- Doesn't work
+map('n', '<c-BS>', 'cb', fuj)      -- Doesn't work
 map('n', '<c-Del>', 'cw', fuj)
 
--- TODO: Doesn't work
--- map('n', '<S-Up>', '<s-v>k', fuj) -- Shift + Up = Visual line mode up
--- map('n', '<S-Down>', '<s-v>j', fuj) -- Shift + Down = Visual line mode down
-
--- LSP shortcuts
--- TODO: What are all these things?
-map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<cr>', fuj) -- Go to definition
-map('n', '<leader>gD', ':lua vim.lsp.buf.declaration()<cr>', fuj) -- Go to declaration (what's the difference?)
-map('n', '<c-;>', ':lua vim.lsp.buf.hover()<cr>', fuj) -- Hover functionality
-map('n', '<leader>gi', ':lua vim.lsp.buf.implementation()<cr>', fuj) -- Go to implementation
-map('n', '<leader>sg', ':lua vim.lsp.buf.signature_help()<cr>', fuj) -- See signature help, or, info for function parameters
-map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
-map('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', fuj) -- Rename variable
-map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj) -- See code actions
-map('n', '<leader>gr', ':lua vim.lsp.buf.references()<cr>', fuj) -- Go to references
+-- LSP shortcuts - TODO: What are all these things?
+map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<cr>', fuj)                           -- Go to definition
+map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<cr>', fuj)                          -- Go to declaration (what's the difference?)
+map('n', '<c-;>', ':lua vim.lsp.buf.hover()<cr>', fuj)                                     -- Hover functionality
+map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<cr>', fuj)                       -- Go to implementation
+map('n', '<leader>sg', ':lua vim.lsp.buf.signature_help()<cr>', fuj)                       -- See signature help, or, info for function parameters
+map('n', '<leader>td', ':lua vim.lsp.buf.type_definition()<cr>', fuj)                      -- Go to type definition
+map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>', fuj)                               -- Rename variable
+map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<cr>', fuj)                          -- See code actions
+map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', fuj)                           -- Go to references
 map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>', fuj) -- Formatting through the LSP, if the LSP client supports it
 map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>', fuj)
 

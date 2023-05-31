@@ -15,22 +15,20 @@ require('packer').init {
 }
 
 -- Plugin list
--- Make sure that you seperate a package per use, I've had problems putting multiple packages in a single use, and with a single config, that doesn't work
+-- Make sure that you seperate a package per 'use', I've had problems putting multiple packages in a single 'use', and with a single config, that doesn't work
 return require('packer').startup(function(use)
-
-	use 'wbthomason/packer.nvim' -- Packer itself
-	-- use 'lewis6991/impatient.nvim' -- Faster loading of packages
-	use 'stankovictab/mgz.nvim' -- The best theme
+	use 'wbthomason/packer.nvim'   -- Packer itself
+	use 'stankovictab/mgz.nvim'    -- The best theme
 	use 'marko-cerovac/material.nvim' -- Bosnian theme
-	use 'tomasiser/vim-code-dark' -- Default VSCode dark theme inspired
+	use 'tomasiser/vim-code-dark'  -- Default VSCode dark theme inspired
 	-- use 'rafi/awesome-vim-colorschemes' -- Collection of colorschemes, including iceberg, nord, onedark, etc
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use { "Shatur/neovim-ayu" } -- Darker color theme
-	use { "shaunsingh/nord.nvim" } -- Nord theme, the one mgz is based on
+	use { "Shatur/neovim-ayu" }                       -- Darker color theme
+	use { "shaunsingh/nord.nvim" }                    -- Nord theme, the one mgz is based on
 	-- Adding event = "BufWinEnter" screws with nvim-tree's nerd icons
-	use { "nvim-tree/nvim-web-devicons" } -- A dependency for a lot of packages
+	use { "nvim-tree/nvim-web-devicons" }             -- A dependency for a lot of packages, literally just Nerd Font icons
 	use {
-		"goolord/alpha-nvim", -- Dashboard shown at nvim start with no file
+		"goolord/alpha-nvim",                         -- Dashboard shown at nvim start with no file
 		requires = { "nvim-tree/nvim-web-devicons" },
 		config = "require('stankovictab.specifics.alpha')", -- Opens specific config file
 		cmd = {
@@ -43,7 +41,7 @@ return require('packer').startup(function(use)
 		'andweeb/presence.nvim', -- The best Discord rich presence plugin
 		config = "require('stankovictab.specifics.presence')"
 	}
-	use "nvim-lua/plenary.nvim" -- A weird dependency
+	use "nvim-lua/plenary.nvim"                   -- A weird dependency
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0', -- File Finder
 		requires = { 'nvim-lua/plenary.nvim' },
@@ -86,7 +84,8 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter', -- Treeshitter for better syntax highlighting
 		config = "require('stankovictab.specifics.treesitter')",
-		run = function() require('nvim-treesitter.install').update({
+		run = function()
+			require('nvim-treesitter.install').update({
 				with_sync = true
 			})
 		end
@@ -109,11 +108,11 @@ return require('packer').startup(function(use)
 	}
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" } -- Run nvim --startuptime, or :StartupTime
 	use {
-		'rafamadriz/friendly-snippets', -- Snippet collection
+		'rafamadriz/friendly-snippets',                  -- Snippet collection
 	}
-	use { "L3MON4D3/LuaSnip" } -- LuaSnip snippet engine
+	use { "L3MON4D3/LuaSnip" }                           -- LuaSnip snippet engine
 	use {
-		'hrsh7th/nvim-cmp', -- Completion engine
+		'hrsh7th/nvim-cmp',                              -- Completion engine
 		config = "require('stankovictab.specifics.nvim-cmp')"
 	}
 	use {
@@ -140,7 +139,7 @@ return require('packer').startup(function(use)
 	-- },
 	use "williamboman/mason-lspconfig.nvim" -- Bridge between Mason and lspconfig
 	use {
-		"neovim/nvim-lspconfig", -- LSP configuration, this is an integral part
+		"neovim/nvim-lspconfig",         -- LSP configuration, this is an integral part
 		config = "require('stankovictab.specifics.lsp-hell')"
 	}
 	use {
@@ -153,12 +152,13 @@ return require('packer').startup(function(use)
 			}
 		end
 	}
+
 	-- Markdown Preview, use with :MarkdownPreview (Tab + m)
 	-- Config needs to be set before the setup, a seperate file isn't needed and doesn't work that great
-	vim.g.mkdp_port = '8885' -- Set port for dark reader to turn off
-	vim.g.mkdp_auto_close = 0 -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
+	vim.g.mkdp_port = '8885'                                   -- Set port for dark reader to turn off
+	vim.g.mkdp_auto_close = 0                                  -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
 	-- Be careful of this, as you'll get an error if you open another preview at the same port. Maybe figure out a way to get around this with mkdp_auto_close and :MarkdownPreviewToggle
-	vim.g.mkdp_markdown_css = '~/Desktop/mkdp_mgz.css' -- CSS file to style the preview
+	vim.g.mkdp_markdown_css = '~/Desktop/mkdp_mgz.css'         -- CSS file to style the preview
 	vim.g.mkdp_highlight_css = '~/Desktop/mkdp_mgz_highlight.css' -- CSS file to style the preview
 	use { "iamcco/markdown-preview.nvim", run = "cd app && npm install",
 		setup = function()
@@ -166,7 +166,7 @@ return require('packer').startup(function(use)
 		end,
 		ft = { "markdown" },
 	}
-	
+
 	-- Using this Copilot plugin instead of "github/copilot.vim" as this is supposedly better?
 	use {
 		"zbirenbaum/copilot.lua",
@@ -179,14 +179,14 @@ return require('packer').startup(function(use)
 					auto_trigger = true, -- Changed
 					debounce = 75,
 					keymap = {
-					  accept = "<Tab>", -- Changed
-					  accept_word = false,
-					  accept_line = false,
-					  next = "<C-h>", -- Changed
-					  prev = "<C-l>", -- Changed
-					  dismiss = "<C-]>",
+						accept = "<Tab>", -- Changed
+						accept_word = false,
+						accept_line = false,
+						next = "<C-h>", -- Changed
+						prev = "<C-l>", -- Changed
+						dismiss = "<C-]>",
 					},
-				  },
+				},
 				filetypes = {
 					yaml = true, -- Changed
 					markdown = true, -- Changed
@@ -197,21 +197,20 @@ return require('packer').startup(function(use)
 					svn = false,
 					cvs = false,
 					["."] = false,
-				  },
+				},
 			})
 		end
 	}
 	-- This bunch of shit makes it so that Tab completes the suggestion
 	vim.keymap.set("i", '<Tab>', function()
-	  if require("copilot.suggestion").is_visible() then
-		require("copilot.suggestion").accept()
-	  else
-		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-	  end
+		if require("copilot.suggestion").is_visible() then
+			require("copilot.suggestion").accept()
+		else
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+		end
 	end, {
-	  silent = true,
+		silent = true,
 	})
-	
 	use {
 		"jonahgoldwastaken/copilot-status.nvim",
 		-- after = { "zbirenbaum/copilot.lua" },
@@ -234,5 +233,18 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
 		-- after = {"jonahgoldwastaken/copilot-status.nvim"},
 		config = "require('stankovictab.specifics.lualine')"
+	}
+	-- use { 'nvim-lua/lsp-status.nvim' } -- Needs a lot of config, it shows a weird V and a checkmark if an LSP server is loaded, but doesn't show the name of it
+	-- use { 'arkav/lualine-lsp-progress' } -- Prints the progress of the LSP server into lualine, but doesn't constantly show the LSP server name, it goes away quickly
+	-- use { 'dokwork/lualine-ex' } -- This one looks the best but gives me an error, maaybe because of Copilot.
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup {
+
+			}
+		end
 	}
 end)
