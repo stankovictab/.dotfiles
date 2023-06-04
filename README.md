@@ -57,22 +57,24 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## NeoVim
 
+`Ctrl + c` - A faster `Esc`\
 `Tab + ,` - Open config files location\
-`Tab + f`, `Ctrl + p` - Open Telescope file search\
+`Tab + f` - Open Telescope file search\
 `Tab + g` - Open Telescope live grep\
-`Tab + b` - Open Telescope buffer search
+`Tab + b` - Open Telescope buffer search\
+`Ctrl + n` - Open integrated terminal
 
-`Ctrl + q` - Close window (and quit)\
+`Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
 `Ctrl + w` - Close buffer\
-`Ctrl + h/j/k/l` - Go through windows\
+`Ctrl + h/j/k/l` - Cycle between windows visible on the screen\
+`Shift + j/k`, `Ctrl + PgUp/PgDn` - Cycle between buffers for the current window\
+`Tab + s + h` - Split horizontally\
+`Tab + s + v` - Split vertically\
 `Space` - Reset window sizes\
-`Shift + h/l` - Go to beginning / end of line\
-`Ctrl + n` - Terminal\
-`Tab + s + h` - Horizontal split\
-`Tab + s + v` - Vertical split\
-`Shift + j/k`, `Ctrl + PgUp/PgDn`, `Tab + ArrowKeys` (TTY) - Move through buffers\
+`Ctrl + ArrowKeys` - Resize current window\
 `Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
 
+`Shift + h/l` - Go to beginning / end of line\
 `Ctrl + /` - Toggle comment\
 `Ctrl + f` - Format document\
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
@@ -81,17 +83,22 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `u`, `Shift + u` - Undo and redo\
 `Space` - Clear search highlighting\
 `Tab + p + s` - Sync packages and TreeSitter parsers\
-`Tab + m` - Markdown preview\
+`Tab + m` - Markdown Preview\
+`Tab + z` - Zen Mode\
 `Ctrl + t` - Open an existing or start editing a new file\
-`Alt + j/k/Up/Down` - Move lines around\
-`Alt + z` - Zen Mode\
-`Alt + d` - Duplicate line
+`Alt + j/k/Up/Down` - Move lines around (works with selected blocks in Visual mode too)\
+`Alt + d` - Duplicate line\
+`+`, `-` - Increment / decrement number under cursor\
+`; + t/e/g/j/k/l/m/n` - Telescope main menu (`t`), and search for emoji, gitmoji, julia, kaomoji, latex, math and Nerd Font symbols\
+`gf` - Go to file under cursor\
+`gx` - Open file or URL under cursor with system application
 
 `Tab` - Copilot - Accept suggestion\
 `Ctrl + h` - Copilot - Previous suggestion\
 `Ctrl + l` - Copilot - Next suggestion
 
-`:cd` - Change working directory for NeoVim and NvimTree
+`:cd` - Change working directory for NeoVim and NvimTree\
+`:e` - Edit another file
 
 ### NvimTree - File Browser in the Sidebar
 

@@ -47,5 +47,8 @@
         "/home/stankovictab/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
         "/home/stankovictab/.local/share/nvim/site/pack/packer/start/playground/after",
         "${3rd}/luassert/library"
+    ],
+    "diagnostics.globals": [
+        "vim",
     ]
 }

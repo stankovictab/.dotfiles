@@ -34,17 +34,17 @@ end
 -- You can change up the menu here
 -- The command on the end is just for the Enter press on the menu item
 dashboard.section.buttons.val = {
-	button("Ctrl + b", "  File Explorer", ":NvimTreeToggle<cr>"),
-	button("Tab + ff", "  Find File", ":Telescope find_files <cr>"),
-	button("Tab + fg", "  Find Word", ":Telescope live_grep<cr>"),
+	button("Ctrl + b", "󰉋  File Explorer", ":NvimTreeToggle<cr>"),
+	button("Tab + f", "  Find File", ":Telescope find_files <cr>"),
+	button("Tab + g", "  Find Word", ":Telescope live_grep<cr>"),
 	button("Tab + ,", "  Config", ":e $MYVIMRC<cr>"),
 	button("Tab + ps", "  Reload Plugins", ":PackerClean<cr>:PackerSync<cr>"),
-	button("q", "  Quit", ":qa<cr>")
+	button("q", "⏻  Quit", ":qa<cr>")
 }
 
 local function footer()
 	local total_plugins = #vim.tbl_keys(packer_plugins)
-	return "Loaded " .. total_plugins .. " plugins "
+	return "Loaded " .. total_plugins .. " plugins "
 end
 
 local heading = {

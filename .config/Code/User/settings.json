@@ -121,7 +121,6 @@
 	"oracledevtools.connectionConfiguration.configFilesFolder": "/home/stankovictab/Oracle/network/admin",
 	"oracledevtools.connectionConfiguration.walletFileFolder": "/home/stankovictab/Oracle/network/admin",
 	"notebook.output.textLineLimit": 50,
-	"window.zoomLevel": -1,
 	"editor.smoothScrolling": true,
 	"workbench.list.smoothScrolling": true,
 }

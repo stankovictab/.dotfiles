@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = "require('stankovictab.specifics.telescope')"
 	}
+	use { 'nvim-telescope/telescope-symbols.nvim' } -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc          (╯°□°）╯︵ ┻━┻
 	use {
 		"norcalli/nvim-colorizer.lua", -- Colours on hexadecimal values, like #1155aa
 		config = "require('stankovictab.specifics.nvim-colorizer')"
@@ -102,17 +103,20 @@ return require('packer').startup(function(use)
 		'yamatsum/nvim-cursorline', -- Includes cursorline and cursorword - the second highlights all occurances of the selected word
 		config = "require('stankovictab.specifics.nvim-cursorline')"
 	}
+
 	use {
 		'petertriho/nvim-scrollbar', -- Scrollbar so that I don't get lost
 		config = "require('stankovictab.specifics.nvim-scrollbar')"
 	}
+
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" } -- Run nvim --startuptime, or :StartupTime
+
 	use {
-		'rafamadriz/friendly-snippets',                  -- Snippet collection
+		'rafamadriz/friendly-snippets', -- Snippet collection
 	}
-	use { "L3MON4D3/LuaSnip" }                           -- LuaSnip snippet engine
+	use { "L3MON4D3/LuaSnip" }    -- LuaSnip snippet engine
 	use {
-		'hrsh7th/nvim-cmp',                              -- Completion engine
+		'hrsh7th/nvim-cmp',       -- Completion engine
 		config = "require('stankovictab.specifics.nvim-cmp')"
 	}
 	use {
@@ -127,6 +131,7 @@ return require('packer').startup(function(use)
 	use {
 		'hrsh7th/cmp-nvim-lsp' -- Completion engine - LSP sources
 	}
+
 	-- The configuration for the following 3 packages is in lsp-hell,
 	-- and it needs to be in the 3rd use, apparently
 	use "williamboman/mason.nvim" -- LSP installer and manager, a new replacement for nvim-lsp-installer
@@ -142,6 +147,7 @@ return require('packer').startup(function(use)
 		"neovim/nvim-lspconfig",         -- LSP configuration, this is an integral part
 		config = "require('stankovictab.specifics.lsp-hell')"
 	}
+
 	use {
 		"folke/zen-mode.nvim", -- Like zen mode in vscode, activate with :ZenMode
 		config = function()
@@ -171,15 +177,15 @@ return require('packer').startup(function(use)
 	use {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
-		event = "InsertEnter",
+		event = "InsertEnter", -- Copilot will be started only when entering insert mode
 		config = function()
 			require("copilot").setup({
 				suggestion = {
 					enabled = true,
-					auto_trigger = true, -- Changed
+					auto_trigger = true, -- Changed, false means you need to press next or prev to trigger copilot
 					debounce = 75,
 					keymap = {
-						accept = "<Tab>", -- Changed
+						accept = false, -- Changed, needs to be false for the Tab rebind down there to work
 						accept_word = false,
 						accept_line = false,
 						next = "<C-h>", -- Changed
@@ -201,50 +207,28 @@ return require('packer').startup(function(use)
 			})
 		end
 	}
-	-- This bunch of shit makes it so that Tab completes the suggestion
+	-- This bunch of shit makes it so that Tab completes the suggestion, or just inserts Tab if there's no suggestion
 	vim.keymap.set("i", '<Tab>', function()
 		if require("copilot.suggestion").is_visible() then
 			require("copilot.suggestion").accept()
 		else
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), 'n', false)
 		end
 	end, {
 		silent = true,
 	})
-	use {
-		"jonahgoldwastaken/copilot-status.nvim",
-		-- after = { "zbirenbaum/copilot.lua" },
-		event = "BufReadPost",
-		-- config = function()
-		-- 	require('copilot_status').setup({
-		-- 		icons = {
-		-- 			idle = " ",
-		-- 			error = " ",
-		-- 			offline = " ",
-		-- 			warning = "𥉉 ",
-		-- 			loading = " ",
-		-- 		},
-		-- 		debug = false,
-		-- 	})
-		-- end
-	}
-	-- This needs to be after copilot-status, as it requires it to function
+
 	use {
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
-		-- after = {"jonahgoldwastaken/copilot-status.nvim"},
 		config = "require('stankovictab.specifics.lualine')"
 	}
-	-- use { 'nvim-lua/lsp-status.nvim' } -- Needs a lot of config, it shows a weird V and a checkmark if an LSP server is loaded, but doesn't show the name of it
-	-- use { 'arkav/lualine-lsp-progress' } -- Prints the progress of the LSP server into lualine, but doesn't constantly show the LSP server name, it goes away quickly
-	-- use { 'dokwork/lualine-ex' } -- This one looks the best but gives me an error, maaybe because of Copilot.
+
 	use {
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-			require("which-key").setup {
-
-			}
+			vim.o.timeoutlen = 300 -- Time before WhichKey opens
+			require("which-key").setup {} -- In the `mappings` part of the WhichKey docs you can see how to rename entries and groups in whichkey, but that's a little time consuming and maybe not worth the effort
 		end
 	}
 end)

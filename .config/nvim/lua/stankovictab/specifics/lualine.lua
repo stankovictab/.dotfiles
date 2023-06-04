@@ -34,27 +34,26 @@ require('lualine').setup {
 					for _, lsp in ipairs(lsps) do
 						table.insert(names, lsp.name)
 					end
-					return string.format("%s %s", table.concat(names, ", "), icon)
+					-- return string.format("[%s %s]", table.concat(names, ", "), icon) -- Original line
+					return string.format("%s", table.concat(names, "  ")) -- Line that gets printed
 				else
-					return icon or ""
+					-- return icon or ""
+					return ""
 				end
 			end,
 			on_click = function()
 				vim.api.nvim_command("LspInfo")
 			end,
 			color = function()
-				local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
-					vim.api.nvim_buf_get_option(0, "filetype")
-				)
-				return { fg = color }
+				-- local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
+				-- 	vim.api.nvim_buf_get_option(0, "filetype")
+				-- )
+				-- return { fg = color }
+				return { fg = "white" }
 			end,
 		} },
 
-		-- TODO: Fix this if the copilot-status dude replied to the issue I opened
 		lualine_y = { 'filetype' }, -- Removed 'progress'
-		-- lualine_y = {'filetype', require('copilot_status').status_string}, -- Removed 'progress'
-		-- lualine_y = {require('copilot_status').status_string}, -- Removed 'progress'
-
 		lualine_z = { 'location' }
 	},
 	inactive_sections = {

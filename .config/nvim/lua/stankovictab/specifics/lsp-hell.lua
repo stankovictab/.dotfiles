@@ -1,4 +1,4 @@
--- Config for everything LSP --
+-- Config for Everything LSP --
 
 -- In order to add support for a language, add it in the ensure_installed list in mason-lspconfig (or just install it with :Mason), and then add lspconfig's .setup(), that's what actually enables the language
 -- You should go to nvim-lspconfig's server_configurations.md to see the setup for that language, it may have something other than just .setup()
@@ -12,17 +12,23 @@ require('mason').setup()
 -------------------------------------
 
 require('mason-lspconfig').setup({
-	-- ensure_installed = { "tsserver", "pyright", "sumneko_lua", "bashls" }
+	-- You can preinstall LSPs here, or do it manually with :Mason
+	ensure_installed = { "tsserver", "pyright", "lua_ls", "bashls" }
 })
 
 -------------------------------------
 
-require('lspconfig').tsserver.setup {}
+-- Specific lspconfig's setups for various LSPs, from server_configurations.md
+-- Each one can have it's own on_attach function, which is called when the language server is attached to the buffer
+
+require('lspconfig').tsserver.setup {
+	on_attach = function()
+		-- print("LSP tsserver () attached!")
+	end
+}
 
 require('lspconfig').pyright.setup {}
 
--- TODO - sumneko_lua is now depricated!
--- Config is from server_configurations.md
 require('lspconfig').lua_ls.setup {
 	settings = {
 		Lua = {
@@ -42,4 +48,4 @@ require('lspconfig').lua_ls.setup {
 	},
 }
 
--- require('lspconfig').bashls.setup{}
+require('lspconfig').bashls.setup{}

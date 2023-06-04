@@ -64,10 +64,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Hack Nerd Font Mono
+    # family: Hack Nerd Font Mono
     # family: FiraCode Nerd Font Mono
-    # family: JetBrainsMono Nerd Font Mono
-      # Test out ligatures: -> ~> == === => 
+    family: JetBrainsMono Nerd Font Mono
+        # Test out ligatures: -> ~> == === => 
     # family: JetBrainsMonoNL Nerd Font Mono
     # family: RobotoMono Nerd Font Mono
 
