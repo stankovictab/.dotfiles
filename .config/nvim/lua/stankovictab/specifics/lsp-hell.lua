@@ -30,6 +30,9 @@ require('lspconfig').tsserver.setup {
 require('lspconfig').pyright.setup {}
 
 require('lspconfig').lua_ls.setup {
+	on_attach = function (client, bufnr)
+		client.server_capabilities.semanticTokensProvider = nil -- This disables LSP's syntax highlighting, which overrides my (and others') theme's styling for Treeshitter, and it's generally not that good
+	end,
 	settings = {
 		Lua = {
 			runtime = { -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -49,3 +52,13 @@ require('lspconfig').lua_ls.setup {
 }
 
 require('lspconfig').bashls.setup{}
+
+-- CSS LSP, just shows errors and has cmp completions, but no formatting, for that you need Prettier
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require('lspconfig').cssls.setup {
+	capabilities = capabilities,
+	on_attach = function()
+		print("LSP cssls () attached!")
+	end
+}

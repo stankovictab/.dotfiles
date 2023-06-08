@@ -44,7 +44,9 @@ dashboard.section.buttons.val = {
 
 local function footer()
 	local total_plugins = #vim.tbl_keys(packer_plugins)
-	return "Loaded " .. total_plugins .. " plugins "
+	local version = vim.api.nvim_exec("echo system('nvim -v | grep NVIM')", true)
+	version = string.gsub(version, "\n", "")
+	return version .. " loaded " .. total_plugins .. " plugins "
 end
 
 local heading = {

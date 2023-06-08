@@ -26,3 +26,4 @@ vim.opt.whichwrap:append "<>[]" -- This is for left and right arrow keys
 vim.opt.whichwrap:append "h,l" -- This is for h and l
 -- vim.opt.ls = 0 -- Removes the status line, default is 2 (always have it) - just make sure you're not using lualine or something like that
 -- vim.opt.ch = 0 -- Hides the command line until you start writing one
+-- vim.opt.laststatus = 3 -- Always show the status line, even if there's only one window

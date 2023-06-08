@@ -22,8 +22,8 @@ end
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
-	disable_netrw = true, -- Disables the builtin NeoVim explorer, default false
-	hijack_cursor = true, -- Locks the cursor to the first letter of file names
+	disable_netrw = true,    -- Disables the builtin NeoVim explorer, default false
+	hijack_cursor = true,    -- Locks the cursor to the first letter of file names
 	sync_root_with_cwd = true, -- To be able to change the working directory of NeoVim with :cd, default false
 	renderer = {
 		icons = {
@@ -41,16 +41,16 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 					symlink_open = "",
 				},
 				git = {
-					unstaged = "", -- unstaged = "✗",
-					staged = "", -- staged = "✓",
+					unstaged = "~", -- "✗", "", "", "~", "M"
+					staged = "", -- "✓", "", "", "S"
 					unmerged = "",
 					renamed = "➜",
-					untracked = "", -- untracked = "★",
+					untracked = "", -- "★", "", "", "U"
 					deleted = "",
 					ignored = "◌",
 				},
 			},
-			git_placement = "after", -- Git info goes after name of file or folder
+			git_placement = "after", -- Git info goes after name of file or folder, can be "before", "after" or "signcolumn" (can't be on the right side)
 		},
 	},
 	actions = {

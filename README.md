@@ -80,22 +80,26 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
 `/` - Search\
 `Ctrl + r` - Search and replace\
-`u`, `Shift + u` - Undo and redo\
 `Space` - Clear search highlighting\
+`u`, `Shift + u` - Undo and redo\
+`Tab + a` - Select all\
 `Tab + p + s` - Sync packages and TreeSitter parsers\
 `Tab + m` - Markdown Preview\
 `Tab + z` - Zen Mode\
-`Ctrl + t` - Open an existing or start editing a new file\
+`Tab + c` - Choose colorscheme\
+`Tab + d` - See LSP diagnostics\
 `Alt + j/k/Up/Down` - Move lines around (works with selected blocks in Visual mode too)\
 `Alt + d` - Duplicate line\
+`w`, `W` - Move forward / backward by word\
 `+`, `-` - Increment / decrement number under cursor\
 `; + t/e/g/j/k/l/m/n` - Telescope main menu (`t`), and search for emoji, gitmoji, julia, kaomoji, latex, math and Nerd Font symbols\
 `gf` - Go to file under cursor\
 `gx` - Open file or URL under cursor with system application
 
 `Tab` - Copilot - Accept suggestion\
-`Ctrl + h` - Copilot - Previous suggestion\
-`Ctrl + l` - Copilot - Next suggestion
+`Alt + [` - Copilot - Previous suggestion\
+`Alt + ]` - Copilot - Next suggestion\
+`Ctrl + ]` - Copilot - Clear suggestion
 
 `:cd` - Change working directory for NeoVim and NvimTree\
 `:e` - Edit another file

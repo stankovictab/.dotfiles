@@ -15,9 +15,10 @@ require('lualine').setup {
 		-- ignore_focus = {'NvimTree'}, -- Filetypes where lualine will be inactive
 	},
 	sections = {
+		-- Some unused sections are 'encoding', 'fileformat', 'progress' and 'buffers'
 		lualine_a = { 'mode' },
-		lualine_b = { 'branch', 'diff', 'diagnostics' },
-		lualine_c = { 'filename' }, -- Also has 'encoding' and 'fileformat'
+		lualine_b = { {'branch', icon='', color={fg="white"}}, 'diff', 'diagnostics' },
+		lualine_c = { 'filename' },
 
 		-- Shows the current loaded LSP clients - their names and icon
 		-- Got this from here https://www.reddit.com/r/neovim/comments/11kumh3/comment/jbacpna/
@@ -26,9 +27,9 @@ require('lualine').setup {
 		lualine_x = { {
 			function()
 				local lsps = vim.lsp.get_active_clients({ bufnr = vim.fn.bufnr() })
-				local icon = require("nvim-web-devicons").get_icon_by_filetype(
-					vim.api.nvim_buf_get_option(0, "filetype")
-				)
+				-- local icon = require("nvim-web-devicons").get_icon_by_filetype(
+				-- 	vim.api.nvim_buf_get_option(0, "filetype")
+				-- )
 				if lsps and #lsps > 0 then
 					local names = {}
 					for _, lsp in ipairs(lsps) do
@@ -53,17 +54,18 @@ require('lualine').setup {
 			end,
 		} },
 
-		lualine_y = { 'filetype' }, -- Removed 'progress'
+		lualine_y = { 'filetype' },
+		-- lualine_y = { require('copilot_status').status_string, },
 		lualine_z = { 'location' }
 	},
 	inactive_sections = {
 		-- Styling of the inactive version, for when you're in the ignored filetype (NvimTree), or when splitting the window, the lualine of the inactive pane
-		lualine_a = {},
-		lualine_b = { 'branch' },
+		lualine_a = { 'mode' },
+		lualine_b = { {'branch', icon='', color={fg="white"}}, 'diff', 'diagnostics' },
 		lualine_c = { 'filename' },
 		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {}
+		lualine_y = { 'filetype' }, -- Removed 'progress'
+		lualine_z = { 'location' }
 	},
 	tabline = {},
 	extensions = {}

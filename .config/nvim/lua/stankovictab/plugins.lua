@@ -17,11 +17,12 @@ require('packer').init {
 -- Plugin list
 -- Make sure that you seperate a package per 'use', I've had problems putting multiple packages in a single 'use', and with a single config, that doesn't work
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'   -- Packer itself
-	use 'stankovictab/mgz.nvim'    -- The best theme
-	use 'marko-cerovac/material.nvim' -- Bosnian theme
-	use 'tomasiser/vim-code-dark'  -- Default VSCode dark theme inspired
+	use 'wbthomason/packer.nvim'                      -- Packer itself
+	use 'stankovictab/mgz.nvim'                       -- The best theme
+	use 'marko-cerovac/material.nvim'                 -- Bosnian theme
+	use 'tomasiser/vim-code-dark'                     -- Default VSCode dark theme inspired
 	-- use 'rafi/awesome-vim-colorschemes' -- Collection of colorschemes, including iceberg, nord, onedark, etc
+	use { 'folke/tokyonight.nvim' }                   -- Tokyonight theme
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { "Shatur/neovim-ayu" }                       -- Darker color theme
 	use { "shaunsingh/nord.nvim" }                    -- Nord theme, the one mgz is based on
@@ -48,10 +49,6 @@ return require('packer').startup(function(use)
 		config = "require('stankovictab.specifics.telescope')"
 	}
 	use { 'nvim-telescope/telescope-symbols.nvim' } -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc          (╯°□°）╯︵ ┻━┻
-	use {
-		"norcalli/nvim-colorizer.lua", -- Colours on hexadecimal values, like #1155aa
-		config = "require('stankovictab.specifics.nvim-colorizer')"
-	}
 	-- use {
 	-- 	"brenoprata10/nvim-highlight-colors", -- Same, but this one does var() in css, however, it's very laggy in large css files
 	-- 	config = function() require('nvim-highlight-colors').setup({
@@ -61,14 +58,27 @@ return require('packer').startup(function(use)
 	-- 		})
 	-- 	end
 	-- }
+	-- use {
+	-- 	"norcalli/nvim-colorizer.lua",           -- Colours on hexadecimal values, like #1155aa
+	-- 	config = "require('stankovictab.specifics.nvim-colorizer')"
+	-- }
+	use {
+		'NvChad/nvim-colorizer.lua', -- norcalli/nvim-colorizer.lua is no longer maintained, and this fixes the issue where colors go away when changing themes
+		config = "require('stankovictab.specifics.nvim-colorizer')"
+	}
 	use {
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		config = function() require("nvim-autopairs").setup({}) end
 	}
+	-- use {
+	-- 	'akinsho/bufferline.nvim', tag = "v2.*", -- Buffer line at the top (tab bar)
+	-- 	requires = 'nvim-tree/nvim-web-devicons',
+	-- 	config = "require('stankovictab.specifics.bufferline')"
+	-- }
 	use {
-		'akinsho/bufferline.nvim', tag = "v2.*", -- Buffer line at the top (tab bar)
+		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		requires = 'nvim-tree/nvim-web-devicons',
-		config = "require('stankovictab.specifics.bufferline')"
+		config = "require('stankovictab.specifics.cokeline')"
 	}
 	use {
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
@@ -173,7 +183,6 @@ return require('packer').startup(function(use)
 		ft = { "markdown" },
 	}
 
-	-- Using this Copilot plugin instead of "github/copilot.vim" as this is supposedly better?
 	use {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -188,9 +197,9 @@ return require('packer').startup(function(use)
 						accept = false, -- Changed, needs to be false for the Tab rebind down there to work
 						accept_word = false,
 						accept_line = false,
-						next = "<C-h>", -- Changed
-						prev = "<C-l>", -- Changed
-						dismiss = "<C-]>",
+						prev = "<M-[>", -- Alt + [ is the previous suggestion
+						next = "<M-]>", -- Alt + ] is the next suggestion
+						dismiss = "<C-]>", -- Ctrl + ] is to dismiss suggestion
 					},
 				},
 				filetypes = {
@@ -218,8 +227,27 @@ return require('packer').startup(function(use)
 		silent = true,
 	})
 
+	-- use {
+	-- 	'jonahgoldwastaken/copilot-status.nvim',
+	-- 	-- after = { 'zbirenbaum/copilot.lua' },
+	-- 	-- event = "BufReadPost",
+	-- 	config = function()
+	-- 		require('copilot_status').setup {
+	-- 			icons = {
+	-- 				idle = " ",
+	-- 				error = " ",
+	-- 				offline = " ",
+	-- 				warning = "𥉉",
+	-- 				loading = " ",
+	-- 			},
+	-- 			debug = false,
+	-- 		}
+	-- 	end
+	-- }
+
 	use {
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
+		-- after = { 'jonahgoldwastaken/copilot-status.nvim' },
 		config = "require('stankovictab.specifics.lualine')"
 	}
 

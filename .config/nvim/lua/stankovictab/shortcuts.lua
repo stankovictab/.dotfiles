@@ -4,7 +4,7 @@
 -- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
 -- I use Space only to clear search highlighting, but I guess I can do that with Esc?
 -- What to do with Caps Lock?
--- You can't use Ctrl + Shift in Alacritty, just fyi
+-- You can't use Ctrl + Shift + key in Alacritty, just fyi
 -- Tab + Tab + keys is also a possibility
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
@@ -26,14 +26,17 @@ map('n', '<leader>g', ':Telescope live_grep<cr>', fuj)                          
 map('n', '<leader>b', ':Telescope buffers<cr>', fuj)                                                      -- Buffer browser
 
 map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>", fuj)                             -- Update plugins
+map('n', '<leader>c', ":Telescope colorscheme<cr>", fuj)                                                  -- Change colorscheme
+map('n', '<leader>d', ":Telescope diagnostics<cr>", fuj)                                                  -- Change colorscheme
 
 -- ToggleTerm's shortcut (Ctrl + n) is specific and it's set in its config (~/.config/nvim/lua/stankovictab/specifics/toggleterm.lua)
 
-map('n', '<s-k>', ':bnext<cr>', fuj)                       -- Go to next buffer
-map('n', '<s-j>', ':bprevious<cr>', fuj)                   -- Go to previous buffer
+map('n', '<s-j>', ':bnext<cr>', fuj)                       -- Go to next buffer
+map('n', '<s-k>', ':bprevious<cr>', fuj)                   -- Go to previous buffer
 map('n', '<c-PageDown>', ':bnext<cr>', fuj)                -- Go to next buffer
 map('n', '<c-PageUp>', ':bprevious<cr>', fuj)              -- Go to previous buffer
 
+-- TODO: Change over to Cokeline
 map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', fuj) -- Move buffer to the right
 map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', fuj)   -- Move buffer to the left
 
@@ -45,7 +48,7 @@ map('n', '<c-h>', ':wincmd h<cr>', fuj)
 map('n', '<c-j>', ':wincmd j<cr>', fuj)
 map('n', '<c-k>', ':wincmd k<cr>', fuj)
 map('n', '<c-l>', ':wincmd l<cr>', fuj)
--- No reason for a "move windows around" shortcut, when you can just move between buffers with BufferLine easily
+-- No reason for a "move windows around" shortcut, when you can just move between buffers easily
 -- Ctrl + Shift + Key doesn't work in Alacritty out of the box, so arrow keys are fine for resizing
 map('n', '<c-left>', ':vertical resize -2<cr>', fuj)
 map('n', '<c-up>', ':resize +2<cr>', fuj)
@@ -123,13 +126,17 @@ map('n', '<a-d>', 'yyp', fuj)
 map('i', '<a-d>', '<esc>yypi', fuj)
 
 -- Ctrl + Backspace in Insert Mode should not be stupid
--- TODO: This is tough to do as terminal emulators don't recognize backspace as <BS>, but instead something else
--- :(
-
-map('i', '<c-BS>', '<esc>cb', fuj) -- Doesn't work
+-- Ctrl + Backspace is interpreted as Ctrl + h in terminal emulators, so this is basically the same thing
+-- You can see this by doing Ctrl + v (which enables you to see control character inputs), then Ctrl + Backspace
+-- Same thing is with Ctrl + i, which is interpreted as Tab
+-- https://www.reddit.com/r/neovim/comments/okbag3/comment/h58k9p7/
+map('i', '<c-h>', '<c-w>', fuj)
+-- Ctrl + Delete in Insert Mode should not be stupid
 map('i', '<c-Del>', '<esc>lcw', fuj)
-map('n', '<c-BS>', 'cb', fuj)      -- Doesn't work
 map('n', '<c-Del>', 'cw', fuj)
+-- W isn't used, and b is too far away, and since Ctrl + Arrows aren't used, this is good for horizontal movement
+map('n', 'w', 'e', fuj)
+map('n', 'W', 'b', fuj)
 
 -- LSP Shortcuts
 map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<cr>', fuj)      -- Go to definition
@@ -138,9 +145,11 @@ map('n', '<leader>lh', ':lua vim.lsp.buf.hover()<cr>', fuj)           -- Hover f
 map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<cr>', fuj)  -- Go to implementation
 map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<cr>', fuj)  -- See signature help, or, info for function parameters
 map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
-map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>', fuj)          -- Rename variable
-map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', fuj)     -- See code actions
+map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>', fuj)          -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
+map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', fuj)     -- See code actions for hovered error, like adding imports, etc
 map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', fuj)      -- Go to references
+map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>', fuj)    -- Go to next diagnostic
+map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>', fuj)    -- Go to previous diagnostic
 -- Formatting through the LSP, if the LSP client supports it
 map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>', fuj)
 map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>', fuj)
@@ -164,10 +173,9 @@ map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted!
 map('n', '+', '<esc><c-a>', fuj)
 map('n', '-', '<esc><c-x>', fuj)
 
--- Select all
-map('n', '<c-a>', '<esc>gg0vG$', fuj)
-map('i', '<c-a>', '<esc>gg0vG$', fuj)
-map('v', '<c-a>', '<esc>gg0vG$', fuj)
+-- Select all (Ctrl + a is used by tmux)
+map('n', '<leader>a', '<esc>gg0vG$', fuj)
+map('v', '<leader>a', '<esc>gg0vG$', fuj)
 
 -- Rebinding ; as it's used only to repeat the last f, t, F or T commands, which I don't use
 map('n', ';t', ':Telescope<cr>', fuj)                                                       -- Telescope main menu
@@ -183,7 +191,7 @@ map('n', ';n', ':lua require"telescope.builtin".symbols{ sources = {"nerd"} }<cr
 -- It works for files, images, and URLs, something I didn't find online
 -- I made this and I'm very proud of it
 -- NOTE: I have a feeling this won't work with file paths with spaces in them... :(
-function fuckouttahere()
+function FuckOuttaHere()
 	local pathOrUrl = vim.fn.expand('<cfile>')
 	if pathOrUrl ~= nil then
 		vim.cmd(('!xdg-open %s'):format(pathOrUrl))
@@ -192,4 +200,4 @@ function fuckouttahere()
 	end
 end
 
-map('n', 'gx', ':lua fuckouttahere()<cr>', fuj)
+map('n', 'gx', ':lua FuckOuttaHere()<cr>', fuj)
