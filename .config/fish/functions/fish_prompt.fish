@@ -59,20 +59,10 @@ function fish_prompt
         set -l salmon (set_color -o white)
         set git_info "$salmon 󰘬 $git_branch_name"
 
-        # if [ (_is_git_dirty) ]
-        #     set -l yellow (set_color -o yellow)
-        #     set git_info "$git_info$yellow "
-        # end
-
         if [ (_is_git_dirty) ]
             set -l blue (set_color -o $fish_color_param)
             set git_info "$git_info$blue "
         end
-
-        # if [ (_does_git_have_staged) ]
-        #     set -l blue (set_color -o brblue)
-        #     set git_info "$git_info$blue "
-        # end
 
         if [ (_does_git_have_staged) ]
             set -l green (set_color -o $fish_color_quote)

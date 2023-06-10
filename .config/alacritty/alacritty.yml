@@ -8,8 +8,8 @@ window:
   #  x: 0
   #  y: 0
   padding:
-    x: 5 # Left and right
-    y: 2 # Top and bottom
+    x: 0 # Left and right
+    y: 0 # Top and bottom
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true

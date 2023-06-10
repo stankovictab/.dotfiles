@@ -10,182 +10,209 @@
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap
-local fuj = { noremap = true, silent = true } -- Make all actions be silent, to not display in the command line
 
 -- TODO: :source % is the old way, and that just reloads the config (sources) from the file (buffer) you're currently in, so it won't work in the wild.
 -- In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, and then also the rest of the files, and that makes no sense.
 -- :luafile also doesn't work. nvim-reload also doesn't seem to work.
 -- This shortcut will basically reload the current config file you're in, so, if you're in lualine's config and you make a change, you can reload instantly
 -- Note that if you're changing something regarding plugins, this simple reload won't always work, sometimes you need to do PackerCompile (Tab + p + s)
-map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>', fuj) -- Reload config
+map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
+	{ desc = "Reload Config", noremap = true, silent = true })
 
 -- Telescope is configured in a seperate file, because of that config find_files and live_grep search hidden files
-map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>', fuj) -- Opening the config file directory, better than using :e, because that puts you into that working directory, this doesn't
-map('n', '<leader>f', ':Telescope find_files<cr>', fuj)                                                   -- File browser
-map('n', '<leader>g', ':Telescope live_grep<cr>', fuj)                                                    -- Search inside of files
-map('n', '<leader>b', ':Telescope buffers<cr>', fuj)                                                      -- Buffer browser
+map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>',
+	{ desc = "Find Config Files", noremap = true, silent = true }) -- Opening the config file directory, better than using :e, because this doesn't put you into that working directory
+map('n', '<leader>f', ':Telescope find_files<cr>', { desc = "File Browser", noremap = true, silent = true })
+map('n', '<leader>g', ':Telescope live_grep<cr>',
+	{ desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
+map('n', '<leader>b', ':Telescope buffers<cr>', { desc = "Buffer Browser", noremap = true, silent = true })
 
-map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>", fuj)                             -- Update plugins
-map('n', '<leader>c', ":Telescope colorscheme<cr>", fuj)                                                  -- Change colorscheme
-map('n', '<leader>d', ":Telescope diagnostics<cr>", fuj)                                                  -- Change colorscheme
+map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>",
+	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
+map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
+map('n', '<leader>d', ":Telescope diagnostics<cr>", { desc = "See Diagnostics", noremap = true, silent = true })
+
+-- Splits
+map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })
+map('n', '<leader>sv', ':vsplit<cr>', { desc = "Split Vertically", noremap = true, silent = true })
+
+map('n', '<leader>z', ':ZenMode<cr>', { desc = "Zen Mode", noremap = true, silent = true })
 
 -- ToggleTerm's shortcut (Ctrl + n) is specific and it's set in its config (~/.config/nvim/lua/stankovictab/specifics/toggleterm.lua)
 
-map('n', '<s-j>', ':bnext<cr>', fuj)                       -- Go to next buffer
-map('n', '<s-k>', ':bprevious<cr>', fuj)                   -- Go to previous buffer
-map('n', '<c-PageDown>', ':bnext<cr>', fuj)                -- Go to next buffer
-map('n', '<c-PageUp>', ':bprevious<cr>', fuj)              -- Go to previous buffer
+map('n', '<s-j>', ':bnext<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
+map('n', '<s-k>', ':bprevious<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
+map('n', '<c-PageDown>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
+map('n', '<c-PageUp>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
 
--- TODO: Change over to Cokeline
-map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', fuj) -- Move buffer to the right
-map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', fuj)   -- Move buffer to the left
+map('n', '<c-s-PageDown>', '<Plug>(cokeline-switch-next)', { desc = "Move Buffer Right", noremap = true, silent = true })
+map('n', '<c-s-PageUp>', '<Plug>(cokeline-switch-prev)', { desc = "Move Buffer Left", noremap = true, silent = true })
 
-map('n', '<c-w>', ':bdelete<cr>', fuj)                     -- Close buffer
-map('n', '<c-q>', ':wq<cr>', fuj)                          -- Save and quit window
+map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true })
+map('n', '<c-q>', ':wq<cr>', { desc = "Save & Quit Window", noremap = true, silent = true })
 
 -- Better window navigation
-map('n', '<c-h>', ':wincmd h<cr>', fuj)
-map('n', '<c-j>', ':wincmd j<cr>', fuj)
-map('n', '<c-k>', ':wincmd k<cr>', fuj)
-map('n', '<c-l>', ':wincmd l<cr>', fuj)
+map('n', '<c-h>', ':wincmd h<cr>', { desc = "Go to Window Left", noremap = true, silent = true })
+map('n', '<c-j>', ':wincmd j<cr>', { desc = "Go to Window Down", noremap = true, silent = true })
+map('n', '<c-k>', ':wincmd k<cr>', { desc = "Go to Window Up", noremap = true, silent = true })
+map('n', '<c-l>', ':wincmd l<cr>', { desc = "Go to Window Right", noremap = true, silent = true })
 -- No reason for a "move windows around" shortcut, when you can just move between buffers easily
 -- Ctrl + Shift + Key doesn't work in Alacritty out of the box, so arrow keys are fine for resizing
-map('n', '<c-left>', ':vertical resize -2<cr>', fuj)
-map('n', '<c-up>', ':resize +2<cr>', fuj)
-map('n', '<c-down>', ':resize -2<cr>', fuj)
-map('n', '<c-right>', ':vertical resize +2<cr>', fuj)
+map('n', '<c-left>', ':vertical resize -2<cr>', { desc = "Resize to Left", noremap = true, silent = true })
+map('n', '<c-up>', ':resize +2<cr>', { desc = "Resize Up", noremap = true, silent = true })
+map('n', '<c-down>', ':resize -2<cr>', { desc = "Resize Down", noremap = true, silent = true })
+map('n', '<c-right>', ':vertical resize +2<cr>', { desc = "Resize to Right", noremap = true, silent = true })
 
--- Splits
-map('n', '<leader>sh', ':split<cr>', fuj)          -- Split horizontally
-map('n', '<leader>sv', ':vsplit<cr>', fuj)         -- Split vertically
-
-map('n', '<leader>z', ':ZenMode<cr>', fuj)         -- Zen mode, like in vscode
-
-map('n', '<c-b>', ':NvimTreeToggle<cr>', fuj)      -- Toggle file explorer in Normal
-map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', fuj) -- Toggle file explorer in Insert
+map('n', '<c-b>', ':NvimTreeToggle<cr>', { desc = "File Explorer", noremap = true, silent = true })
+map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', { desc = "File Explorer", noremap = true, silent = true })
 
 -- Toggle comments with vim-commentary (c-_ is Ctrl + /)
-map('n', '<c-_>', ':Commentary<cr>', fuj)
-map('v', '<c-_>', ':Commentary<cr>', fuj)
-map('i', '<c-_>', "<esc>:Commentary<cr>a", fuj)
+map('n', '<c-_>', ':Commentary<cr>', { desc = "Toggle Comment", noremap = true, silent = true })
+map('v', '<c-_>', ':Commentary<cr>', { desc = "Toggle Comment", noremap = true, silent = true })
+map('i', '<c-_>', "<esc>:Commentary<cr>a", { desc = "Toggle Comment", noremap = true, silent = true })
 
 -- Easier indenting, just keep pressing < or >
-map('v', '<', '<gv', fuj)
-map('v', '>', '>gv', fuj)
+map('v', '<', '<gv', { desc = "Indent Left", noremap = true, silent = true })
+map('v', '>', '>gv', { desc = "Indent Right", noremap = true, silent = true })
 
 -- Ctrl + s please come back
 -- This is also a fast way to get out of modes
-map('n', '<c-s>', ':w<cr>', fuj)
-map('i', '<c-s>', '<esc>:w<cr>', fuj)
-map('v', '<c-s>', '<esc>:w<cr>', fuj)
-map('c', '<c-s>', '<esc>:w<cr>', fuj)
+map('n', '<c-s>', ':w<cr>', { desc = "Save", noremap = true, silent = true })
+map('i', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true })
+map('v', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true })
+map('c', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true })
 
 -- Everyone has their own fix for clearing highlights on search, so here's mine - just press space
 -- Mapping enter when completing the search to do this will mess up other commands, like it did with :hi
 -- This in turn now works with /, n, N, *, # and :%s
 -- Also, this is good to reset the sizes of windows if they get screwed up
-map('n', ' ', ':nohlsearch<cr><c-w>=', fuj)
+-- NOTE And also, I use this to fix cokeline's issue for not updating it's colors when you change colorschemes,
+-- it's a known issue, see https://github.com/willothy/nvim-cokeline/issues/72
+-- So, if a fix is out, you can remove this
+map('n', ' ',
+	':nohlsearch<cr>:source ~/.config/nvim/lua/stankovictab/specifics/cokeline.lua<cr><c-w>=:lua print("Cleared Screen")<cr>',
+	{ desc = "Clear Screen (Search Highlights, Reset Window Size, Cokeline Color Reset)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
-map('n', '<c-r>', ':lua print("Search and Replace! - Start typing A, then /, then B.")<cr>:%s/', fuj)
-map('i', '<c-r>', '<esc>:%s/', fuj)
+map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
+	{ desc = "Search & Replace", noremap = true, silent = true })
+map('i', '<c-r>', '<esc>:lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
+	{ desc = "Search & Replace", noremap = true, silent = true })
 
--- Alt + movement keys to move lines around
-map('n', '<a-Up>', 'ddkP', fuj)
-map('n', '<a-Down>', 'ddp', fuj)
-map('n', '<a-k>', 'ddkP', fuj)
-map('n', '<a-j>', 'ddp', fuj)
-map('v', '<a-k>', 'xkP`[V`]', fuj) -- Same, but for selecting multiple lines in visual mode
-map('v', '<a-j>', 'xp`[V`]', fuj)
+-- Alt + movement keys to move lines around - this is a lot better than ddp and ddkP, doesn't mess up the clipboard, and doesn't have the issue of moving the first line up and it disappearing
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
-map('n', '<leader>m', ":MarkdownPreview<cr>", fuj) -- Markdown Preview
+map('n', '<leader>m', ":MarkdownPreview<cr>", { desc = "Markdown Preview" }) -- Markdown Preview
 
 -- Better scrolling through the document
-map('n', '<PageUp>', '<c-u>', fuj)
-map('n', '<PageDown>', '<c-d>', fuj)
-map('i', '<c-u>', '<esc><c-u>', fuj)
-map('i', '<c-d>', '<esc><c-d>', fuj)
+map('n', '<PageUp>', '<c-u>', { desc = "Scroll Up", noremap = true, silent = true })
+map('n', '<PageDown>', '<c-d>', { desc = "Scroll Down", noremap = true, silent = true })
+map('i', '<c-u>', '<esc><c-u>', { desc = "Scroll Up", noremap = true, silent = true })
+map('i', '<c-d>', '<esc><c-d>', { desc = "Scroll Down", noremap = true, silent = true })
 
 -- Home and End are too far away
-map('n', '<s-h>', '<Home>', fuj)
-map('n', '<s-l>', '<End>', fuj)
+map('n', '<s-h>', '<Home>', { desc = "Go to Start of Line", noremap = true, silent = true })
+map('n', '<s-l>', '<End>', { desc = "Go to End of Line", noremap = true, silent = true })
+map('v', '<s-h>', '<Home>', { desc = "Go to Start of Line", noremap = true, silent = true })
+map('v', '<s-l>', '<End>', { desc = "Go to End of Line", noremap = true, silent = true })
 
 -- u is undo, U is redo
-map('n', '<s-u>', ':redo<cr>', fuj)
+map('n', '<s-u>', ':redo<cr>', { desc = "Redo", noremap = true, silent = true })
 
 -- This allows moving accross wrapped lines without skipping, like in VSCode
-map('n', '<Down>', 'gj', fuj)
-map('n', '<Up>', 'gk', fuj)
-map('i', '<Down>', '<C-o>gj', fuj)
-map('i', '<Up>', '<C-o>gk', fuj)
-map('n', 'j', 'gj', fuj)
-map('n', 'k', 'gk', fuj)
+map('n', '<Down>', 'gj', { desc = "Down", noremap = true, silent = true })
+map('n', '<Up>', 'gk', { desc = "Up", noremap = true, silent = true })
+map('i', '<Down>', '<C-o>gj', { desc = "Down", noremap = true, silent = true })
+map('i', '<Up>', '<C-o>gk', { desc = "Up", noremap = true, silent = true })
+map('n', 'j', 'gj', { desc = "Down", noremap = true, silent = true })
+map('n', 'k', 'gk', { desc = "Up", noremap = true, silent = true })
 
--- Duplicate line
-map('n', '<a-d>', 'yyp', fuj)
-map('i', '<a-d>', '<esc>yypi', fuj)
+map('n', '<a-d>', 'yyp', { desc = "Duplicate Line", noremap = true, silent = true })
+map('i', '<a-d>', '<esc>yypi', { desc = "Duplicate Line", noremap = true, silent = true })
 
 -- Ctrl + Backspace in Insert Mode should not be stupid
 -- Ctrl + Backspace is interpreted as Ctrl + h in terminal emulators, so this is basically the same thing
 -- You can see this by doing Ctrl + v (which enables you to see control character inputs), then Ctrl + Backspace
 -- Same thing is with Ctrl + i, which is interpreted as Tab
 -- https://www.reddit.com/r/neovim/comments/okbag3/comment/h58k9p7/
-map('i', '<c-h>', '<c-w>', fuj)
+map('i', '<c-h>', '<c-w>', { desc = "Delete Rest of Word to Left", noremap = true, silent = true })
 -- Ctrl + Delete in Insert Mode should not be stupid
-map('i', '<c-Del>', '<esc>lcw', fuj)
-map('n', '<c-Del>', 'cw', fuj)
+map('i', '<c-Del>', '<esc>lcw', { desc = "Delete Rest of Word to Right", noremap = true, silent = true })
+map('n', '<c-Del>', 'cw', { desc = "Delete Rest of Word to Right", noremap = true, silent = true })
 -- W isn't used, and b is too far away, and since Ctrl + Arrows aren't used, this is good for horizontal movement
-map('n', 'w', 'e', fuj)
-map('n', 'W', 'b', fuj)
+map('n', 'w', 'e', { desc = "Next Word", noremap = true, silent = true })
+map('n', 'W', 'b', { desc = "Previous Word", noremap = true, silent = true })
 
 -- LSP Shortcuts
-map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<cr>', fuj)      -- Go to definition
-map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<cr>', fuj)     -- Go to declaration
-map('n', '<leader>lh', ':lua vim.lsp.buf.hover()<cr>', fuj)           -- Hover functionality
-map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<cr>', fuj)  -- Go to implementation
-map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<cr>', fuj)  -- See signature help, or, info for function parameters
-map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<cr>', fuj) -- Go to type definition
-map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>', fuj)          -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
-map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', fuj)     -- See code actions for hovered error, like adding imports, etc
-map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', fuj)      -- Go to references
-map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>', fuj)    -- Go to next diagnostic
-map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>', fuj)    -- Go to previous diagnostic
+map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<cr>', { desc = "Go to Definition", noremap = true, silent = true })
+map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<cr>',
+	{ desc = "Go to Declaration", noremap = true, silent = true })
+map('n', '<leader>lh', ':lua vim.lsp.buf.hover()<cr>', { desc = "Show Hover", noremap = true, silent = true })
+map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<cr>',
+	{ desc = "Go to Implementation", noremap = true, silent = true })
+map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<cr>',
+	{ desc = "See Signature Help", noremap = true, silent = true }) -- See signature help, or, info for function parameters
+map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<cr>',
+	{ desc = "Go to Type Definition", noremap = true, silent = true })
+map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>',
+	{ desc = "(Smartly) Rename Variable", noremap = true, silent = true })                                                 -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
+map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', { desc = "See Code Actions", noremap = true, silent = true }) -- See code actions for hovered error, like adding imports, etc
+map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', { desc = "Go to References", noremap = true, silent = true })
+map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>',
+	{ desc = "Go to Next Diagnostic", noremap = true, silent = true })
+map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>',
+	{ desc = "Go to Previous Diagnostic", noremap = true, silent = true })
 -- Formatting through the LSP, if the LSP client supports it
-map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>', fuj)
-map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>', fuj)
+map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>',
+	{ desc = "Format File", noremap = true, silent = true })
+map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>',
+	{ desc = "Format File", noremap = true, silent = true })
 
 -- For me to stop using the arrow keys
 -- The biggest problem here is moving around in insert mode
--- map('n', '<Up>', '', fuj)
--- map('i', '<Up>', '', fuj)
--- map('v', '<Up>', '', fuj)
--- map('n', '<Down>', '', fuj)
--- map('i', '<Down>', '', fuj)
--- map('v', '<Down>', '', fuj)
--- map('n', '<Left>', '', fuj)
--- map('i', '<Left>', '', fuj)
--- map('v', '<Left>', '', fuj)
--- map('n', '<Right>', '', fuj)
--- map('i', '<Right>', '', fuj)
--- map('v', '<Right>', '', fuj)
+-- map('n', '<Up>', '', { desc = "", noremap = true, silent = true})
+-- map('i', '<Up>', '', { desc = "", noremap = true, silent = true})
+-- map('v', '<Up>', '', { desc = "", noremap = true, silent = true})
+-- map('n', '<Down>', '', { desc = "", noremap = true, silent = true})
+-- map('i', '<Down>', '', { desc = "", noremap = true, silent = true})
+-- map('v', '<Down>', '', { desc = "", noremap = true, silent = true})
+-- map('n', '<Left>', '', { desc = "", noremap = true, silent = true})
+-- map('i', '<Left>', '', { desc = "", noremap = true, silent = true})
+-- map('v', '<Left>', '', { desc = "", noremap = true, silent = true})
+-- map('n', '<Right>', '', { desc = "", noremap = true, silent = true})
+-- map('i', '<Right>', '', { desc = "", noremap = true, silent = true})
+-- map('v', '<Right>', '', { desc = "", noremap = true, silent = true})
 
 -- Incrementing and decrementing (as Ctrl + a no longer increments), + and - moved across lines before
-map('n', '+', '<esc><c-a>', fuj)
-map('n', '-', '<esc><c-x>', fuj)
+map('n', '+', '<esc><c-a>', { desc = "Increment", noremap = true, silent = true })
+map('n', '-', '<esc><c-x>', { desc = "Decrement", noremap = true, silent = true })
 
 -- Select all (Ctrl + a is used by tmux)
-map('n', '<leader>a', '<esc>gg0vG$', fuj)
-map('v', '<leader>a', '<esc>gg0vG$', fuj)
+map('n', '<leader>a', '<esc>gg0vG$', { desc = 'Select All', noremap = true, silent = true })
+map('v', '<leader>a', '<esc>gg0vG$', { desc = 'Select All', noremap = true, silent = true })
 
 -- Rebinding ; as it's used only to repeat the last f, t, F or T commands, which I don't use
-map('n', ';t', ':Telescope<cr>', fuj)                                                       -- Telescope main menu
-map('n', ';e', ':lua require"telescope.builtin".symbols{ sources = {"emoji"} }<cr>', fuj)   -- System emojis
-map('n', ';g', ':lua require"telescope.builtin".symbols{ sources = {"gitmoji"} }<cr>', fuj) -- Emoji for git commits
-map('n', ';j', ':lua require"telescope.builtin".symbols{ sources = {"julia"} }<cr>', fuj)   -- Like LaTeX, but for Julia
-map('n', ';k', ':lua require"telescope.builtin".symbols{ sources = {"kaomoji"} }<cr>', fuj) -- (╯°□°）╯︵ ┻━┻ alooo
-map('n', ';l', ':lua require"telescope.builtin".symbols{ sources = {"latex"} }<cr>', fuj)   -- Won't work without LaTeX installed on your system
-map('n', ';m', ':lua require"telescope.builtin".symbols{ sources = {"math"} }<cr>', fuj)    -- 2500 math symbols, not requiring LaTeX
-map('n', ';n', ':lua require"telescope.builtin".symbols{ sources = {"nerd"} }<cr>', fuj)    -- Nerd Font symbol search
+map('n', ';t', ':Telescope<cr>', { desc = 'Telescope Main Menu', noremap = true, silent = true })
+map('n', ';e', ':lua require"telescope.builtin".symbols{ sources = {"emoji"} }<cr>',
+	{ desc = 'System Emojis', noremap = true, silent = true })
+map('n', ';g', ':lua require"telescope.builtin".symbols{ sources = {"gitmoji"} }<cr>',
+	{ desc = 'Gitmoji', noremap = true, silent = true })
+map('n', ';j', ':lua require"telescope.builtin".symbols{ sources = {"julia"} }<cr>',
+	{ desc = 'Julia Symbols', noremap = true, silent = true })
+map('n', ';k', ':lua require"telescope.builtin".symbols{ sources = {"kaomoji"} }<cr>',
+	{ desc = 'Kaomoji  (╯°□°）╯︵ ┻━┻ ', noremap = true, silent = true })
+map('n', ';l', ':lua require"telescope.builtin".symbols{ sources = {"latex"} }<cr>',
+	{ desc = 'LaTeX', noremap = true, silent = true })     -- Won't work without LaTeX installed on your system
+map('n', ';m', ':lua require"telescope.builtin".symbols{ sources = {"math"} }<cr>',
+	{ desc = 'Math Symbols', noremap = true, silent = true }) -- 2500 math symbols, not requiring LaTeX
+map('n', ';n', ':lua require"telescope.builtin".symbols{ sources = {"nerd"} }<cr>',
+	{ desc = 'Nerd Font Symbols', noremap = true, silent = true })
+map('n', ';h', ':Telescope highlights<cr>', { desc = 'Telescope Highlight Search', noremap = true, silent = true })
 
 -- gx doesn't work without netrw, which I don't use, so I'm reimplementing it
 -- It works for files, images, and URLs, something I didn't find online
@@ -200,4 +227,4 @@ function FuckOuttaHere()
 	end
 end
 
-map('n', 'gx', ':lua FuckOuttaHere()<cr>', fuj)
+map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })

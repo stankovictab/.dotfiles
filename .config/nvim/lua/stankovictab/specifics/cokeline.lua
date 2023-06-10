@@ -12,10 +12,7 @@ require('cokeline').setup {
 			return
 				buffer.is_focused and nil or get_hex("Comment", "fg")
 		end,
-		-- TODO: Make this not hardcoded, use get_hex()
-		bg = "#141414", -- Background of buffers themselves, and not the left over line
-		-- bg = get_hex("ColorColumn", "bg")
-		-- bg = "none"
+		bg = get_hex("NormalFloat", "bg")
 	},
 
 	sidebar = {
@@ -23,10 +20,8 @@ require('cokeline').setup {
 		components = {
 			{
 				text = '           NvimTree',
-				-- fg = "#f0ff99",
-				-- TODO: Make this not hardcoded, use get_hex()
-				fg = "#78dce8",
-				bg = "#141414", -- bg = get_hex('NvimTreeNormal', 'bg'),
+				fg = get_hex("Boolean", "fg"),
+				bg = get_hex("NormalFloat", "bg"),
 				style = 'bold',
 			},
 		}
@@ -49,11 +44,9 @@ require('cokeline').setup {
 			end,
 			fg = function(buffer)
 				if buffer.is_focused then
-					-- TODO: Make this not hardcoded, use get_hex()
-					return "#456575"
+					return get_hex("Comment", "fg")
 				else
-					-- TODO: Make this not hardcoded, use get_hex()
-					return "#456575"
+					return get_hex("Comment", "fg")
 				end
 			end,
 			style = "italic",
@@ -64,13 +57,14 @@ require('cokeline').setup {
 			end,
 			fg = function(buffer)
 				if buffer.is_focused then
-					-- TODO: Make this not hardcoded, use get_hex()
-					return "#78dce8"
+					return get_hex("Boolean", "fg")
+				else
+					return get_hex("Comment", "fg")
 				end
 			end,
 			style = function(buffer)
 				if buffer.is_focused then
-					return "underline,bold" -- "underline"
+					return "bold,underline" -- Can be "underline,bold", for example
 				end
 				return nil
 			end
@@ -83,8 +77,7 @@ require('cokeline').setup {
 					return " "
 				end
 			end,
-			-- TODO: Make this not hardcoded, use get_hex()
-			fg = "#e5c463"
+			fg = get_hex("Warnings", "fg")
 		},
 		{
 			text = function(buffer)
@@ -93,8 +86,7 @@ require('cokeline').setup {
 				end
 				return ""
 			end,
-			-- TODO: Make this not hardcoded, use get_hex()
-			fg = "#ff8262"
+			fg = get_hex("Warnings", "fg")
 		},
 		{ text = " " },
 	}
