@@ -24,13 +24,15 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 ## Zellij
 
 > Current conflicts with NeoVim :\
-> `Ctrl + t` is the tag stack\
-> `Ctrl + s` is save\
-> `Ctrl + n` is the terminal plugin - either remove or bind to `Tab + t`\
-> `Ctrl + h` is moving to the left NeoVim pane, and deleting the word to the left\
-> `Ctrl + o` is the jump list\
-> `Ctrl + b` is NvimTree, so probably make Tmux mode to be Ctrl + a?\
-> `Alt + j/k` is moving lines up/down - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists
+> (Not a big problem) `Ctrl + t` is the tag stack\
+> (Ctrl + a now) `Ctrl + s` is save\
+> (It's fine? If I'm in zellij I'll use it, if not I have floating panes) `Ctrl + n` is the terminal plugin - either remove or bind to `Tab + t`\
+> (Ctrl + e now) `Ctrl + h` is moving to the left NeoVim pane, and deleting the word to the left\
+> (Ctrl + y now) `Ctrl + o` is the jump list\
+> (Unbound) `Ctrl + b` is NvimTree, so probably make Tmux mode to be Ctrl + a?\
+> `Alt + j/k` is moving lines up/down - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists\
+> !!! Available :\
+> ctrl+e, ctrl+y, ctrl+\[, ctrl+\], ctrl+\\, ctrl+a, ctrl+;, ctrl+'
 
 `Ctrl + g` - Lock mode\
 `Ctrl + p` - Pane mode\
@@ -51,19 +53,22 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `s` - Toggle synced tab (all input will be the same on all panes of the tab)\
 -> `Tab` - Cycle through tabs (kinda?)\
 `Ctrl + n` - Resize mode\
--> `+`, `-` - Increase / decrease the size of the pane\
+-> `+/-` - Increase / decrease the size of the pane\
 -> `h/j/k/l` - Resize the pane in a direction\
-`Ctrl + h` - Panel move mode\
-`Ctrl + s` - Search & Copy mode\
+`Ctrl + e` - Panel move mode\
+`Ctrl + a` - Search & Copy mode\
 -> `k/j`, `PgUp/PgDn`, `u,d` - Scroll up / down\
 -> `e` - Open scrollback in the default editor\
 -> `s` - Search, with `n` and `p` moving between them, `c` toggling case sensitivity and `w` toggling wrapping when going through results\
-`Ctrl + o` - Session mode\
+`Ctrl + y` - Session mode\
 -> `d` - Detach session\
-`Ctrl + q` - Quit Zellij
 
 `Alt + h/j/k/l` - Move between panes\
-`Alt + n` - New pane
+`Alt + n` - New pane\
+`Alt + +/-` -  Increase / decrease the size of the pane
+
+Note that the Tmux mode is unbound, don't need it.\
+Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 
 ## TMUX
 

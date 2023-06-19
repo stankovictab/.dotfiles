@@ -1,4 +1,5 @@
 require("toggleterm").setup{
+	-- NOTE - Ctrl + n is now used by zellij
 	open_mapping = [[<c-n>]], -- Shortcut to open and close
 	-- hide_numbers = false, -- ??? - Default true
 	-- shading_factor = '3', -- ???

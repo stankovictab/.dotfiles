@@ -23,6 +23,7 @@ require'nvim-treesitter.configs'.setup {
 	"jsdoc",
 	"json",
 	"jsonc",
+	"kdl", -- kdl is for zellij
 	"kotlin",
 	"latex",
 	"lua",

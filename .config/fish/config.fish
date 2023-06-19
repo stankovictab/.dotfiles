@@ -41,6 +41,12 @@ alias ta='tmux attach'
 alias td='tmux detach'
 alias tks='tmux kill-server'
 
+alias zj='zellij'
+alias zjls='zellij ls'
+alias zja='zellij attach'
+alias zjk='zellij k'
+alias zjka='zellij ka'
+
 alias g='lazygit'
 alias lg='lazygit'
 alias gs='git status'
