@@ -113,9 +113,15 @@ _G.packer_plugins = {
     path = "/home/stankovictab/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot-status.nvim"] = {
+    config = { "\27LJ\2\n�\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\nicons\1\0\1\ndebug\1\1\0\5\floading\f \foffline\f \tidle\f \nerror\f \fwarning\v𥉉\nsetup\19copilot_status\frequire\0" },
+    loaded = true,
+    path = "/home/stankovictab/.local/share/nvim/site/pack/packer/start/copilot-status.nvim",
+    url = "https://github.com/jonahgoldwastaken/copilot-status.nvim"
+  },
   ["copilot.lua"] = {
     commands = { "Copilot" },
-    config = { "\27LJ\2\n�\2\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14filetypes\1\0\t\thelp\1\tyaml\2\rmarkdown\2\6.\1\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\14gitcommit\1\15suggestion\1\0\0\vkeymap\1\0\6\16accept_line\1\16accept_word\1\tnext\n<M-]>\fdismiss\n<C-]>\vaccept\1\tprev\n<M-[>\1\0\3\fenabled\2\rdebounce\3K\17auto_trigger\2\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\n�\2\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\14filetypes\1\0\t\14gitcommit\1\thelp\1\tyaml\2\6.\1\rmarkdown\2\bcvs\1\bsvn\1\rhgcommit\1\14gitrebase\1\15suggestion\1\0\0\vkeymap\1\0\6\tprev\n<M-[>\16accept_line\1\16accept_word\1\vaccept\1\tnext\n<M-]>\fdismiss\n<C-]>\1\0\3\17auto_trigger\2\fenabled\2\rdebounce\3K\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -323,18 +329,10 @@ time([[Defining packer_plugins]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require('stankovictab.specifics.indent-blankline')
-time([[Config for indent-blankline.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
--- Config for: nvim-scrollbar
-time([[Config for nvim-scrollbar]], true)
-require('stankovictab.specifics.nvim-scrollbar')
-time([[Config for nvim-scrollbar]], false)
+-- Config for: presence.nvim
+time([[Config for presence.nvim]], true)
+require('stankovictab.specifics.presence')
+time([[Config for presence.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require('stankovictab.specifics.lualine')
@@ -343,38 +341,46 @@ time([[Config for lualine.nvim]], false)
 time([[Config for nvim-colorizer.lua]], true)
 require('stankovictab.specifics.nvim-colorizer')
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
-try_loadstring("\27LJ\2\nL\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\vwindow\1\0\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
-time([[Config for zen-mode.nvim]], false)
--- Config for: nvim-cokeline
-time([[Config for nvim-cokeline]], true)
-require('stankovictab.specifics.cokeline')
-time([[Config for nvim-cokeline]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require('stankovictab.specifics.telescope')
 time([[Config for telescope.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('stankovictab.specifics.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('stankovictab.specifics.lsp-hell')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-scrollbar
+time([[Config for nvim-scrollbar]], true)
+require('stankovictab.specifics.nvim-scrollbar')
+time([[Config for nvim-scrollbar]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require('stankovictab.specifics.nvim-tree')
 time([[Config for nvim-tree.lua]], false)
--- Config for: presence.nvim
-time([[Config for presence.nvim]], true)
-require('stankovictab.specifics.presence')
-time([[Config for presence.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('stankovictab.specifics.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require('stankovictab.specifics.indent-blankline')
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-cokeline
+time([[Config for nvim-cokeline]], true)
+require('stankovictab.specifics.cokeline')
+time([[Config for nvim-cokeline]], false)
 -- Config for: nvim-cursorline
 time([[Config for nvim-cursorline]], true)
 require('stankovictab.specifics.nvim-cursorline')
 time([[Config for nvim-cursorline]], false)
+-- Config for: copilot-status.nvim
+time([[Config for copilot-status.nvim]], true)
+try_loadstring("\27LJ\2\n�\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\nicons\1\0\1\ndebug\1\1\0\5\floading\f \foffline\f \tidle\f \nerror\f \fwarning\v𥉉\nsetup\19copilot_status\frequire\0", "config", "copilot-status.nvim")
+time([[Config for copilot-status.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 -- Config for: playground
 time([[Config for playground]], true)
 require('stankovictab.specifics.playground')
@@ -383,10 +389,14 @@ time([[Config for playground]], false)
 time([[Config for nvim-cmp]], true)
 require('stankovictab.specifics.nvim-cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('stankovictab.specifics.lsp-hell')
-time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+try_loadstring("\27LJ\2\nL\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\vwindow\1\0\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
+time([[Config for zen-mode.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -404,19 +414,19 @@ pcall(vim.api.nvim_create_user_command, 'Copilot', function(cmdargs)
           require('packer.load')({'copilot.lua'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Copilot ', 'cmdline')
       end})
-pcall(vim.api.nvim_create_user_command, 'Alpha', function(cmdargs)
-          require('packer.load')({'alpha-nvim'}, { cmd = 'Alpha', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'alpha-nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Alpha ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'StartupTime', function(cmdargs)
           require('packer.load')({'vim-startuptime'}, { cmd = 'StartupTime', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-startuptime'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('StartupTime ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Alpha', function(cmdargs)
+          require('packer.load')({'alpha-nvim'}, { cmd = 'Alpha', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'alpha-nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Alpha ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
@@ -428,8 +438,8 @@ vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-prev
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'alpha-nvim', 'toggleterm.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'toggleterm.nvim', 'alpha-nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

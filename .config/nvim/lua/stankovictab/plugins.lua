@@ -227,23 +227,23 @@ return require('packer').startup(function(use)
 		silent = true,
 	})
 
-	-- use {
-	-- 	'jonahgoldwastaken/copilot-status.nvim',
-	-- 	-- after = { 'zbirenbaum/copilot.lua' },
-	-- 	-- event = "BufReadPost",
-	-- 	config = function()
-	-- 		require('copilot_status').setup {
-	-- 			icons = {
-	-- 				idle = " ",
-	-- 				error = " ",
-	-- 				offline = " ",
-	-- 				warning = "𥉉",
-	-- 				loading = " ",
-	-- 			},
-	-- 			debug = false,
-	-- 		}
-	-- 	end
-	-- }
+	use {
+		'jonahgoldwastaken/copilot-status.nvim',
+		-- after = { 'zbirenbaum/copilot.lua' },
+		-- event = "BufReadPost",
+		config = function()
+			require('copilot_status').setup {
+				icons = {
+					idle = " ",
+					error = " ",
+					offline = " ",
+					warning = "𥉉",
+					loading = " ",
+				},
+				debug = false,
+			}
+		end
+	}
 
 	use {
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline

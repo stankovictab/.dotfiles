@@ -1,11 +1,12 @@
 -- TODO: Free keys are: ; (it's used to repeat f and t, so useless), ` (' already shows marks), @ (" already shows registers),
--- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut)
+-- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut), Ctrl + y
 -- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones, see what you can come up with
 -- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
 -- I use Space only to clear search highlighting, but I guess I can do that with Esc?
 -- What to do with Caps Lock?
--- You can't use Ctrl + Shift + key in Alacritty, just fyi
+-- You can't use Ctrl + Shift + key in Alacritty, just fyi (but it works for moving buffers around? weird.)
 -- Tab + Tab + keys is also a possibility
+-- e, E, b, B, t & T are all available to rebind, as I don't use them, I just use w and f
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 

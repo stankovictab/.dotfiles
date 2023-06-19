@@ -21,11 +21,55 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + Shift + c` - Copy selected text\
 `Ctrl + Shift + v`, `Ctrl + v`, `Shift + Insert` - Paste text
 
+## Zellij
+
+> Current conflicts with NeoVim :\
+> `Ctrl + t` is the tag stack\
+> `Ctrl + s` is save\
+> `Ctrl + n` is the terminal plugin - either remove or bind to `Tab + t`\
+> `Ctrl + h` is moving to the left NeoVim pane, and deleting the word to the left\
+> `Ctrl + o` is the jump list\
+> `Ctrl + b` is NvimTree, so probably make Tmux mode to be Ctrl + a?\
+> `Alt + j/k` is moving lines up/down - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists
+
+`Ctrl + g` - Lock mode\
+`Ctrl + p` - Pane mode\
+-> `h/j/k/l` - Move between panes\
+-> `n` - New pane in the most suitable slot, in the tab or floating, depending\
+-> `d`, `r` - New pane downwards or to the right\
+-> `x` - Close pane\
+-> `c` - Rename pane\
+-> `f` - Fullscreen pane\
+-> `z` - Toggle pane frames (to show borders and names)\
+-> `w` - Toggle floating mode, and make a new pane there if there isn't any\
+-> `e` - Embed floating pane into the tab, or eject a pane to floating state\
+-> `p` - Cycle through panes\
+`Ctrl + t` - Tab mode\
+-> `n` - New tab\
+-> `x` - Close tab\
+-> `r` - Rename tab\
+-> `s` - Toggle synced tab (all input will be the same on all panes of the tab)\
+-> `Tab` - Cycle through tabs (kinda?)\
+`Ctrl + n` - Resize mode\
+-> `+`, `-` - Increase / decrease the size of the pane\
+-> `h/j/k/l` - Resize the pane in a direction\
+`Ctrl + h` - Panel move mode\
+`Ctrl + s` - Search & Copy mode\
+-> `k/j`, `PgUp/PgDn`, `u,d` - Scroll up / down\
+-> `e` - Open scrollback in the default editor\
+-> `s` - Search, with `n` and `p` moving between them, `c` toggling case sensitivity and `w` toggling wrapping when going through results\
+`Ctrl + o` - Session mode\
+-> `d` - Detach session\
+`Ctrl + q` - Quit Zellij
+
+`Alt + h/j/k/l` - Move between panes\
+`Alt + n` - New pane
+
 ## TMUX
 
 `t`, `ta`, `td`, `tls`, `tks` - Fish shell aliases
 
-`Ctrl + a + I` - Install plugins with tpm (make sure you git cloned tpm)
+`Ctrl + a + Shift + i` - Install plugins with tpm (make sure you git cloned tpm)
 `Ctrl + a + r` - Refresh config
 
 `Ctrl + t`, `Ctrl + a + t` - New window\
@@ -39,7 +83,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + Alt + Left/Right`, `Ctrl + a + {/}` - Swap pane with previous/next position\
 `Ctrl + a + Ctrl + ArrowKeys` - Resize pane
 
-`Ctrl + a + d` - Detach session\
+`Ctrl + a + d` - Detach session and return to native terminal shell\
 `Ctrl + a + e`, `Ctrl + d` (kill shell only) - Kill pane\
 `Ctrl + a + w` - Kill window\
 `Ctrl + a + q` - Kill session
@@ -92,6 +136,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Alt + d` - Duplicate line\
 `w`, `W` - Move forward / backward by word\
 `+`, `-` - Increment / decrement number under cursor\
+`Shift + p` - Paste without changing the register\
 `; + t/e/g/j/k/l/m/n` - Telescope main menu (`t`), and search for emoji, gitmoji, julia, kaomoji, latex, math and Nerd Font symbols\
 `gf` - Go to file under cursor\
 `gx` - Open file or URL under cursor with system application

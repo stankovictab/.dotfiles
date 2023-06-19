@@ -86,6 +86,7 @@ alias vim='nvim'
 alias v='nvim'
 alias sound='pavucontrol-qt'
 alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' # setsid launches it detached from terminal
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias pomo='bash ~/scripts/pomodoro.sh'
 
 alias upscale='~/Desktop/upscaler/upscale.sh'

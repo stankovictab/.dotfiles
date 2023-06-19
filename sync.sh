@@ -1,6 +1,9 @@
 # This script will sync up all dotfiles' symlinks
 # Linux distro agnostic
 
+# Check for root, as a failsafe
+sudo echo "Root check passed!"
+
 # Files
 
 # ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
@@ -94,6 +97,8 @@ rm -rf ~/.config/nsxiv
 ln -sf ~/.dotfiles/.config/nsxiv ~/.config/nsxiv
 rm -rf ~/.config/qimgv
 ln -sf ~/.dotfiles/.config/qimgv ~/.config/qimgv
+rm -rf ~/.config/zellij
+ln -sf ~/.dotfiles/.config/zellij ~/.config/zellij
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts

@@ -20,7 +20,7 @@ vim.opt.scrolloff = 1 -- Number of lines to keep at the cursor when scrolling up
 vim.opt.signcolumn = 'yes' -- Column left of number line, used by git gutter and lsp, by default it's 'auto', and 'yes' means always on
 vim.opt.updatetime = 250 -- The default update time is 4000ms (for things like vim-gitgutter), which is too long
 vim.opt.linebreak = true -- Word wrap / line break on word, not on character
-vim.opt.termguicolors = true -- Necessary for colorschemes in gui nvim
+vim.opt.termguicolors = true -- Enables 24bit color (TrueColor) support for theming, therefore unlocks gui, guifg and guibg attributes for highlight groups (#rrggbb color support), instead of the old cterm attributes
 -- This allows the arrow keys to go to the previous and next line when going left at the stand and right at the end of the line
 vim.opt.whichwrap:append "<>[]" -- This is for left and right arrow keys
 vim.opt.whichwrap:append "h,l" -- This is for h and l
