@@ -30,7 +30,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 > (Ctrl + e now) `Ctrl + h` is moving to the left NeoVim pane, and deleting the word to the left\
 > (Ctrl + y now) `Ctrl + o` is the jump list\
 > (Unbound) `Ctrl + b` is NvimTree, so probably make Tmux mode to be Ctrl + a?\
-> `Alt + j/k` is moving lines up/down - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists\
+> (How it stands now is fine, if you need to move lines around, just go into Lock mode) `Alt + h/j/k/l` is moving lines up/down and characters left/right - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists, so I'd use Ctrl+hjkl for moving between all panes, and free up Alt+hjkl for NeoVim. *NOTE* - Lilja/zellij.nvim exists, it does escape from nvim to zellij, but you can't move between nvim panes themselves, as zellij overrides that still, for now, so zellij needs to do some sort of check to see whether it's in a nvim environment, but that's on the devs to figure out.\
 > !!! Available :\
 > ctrl+e, ctrl+y, ctrl+\[, ctrl+\], ctrl+\\, ctrl+a, ctrl+;, ctrl+'
 
@@ -111,6 +111,7 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 `Tab + f` - Open Telescope file search\
 `Tab + g` - Open Telescope live grep\
 `Tab + b` - Open Telescope buffer search\
+`Tab + l + g` - Open LazyGit\
 `Ctrl + n` - Open integrated terminal
 
 `Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
@@ -352,3 +353,20 @@ Hold Shift when over a message to have more options.
 <!-- `Meta + Tab` - Go through layouts\ -->
 `Meta + Tab` - Go through groups\
 `Alt + Tab` - Go through windows
+
+## LazyGit
+
+`h/l` - Go to previous/next panel\
+`j/k` - Go to previous/next line\
+`Ctrl + d/u`, `Shift + j/k` - Move line up/down\
+`x` - Menu with all the shortcuts (useful!)\
+`a` - Add (stage) all files\
+`Space` - Add (stage) current file\
+`c` - Commit staged files\
+`C` - Commit staged files, write the message via the editor\
+`R` - Refresh local repo for changes\
+`f` - Fetch changes from remote repo\
+`p` - Pull changes from remote repo\
+`P` - Push changes to remote repo\
+`S` - Stash menu\
+`e`, `o` - Edit or open selected file

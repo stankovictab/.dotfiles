@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
 		event = "BufWinEnter"
 	}
 	use "tpope/vim-commentary" -- gc (block) and gcc (line) to comment out code
-	use 'airblade/vim-gitgutter'
+	use "airblade/vim-gitgutter"
 	use {
 		'nvim-treesitter/nvim-treesitter', -- Treeshitter for better syntax highlighting
 		config = "require('stankovictab.specifics.treesitter')",
@@ -258,5 +258,16 @@ return require('packer').startup(function(use)
 			vim.o.timeoutlen = 300 -- Time before WhichKey opens
 			require("which-key").setup {} -- In the `mappings` part of the WhichKey docs you can see how to rename entries and groups in whichkey, but that's a little time consuming and maybe not worth the effort
 		end
+	}
+	-- use { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
+	-- 	config = function()
+	-- 		require('zellij').setup({})
+	-- 	end }
+
+	use {
+		"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
+		config = function()
+			-- require("telescope").load_extension("lazygit")
+		end,
 	}
 end)

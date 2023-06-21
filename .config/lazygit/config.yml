@@ -1,5 +1,7 @@
 gui:
-  showIcons: true # Nerd Font icons, false by default
+  showIcons: false # Nerd Font icons, false by default
+    # FIXME: The new Nerd Font icons have breaking changes that have not been fixed in lazygit, so for now this is disabled
+  showBottomLine: true # Line with shortcuts
   theme: # colors can be either like blue, or '#0fa332'
     lightTheme: false # For terminals with a light background
     activeBorderColor:

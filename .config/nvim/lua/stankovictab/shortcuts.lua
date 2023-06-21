@@ -32,6 +32,7 @@ map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>",
 	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
 map('n', '<leader>d', ":Telescope diagnostics<cr>", { desc = "See Diagnostics", noremap = true, silent = true })
+map('n', '<leader>lg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })
@@ -107,6 +108,10 @@ map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- Alt + h/l to move characters left and right (NOTE - Might be buggy)
+map("n", "<A-h>", "xhP", { desc = "Move character left" })
+map("n", "<A-l>", "xp", { desc = "Move character right" })
 
 map('n', '<leader>m', ":MarkdownPreview<cr>", { desc = "Markdown Preview" }) -- Markdown Preview
 
