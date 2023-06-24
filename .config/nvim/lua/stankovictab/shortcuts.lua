@@ -1,4 +1,4 @@
--- TODO: Free keys are: ; (it's used to repeat f and t, so useless), ` (' already shows marks), @ (" already shows registers),
+-- TODO: Free keys are: ; (it's used to repeat f and t, so useless), ` (' already shows marks), @ (" already shows registers), , itself (used to repeat f and t in the other way)
 -- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut), Ctrl + y
 -- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones, see what you can come up with
 -- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
@@ -234,3 +234,9 @@ function FuckOuttaHere()
 end
 
 map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })
+
+-- Folke's Flash
+-- FIXME this doesn't work? but the command itself does if put in manually?
+-- map('n', 's', ':lua require("flash").jump()<cr>', { desc = "Flash Jump", noremap = true, silent = true })
+
+map('n', '<leader>tt', ':TSToggle highlight<cr>:lua print("TreeShitter Toggled!")<cr>', { desc = "TreeShitter Toggle" })

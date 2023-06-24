@@ -90,6 +90,7 @@ alias colors='gpick'
 alias nsx='nsxiv-rifle'
 alias vim='nvim'
 alias v='nvim'
+alias nvimbackup='nvim -u NONE'
 alias sound='pavucontrol-qt'
 alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' # setsid launches it detached from terminal
 alias wezterm='flatpak run org.wezfurlong.wezterm'
@@ -103,3 +104,20 @@ fish_add_path /home/stankovictab/scripts/
 fish_add_path /home/stankovictab/.cargo/bin/
 
 export EDITOR="nvim" # Default editor for sudoedit for example
+
+# ERROR - THIS MAKES IT SO THAT I CAN'T LOG INTO X11 OR WAYLAND! MAJOR ISSUE!
+# If zellij is installed, always go into a zellij session, and list sessions if there are many of them
+# NOTE - Closing a terminal will note close the session, so make sure to close programs manually, that's on you
+# See zj setup --generate-auto-start fish for more info
+# set ZELLIJ_AUTO_ATTACH true # Automatically attach to a zellij session if there is one
+# set ZELLIJ_AUTO_EXIT true # Automatically exit zellij when all panes are closed - this means you're locked into zj, fyi
+# NOTE - Also, this means that can you only have one session? Right?
+# if not set -q ZELLIJ # Check if you're in a zellij session already
+#     if test "$ZELLIJ_AUTO_ATTACH" = "true"
+#         zellij attach -c
+#     else
+#         zellij
+#     end
+# 
+#     if test "$ZELLIJ_AUTO_EXIT" = "true"
+#         kill $fish_pid

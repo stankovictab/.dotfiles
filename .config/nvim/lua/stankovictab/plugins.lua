@@ -17,17 +17,20 @@ require('packer').init {
 -- Plugin list
 -- Make sure that you seperate a package per 'use', I've had problems putting multiple packages in a single 'use', and with a single config, that doesn't work
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'                      -- Packer itself
-	use 'stankovictab/mgz.nvim'                       -- The best theme
-	use 'marko-cerovac/material.nvim'                 -- Bosnian theme
-	use 'tomasiser/vim-code-dark'                     -- Default VSCode dark theme inspired
-	-- use 'rafi/awesome-vim-colorschemes' -- Collection of colorschemes, including iceberg, nord, onedark, etc
-	use { 'folke/tokyonight.nvim' }                   -- Tokyonight theme
-	use { "catppuccin/nvim", as = "catppuccin" }
-	use { "Shatur/neovim-ayu" }                       -- Darker color theme
-	use { "shaunsingh/nord.nvim" }                    -- Nord theme, the one mgz is based on
-	-- Adding event = "BufWinEnter" screws with nvim-tree's nerd icons
-	use { "nvim-tree/nvim-web-devicons" }             -- A dependency for a lot of packages, literally just Nerd Font icons
+	use 'wbthomason/packer.nvim' -- Packer itself
+
+	-- Themes
+	use 'stankovictab/mgz.nvim'               -- The best theme
+	use 'marko-cerovac/material.nvim'         -- The Bosnian theme
+	use 'tomasiser/vim-code-dark'             -- Default VSCode dark theme inspired
+	use { 'folke/tokyonight.nvim' }           -- Tokyonight theme
+	use { "catppuccin/nvim", as = "catppuccin" } -- Catppuccin theme
+	use { "Shatur/neovim-ayu" }               -- Darker color theme
+	use { "shaunsingh/nord.nvim" }            -- Nord theme, the one mgz is based on
+	-- use 'rafi/awesome-vim-colorschemes'       -- Collection of colorschemes, including iceberg, nord, onedark, etc
+
+	use { "nvim-tree/nvim-web-devicons" } -- A dependency for a lot of packages, literally just Nerd Font icons
+
 	use {
 		"goolord/alpha-nvim",                         -- Dashboard shown at nvim start with no file
 		requires = { "nvim-tree/nvim-web-devicons" },
@@ -38,62 +41,83 @@ return require('packer').startup(function(use)
 		},
 		event = "BufWinEnter"
 	}
+
 	use {
 		'andweeb/presence.nvim', -- The best Discord rich presence plugin
 		config = "require('stankovictab.specifics.presence')"
 	}
-	use "nvim-lua/plenary.nvim"                   -- A weird dependency
+
+	use "nvim-lua/plenary.nvim"                   -- A weird dependency for Telescope
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0', -- File Finder
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = "require('stankovictab.specifics.telescope')"
 	}
 	use { 'nvim-telescope/telescope-symbols.nvim' } -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc          (╯°□°）╯︵ ┻━┻
-	-- use {
-	-- 	"brenoprata10/nvim-highlight-colors", -- Same, but this one does var() in css, however, it's very laggy in large css files
-	-- 	config = function() require('nvim-highlight-colors').setup({
-	-- 			render = 'background', -- or 'foreground' or 'first_column'
-	-- 			enable_named_colors = true,
-	-- 			enable_tailwind = false
-	-- 		})
-	-- 	end
-	-- }
-	-- use {
-	-- 	"norcalli/nvim-colorizer.lua",           -- Colours on hexadecimal values, like #1155aa
-	-- 	config = "require('stankovictab.specifics.nvim-colorizer')"
-	-- }
+
 	use {
-		'NvChad/nvim-colorizer.lua', -- norcalli/nvim-colorizer.lua is no longer maintained, and this fixes the issue where colors go away when changing themes
+		'NvChad/nvim-colorizer.lua',
+		-- Between this, norcalli/nvim-colorizer.lua and brenoprata10/nvim-highlight-colors, this is the best one, as it's maintained, and it fixes the issue where colors go away when changing themes, however, it still doesn't support var() in css sadly
 		config = "require('stankovictab.specifics.nvim-colorizer')"
 	}
+
 	use {
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		config = function() require("nvim-autopairs").setup({}) end
 	}
-	-- use {
-	-- 	'akinsho/bufferline.nvim', tag = "v2.*", -- Buffer line at the top (tab bar)
-	-- 	requires = 'nvim-tree/nvim-web-devicons',
-	-- 	config = "require('stankovictab.specifics.bufferline')"
-	-- }
+
 	use {
 		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		requires = 'nvim-tree/nvim-web-devicons',
 		config = "require('stankovictab.specifics.cokeline')"
 	}
+
 	use {
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
 		requires = { 'nvim-tree/nvim-web-devicons' },
 		config = "require('stankovictab.specifics.nvim-tree')"
 	}
+
+	-- TODO: Think about removing this if you're going to be using zellij constantly
+	-- It'll also free up Ctrl + n for zellij
 	use {
 		"akinsho/toggleterm.nvim", tag = '*', -- A better terminal than the builtin
 		config = "require('stankovictab.specifics.toggleterm')",
 		event = "BufWinEnter"
 	}
+
 	use "tpope/vim-commentary" -- gc (block) and gcc (line) to comment out code
-	use "airblade/vim-gitgutter"
+
 	use {
-		'nvim-treesitter/nvim-treesitter', -- Treeshitter for better syntax highlighting
+		'lewis6991/gitsigns.nvim', -- Git signs in the gutter, better than airblade/vim-gitgutter
+		config = function()
+			require('gitsigns').setup {
+				signs                        = {
+					add          = { text = '│' }, -- │
+					change       = { text = '│' },
+					delete       = { text = '_' },
+					topdelete    = { text = '‾' },
+					changedelete = { text = '~' },
+					untracked    = { text = '┆' },
+				},
+				signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`, signs in the line number gutter
+				numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`, highlight line numbers
+				linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`, highlight line changes, could be useful to toggle sometimes, but the theme needs to support this well in order to see it
+				word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+				current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`, git blame in the current line after set timeout
+				current_line_blame_opts      = {
+					virt_text = true,
+					virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+					delay = 1000,
+					ignore_whitespace = false,
+				},
+				current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+			}
+		end
+	}
+
+	use {
+		'nvim-treesitter/nvim-treesitter', -- TreeShitter for better syntax highlighting
 		config = "require('stankovictab.specifics.treesitter')",
 		run = function()
 			require('nvim-treesitter.install').update({
@@ -105,10 +129,12 @@ return require('packer').startup(function(use)
 		'nvim-treesitter/playground', -- Treeshitter AST preview on :TSPlaygroundToggle
 		config = "require('stankovictab.specifics.playground')"
 	}
+
 	use {
 		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation
 		config = "require('stankovictab.specifics.indent-blankline')"
 	}
+
 	use {
 		'yamatsum/nvim-cursorline', -- Includes cursorline and cursorword - the second highlights all occurances of the selected word
 		config = "require('stankovictab.specifics.nvim-cursorline')"
@@ -227,23 +253,23 @@ return require('packer').startup(function(use)
 		silent = true,
 	})
 
-	use {
-		'jonahgoldwastaken/copilot-status.nvim',
-		-- after = { 'zbirenbaum/copilot.lua' },
-		-- event = "BufReadPost",
-		config = function()
-			require('copilot_status').setup {
-				icons = {
-					idle = " ",
-					error = " ",
-					offline = " ",
-					warning = "𥉉",
-					loading = " ",
-				},
-				debug = false,
-			}
-		end
-	}
+	-- use {
+	-- 	'jonahgoldwastaken/copilot-status.nvim',
+	-- 	-- after = { 'zbirenbaum/copilot.lua' },
+	-- 	-- event = "BufReadPost",
+	-- 	config = function()
+	-- 		require('copilot_status').setup {
+	-- 			icons = {
+	-- 				idle = " ",
+	-- 				error = " ",
+	-- 				offline = " ",
+	-- 				warning = "𥉉",
+	-- 				loading = " ",
+	-- 			},
+	-- 			debug = false,
+	-- 		}
+	-- 	end
+	-- }
 
 	use {
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
@@ -259,6 +285,7 @@ return require('packer').startup(function(use)
 			require("which-key").setup {} -- In the `mappings` part of the WhichKey docs you can see how to rename entries and groups in whichkey, but that's a little time consuming and maybe not worth the effort
 		end
 	}
+
 	-- use { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
 	-- 	config = function()
 	-- 		require('zellij').setup({})
@@ -269,5 +296,11 @@ return require('packer').startup(function(use)
 		config = function()
 			-- require("telescope").load_extension("lazygit")
 		end,
+	}
+	use {
+		"folke/flash.nvim", -- Better text navigation
+		config = function()
+			require('flash').setup {}
+		end
 	}
 end)
