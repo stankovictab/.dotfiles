@@ -1,36 +1,35 @@
--- Packer's list of packages
--- IMPORTANT - Every time you update this config, you need to run :PackerCompile
--- Packer allows for lazy loading of packages, if you configure the 'use' part correctly
--- This is done with event (plugin will load on a specific event) and cmd (on a specific command)
+-- lazy.nvim is a modern plugin manager, better than packer.nvim (lazy loading, caching, no git cloning, etc)
+-- Plugins can be loaded on events, commands, keymaps or buffer types, and they don't need to be manually compiled every time you make a change
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- This is ~/.local/share/nvim/lazy/lazy.nvim
+if not vim.loop.fs_stat(lazypath) then                       -- Check if lazy.nvim is installed, if not clone it
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd('packadd packer.nvim') -- packadd is vim's command to add a local package, and this is local because I've git cloned it
+vim.g.mapleader = '	' -- NOTE - THIS IS TEMPORARY, SEE IF IT WORKS WITHOUT IT HERE, dude says it's needed here
+-- TODO: To not make this be here, divide shortcuts into two groups, before plugins and after plugins
 
--- Have packer use a popup window instead of another panel
-require('packer').init {
-	display = {
-		open_fn = function()
-			return require('packer.util').float { border = 'rounded' }
-		end
-	}
-}
-
--- Plugin list -- Make sure that you set a package per 'use'
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim' -- Packer itself
-
+return require('lazy').setup({
 	-- Themes
-	use { "stankovictab/mgz.nvim" }           -- The best theme
-	use { "marko-cerovac/material.nvim" }     -- The Bosnian theme
-	use { "tomasiser/vim-code-dark" }         -- Default VSCode dark theme inspired
-	use { "folke/tokyonight.nvim" }           -- Tokyonight theme
-	use { "catppuccin/nvim", as = "catppuccin" } -- Catppuccin theme
-	use { "Shatur/neovim-ayu" }               -- Darker color theme
-	use { "shaunsingh/nord.nvim" }            -- Nord theme, the one mgz is based on
+	"stankovictab/mgz.nvim",    -- The best theme
+	"marko-cerovac/material.nvim", -- The Bosnian theme
+	"tomasiser/vim-code-dark",  -- Default vscode dark theme inspired
+	"folke/tokyonight.nvim",    -- TokyoNight theme
+	"catppuccin/nvim",          -- Catppuccin theme
+	"shatur/neovim-ayu",        -- Darker color theme
+	"shaunsingh/nord.nvim",     -- Nord theme, the one mgz is based on
 	-- use 'rafi/awesome-vim-colorschemes'       -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
-	use { "nvim-tree/nvim-web-devicons" } -- A dependency for a lot of packages, literally just Nerd Font icons
+	"nvim-tree/nvim-web-devicons",                    -- A dependency for a lot of packages, literally just nerd font icons
 
-	use {
+	{
 		"goolord/alpha-nvim",                         -- Dashboard shown at nvim start with no file
 		requires = { "nvim-tree/nvim-web-devicons" },
 		config = "require('stankovictab.specifics.alpha')", -- Opens specific config file
@@ -39,55 +38,57 @@ return require('packer').startup(function(use)
 			"AlphaRedraw"
 		},
 		event = "BufWinEnter"
-	}
+	},
 
-	use {
+	{
 		"andweeb/presence.nvim", -- The best Discord rich presence plugin
 		config = "require('stankovictab.specifics.presence')"
-	}
+	},
 
-	use "nvim-lua/plenary.nvim"                   -- A weird dependency for Telescope
-	use {
-		"nvim-telescope/telescope.nvim", tag = '0.1.0', -- File Finder
+	"nvim-lua/plenary.nvim",                      -- A weird dependency for Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = '0.1.0',                            -- File Finder
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = "require('stankovictab.specifics.telescope')"
-	}
-	use { 'nvim-telescope/telescope-symbols.nvim' } -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc          (╯°□°）╯︵ ┻━┻
+	},
+	"nvim-telescope/telescope-symbols.nvim", -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc          (╯°□°）╯︵ ┻━┻
 
-	use {
+	{
 		'NvChad/nvim-colorizer.lua',
 		-- Between this, norcalli/nvim-colorizer.lua and brenoprata10/nvim-highlight-colors, this is the best one, as it's maintained, and it fixes the issue where colors go away when changing themes, however, it still doesn't support var() in css sadly
 		config = "require('stankovictab.specifics.nvim-colorizer')"
-	}
+	},
 
-	use {
+	{
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		config = function() require("nvim-autopairs").setup({}) end
-	}
+	},
 
-	use {
+	{
 		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		requires = 'nvim-tree/nvim-web-devicons',
 		config = "require('stankovictab.specifics.cokeline')"
-	}
+	},
 
-	use {
+	{
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
 		requires = { 'nvim-tree/nvim-web-devicons' },
 		config = "require('stankovictab.specifics.nvim-tree')"
-	}
+	},
 
 	-- TODO: Think about removing this if you're going to be using zellij constantly
 	-- It'll also free up Ctrl + n for zellij
-	use {
-		"akinsho/toggleterm.nvim", tag = '*', -- A better terminal than the builtin
+	{
+		"akinsho/toggleterm.nvim",
+		tag = '*',                      -- A better terminal than the builtin
 		config = "require('stankovictab.specifics.toggleterm')",
 		event = "BufWinEnter"
-	}
+	},
 
-	use "tpope/vim-commentary" -- gc (block) and gcc (line) to comment out code
+	"tpope/vim-commentary", -- gc (block) and gcc (line) to comment out code
 
-	use {
+	{
 		'lewis6991/gitsigns.nvim', -- Git signs in the gutter, better than airblade/vim-gitgutter
 		config = function()
 			require('gitsigns').setup {
@@ -113,9 +114,9 @@ return require('packer').startup(function(use)
 				current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
 			}
 		end
-	}
+	},
 
-	use {
+	{
 		'nvim-treesitter/nvim-treesitter', -- TreeShitter for better syntax highlighting
 		config = "require('stankovictab.specifics.treesitter')",
 		run = function()
@@ -123,53 +124,41 @@ return require('packer').startup(function(use)
 				with_sync = true
 			})
 		end
-	}
-	use {
+	},
+	{
 		'nvim-treesitter/playground', -- Treeshitter AST preview on :TSPlaygroundToggle
 		config = "require('stankovictab.specifics.playground')"
-	}
+	},
 
-	use {
+	{
 		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation
 		config = "require('stankovictab.specifics.indent-blankline')"
-	}
+	},
 
-	use {
+	{
 		'yamatsum/nvim-cursorline', -- Includes cursorline and cursorword - the second highlights all occurances of the selected word
 		config = "require('stankovictab.specifics.nvim-cursorline')"
-	}
+	},
 
-	use {
+	{
 		'petertriho/nvim-scrollbar', -- Scrollbar so that I don't get lost
 		config = "require('stankovictab.specifics.nvim-scrollbar')"
-	}
+	},
 
-	-- use { "dstein64/vim-startuptime", cmd = "StartupTime" } -- Run nvim --startuptime, or :StartupTime
-
-	use {
-		'rafamadriz/friendly-snippets', -- Snippet collection
-	}
-	use { "L3MON4D3/LuaSnip" }    -- LuaSnip snippet engine
-	use {
-		'hrsh7th/nvim-cmp',       -- Completion engine
+	"rafamadriz/friendly-snippets", -- Snippet collection
+	"L3MON4D3/LuaSnip",          -- LuaSnip snippet engine
+	{
+		'hrsh7th/nvim-cmp',      -- Completion engine
 		config = "require('stankovictab.specifics.nvim-cmp')"
-	}
-	use {
-		'hrsh7th/cmp-buffer' -- Completion engine - Adding buffer (file) sources
-	}
-	use {
-		'hrsh7th/cmp-path' -- Completion engine - Adding path sources
-	}
-	use {
-		'saadparwaiz1/cmp_luasnip' -- Completion engine - LuaSnip snippet engine sources
-	}
-	use {
-		'hrsh7th/cmp-nvim-lsp' -- Completion engine - LSP sources
-	}
+	},
+	'hrsh7th/cmp-buffer',    -- Completion engine - Adding buffer (file) sources
+	'hrsh7th/cmp-path',      -- Completion engine - Adding path sources
+	'saadparwaiz1/cmp_luasnip', -- Completion engine - LuaSnip snippet engine sources
+	'hrsh7th/cmp-nvim-lsp',  -- Completion engine - LSP sources
 
 	-- The configuration for the following 3 packages is in lsp-hell,
 	-- and it needs to be in the 3rd use, apparently
-	use "williamboman/mason.nvim" -- LSP installer and manager, a new replacement for nvim-lsp-installer
+	"williamboman/mason.nvim", -- LSP installer and manager, a new replacement for nvim-lsp-installer
 	-- cmd = {
 	-- "MasonInstall",
 	-- "MasonUninstall",
@@ -177,13 +166,13 @@ return require('packer').startup(function(use)
 	-- "MasonUninstallAll",
 	-- "MasonLog",
 	-- },
-	use "williamboman/mason-lspconfig.nvim" -- Bridge between Mason and lspconfig
-	use {
-		"neovim/nvim-lspconfig",         -- LSP configuration, this is an integral part
+	"williamboman/mason-lspconfig.nvim", -- Bridge between Mason and lspconfig
+	{
+		"neovim/nvim-lspconfig",      -- LSP configuration, this is an integral part
 		config = "require('stankovictab.specifics.lsp-hell')"
-	}
+	},
 
-	use {
+	{
 		"folke/zen-mode.nvim", -- Like zen mode in vscode, activate with :ZenMode
 		config = function()
 			require("zen-mode").setup {
@@ -192,23 +181,26 @@ return require('packer').startup(function(use)
 				}
 			}
 		end
-	}
+	},
 
+	-- TODO FIX THISSSSSSSSSSSSSSSSSSSSSSS (Uncomment the code and make it work again)
 	-- Markdown Preview, use with :MarkdownPreview (Tab + m)
 	-- Config needs to be set before the setup, a seperate file isn't needed and doesn't work that great
-	vim.g.mkdp_port = '8885'                                   -- Set port for dark reader to turn off
-	vim.g.mkdp_auto_close = 0                                  -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
-	-- Be careful of this, as you'll get an error if you open another preview at the same port. Maybe figure out a way to get around this with mkdp_auto_close and :MarkdownPreviewToggle
-	vim.g.mkdp_markdown_css = '~/Desktop/mkdp_mgz.css'         -- CSS file to style the preview
-	vim.g.mkdp_highlight_css = '~/Desktop/mkdp_mgz_highlight.css' -- CSS file to style the preview
-	use { "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+	-- vim.g.mkdp_port = '8885'                                   -- Set port for dark reader to turn off
+	-- vim.g.mkdp_auto_close = 0                                  -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
+	-- -- Be careful of this, as you'll get an error if you open another preview at the same port. Maybe figure out a way to get around this with mkdp_auto_close and :MarkdownPreviewToggle
+	-- vim.g.mkdp_markdown_css = '~/Desktop/mkdp_mgz.css'         -- CSS file to style the preview
+	-- vim.g.mkdp_highlight_css = '~/Desktop/mkdp_mgz_highlight.css' -- CSS file to style the preview
+	{
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	}
+	},
 
-	use {
+	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter", -- Copilot will be started only when entering insert mode
@@ -240,64 +232,47 @@ return require('packer').startup(function(use)
 				},
 			})
 		end
-	}
+	},
+	-- TODO FIX THISSSSSSSSSSSSSSSSSSSSSSS (Uncomment the code and make it work again)
 	-- This bunch of shit makes it so that Tab completes the suggestion, or just inserts Tab if there's no suggestion
-	vim.keymap.set("i", '<Tab>', function()
-		if require("copilot.suggestion").is_visible() then
-			require("copilot.suggestion").accept()
-		else
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), 'n', false)
-		end
-	end, {
-		silent = true,
-	})
-
-	-- use {
-	-- 	'jonahgoldwastaken/copilot-status.nvim',
-	-- 	-- after = { 'zbirenbaum/copilot.lua' },
-	-- 	-- event = "BufReadPost",
-	-- 	config = function()
-	-- 		require('copilot_status').setup {
-	-- 			icons = {
-	-- 				idle = " ",
-	-- 				error = " ",
-	-- 				offline = " ",
-	-- 				warning = "𥉉",
-	-- 				loading = " ",
-	-- 			},
-	-- 			debug = false,
-	-- 		}
+	-- vim.keymap.set("i", '<Tab>', function()
+	-- 	if require("copilot.suggestion").is_visible() then
+	-- 		require("copilot.suggestion").accept()
+	-- 	else
+	-- 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), 'n', false)
 	-- 	end
-	-- }
+	-- end, {
+	-- 	silent = true,
+	-- })
 
-	use {
+	{
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
 		-- after = { 'jonahgoldwastaken/copilot-status.nvim' },
 		config = "require('stankovictab.specifics.lualine')"
-	}
+	},
 
-	use {
+	{
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300 -- Time before WhichKey opens
 			require("which-key").setup {} -- In the `mappings` part of the WhichKey docs you can see how to rename entries and groups in whichkey, but that's a little time consuming and maybe not worth the effort
 		end
-	}
+	},
 
-	-- use { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
+	-- { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
 	-- 	config = function()
 	-- 		require('zellij').setup({})
-	-- 	end }
+	-- 	end },
 
-	use {
+	{
 		"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
 		config = function()
 			-- require("telescope").load_extension("lazygit")
 		end,
-	}
+	},
 
-	use {
+	{
 		"folke/flash.nvim", -- Better text navigation
 		config = function()
 			require('flash').setup {
@@ -308,5 +283,5 @@ return require('packer').startup(function(use)
 				}
 			}
 		end
-	}
-end)
+	},
+})

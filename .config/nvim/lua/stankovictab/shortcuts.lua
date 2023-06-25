@@ -43,8 +43,8 @@ map('n', '<leader>z', ':ZenMode<cr>', { desc = "Zen Mode", noremap = true, silen
 
 -- ToggleTerm's shortcut (Ctrl + n) is specific and it's set in its config (~/.config/nvim/lua/stankovictab/specifics/toggleterm.lua)
 
-map('n', '<s-j>', ':bnext<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
-map('n', '<s-k>', ':bprevious<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
+map('n', '<s-j>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
+map('n', '<s-k>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
 map('n', '<c-PageDown>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
 map('n', '<c-PageUp>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
 
@@ -97,9 +97,7 @@ map('n', ' ',
 	{ desc = "Clear Screen (Search Highlights, Reset Window Size, Cokeline Color Reset)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
-map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
-	{ desc = "Search & Replace", noremap = true, silent = true })
-map('i', '<c-r>', '<esc>:lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
+map('x', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
 	{ desc = "Search & Replace", noremap = true, silent = true })
 
 -- Alt + movement keys to move lines around - this is a lot better than ddp and ddkP, doesn't mess up the clipboard, and doesn't have the issue of moving the first line up and it disappearing
