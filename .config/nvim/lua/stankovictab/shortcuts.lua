@@ -29,7 +29,7 @@ map('n', '<leader>g', ':Telescope live_grep<cr>',
 	{ desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
 map('n', '<leader>b', ':Telescope buffers<cr>', { desc = "Buffer Browser", noremap = true, silent = true })
 
-map('n', '<leader>ps', ":PackerCompile<cr>:PackerSync<cr>:TSUpdate<cr>",
+map('n', '<leader>ps', ":Lazy sync<cr>:TSUpdate<cr>",
 	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
 map('n', '<leader>d', ":Telescope diagnostics<cr>", { desc = "See Diagnostics", noremap = true, silent = true })

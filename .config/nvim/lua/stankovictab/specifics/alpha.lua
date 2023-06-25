@@ -26,7 +26,7 @@ dashboard.section.header.opts.hl = "Normal" -- Highlight of logo
 
 local function button(sc, txt, keybind, keybind_opts)
 	local b = dashboard.button(sc, txt, keybind, keybind_opts)
-	b.opts.hl = "Normal" -- Highlight
+	b.opts.hl = "Normal"       -- Highlight
 	b.opts.hl_shortcut = "Normal" -- Highlight
 	return b
 end
@@ -38,12 +38,12 @@ dashboard.section.buttons.val = {
 	button("Tab + f", "  Find File", ":Telescope find_files <cr>"),
 	button("Tab + g", "  Find Word", ":Telescope live_grep<cr>"),
 	button("Tab + ,", "  Config", ":e $MYVIMRC<cr>"),
-	button("Tab + ps", "  Reload Plugins", ":PackerClean<cr>:PackerSync<cr>"),
+	button("Tab + ps", "  Reload Plugins", ":Lazy sync<cr>:TSUpdate<cr>"),
 	button("q", "⏻  Quit", ":qa<cr>")
 }
 
 local function footer()
-	local total_plugins = #vim.tbl_keys(packer_plugins)
+	local total_plugins = require('lazy').stats().count
 	local version = vim.api.nvim_exec("echo system('nvim -v | grep NVIM')", true)
 	version = string.gsub(version, "\n", "")
 	return version .. " loaded " .. total_plugins .. " plugins "
@@ -62,7 +62,7 @@ dashboard.section.footer.val = footer()
 dashboard.section.footer.opts.hl = "Comment" -- Highlight of bottom comment
 
 local opts = {
-	layout = { -- The layout is like a stack that follows these elements in order
+	layout = {                   -- The layout is like a stack that follows these elements in order
 		{ type = "padding", val = 1 }, -- Padding top
 		dashboard.section.header,
 		{ type = "padding", val = 0 }, -- Distance between logo and top comment

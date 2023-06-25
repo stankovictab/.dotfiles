@@ -43,6 +43,7 @@ require('lspconfig').lua_ls.setup {
 			},
 			workspace = { -- Make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false, -- This disables that annoying "Do you need to configure your work environment..." message
 			},
 			telemetry = { -- Do not send telemetry data containing a randomized but unique identifier
 				enable = false,
