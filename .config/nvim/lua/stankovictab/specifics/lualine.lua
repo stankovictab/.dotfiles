@@ -46,11 +46,15 @@ require('lualine').setup {
 				vim.api.nvim_command("LspInfo")
 			end,
 			color = function()
+				-- Set the color to the icon's color
 				-- local _, color = require("nvim-web-devicons").get_icon_cterm_color_by_filetype(
 				-- 	vim.api.nvim_buf_get_option(0, "filetype")
 				-- )
 				-- return { fg = color }
-				return { fg = "white" }
+
+				-- Set the color to the color of the text in the lualine segment
+				local color = vim.fn.synIDattr(vim.fn.hlID('lualine_c_normal'), 'fg')
+				return { fg = color }
 			end,
 		} },
 

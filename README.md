@@ -131,6 +131,7 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 `/` - Search\
 `Ctrl + r` - Search and replace\
 `Space` - Clear search highlighting\
+`,` - Flash jump\
 `u`, `Shift + u` - Undo and redo\
 `Tab + a` - Select all\
 `Tab + p + s` - Sync packages and TreeSitter parsers\

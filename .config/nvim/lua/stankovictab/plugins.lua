@@ -14,16 +14,15 @@ require('packer').init {
 	}
 }
 
--- Plugin list
--- Make sure that you seperate a package per 'use', I've had problems putting multiple packages in a single 'use', and with a single config, that doesn't work
+-- Plugin list -- Make sure that you set a package per 'use'
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim' -- Packer itself
 
 	-- Themes
-	use 'stankovictab/mgz.nvim'               -- The best theme
-	use 'marko-cerovac/material.nvim'         -- The Bosnian theme
-	use 'tomasiser/vim-code-dark'             -- Default VSCode dark theme inspired
-	use { 'folke/tokyonight.nvim' }           -- Tokyonight theme
+	use { "stankovictab/mgz.nvim" }           -- The best theme
+	use { "marko-cerovac/material.nvim" }     -- The Bosnian theme
+	use { "tomasiser/vim-code-dark" }         -- Default VSCode dark theme inspired
+	use { "folke/tokyonight.nvim" }           -- Tokyonight theme
 	use { "catppuccin/nvim", as = "catppuccin" } -- Catppuccin theme
 	use { "Shatur/neovim-ayu" }               -- Darker color theme
 	use { "shaunsingh/nord.nvim" }            -- Nord theme, the one mgz is based on
@@ -43,13 +42,13 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'andweeb/presence.nvim', -- The best Discord rich presence plugin
+		"andweeb/presence.nvim", -- The best Discord rich presence plugin
 		config = "require('stankovictab.specifics.presence')"
 	}
 
 	use "nvim-lua/plenary.nvim"                   -- A weird dependency for Telescope
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0', -- File Finder
+		"nvim-telescope/telescope.nvim", tag = '0.1.0', -- File Finder
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = "require('stankovictab.specifics.telescope')"
 	}
@@ -145,7 +144,7 @@ return require('packer').startup(function(use)
 		config = "require('stankovictab.specifics.nvim-scrollbar')"
 	}
 
-	use { "dstein64/vim-startuptime", cmd = "StartupTime" } -- Run nvim --startuptime, or :StartupTime
+	-- use { "dstein64/vim-startuptime", cmd = "StartupTime" } -- Run nvim --startuptime, or :StartupTime
 
 	use {
 		'rafamadriz/friendly-snippets', -- Snippet collection
@@ -297,10 +296,17 @@ return require('packer').startup(function(use)
 			-- require("telescope").load_extension("lazygit")
 		end,
 	}
+
 	use {
 		"folke/flash.nvim", -- Better text navigation
 		config = function()
-			require('flash').setup {}
+			require('flash').setup {
+				modes = {
+					char = {
+						keys = { "f", "F" } -- Removed t, T, ; and , as I need ; for WhichKey, , for .jump(), and t and T for other things
+					}
+				}
+			}
 		end
 	}
 end)

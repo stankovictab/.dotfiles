@@ -1,4 +1,5 @@
 -- TODO: Free keys are: ; (it's used to repeat f and t, so useless), ` (' already shows marks), @ (" already shows registers), , itself (used to repeat f and t in the other way)
+-- TODO: And, ; messes up with my WhichKey for ; which I need more than ; to repeat f and t, so it'll be good to change out ; and , (and flash.nvim already allows for spamming of f and t, no worry there)
 -- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut), Ctrl + y
 -- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones, see what you can come up with
 -- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
@@ -232,11 +233,9 @@ function FuckOuttaHere()
 		print('No path, or https or http URI found in line.')
 	end
 end
-
 map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })
 
--- Folke's Flash
--- FIXME this doesn't work? but the command itself does if put in manually?
--- map('n', 's', ':lua require("flash").jump()<cr>', { desc = "Flash Jump", noremap = true, silent = true })
-
 map('n', '<leader>tt', ':TSToggle highlight<cr>:lua print("TreeShitter Toggled!")<cr>', { desc = "TreeShitter Toggle" })
+
+-- This requires , to be unbound from flash's config, and to use <cmd> instead of : for some reason
+map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })

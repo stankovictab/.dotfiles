@@ -22,7 +22,7 @@ require('material').setup {
 }
 
 -- CHANGE THE DEFAULT THEME HERE
-vim.cmd('colorscheme catppuccin') -- For the settings to apply, this needs to be at the end
+vim.cmd('colorscheme mgz') -- For the settings to apply, this needs to be at the end
 
 -- Uncomment to forcefully remove the background color
 -- vim.cmd('hi Normal guibg=NONE')
