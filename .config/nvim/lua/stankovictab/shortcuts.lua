@@ -34,6 +34,7 @@ map('n', '<leader>ps', ":Lazy sync<cr>:TSUpdate<cr>",
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
 map('n', '<leader>d', ":Telescope diagnostics<cr>", { desc = "See Diagnostics", noremap = true, silent = true })
 map('n', '<leader>lg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
+map('n', '<leader>lz', ":Lazy<cr>", { desc = "Lazy", noremap = true, silent = true })
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })

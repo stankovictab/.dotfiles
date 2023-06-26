@@ -26,40 +26,38 @@ vim.g.mkdp_highlight_css = '~/Desktop/mkdp_mgz_highlight.css' -- CSS file to sty
 
 local plugins = {
 	-- Themes
-	"stankovictab/mgz.nvim",    -- The best theme
-	"marko-cerovac/material.nvim", -- The Bosnian theme
-	"tomasiser/vim-code-dark",  -- Default vscode dark theme inspired
-	{
-		"folke/tokyonight.nvim", -- TokyoNight theme
-		lazy = true
-	},
-	"catppuccin/nvim",   -- Catppuccin theme
-	"shatur/neovim-ayu", -- Darker color theme
+	"stankovictab/mgz.nvim", -- The best theme
 	"shaunsingh/nord.nvim", -- Nord theme, the one mgz is based on
+	"marko-cerovac/material.nvim",
+	"tomasiser/vim-code-dark", -- Default VSCode Dark Theme inspired
+	"folke/tokyonight.nvim",
+	"catppuccin/nvim",
+	"shatur/neovim-ayu",
 	-- use 'rafi/awesome-vim-colorschemes'       -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
-	-- "nvim-tree/nvim-web-devicons", -- A dependency for a lot of packages, literally just nerd font icons
-
-	{
-		"goolord/alpha-nvim",                                      -- Dashboard shown at nvim start with no file
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function() require('stankovictab.specifics.alpha') end, -- Opens specific config file
-		cmd = {
-			"Alpha",
-			"AlphaRedraw"
-		},
-		event = "BufWinEnter"
-	},
+	-- FIXME: Alpha takes 100ms to spin up (a third of the startup time) so I just disabled it for now.
+	-- {
+	-- 	"goolord/alpha-nvim",                                      -- Dashboard shown at nvim start with no file
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	config = function() require('stankovictab.specifics.alpha') end, -- Opens specific config file
+	-- 	cmd = {
+	-- 		"Alpha",
+	-- 		"AlphaRedraw"
+	-- 	},
+	-- 	event = "VimEnter"
+	-- },
 
 	{
 		"andweeb/presence.nvim", -- The best Discord rich presence plugin
+		event = "VeryLazy", -- TODO: Experimenting with this
 		config = function() require('stankovictab.specifics.presence') end
 	},
 
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = '0.1.0',                        -- File Finder
+		tag = '0.1.2',                        -- Says so in their README
 		dependencies = { 'nvim-lua/plenary.nvim' }, -- A weird dependency
+		cmd = 'Telescope',
 		config = function() require('stankovictab.specifics.telescope') end
 	},
 	"nvim-telescope/telescope-symbols.nvim", -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc     (╯°□°）╯︵ ┻━┻
@@ -78,11 +76,15 @@ local plugins = {
 	{
 		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		dependencies = 'nvim-tree/nvim-web-devicons',
-		config = function() require('stankovictab.specifics.cokeline') end
+		-- lazy = true,
+		config = function() require('stankovictab.specifics.cokeline') end,
+		-- init = function() require('stankovictab.specifics.cokeline') end,
+		-- priority = 10,
 	},
 
 	{
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
+		cmd = "NvimTreeToggle",
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function() require('stankovictab.specifics.nvim-tree') end
 	},
@@ -137,6 +139,7 @@ local plugins = {
 	},
 	{
 		'nvim-treesitter/playground', -- Treeshitter AST preview on :TSPlaygroundToggle
+		cmd = "TSPlaygroundToggle",
 		config = function() require('stankovictab.specifics.playground') end
 	},
 
@@ -159,6 +162,7 @@ local plugins = {
 	"L3MON4D3/LuaSnip",          -- LuaSnip snippet engine
 	{
 		'hrsh7th/nvim-cmp',      -- Completion engine
+		-- event = "VeryLazy", -- TODO: Experimenting with this
 		config = function() require('stankovictab.specifics.nvim-cmp') end
 	},
 	'hrsh7th/cmp-buffer',    -- Completion engine - Adding buffer (file) sources
@@ -168,17 +172,13 @@ local plugins = {
 
 	-- The configuration for the following 3 packages is in lsp-hell,
 	-- and it needs to be in the 3rd use, apparently
-	"williamboman/mason.nvim", -- LSP installer and manager, a new replacement for nvim-lsp-installer
-	-- cmd = {
-	-- "MasonInstall",
-	-- "MasonUninstall",
-	-- "Mason",
-	-- "MasonUninstallAll",
-	-- "MasonLog",
-	-- },
+	{
+		"williamboman/mason.nvim", -- LSP installer and manager, a new replacement for nvim-lsp-installer
+		-- build = ":MasonUpdate",
+	},
 	"williamboman/mason-lspconfig.nvim", -- Bridge between Mason and lspconfig
 	{
-		"neovim/nvim-lspconfig",      -- LSP configuration, this is an integral part
+		"neovim/nvim-lspconfig",      -- LSP configuration, this is an integral part, this is developed by the NeoVim team
 		config = function() require('stankovictab.specifics.lsp-hell') end
 	},
 
@@ -242,11 +242,12 @@ local plugins = {
 
 	{
 		"folke/which-key.nvim",
-		config = function()
+		event = "VeryLazy", -- Can't be loaded on cmd :WhichKey because that cmd isn't being ran
+		init = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300 -- Time before WhichKey opens
-			require("which-key").setup {} -- In the `mappings` part of the WhichKey docs you can see how to rename entries and groups in whichkey, but that's a little time consuming and maybe not worth the effort
-		end
+		end,
+		opts = {}
 	},
 
 	-- { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
@@ -254,10 +255,14 @@ local plugins = {
 	-- 		require('zellij').setup({})
 	-- 	end },
 
-	"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
+	{
+		"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
+		cmd = "LazyGit",
+	},
 
 	{
 		"folke/flash.nvim", -- Better text navigation
+		event = "VeryLazy",
 		opts = {
 			modes = {
 				char = {
