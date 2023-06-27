@@ -70,16 +70,15 @@ local plugins = {
 
 	{
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
+		event = "InsertEnter",
 		config = function() require("nvim-autopairs").setup({}) end
 	},
 
 	{
 		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		dependencies = 'nvim-tree/nvim-web-devicons',
-		-- lazy = true,
+		event = "BufAdd", -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event. 
 		config = function() require('stankovictab.specifics.cokeline') end,
-		-- init = function() require('stankovictab.specifics.cokeline') end,
-		-- priority = 10,
 	},
 
 	{
@@ -271,6 +270,13 @@ local plugins = {
 			}
 		}
 	},
+	{
+		"tamton-aquib/duck.nvim",
+		keys = { -- Only load the plugin on these key presses, and bind these keys
+			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch"}, -- Default is a duck
+			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook"}
+		}
+	}
 }
 
 -- This bunch of shit makes it so that Tab completes the suggestion, or just inserts Tab if there's no suggestion

@@ -1,0 +1,15 @@
+theme = "mgz" # Default theme
+app_refresh_duration_in_ms = 10 # Was 32, basically the responsiveness of the app
+play_icon = "" # Was "▶", available is 󰐊
+pause_icon = "" # Was "▌▌"
+liked_icon = "" # Was "♥"
+playback_window_position = "Bottom"
+progress_bar_type = "Line" # Rectangle (default), Line
+border_type = "Rounded" # Hidden, Plain (default), Rounded, Double, Thick
+
+[device]
+name = "djoka-moj"
+device_type = "computer"
+volume = 80
+bitrate = 320 # From 160
+audio_cache = false

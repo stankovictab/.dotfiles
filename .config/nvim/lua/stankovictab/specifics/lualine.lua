@@ -3,7 +3,6 @@ require('lualine').setup {
 		theme = 'auto', -- If the current colorscheme has a lualine theme built in, it'll recognize it
 		-- The color of component_separators is the same as the text
 		-- component_separators = { left = '', right = ''},
-		-- component_separators = { left = '', right = ''},
 		-- component_separators = { left = '|', right = '|' },
 		-- component_separators = { left = '', right = ''},
 		component_separators = { left = '', right = '' },
@@ -17,8 +16,35 @@ require('lualine').setup {
 	sections = {
 		-- Some unused sections are 'encoding', 'fileformat', 'progress' and 'buffers'
 		lualine_a = { 'mode' },
-		lualine_b = { {'branch', icon='', color={fg="white"}}, 'diff', 'diagnostics' },
-		lualine_c = { 'filename' },
+		lualine_b = { { 'branch', icon = '', color = { fg = "white" } }, 'diff', 'diagnostics' },
+		lualine_c = { {
+			'filename',
+			file_status = true, -- Displays file status (readonly status, modified status)
+			newfile_status = true, -- Display new file status (new file means no write after created)
+			path = 1,     -- 0: Just the filename (default)
+			-- 1: Relative path
+			-- 2: Absolute path
+			-- 3: Absolute path, with tilde as the home directory
+			-- 4: Filename and parent dir, with tilde as the home directory
+
+			shorting_target = 40, -- Shortens path to leave 40 spaces in the window for other components.
+			symbols = {
+				modified = '[Modified]', -- Text to show when the file is modified.
+				readonly = '[Read Only]', -- Text to show when the file is non-modifiable or readonly.
+				unnamed = '[No Name]', -- Text to show for unnamed buffers.
+				newfile = '[New]', -- Text to show for newly created file before first write
+			},
+			-- color = { fg = '#aa90ff', gui='italic,bold' }
+		},
+			-- {
+			-- 	'filetype',
+			-- 	colored = true,   -- Displays filetype icon in color if set to true
+			-- 	icon_only = true, -- Display only an icon for filetype
+			-- 	icon = { align = 'right' }, -- Display filetype icon on the right hand side
+			-- 	-- icon =    {'X', align='right'}
+			-- 	-- Icon string ^ in table is ignored in filetype component
+			-- }
+		},
 
 		-- Shows the current loaded LSP clients - their names and icon
 		-- Got this from here https://www.reddit.com/r/neovim/comments/11kumh3/comment/jbacpna/
@@ -65,12 +91,13 @@ require('lualine').setup {
 	inactive_sections = {
 		-- Styling of the inactive version, for when you're in the ignored filetype (NvimTree), or when splitting the window, the lualine of the inactive pane
 		lualine_a = { 'mode' },
-		lualine_b = { {'branch', icon='', color={fg="white"}}, 'diff', 'diagnostics' },
+		lualine_b = { { 'branch', icon = '', color = { fg = "white" } }, 'diff', 'diagnostics' },
 		lualine_c = { 'filename' },
 		lualine_x = {},
 		lualine_y = { 'filetype' }, -- Removed 'progress'
 		lualine_z = { 'location' }
 	},
 	tabline = {},
+	-- winbar = {}, -- Sorta like a buffer line?
 	extensions = {}
 }

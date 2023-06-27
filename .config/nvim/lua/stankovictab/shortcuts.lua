@@ -204,6 +204,7 @@ map('v', '<leader>a', '<esc>gg0vG$', { desc = 'Select All', noremap = true, sile
 
 -- Rebinding ; as it's used only to repeat the last f, t, F or T commands, which I don't use
 map('n', ';t', ':Telescope<cr>', { desc = 'Telescope Main Menu', noremap = true, silent = true })
+map('n', ';r', ':Telescope resume<cr>', { desc = 'Telescope Resume', noremap = true, silent = true })
 map('n', ';e', ':lua require"telescope.builtin".symbols{ sources = {"emoji"} }<cr>',
 	{ desc = 'System Emojis', noremap = true, silent = true })
 map('n', ';g', ':lua require"telescope.builtin".symbols{ sources = {"gitmoji"} }<cr>',
