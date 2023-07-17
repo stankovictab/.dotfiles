@@ -98,7 +98,9 @@ map('n', ' ',
 	{ desc = "Clear Screen (Search Highlights, Reset Window Size, Cokeline Color Reset)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
-map('x', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
+map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
+	{ desc = "Search & Replace", noremap = true, silent = true })
+map('i', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
 	{ desc = "Search & Replace", noremap = true, silent = true })
 
 -- Alt + movement keys to move lines around - this is a lot better than ddp and ddkP, doesn't mess up the clipboard, and doesn't have the issue of moving the first line up and it disappearing
@@ -235,7 +237,7 @@ function FuckOuttaHere()
 end
 map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })
 
-map('n', '<leader>tt', ':TSToggle highlight<cr>:lua print("TreeShitter Toggled!")<cr>', { desc = "TreeShitter Toggle" })
-
 -- This requires , to be unbound from flash's config, and to use <cmd> instead of : for some reason
 map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
+
+map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>', { desc = "Toggle TS Highlight" })

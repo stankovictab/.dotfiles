@@ -135,6 +135,7 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 `u`, `Shift + u` - Undo and redo\
 `Tab + a` - Select all\
 `Tab + p + s` - Sync packages and TreeSitter parsers\
+`Tab + t` - Toggle TreeSitter highlighting\
 `Tab + m` - Markdown Preview\
 `Tab + z` - Zen Mode\
 `Tab + c` - Choose colorscheme\

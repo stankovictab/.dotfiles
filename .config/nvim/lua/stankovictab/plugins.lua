@@ -77,7 +77,7 @@ local plugins = {
 	{
 		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		dependencies = 'nvim-tree/nvim-web-devicons',
-		event = "BufAdd", -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event. 
+		event = "BufAdd",   -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event.
 		config = function() require('stankovictab.specifics.cokeline') end,
 	},
 
@@ -129,6 +129,10 @@ local plugins = {
 
 	{
 		'nvim-treesitter/nvim-treesitter', -- TreeShitter for better syntax highlighting
+		-- NOTE: Comment out keys to have treesitter load immediately
+		-- keys = {
+		-- 	{ "<leader>tt", ":TSToggle highlight<cr>", desc = "Load TS" } -- You need to press it twice, couldn't find a way to fix it
+		-- },
 		config = function() require('stankovictab.specifics.treesitter') end,
 		build = function()
 			require('nvim-treesitter.install').update({
@@ -272,9 +276,9 @@ local plugins = {
 	},
 	{
 		"tamton-aquib/duck.nvim",
-		keys = { -- Only load the plugin on these key presses, and bind these keys
-			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch"}, -- Default is a duck
-			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook"}
+		keys = {                                                                         -- Only load the plugin on these key presses, and bind these keys
+			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
+			{ "<leader>sc", function() require("duck").cook() end,            desc = "Duck Cook" }
 		}
 	}
 }

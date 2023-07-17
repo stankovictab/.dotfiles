@@ -1,3 +1,16 @@
+local function treeshitter_icon()
+	return ""
+end
+
+local function treeshitter_color()
+	-- Check if TreeSitter highlighting is active in the current buffer - this is dynamic, I love lualine
+	if vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] ~= nil then
+		return { fg = "#58f5ab" }
+	else
+		return { fg = "#444444" } -- TODO: Make this dynamic to the theme? On catppuccin it's blending into the background.
+	end
+end
+
 require('lualine').setup {
 	options = {
 		theme = 'auto', -- If the current colorscheme has a lualine theme built in, it'll recognize it
@@ -11,7 +24,7 @@ require('lualine').setup {
 		-- section_separators = { left = '', right = ''},
 		-- section_separators = { left = '', right = ''},
 		disabled_filetypes = { 'NvimTree' }, -- Filetypes where lualine won't be used
-		-- ignore_focus = {'NvimTree'}, -- Filetypes where lualine will be inactive
+		-- ignore_focus = { 'NvimTree' }, -- Filetypes where lualine will be inactive
 	},
 	sections = {
 		-- Some unused sections are 'encoding', 'fileformat', 'progress' and 'buffers'
@@ -84,8 +97,12 @@ require('lualine').setup {
 			end,
 		} },
 
-		lualine_y = { 'filetype' },
+		-- lualine_y = { 'filetype' },
 		-- lualine_y = { require('copilot_status').status_string, },
+		lualine_y = { { 'filetype' }, {
+			treeshitter_icon,
+			color = treeshitter_color
+		} },
 		lualine_z = { 'location' }
 	},
 	inactive_sections = {
