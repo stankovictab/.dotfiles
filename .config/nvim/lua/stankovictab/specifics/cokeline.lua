@@ -1,14 +1,18 @@
--- The cokeline config needs to be re-sourced every time you change a theme, or else the colors won't change, the issue is known (#72)
+-- TODO: Seems that this autocommand isn't needed anymore? See #150, or the comment the dude had made. 
+--
+--
+--
+-- This cokeline config file needs to be re-sourced every time you change a theme, or else the colors won't change, the issue is known (#72)
 -- To get around this, you can either bind the sourcing to a key so that you manually refresh it,
--- or you can actually use NeoVim like you're supposed to, and use the following autocommand
+-- or you can actually use NeoVim like you're supposed to, and use the following autocommand.
 local group = vim.api.nvim_create_augroup("Alo Bre", { clear = true }) -- A group with clear on true is created so that the autocmd isn't being duplicated on every run in the :autocmd ColorScheme list
 vim.api.nvim_create_autocmd("ColorScheme",
 	{ command = "source ~/.config/nvim/lua/stankovictab/specifics/cokeline.lua", group = group })
 -- This also fixes the issue of cokeline taking the highlights of the default NeoVim theme on startup, as it's config is sourced in plugins.lua and not at the end of themes.lua, where the new colorscheme actually gets applied (doesn't matter, this works)
 
-local get_hex = require('cokeline/utils').get_hex
+local extractHexColor = require('cokeline.hlgroups').get_hl_attr -- NOTE: The require('cokeline/utils').extractHexColor is depricated, you should use this instead
 
-require('cokeline').setup {
+require('cokeline').setup({
 	show_if_buffers_are_at_least = 2, -- Don't show if there's only one buffer
 
 	mappings = {
@@ -18,9 +22,9 @@ require('cokeline').setup {
 	default_hl = {
 		fg = function(buffer)
 			return
-				buffer.is_focused and nil or get_hex("Comment", "fg")
+				buffer.is_focused and nil or extractHexColor("Comment", "fg")
 		end,
-		bg = get_hex("NormalFloat", "bg")
+		bg = extractHexColor("NormalFloat", "bg")
 	},
 
 	sidebar = {
@@ -28,8 +32,8 @@ require('cokeline').setup {
 		components = {
 			{
 				text = '           NvimTree',
-				fg = get_hex("Boolean", "fg"),
-				bg = get_hex("NormalFloat", "bg"),
+				fg = extractHexColor("Boolean", "fg"),
+				bg = extractHexColor("NormalFloat", "bg"),
 				style = 'bold',
 			},
 		}
@@ -52,9 +56,9 @@ require('cokeline').setup {
 			end,
 			fg = function(buffer)
 				if buffer.is_focused then
-					return get_hex("Comment", "fg")
+					return extractHexColor("Comment", "fg")
 				else
-					return get_hex("Comment", "fg")
+					return extractHexColor("Comment", "fg")
 				end
 			end,
 			style = "italic",
@@ -65,9 +69,9 @@ require('cokeline').setup {
 			end,
 			fg = function(buffer)
 				if buffer.is_focused then
-					return get_hex("Boolean", "fg")
+					return extractHexColor("Boolean", "fg")
 				else
-					return get_hex("Comment", "fg")
+					return extractHexColor("Comment", "fg")
 				end
 			end,
 			style = function(buffer)
@@ -85,7 +89,7 @@ require('cokeline').setup {
 					return " "
 				end
 			end,
-			fg = get_hex("Warnings", "fg")
+			fg = extractHexColor("Warnings", "fg")
 		},
 		{
 			text = function(buffer)
@@ -94,8 +98,8 @@ require('cokeline').setup {
 				end
 				return ""
 			end,
-			fg = get_hex("Warnings", "fg")
+			fg = extractHexColor("Warnings", "fg")
 		},
 		{ text = " " },
 	}
-}
+})

@@ -104,6 +104,8 @@ ln -sf ~/.dotfiles/.config/spotify-player ~/.config/spotify-player
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
+rm -rf ~/binaries
+ln -sf ~/.dotfiles/binaries ~/binaries
 
 # Fonts
 sudo cp -r ~/.dotfiles/fonts/Hack\ Nerd\ Font\ Mono/                 /usr/share/fonts/

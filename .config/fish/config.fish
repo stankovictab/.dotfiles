@@ -104,7 +104,8 @@ alias s='~/Apps/spotify_player'
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify/
 fish_add_path /home/stankovictab/scripts/
-fish_add_path /home/stankovictab/.cargo/bin/
+fish_add_path /home/stankovictab/binaries/
+fish_add_path /home/stankovictab/.cargo/bin/ # Rust binaries
 
 export EDITOR="nvim" # Default editor for sudoedit for example
 
