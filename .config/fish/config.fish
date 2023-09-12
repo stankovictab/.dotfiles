@@ -107,6 +107,9 @@ fish_add_path /home/stankovictab/scripts/
 fish_add_path /home/stankovictab/binaries/
 fish_add_path /home/stankovictab/.cargo/bin/ # Rust binaries
 
+# Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
+fzf_configure_bindings --directory=\cf --variables=\e\cv 
+
 export EDITOR="nvim" # Default editor for sudoedit for example
 
 # ERROR - THIS MAKES IT SO THAT I CAN'T LOG INTO X11 OR WAYLAND! MAJOR ISSUE!
