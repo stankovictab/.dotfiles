@@ -1,6 +1,13 @@
+### General Options
+
+export EDITOR="nvim" # Default editor for sudoedit for example
+
 set -g fish_greeting # Removes the fish welcome message
 
-# You can use Vim mode by setting fish_vi_key_bindings in the same way
+# Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
+fzf_configure_bindings --directory=\cf --variables=\e\cv 
+
+# NOTE: You can use Vim mode by setting fish_vi_key_bindings in the same way
 
 ### Keybindings
 # To see the bind you want, run `fish_key_reader`
@@ -40,16 +47,6 @@ alias zja='zellij attach'
 alias zjk='zellij k'
 alias zjka='zellij ka'
 
-alias g='lazygit'
-alias lg='lazygit'
-alias gs='git status'
-alias gf='git fetch'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gd='git diff'
-alias gl='git log'
-
 alias update='sudo nala update && sudo nala upgrade -y' # Maybe change over to deb update since that pulls apt update?
 alias deb='sudo deb-get'
 alias oldsizes='du -shc -- * | sort -h' # Shows sizes of folders, sorted ascendingly, may require sudo, if you want descending, do sort -rh (r is for reverse), remove c from -shc to remove total
@@ -59,7 +56,7 @@ alias sizesinteractive='dua i'
 alias ffmpeg='ffmpeg -hide_banner'
 alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash' # <3
 alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
 alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 alias ch='cd ~/Games/Clone\ Hero && ./clonehero && exit'
@@ -96,17 +93,38 @@ alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'
 alias sd='cd ~/Desktop/StableDiffusion/stable-diffusion-webui/ && bash webui.sh' # Needs to be a cd because if not, it'll clone the whole repo inside the already cloned repo and make a mess
 
-# PATH configuration - fish_add_path is the same as export PATH in bash
+### Abbreviations
+# These are like aliases, but with a little improvement 
+# where they're expanded in the shell so you know what the command actually is
+# For instance, if you have "gp" as an alias, you wouldn't know if it was git push or git pull
+
+abbr -a g lazygit
+abbr -a lg lazygit
+abbr -a gs git status
+abbr -a gf git fetch
+abbr -a gp git pull
+abbr -a ga git add
+abbr -a gc git commit
+abbr -a gP git push
+abbr -a gl git log
+abbr -a gd git diff
+abbr -a gco git checkout
+abbr -a gS git stash
+abbr -a gSP git stash pop
+
+### PATH configuration 
+# Folders of binaries that can be run from anywhere
+# fish_add_path is the same as export PATH in bash
+
 fish_add_path /home/stankovictab/.spicetify/
 fish_add_path /home/stankovictab/scripts/
 fish_add_path /home/stankovictab/binaries/
 fish_add_path /home/stankovictab/.cargo/bin/ # Rust binaries
 fish_add_path /home/stankovictab/.local/bin/ # Python's binaries, like syncedlyrics, etc
 
-# Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
-fzf_configure_bindings --directory=\cf --variables=\e\cv 
 
-export EDITOR="nvim" # Default editor for sudoedit for example
+
+### Experiments
 
 # ERROR - THIS MAKES IT SO THAT I CAN'T LOG INTO X11 OR WAYLAND! MAJOR ISSUE!
 # If zellij is installed, always go into a zellij session, and list sessions if there are many of them

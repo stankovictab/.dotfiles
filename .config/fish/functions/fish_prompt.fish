@@ -40,11 +40,13 @@ function _git_branch_name
 end
 
 function _is_git_dirty
-    echo (command git status -s --ignore-submodules=dirty 2> /dev/null)
+	# Display the blue dot only if there are unstaged changes (if there's anything in the ordinary diff)
+	echo (command git diff 2> /dev/null) 
 end
 
 function _does_git_have_staged
-    echo (command git diff --cached)
+	# Display the green dot only if there are staged changes (if there's anything in diff --cached)
+    echo (command git diff --cached) 
 end
 
 function _git_ahead_count -a branch_name
