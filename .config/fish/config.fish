@@ -1,3 +1,5 @@
+set -g fish_greeting # Removes the fish welcome message
+
 ### Keybindings
 
 # To see the bind you want, run `fish_key_reader`
@@ -100,12 +102,14 @@ alias mediainfo='mediainfo --ParseSpeed=1' # --ParseSpeed=1 makes it so you can 
 
 alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'
+alias sd='cd ~/Desktop/StableDiffusion/stable-diffusion-webui/ && bash webui.sh' # Needs to be a cd because if not, it'll clone the whole repo inside the already cloned repo and make a mess
 
 # PATH configuration - fish_add_path is the same as export PATH in bash
 fish_add_path /home/stankovictab/.spicetify/
 fish_add_path /home/stankovictab/scripts/
 fish_add_path /home/stankovictab/binaries/
 fish_add_path /home/stankovictab/.cargo/bin/ # Rust binaries
+fish_add_path /home/stankovictab/.local/bin/ # Python's binaries, like syncedlyrics, etc
 
 # Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
 fzf_configure_bindings --directory=\cf --variables=\e\cv 
