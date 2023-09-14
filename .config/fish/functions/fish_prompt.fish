@@ -77,7 +77,11 @@ function fish_prompt
         end
     end
 
-    set_color -o $fish_color_cwd
+    if fish_is_root_user # Root user check
+		set_color -o $fish_color_cwd_root
+	else
+    	set_color -o $fish_color_cwd
+	end
     set -g fish_prompt_pwd_dir_length 0 # A new way of doing things
     printf '%s' (prompt_pwd)
     set_color normal

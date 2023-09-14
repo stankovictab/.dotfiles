@@ -21,6 +21,17 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + Shift + c` - Copy selected text\
 `Ctrl + Shift + v`, `Ctrl + v`, `Shift + Insert` - Paste text
 
+## fzf-fish
+
+`Ctrl + f` - Search files and folders\
+`Ctrl + Alt + l` - Seach git log for the repo you’re currently in\
+`Ctrl + Alt + s` - Search git status for the repo you’re currently in\ 
+`Ctrl + r` - Search shell command history\
+`Ctrl + Alt + v` - Search shell variables\ 
+`Ctrl + Alt + p` - Search processes
+
+`Ctrl + v` - Paste text (as fish-fzf allows for this if Search Shell Variables is unbound)
+
 ## Zellij
 
 > Current conflicts with NeoVim :\
