@@ -34,4 +34,4 @@ SETUVAR fish_pager_color_description:4e79f0
 SETUVAR fish_pager_color_prefix:8edfff
 SETUVAR fish_pager_color_progress:955ae7\x1e\x2d\x2dbold
 SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d0D1A3A
-SETUVAR fish_user_paths:/home/stankovictab/\x2elocal/bin\x1e/home/stankovictab/\x2ecargo/bin\x1e/home/stankovictab/scripts\x1e/home/stankovictab/\x2espicetify
+SETUVAR fish_user_paths:/home/stankovictab/binaries\x1e/home/stankovictab/\x2elocal/bin\x1e/home/stankovictab/\x2ecargo/bin\x1e/home/stankovictab/scripts\x1e/home/stankovictab/\x2espicetify

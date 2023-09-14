@@ -57,7 +57,7 @@
   --theme--accent_blue-hover: #b0d090; /* TODO: ??? */
   --theme--accent_blue-active: var(--mgz--gray); /* When you press the 6 dots on a block, the outline of the search field */
   --theme--accent_blue-text: #fff;
-  --theme--accent_red: var(--mgz--pink); /* Danger zone button foreground (delete workspace, profile, etc) */
+  --theme--accent_red: var(--mgz--brightcyan); /* Outline of a synced block */
   --theme--accent_red-button: #0ffffb63; /* #bf799b63 */ /* TODO: ??? */
   --theme--accent_red-text: #fff;
 
@@ -487,6 +487,66 @@ div[style*="flex-grow: 1; border-radius: 3px; text-align: left; position: relati
 /* Code block, pt2 */
 div[style*="padding: 34px 16px 32px 32px; min-height: 1em; color: rgba(255, 255, 255, 0.81);"] {
 	padding: 26px !important;
+}
+
+/* Color of the A icon when changing color of text */
+
+/* Colors Section */
+
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(155, 155, 155); fill: rgb(155, 155, 155);"] {
+    color: var(--mgz--gray) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(186, 133, 111); fill: rgb(186, 133, 111);"] {
+    color: var(--mgz--brown) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(199, 125, 72); fill: rgb(199, 125, 72);"] {
+    color: var(--mgz--orange) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(202, 152, 73); fill: rgb(202, 152, 73);"] {
+    color: var(--mgz--yellow) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(82, 158, 114); fill: rgb(82, 158, 114);"] {
+    color: var(--mgz--green) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(94, 135, 201); fill: rgb(94, 135, 201);"] {
+    color: var(--mgz--blue) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(157, 104, 211); fill: rgb(157, 104, 211);"] {
+    color: var(--mgz--purple) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(209, 87, 150); fill: rgb(209, 87, 150);"] {
+    color: var(--mgz--pink) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; color: rgb(223, 84, 82); fill: rgb(223, 84, 82);"] {
+    color: var(--mgz--red) !important;
+}
+/* Background Section */
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(47, 47, 47);"] {
+    background: var(--mgz--specialgray) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(74, 50, 40);"] {
+    background: var(--mgz--dimbrown) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(92, 59, 35);"] {
+    background: var(--mgz--dimorange) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(86, 67, 40);"] {
+    background: var(--mgz--dimyellow) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(36, 61, 48);"] {
+    background: var(--mgz--dimgreen) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(20, 58, 78);"] {
+    background: var(--mgz--dimblue) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(60, 45, 73);"] {
+    background: var(--mgz--dimpurple) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(78, 44, 60);"] {
+    background: var(--mgz--dimpink) !important;
+}
+div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(82, 46, 42);"] {
+    background: var(--mgz--dimred) !important;
 }
 
 /* GitHub Preview Paste Thing and Bookmark - two birds with one stone */
