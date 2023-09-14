@@ -489,6 +489,13 @@ div[style*="padding: 34px 16px 32px 32px; min-height: 1em; color: rgba(255, 255,
 	padding: 26px !important;
 }
 
+/* Latex Equation Block */
+/* NOTE - Would also look nice if the background was transparent. */
+div[style*="user-select: none; transition: background 20ms ease-in 0s; cursor: pointer; position: relative; width: 100%; border-radius: 3px;"] {
+	border-radius: 10px !important;
+	/* padding: 12px !important; */
+}
+
 /* Color of the A icon when changing color of text */
 
 /* Colors Section */
@@ -547,6 +554,36 @@ div[style*="display: inline-flex; align-items: center; justify-content: center; 
 }
 div[style*="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; text-align: center; font-size: 16px; border-radius: 3px; font-weight: 500; background: rgb(82, 46, 42);"] {
     background: var(--mgz--dimred) !important;
+}
+
+/* Coloring of the whole block (not the Ctrl + a then color, rather the menu coloring) */
+/* NOTE - This color can be different if you want to spice things up, for now it's the same. */
+div[style*="color: rgb(155, 155, 155); fill: rgb(155, 155, 155);"] {
+    color: var(--mgz--gray) !important;
+}
+div[style*="color: rgb(186, 133, 111); fill: rgb(186, 133, 111);"] {
+    color: var(--mgz--brown) !important;
+}
+div[style*="color: rgb(199, 125, 72); fill: rgb(199, 125, 72);"] {
+    color: var(--mgz--orange) !important;
+}
+div[style*="color: rgb(202, 152, 73); fill: rgb(202, 152, 73);"] {
+    color: var(--mgz--yellow) !important;
+}
+div[style*="color: rgb(82, 158, 114); fill: rgb(82, 158, 114);"] {
+    color: var(--mgz--green) !important;
+}
+div[style*="color: rgb(94, 135, 201); fill: rgb(94, 135, 201);"] {
+    color: var(--mgz--blue) !important;
+}
+div[style*="color: rgb(157, 104, 211); fill: rgb(157, 104, 211);"] {
+    color: var(--mgz--purple) !important;
+}
+div[style*="color: rgb(209, 87, 150); fill: rgb(209, 87, 150);"] {
+    color: var(--mgz--pink) !important;
+}
+div[style*="color: rgb(223, 84, 82); fill: rgb(223, 84, 82);"] {
+    color: var(--mgz--red) !important;
 }
 
 /* GitHub Preview Paste Thing and Bookmark - two birds with one stone */
