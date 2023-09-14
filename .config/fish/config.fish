@@ -3,22 +3,11 @@ set -g fish_greeting # Removes the fish welcome message
 # You can use Vim mode by setting fish_vi_key_bindings in the same way
 
 ### Keybindings
-
 # To see the bind you want, run `fish_key_reader`
 # To see the available binds, go to https://fishshell.com/docs/current/cmds/bind.html
-# Ctrl + Backspace
-bind \b backward-kill-word
-# Ctrl + Delete
-bind \e\[3\;5~ kill-word
-# Shift + Enter
-if test "$TERM" = "xterm-256color" # Konsole
-    bind -k enter accept-autosuggestion execute
-else if test "$TERM" = "xterm-kitty" # Kitty
-	# TODO: Kitty can't distinguish Shift + Enter from just Enter, both are "\r"
-    # bind \r accept-autosuggestion execute 
-else # TMUX
-    bind \n accept-autosuggestion execute
-end
+
+bind \b backward-kill-word # Ctrl + Backspace
+bind \e\[3\;5~ kill-word # Ctrl + Delete
 
 ### Aliases
 

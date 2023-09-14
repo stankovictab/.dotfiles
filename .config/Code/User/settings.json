@@ -123,4 +123,8 @@
 	"notebook.output.textLineLimit": 50,
 	"editor.smoothScrolling": true,
 	"workbench.list.smoothScrolling": true,
+	"vscode-pets.petSize": "medium",
+	"vscode-pets.petType": "clippy",
+	"vscode-pets.throwBallWithMouse": true,
+	"vscode-pets.theme": "castle",
 }
