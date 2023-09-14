@@ -109,6 +109,7 @@ abbr -a gP git push
 abbr -a gl git log
 abbr -a gd git diff
 abbr -a gco git checkout
+abbr -a gb git branch
 abbr -a gS git stash
 abbr -a gSP git stash pop
 
