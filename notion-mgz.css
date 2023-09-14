@@ -186,8 +186,19 @@
   --theme--board_red-text: var(--mgz--main);
   --theme--board_red-card: var(--theme--tag_red);
 
-  /* Font for code */
+  /* Font for standard text */
+  --theme--font_sans: 'Inter', sans-serif; 
+  /* Default is -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol' */
+  /* The one that gets applied on KDE is sans-serif (which I think is Liberation Sans), but you can set whichever from the Font Management category in KDE System Settings, those are available, as well as some other ones from the browser, like Inter */
+  /* My favourites that support arrows are Inter, Manche, Poppins, DejaVu Sans */
+  /* Roboto and Noto Sans don't support arrows well */
+  /* There is also --theme-font_serif and --theme-font_mono for when you change the font in the page settings */
+
+  /* Font for all code */
   --theme--font_code: hack, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* For font size see below */
 
   --theme--code_inline: var(--mgz--dimwhite); /* Background of inline code span, default color */
   --theme--code_inline-text: #fff; /* Foreground of the same thing */
@@ -219,6 +230,12 @@
   /* } */
   
 }
+
+/* Font size change for standard text in the editor (headings scale with it too) */
+.notion-page-content {
+	font-size: 15.5px !important;
+}
+
 
 /* Page title is a little transparent by default for some reason */
 .notion-page-block {

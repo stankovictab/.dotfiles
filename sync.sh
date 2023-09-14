@@ -118,4 +118,5 @@ sudo cp ~/.dotfiles/fonts/alpha\ kufi\ regular.ttf                /usr/share/fon
 sudo cp -r ~/.dotfiles/fonts/Montserrat                           /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/Poppins                              /usr/share/fonts/
 sudo cp -r ~/.dotfiles/fonts/Manche                              /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/Roboto                              /usr/share/fonts/
 echo "🎉 Sync finished! 🎉"

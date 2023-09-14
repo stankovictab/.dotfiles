@@ -1,5 +1,7 @@
 set -g fish_greeting # Removes the fish welcome message
 
+# You can use Vim mode by setting fish_vi_key_bindings in the same way
+
 ### Keybindings
 
 # To see the bind you want, run `fish_key_reader`
