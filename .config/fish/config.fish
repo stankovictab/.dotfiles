@@ -101,6 +101,7 @@ alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias pomo='bash ~/scripts/pomodoro.sh'
 alias mediainfo='mediainfo --ParseSpeed=1' # --ParseSpeed=1 makes it so you can always see Stream Size, for some reason???
+alias clear-cache='bash ~/scripts/clear-cache.sh'
 
 alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'
