@@ -117,11 +117,11 @@ abbr -a gSP git stash pop
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash
 
-fish_add_path /home/stankovictab/.spicetify/
-fish_add_path /home/stankovictab/scripts/
-fish_add_path /home/stankovictab/binaries/
-fish_add_path /home/stankovictab/.cargo/bin/ # Rust binaries
-fish_add_path /home/stankovictab/.local/bin/ # Python's binaries, like syncedlyrics, etc
+fish_add_path ~/.spicetify/
+fish_add_path ~/scripts/
+fish_add_path ~/binaries/
+fish_add_path ~/.cargo/bin/ # Rust binaries
+fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 
 
 
