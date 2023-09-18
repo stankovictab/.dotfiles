@@ -2,6 +2,7 @@
 --
 --
 --
+-- TODO: Fix this stupid ass bullshit
 -- This cokeline config file needs to be re-sourced every time you change a theme, or else the colors won't change, the issue is known (#72)
 -- To get around this, you can either bind the sourcing to a key so that you manually refresh it,
 -- or you can actually use NeoVim like you're supposed to, and use the following autocommand.

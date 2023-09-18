@@ -73,6 +73,7 @@ alias switchjavac='sudo update-alternatives --config javac'
 alias ports='sudo lsof -i -P -n | grep LISTEN'
 alias dotdesktops='echo "/usr/share/applications/ <-- Most of the stuff"\n"~/.local/share/applications <-- Mainly Proton and Wine"\n"/var/lib/flatpak/exports/share/applications/ <-- For Flatpaks"'
 alias fd='fd -H' # Package is fd-find, fd is the command, -H is to include hidden files
+alias rg='rg --no-ignore --hidden' # Includes hidden and git-ignored files
 alias typeracer='toipe'
 alias shortcuts='nvim ~/.dotfiles/README.md'
 alias nf='neofetch'
