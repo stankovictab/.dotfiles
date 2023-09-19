@@ -123,7 +123,7 @@
 	"editor.smoothScrolling": true,
 	"workbench.list.smoothScrolling": true,
 	"vscode-pets.petSize": "medium",
-	"vscode-pets.petType": "clippy",
+	"vscode-pets.petType": "mod",
 	"vscode-pets.throwBallWithMouse": true,
-	"vscode-pets.theme": "castle",
+	"vscode-pets.theme": "forest",
 }

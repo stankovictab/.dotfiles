@@ -139,7 +139,7 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 `Ctrl + /` - Toggle comment\
 `Ctrl + f` - Format document\
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
-`/` - Search\
+`/` - Search (with Flash)\
 `Ctrl + r` - Search and replace\
 `Space` - Clear search highlighting\
 `,` - Flash jump\

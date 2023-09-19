@@ -106,6 +106,7 @@ abbr -a gf git fetch
 abbr -a gp git pull
 abbr -a ga git add
 abbr -a gc git commit
+abbr -a gC git clone
 abbr -a gP git push
 abbr -a gl git log
 abbr -a gd git diff
