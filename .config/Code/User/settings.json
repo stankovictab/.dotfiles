@@ -25,7 +25,6 @@
 		"*.m": "matlab",
 		"*.S": "asm"
 	},
-	"diffEditor.ignoreTrimWhitespace": false,
 	"jupyter.askForKernelRestart": false,
 	"python.showStartPage": false,
 	"terminal.integrated.inheritEnv": false,
@@ -114,7 +113,7 @@
 	},
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 	"svelte.plugin.svelte.note-new-transformation": false,
-	"workbench.colorTheme": "MGZ Gray Theme",
+	"workbench.colorTheme": "MGZ Dark Theme",
 	"oracledevtools.bookmarkFileFolder": "/home/stankovictab/Oracle/oracle.oracledevtools",
 	"oracledevtools.download.otherFolder": "/home/stankovictab/downloads",
 	"oracledevtools.connectionConfiguration.configFilesFolder": "/home/stankovictab/Oracle/network/admin",
@@ -126,4 +125,5 @@
 	"vscode-pets.petType": "mod",
 	"vscode-pets.throwBallWithMouse": true,
 	"vscode-pets.theme": "forest",
+	"diffEditor.ignoreTrimWhitespace": false,
 }

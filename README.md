@@ -118,6 +118,7 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 ## NeoVim
 
 `Ctrl + c` - A faster `Esc`\
+`Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
 `Tab + ,` - Open config files location\
 `Tab + f` - Open Telescope file search\
 `Tab + g` - Open Telescope live grep\
@@ -138,7 +139,6 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 `Shift + h/l` - Go to beginning / end of line\
 `Ctrl + /` - Toggle comment\
 `Ctrl + f` - Format document\
-`Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
 `/` - Search (with Flash)\
 `Ctrl + r` - Search and replace\
 `Space` - Clear search highlighting\
@@ -260,11 +260,18 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Ctrl + PgUp/PgDn` - Switch between tabs\
 `Ctrl + Shift + PgUp/PgDn` - Move tabs around
 
+`Ctrl + Tab` - Cycle recently used tabs\
+`Ctrl + Shift + Tab` - Cycle recently used tabs in reverse order
+
 `Ctrl + t` - New tab\
 `Ctrl + w` - Close tab\
 `Ctrl + Shift + t` - Reopen closed tab\
 `Ctrl + n` - New window\
 `Ctrl + Shift + n` - New incognito window
+
+### Vimium Extension
+
+TODO: See the Notion page
 
 ## KDE
 
@@ -343,7 +350,8 @@ Hold Shift when over a message to have more options.
 `Ctrl + \` - Sidebar\
 `Ctrl + Shift + Up/Down` - Move block up/down\
 `Ctrl + e` - Code\
-`Ctrl + Shift + e` - Inline equation
+`Ctrl + Shift + e` - Inline equation\
+`Ctrl + Shift + h` - Color text
 
 ## Qtile
 
