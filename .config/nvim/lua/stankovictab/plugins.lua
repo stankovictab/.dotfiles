@@ -83,7 +83,7 @@ local plugins = {
 
 	{
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
-		cmd = "NvimTreeToggle",
+		-- NOTE: The `nvim .` command gets broken if NvimTree is loaded on the NvimTreeToggle event - it can't read the config and doesn't know about the autocmd that opens the tree on directory, so, it needs to be loaded up on startup
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function() require('stankovictab.specifics.nvim-tree') end
 	},
@@ -148,7 +148,17 @@ local plugins = {
 
 	{
 		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation
-		config = function() require('stankovictab.specifics.indent-blankline') end
+		-- config = function() require('stankovictab.specifics.indent-blankline') end
+		config = function()
+			require("ibl").setup {
+				-- NOTE: v3 has a new config, see the docs (if there are any, seems barren, see :h ibl.config)
+				-- The "scope" in the help text is the function scope that's currently being accessed, meaning the scope for declaring variables, etc
+				indent = {
+					char = "│", -- See :h ib.config.indent for more examples for chars
+				},
+				-- For excluding certain filetypes and buftypes, see :h ibl.config.exclude
+			}
+		end,
 	},
 
 	{
@@ -276,9 +286,9 @@ local plugins = {
 	},
 	{
 		"tamton-aquib/duck.nvim",
-		keys = {                                                                         -- Only load the plugin on these key presses, and bind these keys
+		keys = { -- Only load the plugin on these key presses, and bind these keys
 			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
-			{ "<leader>sc", function() require("duck").cook() end,            desc = "Duck Cook" }
+			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook" }
 		}
 	}
 }
