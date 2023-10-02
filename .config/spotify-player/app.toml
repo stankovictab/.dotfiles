@@ -11,5 +11,5 @@ border_type = "Rounded" # Hidden, Plain (default), Rounded, Double, Thick
 name = "djoka-moj"
 device_type = "computer"
 volume = 80
-bitrate = 320 # From 160
+bitrate = 320 # Changed from 160
 audio_cache = false

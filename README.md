@@ -165,6 +165,8 @@ Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
 `Alt + ]` - Copilot - Next suggestion\
 `Ctrl + ]` - Copilot - Clear suggestion
 
+`Ctrl + j/k` - Move up and down in Telescope and nvim-cmp (just like in fzf)
+
 `:cd` - Change working directory for NeoVim and NvimTree\
 `:e` - Edit another file
 
