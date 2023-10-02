@@ -22,6 +22,14 @@ require('telescope').setup {
 			"--column",
 			"--smart-case",
 			"--hidden" -- This is the only thing added in this list
+		},
+
+		-- Map Ctrl + j/k to go up and down
+		mappings = {
+			i = {
+				["<C-k>"] = require("telescope.actions").move_selection_previous, -- Move to previous result
+				["<C-j>"] = require("telescope.actions").move_selection_next -- Move to next result
+			}
 		}
 	}
 }
