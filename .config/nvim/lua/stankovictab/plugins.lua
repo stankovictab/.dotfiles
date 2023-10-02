@@ -175,16 +175,16 @@ local plugins = {
 	"L3MON4D3/LuaSnip",          -- LuaSnip snippet engine
 	{
 		'hrsh7th/nvim-cmp',      -- Completion engine
-		-- event = "VeryLazy", -- TODO: Experimenting with this
+		event = "InsertEnter",
+		dependencies = {
+			'hrsh7th/cmp-buffer', -- Completion engine - Adding buffer (file) sources
+			'hrsh7th/cmp-path', -- Completion engine - Adding path sources
+			'saadparwaiz1/cmp_luasnip', -- Completion engine - LuaSnip snippet engine sources
+			'hrsh7th/cmp-nvim-lsp', -- Completion engine - LSP sources
+		},
 		config = function() require('stankovictab.specifics.nvim-cmp') end
 	},
-	'hrsh7th/cmp-buffer',    -- Completion engine - Adding buffer (file) sources
-	'hrsh7th/cmp-path',      -- Completion engine - Adding path sources
-	'saadparwaiz1/cmp_luasnip', -- Completion engine - LuaSnip snippet engine sources
-	'hrsh7th/cmp-nvim-lsp',  -- Completion engine - LSP sources
-
-	-- The configuration for the following 3 packages is in lsp-hell,
-	-- and it needs to be in the 3rd use, apparently
+	-- The configuration for the following 3 packages is in lsp-hell
 	{
 		"williamboman/mason.nvim", -- LSP installer and manager, a new replacement for nvim-lsp-installer
 		-- build = ":MasonUpdate",
@@ -286,9 +286,9 @@ local plugins = {
 	},
 	{
 		"tamton-aquib/duck.nvim",
-		keys = { -- Only load the plugin on these key presses, and bind these keys
+		keys = {                                                                         -- Only load the plugin on these key presses, and bind these keys
 			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
-			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook" }
+			{ "<leader>sc", function() require("duck").cook() end,            desc = "Duck Cook" }
 		}
 	}
 }

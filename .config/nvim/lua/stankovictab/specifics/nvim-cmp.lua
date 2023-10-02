@@ -87,13 +87,12 @@ cmp.setup {
 		['<C-Space>'] = cmp.mapping.complete(),           -- Ctrl + Space to show all suggestions
 		-- ['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		['<Tab>'] = cmp.mapping.select_next_item(),       -- Tab to go down in the list
-		['<S-Tab>'] = cmp.mapping.select_prev_item()      -- Shift + Tab to go up in the list
+		-- Tab is used for Copilot, and Ctrl + k is way better than Shift + Tab in my opinion, also made it work in Telescope now
+		['<C-j>'] = cmp.mapping.select_next_item(),       -- Ctrl + j to go down in the list, like in fzf
+		['<C-k>'] = cmp.mapping.select_prev_item()      -- Ctrl + k to go up in the list, like in fzf
 	}),
 	sources = cmp.config.sources({
 		-- Sources are laid out in this order, following a recommendation algorithm
-		{ name = 'nvim_lsp' }, -- Importing LSP sources
-		{ name = 'luasnip' }, -- Importing LuaSnip (friendly-snippets) sources
 		{ name = 'buffer' }, -- Importing buffer (file) text sources
 		{ name = 'path' }   -- Importing system path sources
 	})
