@@ -34,16 +34,11 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## Zellij
 
-> Current conflicts with NeoVim :\
+> **Current conflicts with NeoVim :**\
 > (Not a big problem) `Ctrl + t` is the tag stack\
-> (Ctrl + a now) `Ctrl + s` is save\
-> (It's fine? If I'm in zellij I'll use it, if not I have floating panes) `Ctrl + n` is the terminal plugin - either remove or bind to `Tab + t`\
-> (Ctrl + e now) `Ctrl + h` is moving to the left NeoVim pane, and deleting the word to the left\
-> (Ctrl + y now) `Ctrl + o` is the jump list\
-> (Unbound) `Ctrl + b` is NvimTree, so probably make Tmux mode to be Ctrl + a?\
 > (How it stands now is fine, if you need to move lines around, just go into Lock mode) `Alt + h/j/k/l` is moving lines up/down and characters left/right - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists, so I'd use Ctrl+hjkl for moving between all panes, and free up Alt+hjkl for NeoVim. *NOTE* - Lilja/zellij.nvim exists, it does escape from nvim to zellij, but you can't move between nvim panes themselves, as zellij overrides that still, for now, so zellij needs to do some sort of check to see whether it's in a nvim environment, but that's on the devs to figure out.\
-> !!! Available :\
-> ctrl+e, ctrl+y, ctrl+\[, ctrl+\], ctrl+\\, ctrl+a, ctrl+;, ctrl+'
+> Available keybinds :\
+> ctrl+\[, ctrl+\], ctrl+\\, ctrl+;, ctrl+'
 
 `Ctrl + g` - Lock mode\
 `Ctrl + p` - Pane mode\
@@ -67,19 +62,20 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `+/-` - Increase / decrease the size of the pane\
 -> `h/j/k/l` - Resize the pane in a direction\
 `Ctrl + e` - Panel move mode\
-`Ctrl + a` - Search & Copy mode\
+`Ctrl + a` - Scroll, Search & Copy to editor mode\
 -> `k/j`, `PgUp/PgDn`, `u,d` - Scroll up / down\
 -> `e` - Open scrollback in the default editor\
 -> `s` - Search, with `n` and `p` moving between them, `c` toggling case sensitivity and `w` toggling wrapping when going through results\
 `Ctrl + y` - Session mode\
 -> `d` - Detach session\
+-> `w` - Session manager
 
 `Alt + h/j/k/l` - Move between panes\
 `Alt + n` - New pane\
 `Alt + +/-` -  Increase / decrease the size of the pane
 
-Note that the Tmux mode is unbound, don't need it.\
-Also don't need the `Ctrl + q` to quit, since I have Ctrl + d.
+Note that the Tmux mode is unbound, as I don't need it.\
+Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 ## TMUX
 
