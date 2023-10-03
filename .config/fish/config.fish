@@ -15,6 +15,7 @@ fzf_configure_bindings --directory=\cf --variables=\e\cv
 
 bind \b backward-kill-word # Ctrl + Backspace
 bind \e\[3\;5~ kill-word # Ctrl + Delete
+bind \cl forward-char # Ctrl + l to autofill (don't need a clear terminal shortcut when I have 'c' alias)
 
 ### Aliases
 

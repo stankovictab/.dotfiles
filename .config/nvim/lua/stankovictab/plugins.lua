@@ -34,7 +34,7 @@ local plugins = {
 	"folke/tokyonight.nvim",
 	"catppuccin/nvim",
 	"shatur/neovim-ayu",
-	-- use 'rafi/awesome-vim-colorschemes'       -- Collection of colorschemes, including iceberg, nord, onedark, etc
+	-- "rafi/awesome-vim-colorschemes",       -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
 	-- FIXME: Alpha takes 100ms to spin up (a third of the startup time) so I just disabled it for now.
 	-- {
@@ -47,13 +47,11 @@ local plugins = {
 	-- 	},
 	-- 	event = "VimEnter"
 	-- },
-
 	{
 		"andweeb/presence.nvim", -- The best Discord rich presence plugin
 		event = "VeryLazy", -- TODO: Experimenting with this
 		config = function() require('stankovictab.specifics.presence') end
 	},
-
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = '0.1.2',                        -- Says so in their README
@@ -62,35 +60,29 @@ local plugins = {
 		config = function() require('stankovictab.specifics.telescope') end
 	},
 	"nvim-telescope/telescope-symbols.nvim", -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc     (╯°□°）╯︵ ┻━┻
-
 	{
 		'NvChad/nvim-colorizer.lua',
 		-- Between this, norcalli/nvim-colorizer.lua and brenoprata10/nvim-highlight-colors, this is the best one, as it's maintained, and it fixes the issue where colors go away when changing themes, however, it still doesn't support var() in css sadly
 		config = function() require('stankovictab.specifics.nvim-colorizer') end
 	},
-
 	{
 		"windwp/nvim-autopairs", -- Automatically close brackets and quotes
 		event = "InsertEnter",
 		config = function() require("nvim-autopairs").setup({}) end
 	},
-
 	{
 		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
 		dependencies = 'nvim-tree/nvim-web-devicons',
 		event = "BufAdd",   -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event.
 		config = function() require('stankovictab.specifics.cokeline') end,
 	},
-
 	{
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
 		-- NOTE: The `nvim .` command gets broken if NvimTree is loaded on the NvimTreeToggle event - it can't read the config and doesn't know about the autocmd that opens the tree on directory, so, it needs to be loaded up on startup
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function() require('stankovictab.specifics.nvim-tree') end
 	},
-
-	"tpope/vim-commentary", -- gc (block) and gcc (line) to comment out code
-
+	"tpope/vim-commentary", -- Ctrl + /, gc (block) and gcc (line) to comment out code
 	{
 		'lewis6991/gitsigns.nvim', -- Git signs in the gutter, better than airblade/vim-gitgutter
 		config = function()
@@ -118,13 +110,8 @@ local plugins = {
 			}
 		end
 	},
-
 	{
-		'nvim-treesitter/nvim-treesitter', -- TreeShitter for better syntax highlighting
-		-- NOTE: Comment out keys to have treesitter load immediately
-		-- keys = {
-		-- 	{ "<leader>tt", ":TSToggle highlight<cr>", desc = "Load TS" } -- You need to press it twice, couldn't find a way to fix it
-		-- },
+		'nvim-treesitter/nvim-treesitter', -- TreeShitter for "better" syntax highlighting, but the only thing it's done is shorten my life expectancy
 		config = function() require('stankovictab.specifics.treesitter') end,
 		build = function()
 			require('nvim-treesitter.install').update({
@@ -137,7 +124,6 @@ local plugins = {
 		cmd = "TSPlaygroundToggle",
 		config = function() require('stankovictab.specifics.playground') end
 	},
-
 	{
 		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation
 		-- config = function() require('stankovictab.specifics.indent-blankline') end
@@ -152,17 +138,14 @@ local plugins = {
 			}
 		end,
 	},
-
 	{
 		'yamatsum/nvim-cursorline', -- Includes cursorline and cursorword - the second highlights all occurances of the selected word
 		config = function() require('stankovictab.specifics.nvim-cursorline') end
 	},
-
 	{
 		'petertriho/nvim-scrollbar', -- Scrollbar so that I don't get lost
 		config = function() require('stankovictab.specifics.nvim-scrollbar') end
 	},
-
 	"rafamadriz/friendly-snippets", -- Snippet collection
 	"L3MON4D3/LuaSnip",          -- LuaSnip snippet engine
 	{
@@ -186,7 +169,6 @@ local plugins = {
 		"neovim/nvim-lspconfig",      -- LSP configuration, this is an integral part, this is developed by the NeoVim team
 		config = function() require('stankovictab.specifics.lsp-hell') end
 	},
-
 	{
 		"folke/zen-mode.nvim", -- Like zen mode in vscode, activate with :ZenMode
 		cmd = "ZenMode",
@@ -196,7 +178,6 @@ local plugins = {
 			}
 		}
 	},
-
 	-- See this if this piece of shit doesn't open up again https://github.com/iamcco/markdown-preview.nvim/issues/424, you have to run a script manually
 	{
 		"iamcco/markdown-preview.nvim",
@@ -205,7 +186,6 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -239,12 +219,10 @@ local plugins = {
 			})
 		end
 	},
-
 	{
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
 		config = function() require('stankovictab.specifics.lualine') end
 	},
-
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy", -- Can't be loaded on cmd :WhichKey because that cmd isn't being ran
@@ -254,17 +232,14 @@ local plugins = {
 		end,
 		opts = {}
 	},
-
 	-- { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
 	-- 	config = function()
 	-- 		require('zellij').setup({})
 	-- 	end },
-
 	{
 		"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
 		cmd = "LazyGit",
 	},
-
 	{
 		"folke/flash.nvim", -- Better text navigation
 		event = "VeryLazy",
@@ -278,9 +253,9 @@ local plugins = {
 	},
 	{
 		"tamton-aquib/duck.nvim",
-		keys = {                                                                         -- Only load the plugin on these key presses, and bind these keys
+		keys = { -- Only load the plugin on these key presses, and bind these keys
 			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
-			{ "<leader>sc", function() require("duck").cook() end,            desc = "Duck Cook" }
+			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook" }
 		}
 	}
 }

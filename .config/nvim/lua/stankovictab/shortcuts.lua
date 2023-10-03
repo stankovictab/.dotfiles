@@ -1,13 +1,10 @@
--- TODO: Free keys are: ; (it's used to repeat f and t, so useless), ` (' already shows marks), @ (" already shows registers), , itself (used to repeat f and t in the other way)
--- TODO: And, ; messes up with my WhichKey for ; which I need more than ; to repeat f and t, so it'll be good to change out ; and , (and flash.nvim already allows for spamming of f and t, no worry there)
--- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut), Ctrl + y
+-- NOTE: Free keys are: ` (' already shows marks), @ (" already shows registers),
+-- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut),
 -- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones, see what you can come up with
 -- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
--- I use Space only to clear search highlighting, but I guess I can do that with Esc?
 -- What to do with Caps Lock?
--- You can't use Ctrl + Shift + key in Alacritty, just fyi (but it works for moving buffers around? weird.)
 -- Tab + Tab + keys is also a possibility
--- e, E, b, B, t & T are all available to rebind, as I don't use them, I just use w and f
+-- e, E, b, B, t & T are all available to rebind, as I don't use them, I just use w, W, f and F
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
@@ -17,7 +14,7 @@ local map = vim.api.nvim_set_keymap
 -- In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, and then also the rest of the files, and that makes no sense.
 -- :luafile also doesn't work. nvim-reload also doesn't seem to work.
 -- This shortcut will basically reload the current config file you're in, so, if you're in lualine's config and you make a change, you can reload instantly
--- Note that if you're changing something regarding plugins, this simple reload won't always work, sometimes you need to do PackerCompile (Tab + p + s)
+-- Note that if you're changing something regarding plugins, this simple reload won't always work, sometimes you need to sync with Lazy
 map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
 	{ desc = "Reload Config", noremap = true, silent = true })
 
