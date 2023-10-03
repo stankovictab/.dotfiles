@@ -133,12 +133,16 @@ map('v', '<s-l>', '<End>', { desc = "Go to End of Line", noremap = true, silent 
 map('n', '<s-u>', ':redo<cr>', { desc = "Redo", noremap = true, silent = true })
 
 -- This allows moving accross wrapped lines without skipping, like in VSCode
+map('n', 'j', 'gj', { desc = "Down", noremap = true, silent = true })
+map('n', 'k', 'gk', { desc = "Up", noremap = true, silent = true })
+map('v', 'j', 'gj', { desc = "Down", noremap = true, silent = true })
+map('v', 'k', 'gk', { desc = "Up", noremap = true, silent = true })
 map('n', '<Down>', 'gj', { desc = "Down", noremap = true, silent = true })
 map('n', '<Up>', 'gk', { desc = "Up", noremap = true, silent = true })
 map('i', '<Down>', '<C-o>gj', { desc = "Down", noremap = true, silent = true })
 map('i', '<Up>', '<C-o>gk', { desc = "Up", noremap = true, silent = true })
-map('n', 'j', 'gj', { desc = "Down", noremap = true, silent = true })
-map('n', 'k', 'gk', { desc = "Up", noremap = true, silent = true })
+map('v', '<Down>', 'gj', { desc = "Down", noremap = true, silent = true })
+map('v', '<Up>', 'gk', { desc = "Up", noremap = true, silent = true })
 
 map('n', '<a-d>', 'yyp', { desc = "Duplicate Line", noremap = true, silent = true })
 map('i', '<a-d>', '<esc>yypi', { desc = "Duplicate Line", noremap = true, silent = true })
@@ -235,9 +239,11 @@ function FuckOuttaHere()
 		print('No path, or https or http URI found in line.')
 	end
 end
+
 map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })
 
 -- This requires , to be unbound from flash's config, and to use <cmd> instead of : for some reason
 map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
 
-map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>', { desc = "Toggle TS Highlight" })
+map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>',
+	{ desc = "Toggle TS Highlight" })
