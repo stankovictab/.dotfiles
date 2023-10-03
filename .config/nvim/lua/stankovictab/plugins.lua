@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = '	' -- NOTE - THIS IS TEMPORARY, SEE IF IT WORKS WITHOUT IT HERE, dude says it's needed here
 -- TODO: To not leave this here, divide shortcuts into two groups, before plugins and after plugins
+-- TODO: I don't remember what these upper two lines mean and what this is for...
 
 -- Markdown Preview, use with :MarkdownPreview (Tab + m)
 -- Because this plugin is ancient, you need to set it up like this, and not with the lazy plugin manager
@@ -87,15 +88,6 @@ local plugins = {
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function() require('stankovictab.specifics.nvim-tree') end
 	},
-
-	-- TODO: Think about removing this if you're going to be using zellij constantly
-	-- It'll also free up Ctrl + n for zellij
-	-- {
-	-- 	"akinsho/toggleterm.nvim", -- A better terminal than the builtin
-	-- 	-- tag = '*',
-	-- 	config = function() require('stankovictab.specifics.toggleterm') end,
-	-- 	event = "BufWinEnter"
-	-- },
 
 	"tpope/vim-commentary", -- gc (block) and gcc (line) to comment out code
 
