@@ -14,7 +14,6 @@ set -g fish_greeting # Removes the fish welcome message
 bind \b backward-kill-word # Ctrl + Backspace
 bind \e\[3\;5~ kill-word # Ctrl + Delete
 bind \cl forward-char # Ctrl + l to autofill (don't need a clear terminal shortcut when I have 'c' alias)
-# bind \co forward-char # Ctrl + o to autofill (don't need a clear terminal shortcut when I have 'c' alias)
 
 # Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
 fzf_configure_bindings --directory=\cf --variables=\e\cv 

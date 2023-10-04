@@ -13,7 +13,6 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 ## Universal Shell Shortcuts
 
 `Ctrl + d` - Kill shell (but not when a process is running)\
-`Ctrl + l` - Clear whole terminal\
 `Ctrl + u` - Clear line\
 `Ctrl + r` - Search history of commands by query in prompt\
 `Ctrl + c` - Stop program or prompt line\
@@ -23,7 +22,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ### fish
 
-`Ctrl + o` - Autocomplete line
+`Ctrl + l` - Autocomplete line
 
 ## fzf-fish
 
@@ -76,7 +75,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `d` - Detach session\
 -> `w` - Session manager
 
-`Ctrl + h/j/k/l` - Move between panes (and nvim windows!)\
+`Alt + h/j/k/l` - Move between panes\
 `Alt + n` - New pane\
 `Alt + +(=)/-` -  Increase / decrease the size of the pane
 
@@ -130,7 +129,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 `Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
 `Ctrl + w` - Close buffer\
-`Ctrl + h/j/k/l` - Cycle between windows visible on the screen (and zellij panes!)\
+`Ctrl + h/j/k/l` - Cycle between windows visible on the screen\
 `Shift + j/k`, `Ctrl + PgUp/PgDn` - Cycle between buffers for the current window\
 `Tab + s + h` - Split horizontally\
 `Tab + s + v` - Split vertically\
