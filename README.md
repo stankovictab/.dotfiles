@@ -84,33 +84,35 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 ## TMUX
 
+> Note that I use the word tab, and not window. 
+
 `t`, `ta`, `td`, `tls`, `tks` - Fish shell aliases
 
 `Ctrl + a + Shift + i` - Install plugins with tpm (make sure you git cloned tpm)
 `Ctrl + a + r` - Refresh config
 
-`Ctrl + t`, `Ctrl + a + t` - New window\
+`Ctrl + t`, `Ctrl + a + t` - New tab\
 `Ctrl + a + v` - Split vertically\
 `Ctrl + a + h` - Split horizontally\
-`Alt + ArrowKeys`, `Ctrl + a + ArrowKeys` (TTY) - Switch between panes\
-`Ctrl + Shift + PgUp/PgDn` - Switch between windows\
+`Alt + h/j/k/l`, `Alt + ArrowKeys`, `Ctrl + a + ArrowKeys` (TTY) - Switch between panes\
+`Ctrl + Shift + PgUp/PgDn` - Switch between tabs\
 `Ctrl + a + (/)` - Switch between sessions\
-`Ctrl + a + {Number}` - Switch to window {Number}\
+`Ctrl + a + {Number}` - Switch to tab {Number}\
 `Ctrl + a + f` - Show pane numbers. You can switch to a specific pane with `Ctrl + a + f + {Number}`\
 `Ctrl + Alt + Left/Right`, `Ctrl + a + {/}` - Swap pane with previous/next position\
 `Ctrl + a + Ctrl + ArrowKeys` - Resize pane
 
 `Ctrl + a + d` - Detach session and return to native terminal shell\
 `Ctrl + a + e`, `Ctrl + d` (kill shell only) - Kill pane\
-`Ctrl + a + w` - Kill window\
+`Ctrl + a + w` - Kill tab\
 `Ctrl + a + q` - Kill session
 
 `Ctrl + a + :` - Enter command mode\
-`Ctrl + a + a` - Window overview\
+`Ctrl + a + a` - Tab overview\
 (there is no pane overview, so you'll have to expand the panes in the tree)\
-`Ctrl + a + . + Number` - Move window to position {Number}\
+`Ctrl + a + . + Number` - Move tab to position {Number}\
 `Ctrl + a + s` - Rename session\
-`Ctrl + a + x` - Rename window\
+`Ctrl + a + x` - Rename tab\
 
 `Ctrl + a + z` - Fullscreen pane (zoom)\
 `Ctrl + a + c` - Big ass clock\

@@ -207,6 +207,7 @@ map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted!
 -- Incrementing and decrementing (as Ctrl + a no longer increments), + and - moved across lines before
 map('n', '+', '<esc><c-a>', { desc = "Increment", noremap = true, silent = true })
 map('n', '-', '<esc><c-x>', { desc = "Decrement", noremap = true, silent = true })
+-- TODO: Unmap Ctrl + a after this? Will it work?
 
 -- Select all (Ctrl + a is used by tmux)
 map('n', '<leader>a', '<esc>gg0vG$', { desc = 'Select All', noremap = true, silent = true })
