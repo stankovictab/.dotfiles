@@ -21,6 +21,10 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + Shift + c` - Copy selected text\
 `Ctrl + Shift + v`, `Ctrl + v`, `Shift + Insert` - Paste text
 
+### fish
+
+`Ctrl + o` - Autocomplete line
+
 ## fzf-fish
 
 `Ctrl + f` - Search files and folders\
@@ -34,9 +38,10 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## Zellij
 
+`zj`, `zjls`, `zja`, `zjk`, `zjka` - Fish shell aliases
+
 > **Current conflicts with NeoVim :**\
 > (Not a big problem) `Ctrl + t` is the tag stack\
-> (How it stands now is fine, if you need to move lines around, just go into Lock mode) `Alt + h/j/k/l` is moving lines up/down and characters left/right - this can be fixed if I use the same shortcut for moving through the NeoVim panes if the plugin exists, so I'd use Ctrl+hjkl for moving between all panes, and free up Alt+hjkl for NeoVim. *NOTE* - Lilja/zellij.nvim exists, it does escape from nvim to zellij, but you can't move between nvim panes themselves, as zellij overrides that still, for now, so zellij needs to do some sort of check to see whether it's in a nvim environment, but that's on the devs to figure out.\
 > Available keybinds :\
 > ctrl+\[, ctrl+\], ctrl+\\, ctrl+;, ctrl+'
 
@@ -56,6 +61,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `n` - New tab\
 -> `x` - Close tab\
 -> `r` - Rename tab\
+-> `b` - Break current pane into new tab\
 -> `s` - Toggle synced tab (all input will be the same on all panes of the tab)\
 -> `Tab` - Cycle through tabs (kinda?)\
 `Ctrl + n` - Resize mode\
@@ -70,9 +76,9 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `d` - Detach session\
 -> `w` - Session manager
 
-`Alt + h/j/k/l` - Move between panes\
+`Ctrl + h/j/k/l` - Move between panes (and nvim windows!)\
 `Alt + n` - New pane\
-`Alt + +/-` -  Increase / decrease the size of the pane
+`Alt + +(=)/-` -  Increase / decrease the size of the pane
 
 Note that the Tmux mode is unbound, as I don't need it.\
 Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
@@ -124,7 +130,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 `Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
 `Ctrl + w` - Close buffer\
-`Ctrl + h/j/k/l` - Cycle between windows visible on the screen\
+`Ctrl + h/j/k/l` - Cycle between windows visible on the screen (and zellij panes!)\
 `Shift + j/k`, `Ctrl + PgUp/PgDn` - Cycle between buffers for the current window\
 `Tab + s + h` - Split horizontally\
 `Tab + s + v` - Split vertically\

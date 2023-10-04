@@ -4,18 +4,20 @@ export EDITOR="nvim" # Default editor for sudoedit for example
 
 set -g fish_greeting # Removes the fish welcome message
 
-# Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
-fzf_configure_bindings --directory=\cf --variables=\e\cv 
-
 # NOTE: You can use Vim mode by setting fish_vi_key_bindings in the same way
 
 ### Keybindings
+
 # To see the bind you want, run `fish_key_reader`
 # To see the available binds, go to https://fishshell.com/docs/current/cmds/bind.html
 
 bind \b backward-kill-word # Ctrl + Backspace
 bind \e\[3\;5~ kill-word # Ctrl + Delete
 bind \cl forward-char # Ctrl + l to autofill (don't need a clear terminal shortcut when I have 'c' alias)
+# bind \co forward-char # Ctrl + o to autofill (don't need a clear terminal shortcut when I have 'c' alias)
+
+# Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
+fzf_configure_bindings --directory=\cf --variables=\e\cv 
 
 ### Aliases
 

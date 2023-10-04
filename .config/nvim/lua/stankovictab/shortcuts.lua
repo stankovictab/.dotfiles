@@ -1,3 +1,4 @@
+-- TODO: Use up :ZellijRenamePane and :ZellijRenameTab somehow?
 -- NOTE: Free keys are: ` (' already shows marks), @ (" already shows registers),
 -- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut),
 -- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones, see what you can come up with
@@ -57,8 +58,13 @@ map('n', '<c-h>', ':wincmd h<cr>', { desc = "Go to Window Left", noremap = true,
 map('n', '<c-j>', ':wincmd j<cr>', { desc = "Go to Window Down", noremap = true, silent = true })
 map('n', '<c-k>', ':wincmd k<cr>', { desc = "Go to Window Up", noremap = true, silent = true })
 map('n', '<c-l>', ':wincmd l<cr>', { desc = "Go to Window Right", noremap = true, silent = true })
+-- TODO: Use this when zellij.nvim figures out the overriding of keybinds
+-- map('n', '<c-h>', ':ZellijNavigateLeft<cr>', { desc = "Go to Window Left", noremap = true, silent = true })
+-- map('n', '<c-j>', ':ZellijNavigateDown<cr>', { desc = "Go to Window Down", noremap = true, silent = true })
+-- map('n', '<c-k>', ':ZellijNavigateUp<cr>', { desc = "Go to Window Up", noremap = true, silent = true })
+-- map('n', '<c-l>', ':ZellijNavigateRight<cr>', { desc = "Go to Window Right", noremap = true, silent = true })
 -- No reason for a "move windows around" shortcut, when you can just move between buffers easily
--- Ctrl + Shift + Key doesn't work in Alacritty out of the box, so arrow keys are fine for resizing
+-- Ctrl + Shift + Key doesn't work here for some reason (even though Ctrl + Shift + PgUp/PgDn works for moving buffers in cokeline), so arrow keys are fine here for resizing
 map('n', '<c-left>', ':vertical resize -2<cr>', { desc = "Resize to Left", noremap = true, silent = true })
 map('n', '<c-up>', ':resize +2<cr>', { desc = "Resize Up", noremap = true, silent = true })
 map('n', '<c-down>', ':resize -2<cr>', { desc = "Resize Down", noremap = true, silent = true })
@@ -101,6 +107,7 @@ map('i', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then 
 	{ desc = "Search & Replace", noremap = true, silent = true })
 
 -- Alt + movement keys to move lines around - this is a lot better than ddp and ddkP, doesn't mess up the clipboard, and doesn't have the issue of moving the first line up and it disappearing
+-- NOTE: If you're using Alt, you need to lock zellij, as it uses that for moving through panes
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
 map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })

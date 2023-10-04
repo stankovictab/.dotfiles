@@ -82,7 +82,7 @@ local plugins = {
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function() require('stankovictab.specifics.nvim-tree') end
 	},
-	"tpope/vim-commentary", -- Ctrl + /, gc (block) and gcc (line) to comment out code
+	"tpope/vim-commentary",  -- Ctrl + /, gc (block) and gcc (line) to comment out code
 	{
 		'lewis6991/gitsigns.nvim', -- Git signs in the gutter, better than airblade/vim-gitgutter
 		config = function()
@@ -232,10 +232,12 @@ local plugins = {
 		end,
 		opts = {}
 	},
-	-- { "Lilja/zellij.nvim", -- NeoVim + Zellij Navigation (NOTE Temporary until an official implementation is presented, see #967, and see the explanation of why I'm not using this for now in the dotfiles README)
-	-- 	config = function()
-	-- 		require('zellij').setup({})
-	-- 	end },
+	{
+		"Lilja/zellij.nvim", -- NeoVim + Zellij Navigation
+		config = function()
+			require('zellij').setup({})
+		end
+	},
 	{
 		"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
 		cmd = "LazyGit",

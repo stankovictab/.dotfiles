@@ -150,10 +150,16 @@ keybinds clear-defaults=true {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         // bind "Ctrl q" { Quit; } // Don't need this either, and it gets rid of the Quit mode tab on the bottom
         bind "Alt n" { NewPane; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+		// NOTE: Ctrl + ArrowKeys are unavailable in zellij
+        bind "Alt h" { MoveFocusOrTab "Left"; }
+		bind "Alt j" { MoveFocus "Down"; }
+		bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt l" { MoveFocusOrTab "Right"; }
+		// TODO: Use this when zellij.nvim figures out the overriding of keybinds
+        // bind "Ctrl h" { MoveFocusOrTab "Left"; } // WARN: Ctrl h is Backspace, doesn't work
+		// bind "Ctrl j" { MoveFocus "Down"; } // WARN: Ctrl j is Enter, doesn't work
+		// bind "Ctrl k" { MoveFocus "Up"; }
+        // bind "Ctrl l" { MoveFocusOrTab "Right"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
@@ -271,7 +277,7 @@ themes {
         white "#DCD7BA"
     }
 	mgz {
-		bg "#ff0000" // ???
+		bg "#333333" // Highlighted of selected text in shell, and in session manager, the background of the highlighted session
 		fg "#ffffff" // Mode tabs background
 		red "#9560f0" // Mode tab primary keys foreground
 		green "#58f5ab" // Selected tab and layout background, active pane frame and keybind second part, most present color
