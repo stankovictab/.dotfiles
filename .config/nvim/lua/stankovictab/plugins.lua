@@ -200,9 +200,9 @@ local plugins = {
 						accept = false, -- Changed, needs to be false for the Tab rebind down there to work
 						accept_word = false,
 						accept_line = false,
-						prev = "<M-[>", -- Alt + [ is the previous suggestion
-						next = "<M-]>", -- Alt + ] is the next suggestion
-						dismiss = "<C-]>", -- Ctrl + ] is to dismiss suggestion
+						prev = "<M-p>", -- Alt + p is the previous suggestion
+						next = "<M-n>", -- Alt + n is the next suggestion
+						-- dismiss = "<C-]>", -- Ctrl + ] is to dismiss suggestion
 					},
 				},
 				filetypes = {
@@ -230,7 +230,27 @@ local plugins = {
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300 -- Time before WhichKey opens
 		end,
-		opts = {}
+		config = function()
+			require("which-key").setup {
+				icons = {
+					-- breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+					-- separator = "➜", -- symbol used between a key and it's label
+					group = " ", -- symbol prepended to a group
+				},
+			}
+			-- WhichKey can name groups, I name groups here but all the shortcuts are in shortcuts.lua
+			require("which-key").register({
+				l = {
+					name = "LSP"
+				},
+				p = {
+					name = "Packages"
+				},
+				s = {
+					name = "Splits & Ducks"
+				},
+			}, { prefix = "<leader>" })
+		end,
 	},
 	{
 		"Lilja/zellij.nvim", -- NeoVim + Zellij Navigation
@@ -247,6 +267,9 @@ local plugins = {
 		event = "VeryLazy",
 		opts = {
 			modes = {
+				search = {
+					enabled = false, -- Disabled flash on / as it messes up with my workflow, and I have , which works great
+				},
 				char = {
 					keys = { "f", "F" } -- Removed t, T, ; and , as I need ; for WhichKey, , for .jump(), and t and T for other things
 				}

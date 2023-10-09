@@ -149,7 +149,6 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         // bind "Ctrl q" { Quit; } // Don't need this either, and it gets rid of the Quit mode tab on the bottom
-        bind "Alt n" { NewPane; }
 		// NOTE: Ctrl + ArrowKeys are unavailable in zellij
         bind "Alt h" { MoveFocusOrTab "Left"; }
 		bind "Alt j" { MoveFocus "Down"; }

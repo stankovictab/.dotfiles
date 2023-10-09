@@ -76,7 +76,6 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `w` - Session manager
 
 `Alt + h/j/k/l` - Move between panes\
-`Alt + n` - New pane\
 `Alt + +(=)/-` -  Increase / decrease the size of the pane
 
 Note that the Tmux mode is unbound, as I don't need it.\
@@ -164,9 +163,8 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `gx` - Open file or URL under cursor with system application
 
 `Tab` - Copilot - Accept suggestion\
-`Alt + [` - Copilot - Previous suggestion\
-`Alt + ]` - Copilot - Next suggestion\
-`Ctrl + ]` - Copilot - Clear suggestion
+`Alt + p` - Copilot - Previous suggestion\
+`Alt + n` - Copilot - Next suggestion
 
 `Ctrl + j/k` - Move up and down in Telescope and nvim-cmp (just like in fzf)
 
