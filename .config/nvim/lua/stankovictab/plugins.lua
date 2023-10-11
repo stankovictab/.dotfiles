@@ -278,6 +278,10 @@ local plugins = {
 			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
 			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook" }
 		}
+	},
+	{
+		"notjedi/nvim-rooter.lua", -- Automatically change the working directory to the project root
+		config = function() require("nvim-rooter").setup() end
 	}
 }
 

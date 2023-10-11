@@ -253,3 +253,5 @@ map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
 
 map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>',
 	{ desc = "Toggle TS Highlight" })
+
+map('n', 'q', '<esc>:lua print("I like ESC better!")<cr>', {desc = "Disable q"})

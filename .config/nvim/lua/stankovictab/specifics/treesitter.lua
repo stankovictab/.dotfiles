@@ -16,6 +16,7 @@ require'nvim-treesitter.configs'.setup {
 	"gitignore",
 	"go",
 	"gomod",
+	"groovy",
 	"html",
 	"java",
 	"javascript",
@@ -67,3 +68,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = true, -- Default is false
   },
 }
+
+-- Set filetype of Jenkinsfiles to groovy for TreeShitter syntax highlighting
+vim.cmd [[ autocmd BufRead,BufNewFile *.Jenkinsfile setfiletype groovy ]]
+vim.cmd [[ autocmd BufRead,BufNewFile Jenkinsfile setfiletype groovy ]]
