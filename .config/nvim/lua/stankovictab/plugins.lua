@@ -112,12 +112,8 @@ local plugins = {
 	},
 	{
 		'nvim-treesitter/nvim-treesitter', -- TreeShitter for "better" syntax highlighting, but the only thing it's done is shorten my life expectancy
+		build = ":TSUpdate",
 		config = function() require('stankovictab.specifics.treesitter') end,
-		build = function()
-			require('nvim-treesitter.install').update({
-				with_sync = true
-			})
-		end
 	},
 	{
 		'nvim-treesitter/playground', -- Treeshitter AST preview on :TSPlaygroundToggle

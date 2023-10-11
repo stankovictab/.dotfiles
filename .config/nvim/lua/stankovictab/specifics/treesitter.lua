@@ -24,7 +24,7 @@ require'nvim-treesitter.configs'.setup {
 	"json",
 	"jsonc",
 	"kdl", -- kdl is for zellij
-	"kotlin",
+	-- "kotlin",
 	"latex",
 	"lua",
 	"markdown",
@@ -34,7 +34,7 @@ require'nvim-treesitter.configs'.setup {
 	"r",
 	"regex",
 	"rust",
-	"scala",
+	-- "scala",
 	"scss",
 	"sql",
 	"svelte",
