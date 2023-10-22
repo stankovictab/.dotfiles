@@ -126,4 +126,5 @@
 	"vscode-pets.throwBallWithMouse": true,
 	"vscode-pets.theme": "forest",
 	"diffEditor.ignoreTrimWhitespace": false,
+	"workbench.editor.empty.hint": "hidden",
 }

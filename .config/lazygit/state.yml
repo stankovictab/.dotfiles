@@ -1,6 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/stankovictab/.dotfiles
+- /home/stankovictab/Desktop/bramesaas/jenkins-config-backup
+- /home/stankovictab/Desktop/mgz.nvim
+- /home/stankovictab/Desktop/bramesaas/brame2
+- /home/stankovictab/Desktop/bramesaas/brame-kube-deploy
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
+ignorewhitespaceindiffview: false

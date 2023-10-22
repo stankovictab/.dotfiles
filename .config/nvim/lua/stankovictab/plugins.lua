@@ -49,7 +49,7 @@ local plugins = {
 	-- },
 	{
 		"andweeb/presence.nvim", -- The best Discord rich presence plugin
-		event = "VeryLazy", -- TODO: Experimenting with this
+		-- event = "VeryLazy", -- TODO: Experimenting with this
 		config = function() require('stankovictab.specifics.presence') end
 	},
 	{

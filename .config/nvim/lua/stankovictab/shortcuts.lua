@@ -178,6 +178,7 @@ map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>',
 	{ desc = "(Smartly) Rename Variable", noremap = true, silent = true })                                                 -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
 map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', { desc = "See Code Actions", noremap = true, silent = true }) -- See code actions for hovered error, like adding imports, etc
 map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', { desc = "Go to References", noremap = true, silent = true })
+map('n', '<leader>lR', ':LspRestart<cr>:lua print("LSP Restarted.")<cr>', { desc = "LSP Restart", noremap = true, silent = true })
 map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>',
 	{ desc = "Go to Next Diagnostic", noremap = true, silent = true })
 map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>',
@@ -254,4 +255,16 @@ map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
 map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>',
 	{ desc = "Toggle TS Highlight" })
 
-map('n', 'q', '<esc>:lua print("I like ESC better!")<cr>', {desc = "Disable q"})
+map('n', 'q', '<esc>:lua print("I like ESC better!")<cr>', { desc = "Disable q" })
+
+function ClearRegisters()
+	-- Sets the contents of every register named here to empty
+	vim.cmd [[
+		let regs = split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+		for r in regs
+		  call setreg(r, [])
+		endfor
+	]]
+end
+
+map('n', '<leader>sr', ':lua ClearRegisters()<cr>', { desc = "Clear All Registers", noremap = true, silent = true })
