@@ -1,3 +1,5 @@
+-- TODO: Re-enable copilot when I have it again
+--
 -- lazy.nvim is a modern plugin manager, better than packer.nvim (lazy loading, caching, no git cloning, etc)
 -- Plugins can be loaded on events, commands, keymaps or buffer types, and they don't need to be manually compiled every time you make a change
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- This is ~/.local/share/nvim/lazy/lazy.nvim
@@ -182,39 +184,39 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter", -- Copilot will be started only when entering insert mode
-		config = function()
-			require("copilot").setup({
-				suggestion = {
-					enabled = true,
-					auto_trigger = true, -- Changed, false means you need to press next or prev to trigger copilot
-					debounce = 75,
-					keymap = {
-						accept = false, -- Changed, needs to be false for the Tab rebind down there to work
-						accept_word = false,
-						accept_line = false,
-						prev = "<M-p>", -- Alt + p is the previous suggestion
-						next = "<M-n>", -- Alt + n is the next suggestion
-						-- dismiss = "<C-]>", -- Ctrl + ] is to dismiss suggestion
-					},
-				},
-				filetypes = {
-					yaml = true, -- Changed
-					markdown = true, -- Changed
-					help = false,
-					gitcommit = false,
-					gitrebase = false,
-					hgcommit = false,
-					svn = false,
-					cvs = false,
-					["."] = false,
-				},
-			})
-		end
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter", -- Copilot will be started only when entering insert mode
+	-- 	config = function()
+	-- 		require("copilot").setup({
+	-- 			suggestion = {
+	-- 				enabled = true,
+	-- 				auto_trigger = true, -- Changed, false means you need to press next or prev to trigger copilot
+	-- 				debounce = 75,
+	-- 				keymap = {
+	-- 					accept = false, -- Changed, needs to be false for the Tab rebind down there to work
+	-- 					accept_word = false,
+	-- 					accept_line = false,
+	-- 					prev = "<M-p>", -- Alt + p is the previous suggestion
+	-- 					next = "<M-n>", -- Alt + n is the next suggestion
+	-- 					-- dismiss = "<C-]>", -- Ctrl + ] is to dismiss suggestion
+	-- 				},
+	-- 			},
+	-- 			filetypes = {
+	-- 				yaml = true, -- Changed
+	-- 				markdown = true, -- Changed
+	-- 				help = false,
+	-- 				gitcommit = false,
+	-- 				gitrebase = false,
+	-- 				hgcommit = false,
+	-- 				svn = false,
+	-- 				cvs = false,
+	-- 				["."] = false,
+	-- 			},
+	-- 		})
+	-- 	end
+	-- },
 	{
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
 		config = function() require('stankovictab.specifics.lualine') end
