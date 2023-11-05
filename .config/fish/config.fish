@@ -51,10 +51,8 @@ alias zjka='zellij ka'
 
 alias update='sudo nala update && sudo nala upgrade -y' # Maybe change over to deb update since that pulls apt update?
 alias deb='sudo deb-get'
-alias oldsizes='du -shc -- * | sort -h' # Shows sizes of folders, sorted ascendingly, may require sudo, if you want descending, do sort -rh (r is for reverse), remove c from -shc to remove total
-# dua doesn't need to be run as sudo, it sees everything
-alias sizes='dua'
-alias sizesinteractive='dua i'
+alias sizes='ncdu'
+# alias sizesinteractive='dua i'
 alias ffmpeg='ffmpeg -hide_banner'
 alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
