@@ -274,7 +274,40 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 
 ### Vimium Extension
 
-TODO: See the Notion page
+NOTE: This is copied over from the Notion page. 
+
+`?` is the list of all shortcuts. 
+
+`i` is for Insert Mode, which allows you to work on the website as you normally would 
+(so it’s ignore mode more than insert mode). 
+`Esc` goes out of it. 
+
+`j`, `k`, `d`, `u`, `gg`, `G` work how you’d expect. And they work really, really well.
+
+`r` reloads the page.
+`/` is search, `n` and `N` work after you press `Enter` to search. 
+`yy` copies the URL.
+`H` goes backward, `L` goes forward. 
+
+`f` opens the selected link in the current tab, `F` in a new one. 
+Another way you can look at this is that `f` is a click, and `F` is a middle click. 
+`Esc` closes those options.
+
+`o` is browser search, `O` is the same, just in a new tab. 
+This means you can search the web with your default search engine, 
+you can search opened tabs, bookmarks, history, etc. 
+
+`J` goes one tab left (`Ctrl` + `PageUp`)
+`K` goes one tab right (`Ctrl` + `PageDown`)
+
+`x` closes the tab (`Ctrl` + `w`), `t` opens a new one (`Ctrl` + `t`), `T` searches through tabs.
+(So `T` is like if `o` was filtered only for tabs.)
+
+`^` goes to the last used tab (like doing `Ctrl` + `Tab` in Vivaldi), very useful. 
+
+`v` is visual mode, works as you’d expect. 
+`c` when you’re in visual mode throws you into caret mode, where you can move through the text and select what you want with only the keyboard. 
+You can use this in combination with `/` to quickly yank whatever text you need.
 
 ## KDE
 
@@ -394,3 +427,10 @@ Hold Shift when over a message to have more options.
 `P` - Push changes to remote repo\
 `S` - Stash menu\
 `e`, `o` - Edit or open selected file
+
+## Qimgv Custom Shortcuts
+
+`a` - AVIF Convert CRF 19\
+`d` - Upscale\
+`s` - AVIF Convert CRF 27\
+TODO: Add a script to convert with WEBp.
