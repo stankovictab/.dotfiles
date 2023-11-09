@@ -5,7 +5,7 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/stankovictab/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/stankovictab/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/stankovictab\x24
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_g:lazygit
 SETUVAR _fish_abbr_gC:git\x20clone
 SETUVAR _fish_abbr_gP:git\x20push
