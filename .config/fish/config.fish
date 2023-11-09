@@ -115,6 +115,15 @@ abbr -a gb git branch
 abbr -a gS git stash
 abbr -a gSP git stash pop
 
+abbr -a fav1 f -i in.mkv -c:v libaom-av1 -crf 40 -cpu-used 8 -c:a copy out-aomav1crf40cpu8.mkv
+abbr -a f264 f -i in.mkv -c:v libx264 -preset medium -crf 30 -c:a aac out-x264crf30med.mkv
+abbr -a f265 f -i in.mkv -c:v libx265 -preset medium -crf 30 -c:a copy out-x265crf30med.mkv
+
+abbr -a fjxl f -i in.png -c:v libjxl -effort 7 -distance 1 out-eff7dist1.jxl
+abbr -a favif f -i in.png -c:v libaom-av1 -crf 24 -cpu-used 8 out-crf24cpu8.avif
+abbr -a fwebp f -i in.png -c:v libwebp -quality 88 -compression_level 6 out-q88cl6.webp
+abbr -a fjpg f -i in.png out.jpg
+
 ### PATH configuration 
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash
