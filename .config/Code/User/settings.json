@@ -82,7 +82,6 @@
 	"window.titleBarStyle": "custom",
 	"window.titleSeparator": " | ",
 	"workbench.editor.tabCloseButton": "off",
-	"workbench.editor.untitled.hint": "hidden",
 	"workbench.editor.untitled.labelFormat": "name",
 	"glassit.alpha": 255,
 	"debug.inlineValues": "on",
@@ -127,4 +126,5 @@
 	"vscode-pets.theme": "forest",
 	"diffEditor.ignoreTrimWhitespace": false,
 	"workbench.editor.empty.hint": "hidden",
+	"explorer.confirmDelete": false,
 }

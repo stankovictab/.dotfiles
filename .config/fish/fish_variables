@@ -5,7 +5,14 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/stankovictab/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/stankovictab/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/stankovictab\x24
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr_f264:f\x20\x2di\x20in\x2emkv\x20\x2dc\x3av\x20libx264\x20\x2dpreset\x20medium\x20\x2dcrf\x2030\x20\x2dc\x3aa\x20aac\x20out\x2dx264crf30med\x2emkv
+SETUVAR _fish_abbr_f265:f\x20\x2di\x20in\x2emkv\x20\x2dc\x3av\x20libx265\x20\x2dpreset\x20medium\x20\x2dcrf\x2030\x20\x2dc\x3aa\x20copy\x20out\x2dx265crf30med\x2emkv
+SETUVAR _fish_abbr_fav1:f\x20\x2di\x20in\x2emkv\x20\x2dc\x3av\x20libaom\x2dav1\x20\x2dcrf\x2040\x20\x2dcpu\x2dused\x208\x20\x2dc\x3aa\x20copy\x20out\x2daomav1crf40cpu8\x2emkv
+SETUVAR _fish_abbr_favif:f\x20\x2di\x20in\x2epng\x20\x2dc\x3av\x20libaom\x2dav1\x20\x2dcrf\x2024\x20\x2dcpu\x2dused\x208\x20out\x2dcrf24cpu8\x2eavif
+SETUVAR _fish_abbr_fjpg:f\x20\x2di\x20in\x2epng\x20out\x2ejpg
+SETUVAR _fish_abbr_fjxl:f\x20\x2di\x20in\x2epng\x20\x2dc\x3av\x20libjxl\x20\x2deffort\x207\x20\x2ddistance\x201\x20out\x2deff7dist1\x2ejxl
+SETUVAR _fish_abbr_fwebp:f\x20\x2di\x20in\x2epng\x20\x2dc\x3av\x20libwebp\x20\x2dquality\x2088\x20\x2dcompression_level\x206\x20out\x2dq88cl6\x2ewebp
 SETUVAR _fish_abbr_g:lazygit
 SETUVAR _fish_abbr_gC:git\x20clone
 SETUVAR _fish_abbr_gP:git\x20push

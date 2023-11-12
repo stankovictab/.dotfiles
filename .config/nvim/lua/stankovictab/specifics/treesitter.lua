@@ -68,5 +68,6 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 -- Set filetype of Jenkinsfiles to groovy for TreeShitter syntax highlighting
+vim.cmd [[ autocmd BufRead,BufNewFile *.jenkinsfile setfiletype groovy ]]
 vim.cmd [[ autocmd BufRead,BufNewFile *.Jenkinsfile setfiletype groovy ]]
 vim.cmd [[ autocmd BufRead,BufNewFile Jenkinsfile setfiletype groovy ]]

@@ -49,6 +49,11 @@ function _does_git_have_staged
     echo (command git diff --cached) 
 end
 
+function _does_git_have_stashed
+	# Display stash info only if there is something in git stash
+    echo (command git stash list) 
+end
+
 function _git_ahead_count -a branch_name
     echo (command git log origin/$branch_name..HEAD 2> /dev/null | \
 	  grep '^commit' | wc -l | tr -d ' ')
@@ -69,6 +74,11 @@ function fish_prompt
         if [ (_does_git_have_staged) ]
             set -l green (set_color -o $fish_color_quote)
             set git_info "$git_info$green "
+        end
+
+        if [ (_does_git_have_stashed) ]
+            set -l yellow (set_color -o $fish_color_selection)
+            set git_info "$git_info$yellow (stash)"
         end
 		
         if [ $git_ahead_count != 0 ]
