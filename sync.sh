@@ -89,6 +89,8 @@ rm -rf ~/.config/htop
 ln -sf ~/.dotfiles/.config/htop ~/.config/htop
 rm -rf ~/.config/alacritty
 ln -sf ~/.dotfiles/.config/alacritty ~/.config/alacritty
+rm -rf ~/.config/wezterm
+ln -sf ~/.dotfiles/.config/wezterm ~/.config/wezterm
 rm -rf ~/.config/qtile
 ln -sf ~/.dotfiles/.config/qtile ~/.config/qtile
 rm -rf ~/.config/picom
@@ -108,15 +110,5 @@ rm -rf ~/binaries
 ln -sf ~/.dotfiles/binaries ~/binaries
 
 # Fonts
-sudo cp -r ~/.dotfiles/fonts/Hack\ Nerd\ Font\ Mono/                 /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/JetBrainsMono\ Nerd\ Font\ Mono/        /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/JetBrainsMonoNL\ Nerd\ Font\ Mono/      /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/FiraCode\ Nerd\ Font\ Mono/             /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/RobotoMono\ Nerd\ Font\ Mono/           /usr/share/fonts/
-sudo cp ~/.dotfiles/fonts/impact.ttf                              /usr/share/fonts/
-sudo cp ~/.dotfiles/fonts/alpha\ kufi\ regular.ttf                /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/Montserrat                           /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/Poppins                              /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/Manche                              /usr/share/fonts/
-sudo cp -r ~/.dotfiles/fonts/Roboto                              /usr/share/fonts/
+sudo cp -r ~/.dotfiles/fonts/* /usr/share/fonts/
 echo "🎉 Sync finished! 🎉"

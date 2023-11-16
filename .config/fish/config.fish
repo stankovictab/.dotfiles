@@ -70,10 +70,11 @@ alias switchjava='sudo update-alternatives --config java'
 alias switchjavac='sudo update-alternatives --config javac'
 alias ports='sudo lsof -i -P -n | grep LISTEN'
 alias dotdesktops='echo "/usr/share/applications/ <-- Most of the stuff"\n"~/.local/share/applications <-- Mainly Proton and Wine"\n"/var/lib/flatpak/exports/share/applications/ <-- For Flatpaks"'
-alias fd='fd -H' # Package is fd-find, fd is the command, -H is to include hidden files
+alias fd='which fd &> /dev/null && fd -H || fdfind -H' # A check to see if fd (Feodra) or fdfind (Debian) package is present, also uses -H to show hidden files
 alias rg='rg --no-ignore --hidden' # Includes hidden and git-ignored files
 alias typeracer='toipe'
 alias shortcuts='nvim ~/.dotfiles/README.md'
+alias fonts='cd /usr/share/fonts/'
 alias nf='neofetch'
 alias rx='rxfetch'
 alias colors='gpick'
@@ -83,7 +84,6 @@ alias v='nvim'
 alias nvimbackup='nvim -u NONE'
 alias sound='pavucontrol-qt'
 alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' # setsid launches it detached from terminal
-alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias mediainfo='mediainfo --ParseSpeed=1' # --ParseSpeed=1 makes it so you can always see Stream Size, for some reason???
 
 alias upscale='~/Desktop/upscaler/upscale.sh'
