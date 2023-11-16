@@ -1,8 +1,19 @@
 # Custom keymaps go here
 # See more here https://github.com/aome510/spotify-player/blob/master/docs/config.md#keymaps
+# See the defaults here https://github.com/aome510/spotify-player/blob/master/README.md#commands
 
 [[keymaps]]
 command = "VolumeUp"
 key_sequence = "="
-
-# TODO: Add SeekForward, SeekBackward on h/l, and NextTrack, PreviousTrack on Shift + h/l, or some other combos
+[[keymaps]]
+command = "SeekForward"
+key_sequence = "l"
+[[keymaps]]
+command = "SeekBackward"
+key_sequence = "h"
+[[keymaps]]
+command = "NextTrack"
+key_sequence = "C-l"
+[[keymaps]]
+command = "PreviousTrack"
+key_sequence = "C-h"

@@ -21,13 +21,14 @@ vim.g.mapleader = '	' -- NOTE - THIS IS TEMPORARY, SEE IF IT WORKS WITHOUT IT HE
 
 -- Markdown Preview, use with :MarkdownPreview (Tab + m)
 -- Because this plugin is ancient, you need to set it up like this, and not with the lazy plugin manager
-vim.g.mkdp_port = '8885'                                                                      -- Set port for dark reader to turn off
-vim.g.mkdp_auto_close = 0                                                                     -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
+vim.g.mkdp_port =
+'8885'                    -- Set port for dark reader to turn off
+vim.g.mkdp_auto_close = 0 -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
 -- Be careful of this, as you'll get an error if you open another preview at the same port. Maybe figure out a way to get around this with mkdp_auto_close and :MarkdownPreviewToggle
 vim.g.mkdp_markdown_css =
-'~/.config/nvim/lua/stankovictab/specifics/mkdp_mgz.css'                                      -- CSS file to style the preview
+'~/.config/nvim/lua/stankovictab/specifics/mkdp_mgz.css'           -- CSS file to style the preview
 vim.g.mkdp_highlight_css =
-'~/.config/nvim/lua/stankovictab/specifics/mkdp_mgz_highlight.css'                            -- CSS file to style the preview
+'~/.config/nvim/lua/stankovictab/specifics/mkdp_mgz_highlight.css' -- CSS file to style the preview
 
 local plugins = {
 	-- Themes
@@ -284,8 +285,15 @@ local plugins = {
 		}
 	},
 	{
-		"notjedi/nvim-rooter.lua", -- Automatically change the working directory to the project root
-		config = function() require("nvim-rooter").setup() end
+		-- Automatically change the working directory to the project root (git repository)
+		-- Also adds :Telescope projects option
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup {
+				-- TODO: There's more to configure, like :Telescope projects
+				detection_methods = { "pattern" }, -- Default is { "lsp", "pattern" }
+			}
+		end
 	},
 	{
 		'cameron-wags/rainbow_csv.nvim', -- TreeShitter doesn't support csv? Use :RainbowAlign to align the columns, very useful!

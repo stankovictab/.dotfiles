@@ -25,6 +25,11 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 	disable_netrw = true,    -- Disables the builtin NeoVim explorer, default false
 	hijack_cursor = true,    -- Locks the cursor to the first letter of file names
 	sync_root_with_cwd = true, -- To be able to change the working directory of NeoVim with :cd, default false
+	respect_buf_cwd = true,  -- (Needed for project.nvim?)
+	update_focused_file = { -- Automatically shows the current file in the tree
+		enable = true,
+		update_root = true
+	},
 	renderer = {
 		icons = {
 			glyphs = {
