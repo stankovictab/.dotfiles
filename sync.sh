@@ -103,6 +103,10 @@ rm -rf ~/.config/zellij
 ln -sf ~/.dotfiles/.config/zellij ~/.config/zellij
 rm -rf ~/.config/spotify-player
 ln -sf ~/.dotfiles/.config/spotify-player ~/.config/spotify-player
+rm -rf ~/.config/btop
+ln -sf ~/.dotfiles/.config/btop ~/.config/btop
+sudo rm -rf /root/.config/btop
+sudo ln -sf /home/$USER/.dotfiles/.config/btop/ /root/.config/btop
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
