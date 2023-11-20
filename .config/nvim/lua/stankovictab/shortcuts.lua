@@ -23,15 +23,16 @@ map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>',
 	{ desc = "Find Config Files", noremap = true, silent = true }) -- Opening the config file directory, better than using :e, because this doesn't put you into that working directory
 map('n', '<leader>f', ':Telescope find_files<cr>', { desc = "File Browser", noremap = true, silent = true })
-map('n', '<leader>g', ':Telescope live_grep<cr>',
+map('n', '<leader>gr', ':Telescope live_grep<cr>',
 	{ desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
 map('n', '<leader>b', ':Telescope buffers<cr>', { desc = "Buffer Browser", noremap = true, silent = true })
 
 map('n', '<leader>ps', ":Lazy sync<cr>:TSUpdate<cr>",
 	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
+map('n', '<leader>pz', ":Lazy<cr>", { desc = "Lazy Package Manager", noremap = true, silent = true })
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
-map('n', '<leader>lg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
-map('n', '<leader>lz', ":Lazy<cr>", { desc = "Lazy", noremap = true, silent = true })
+map('n', '<leader>gg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
+map('n', '<leader>gs', ":Telescope git_status<cr>", { desc = "Telescope Git Status", noremap = true, silent = true })
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })
@@ -178,7 +179,8 @@ map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>',
 	{ desc = "(Smartly) Rename Variable", noremap = true, silent = true })                                                 -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
 map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', { desc = "See Code Actions", noremap = true, silent = true }) -- See code actions for hovered error, like adding imports, etc
 map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', { desc = "Go to References", noremap = true, silent = true })
-map('n', '<leader>lR', ':LspRestart<cr>:lua print("LSP Restarted.")<cr>', { desc = "LSP Restart", noremap = true, silent = true })
+map('n', '<leader>lR', ':LspRestart<cr>:lua print("LSP Restarted.")<cr>',
+	{ desc = "LSP Restart", noremap = true, silent = true })
 map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>',
 	{ desc = "Go to Next Diagnostic", noremap = true, silent = true })
 map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>',
