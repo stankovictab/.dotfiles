@@ -123,9 +123,10 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `Ctrl + s` - Save (and exit Insert, Visual or Command Mode)\
 `Tab + ,` - Open config files location\
 `Tab + f` - Open Telescope file search\
-`Tab + g` - Open Telescope live grep\
+`Tab + gr` - Open Telescope live grep\
 `Tab + b` - Open Telescope buffer search\
-`Tab + l + g` - Open LazyGit\
+`Tab + g + g` - Open LazyGit\
+`Tab + g + s` - Open Telescope git status\
 `Ctrl + n` - Open integrated terminal
 
 `Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
