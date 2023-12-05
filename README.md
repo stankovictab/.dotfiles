@@ -10,6 +10,10 @@ Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./syn
 
 The point of this is to make sure all of the shortcuts that I use (both default and custom) are consistent across the environments, to avoid confusion.
 
+## Miscellaneous Shortcuts
+
+`RightShift + F12` - Toggle MangoHUD on a MangoHUD-attached game
+
 ## Universal Shell Shortcuts
 
 `Ctrl + d` - Kill shell (but not when a process is running)\
