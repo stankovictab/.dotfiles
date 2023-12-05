@@ -120,6 +120,8 @@ abbr -a favif f -i in.png -c:v libaom-av1 -crf 24 -cpu-used 8 out-crf24cpu8.avif
 abbr -a fwebp f -i in.png -c:v libwebp -quality 88 -compression_level 6 out-q88cl6.webp
 abbr -a fjpg f -i in.png out.jpg
 
+abbr -a ai ollama run codellama
+
 ### PATH configuration 
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash

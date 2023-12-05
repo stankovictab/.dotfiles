@@ -318,15 +318,17 @@ local plugins = {
 }
 
 -- This bunch of shit makes it so that Tab completes the suggestion, or just inserts Tab if there's no suggestion
-vim.keymap.set("i", '<Tab>', function()
-	if require("copilot.suggestion").is_visible() then
-		require("copilot.suggestion").accept()
-	else
-		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), 'n', false)
-	end
-end, {
-	silent = true,
-})
+-- TODO: Re-enable when Copilot starts working again
+-- FIXME: Or, make it so that it checks if copilot is even installed before running require('copilot.suggestion'), as that will give out an error every time you press Tab when you don't have it installed
+-- vim.keymap.set("i", '<Tab>', function()
+-- 	if require("copilot.suggestion").is_visible() then
+-- 		require("copilot.suggestion").accept()
+-- 	else
+-- 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), 'n', false)
+-- 	end
+-- end, {
+-- 	silent = true,
+-- })
 
 local opts = {}
 
