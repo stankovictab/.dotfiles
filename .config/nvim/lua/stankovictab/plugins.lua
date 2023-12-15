@@ -1,5 +1,3 @@
--- TODO: Re-enable copilot when I have it again
---
 -- lazy.nvim is a modern plugin manager, better than packer.nvim (lazy loading, caching, no git cloning, etc)
 -- Plugins can be loaded on events, commands, keymaps or buffer types, and they don't need to be manually compiled every time you make a change
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- This is ~/.local/share/nvim/lazy/lazy.nvim
@@ -187,39 +185,31 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter", -- Copilot will be started only when entering insert mode
-	-- 	config = function()
-	-- 		require("copilot").setup({
-	-- 			suggestion = {
-	-- 				enabled = true,
-	-- 				auto_trigger = true, -- Changed, false means you need to press next or prev to trigger copilot
-	-- 				debounce = 75,
-	-- 				keymap = {
-	-- 					accept = false, -- Changed, needs to be false for the Tab rebind down there to work
-	-- 					accept_word = false,
-	-- 					accept_line = false,
-	-- 					prev = "<M-p>", -- Alt + p is the previous suggestion
-	-- 					next = "<M-n>", -- Alt + n is the next suggestion
-	-- 					-- dismiss = "<C-]>", -- Ctrl + ] is to dismiss suggestion
-	-- 				},
-	-- 			},
-	-- 			filetypes = {
-	-- 				yaml = true, -- Changed
-	-- 				markdown = true, -- Changed
-	-- 				help = false,
-	-- 				gitcommit = false,
-	-- 				gitrebase = false,
-	-- 				hgcommit = false,
-	-- 				svn = false,
-	-- 				cvs = false,
-	-- 				["."] = false,
-	-- 			},
-	-- 		})
-	-- 	end
-	-- },
+	{
+		'Exafunction/codeium.vim',
+		cmd = "Codeium", -- Codeium will be started when performing Codeium command
+		event = "InsertEnter", -- Codeium will be started when entering insert mode
+		config = function()
+			-- Change '<C-g>' here to any keycode you like.
+			-- vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+			vim.keymap.set('i', '<M-p>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+			vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+			-- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+
+			-- This is leftover from Copilot config, might be useful
+			-- 			filetypes = {
+			-- 				yaml = true, -- Changed
+			-- 				markdown = true, -- Changed
+			-- 				help = false,
+			-- 				gitcommit = false,
+			-- 				gitrebase = false,
+			-- 				hgcommit = false,
+			-- 				svn = false,
+			-- 				cvs = false,
+			-- 				["."] = false,
+			-- 			},
+		end
+	},
 	{
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
 		config = function() require('stankovictab.specifics.lualine') end
@@ -316,19 +306,6 @@ local plugins = {
 		}
 	}
 }
-
--- This bunch of shit makes it so that Tab completes the suggestion, or just inserts Tab if there's no suggestion
--- TODO: Re-enable when Copilot starts working again
--- FIXME: Or, make it so that it checks if copilot is even installed before running require('copilot.suggestion'), as that will give out an error every time you press Tab when you don't have it installed
--- vim.keymap.set("i", '<Tab>', function()
--- 	if require("copilot.suggestion").is_visible() then
--- 		require("copilot.suggestion").accept()
--- 	else
--- 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), 'n', false)
--- 	end
--- end, {
--- 	silent = true,
--- })
 
 local opts = {}
 

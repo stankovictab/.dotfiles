@@ -167,9 +167,11 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `gf` - Go to file under cursor\
 `gx` - Open file or URL under cursor with system application
 
-`Tab` - Copilot - Accept suggestion\
-`Alt + p` - Copilot - Previous suggestion\
-`Alt + n` - Copilot - Next suggestion
+`Tab` - Codeium - Accept suggestion\
+`Shift + Tab` - Codeium - Insert Tab character regardless of suggestion\
+`Alt + p` - Codeium - Previous suggestion\
+`Alt + n` - Codeium - Next suggestion\
+`Ctrl + ]` - Codeium - Clear suggestion
 
 `Ctrl + j/k` - Move up and down in Telescope and nvim-cmp (just like in fzf)
 
@@ -431,7 +433,9 @@ Hold Shift when over a message to have more options.
 `p` - Pull changes from remote repo\
 `P` - Push changes to remote repo\
 `S` - Stash menu\
-`e`, `o` - Edit or open selected file
+`e`, `o` - Edit or open selected file\
+`d` - Open discard changes menu on selected file\
+`D` - Open reset menu for whole project (haven't used this one)
 
 ## Qimgv Custom Shortcuts
 

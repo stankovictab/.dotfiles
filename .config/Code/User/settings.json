@@ -34,7 +34,6 @@
 	"editor.mouseWheelZoom": true,
 	"python.pythonPath": "/home/stankovictab/miniconda3/bin/python",
 	"git.confirmSync": false,
-	"telemetry.telemetryLevel": "off",
 	"java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/stankovictab/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
 	"vetur.ignoreProjectWarning": true,
 	"discord.detailsIdling": "Idling 💤",
@@ -127,4 +126,5 @@
 	"diffEditor.ignoreTrimWhitespace": false,
 	"workbench.editor.empty.hint": "hidden",
 	"explorer.confirmDelete": false,
+	"workbench.editor.tabActionCloseVisibility": false,
 }
