@@ -186,15 +186,15 @@ local plugins = {
 		end,
 	},
 	{
-		'Exafunction/codeium.vim',
-		cmd = "Codeium", -- Codeium will be started when performing Codeium command
-		event = "InsertEnter", -- Codeium will be started when entering insert mode
+		'Exafunction/codeium.vim', -- A better Copilot
+		-- cmd = "Codeium", -- Codeium will be started when performing Codeium command
+		-- event = "InsertEnter", -- Codeium will be started when entering insert mode
 		config = function()
 			-- Change '<C-g>' here to any keycode you like.
-			-- vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+			vim.keymap.set('i', '	', function() return vim.fn['codeium#Accept']() end, { expr = true })
 			vim.keymap.set('i', '<M-p>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
 			vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-			-- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+			-- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true }) -- For now this is the default, Ctrl + ]
 
 			-- This is leftover from Copilot config, might be useful
 			-- 			filetypes = {
@@ -209,10 +209,6 @@ local plugins = {
 			-- 				["."] = false,
 			-- 			},
 		end
-	},
-	{
-		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
-		config = function() require('stankovictab.specifics.lualine') end
 	},
 	{
 		"folke/which-key.nvim",
@@ -242,6 +238,10 @@ local plugins = {
 				},
 			}, { prefix = "<leader>" })
 		end,
+	},
+	{
+		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
+		config = function() require('stankovictab.specifics.lualine') end
 	},
 	{
 		"Lilja/zellij.nvim", -- NeoVim + Zellij Navigation

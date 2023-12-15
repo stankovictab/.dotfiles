@@ -20,7 +20,7 @@
   "mgz.nvim": { "branch": "main", "commit": "1c9cab960aa31e23edc737ecaa2b504b66d2b637" },
   "neovim-ayu": { "branch": "master", "commit": "76dbf939b38e03ac5f9bd711ab3e434999f715c8" },
   "nord.nvim": { "branch": "master", "commit": "0a22a387c92bb3b46e3d245522712ae7497bec38" },
-  "nvim": { "branch": "main", "commit": "32ee05d014a4611555c7f56a73283efb4718d9c5" },
+  "nvim": { "branch": "main", "commit": "079500a625f3ae5aa6efb758f1a17fe4c7a57e52" },
   "nvim-autopairs": { "branch": "master", "commit": "0f04d78619cce9a5af4f355968040f7d675854a1" },
   "nvim-cmp": { "branch": "main", "commit": "538e37ba87284942c1d76ed38dd497e54e65b891" },
   "nvim-cokeline": { "branch": "main", "commit": "2e71292a37535fdbcf0f9500aeb141021d90af8b" },

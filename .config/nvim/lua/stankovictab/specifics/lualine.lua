@@ -11,6 +11,18 @@ local function treeshitter_color()
 	end
 end
 
+local function codeium_status()
+	local status = vim.fn["codeium#GetStatusString"]()
+	-- Print the status for debugging or informational purposes
+	-- print("Codeium Status:", status)
+	-- Check if Codeium highlighting is active in the current buffer - this is dynamic, I love lualine
+	if status == " ON" then -- For some reason, the ON string has a space before it (OFF is ok)
+		return "󱉋" -- , 󱉋
+	else
+		return status
+	end
+end
+
 require('lualine').setup {
 	options = {
 		theme = 'auto', -- If the current colorscheme has a lualine theme built in, it'll recognize it
@@ -99,10 +111,11 @@ require('lualine').setup {
 
 		-- lualine_y = { 'filetype' },
 		-- lualine_y = { require('copilot_status').status_string, },
-		lualine_y = { { 'filetype' }, {
-			treeshitter_icon,
-			color = treeshitter_color
-		} },
+		lualine_y = {
+			{ 'filetype' },
+			{ treeshitter_icon, color = treeshitter_color },
+			{ codeium_status,   color = { fg = "#ff7e64" } }
+		},
 		lualine_z = { 'location' }
 	},
 	inactive_sections = {
