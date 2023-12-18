@@ -106,5 +106,15 @@
 		"key": "ctrl+shift+v",
 		"command": "-markdown.showPreview",
 		"when": "!notebookEditorFocused && editorLangId == 'markdown'"
+	},
+	{
+		"key": "ctrl+shift+q",
+		"command": "codeium.openCodeiumCommand",
+		"when": "codeium.commandEnabled && editorTextFocus && !inlineSuggestionsVisible"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "-codeium.openCodeiumCommand",
+		"when": "codeium.commandEnabled && editorTextFocus && !inlineSuggestionsVisible"
 	}
 ]

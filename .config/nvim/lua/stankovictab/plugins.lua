@@ -186,7 +186,7 @@ local plugins = {
 		end,
 	},
 	{
-		'Exafunction/codeium.vim', -- A better Copilot
+		'Exafunction/codeium.vim', -- A better Copilot (NOTE: there's also codeium.nvim??)
 		-- cmd = "Codeium", -- Codeium will be started when performing Codeium command
 		-- event = "InsertEnter", -- Codeium will be started when entering insert mode
 		config = function()

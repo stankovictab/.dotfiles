@@ -254,6 +254,19 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `F11` - Step into\
 `Shift + F11` - Step out
 
+### Codeium
+
+`Ctrl + i` - Codeium command in editor\
+`Ctrl + Alt + a` - Codeium chat\
+`Ctrl + Enter` - Query with codebase (kinda borked)\
+`Tab` - Accept suggestion\
+`Alt + [/]` - Cycle suggestions
+
+### Phind
+
+`Ctrl + i` - Phind chat\
+`Ctrl + Shift + l` - Phind search terminal output
+
 ## Vivaldi
 
 `Ctrl + ,` - Open settings\
