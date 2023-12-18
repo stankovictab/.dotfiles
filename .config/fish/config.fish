@@ -49,10 +49,8 @@ alias zja='zellij attach'
 alias zjk='zellij k'
 alias zjka='zellij ka'
 
-alias update='sudo nala update && sudo nala upgrade -y' # Maybe change over to deb update since that pulls apt update?
 alias deb='sudo deb-get'
 alias sizes='ncdu'
-# alias sizesinteractive='dua i'
 alias ffmpeg='ffmpeg -hide_banner'
 alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
