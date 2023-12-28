@@ -1,3 +1,7 @@
 scripts/lpf.sh
 scripts/upf.sh
 .config/musikcube/1/thumbs/
+.config/musikcube/log.txt
+.config/musikcube/stderr.txt
+.config/lazygit/state.yml
+.config/nvim/lazy-lock.json
