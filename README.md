@@ -456,3 +456,22 @@ Hold Shift when over a message to have more options.
 `d` - Upscale\
 `s` - AVIF Convert CRF 27\
 TODO: Add a script to convert with WEBp.
+
+## MusikCube
+
+Alias set to `music`.
+
+`1-6` - Sorting criteria\
+`a` - Library, which includes browse, filter, tracks and play queue\
+`Tab/Shift + Tab`, `u/o` - Change window\
+`-/=` - Change volume\
+`h/l` - Previous/next track\
+`t` - All track search\
+`/` - Global search\
+`R` - Rate track (MusikCube only, not file system)\
+`r` - Toggle repeat\
+`w` - Toggle shuffle\
+`Alt + Enter` - Context menu\
+`Ctrl + r` - Rescan library\
+`?` - Shortcuts\
+`Ctrl + d` - Quit

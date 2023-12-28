@@ -83,6 +83,7 @@ alias nvimbackup='nvim -u NONE'
 alias sound='pavucontrol-qt'
 alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' # setsid launches it detached from terminal
 alias mediainfo='mediainfo --ParseSpeed=1' # --ParseSpeed=1 makes it so you can always see Stream Size, for some reason???
+alias music='~/Apps/musikcube/musikcube'
 
 alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'

@@ -109,6 +109,8 @@ sudo rm -rf /root/.config/btop
 sudo ln -sf /home/$USER/.dotfiles/.config/btop/ /root/.config/btop
 rm -rf ~/.config/MangoHud
 ln -sf ~/.dotfiles/.config/MangoHud ~/.config/MangoHud
+rm -rf ~/.config/musikcube
+ln -sf ~/.dotfiles/.config/musikcube ~/.config/musikcube
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts

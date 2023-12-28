@@ -187,8 +187,8 @@ local plugins = {
 	},
 	{
 		'Exafunction/codeium.vim', -- A better Copilot (NOTE: there's also codeium.nvim??)
-		-- cmd = "Codeium", -- Codeium will be started when performing Codeium command
-		-- event = "InsertEnter", -- Codeium will be started when entering insert mode
+		cmd = "Codeium", -- Codeium will be started when performing Codeium command
+		event = "InsertEnter", -- Codeium will be started when entering insert mode
 		config = function()
 			-- Change '<C-g>' here to any keycode you like.
 			vim.keymap.set('i', '	', function() return vim.fn['codeium#Accept']() end, { expr = true })

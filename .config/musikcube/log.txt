@@ -1,0 +1,191 @@
+18:38:41 [info] [LOG SESSION] ---------- START ----------
+18:38:41 [info] [PluginFactory] loading plugins
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libopenmptdecoder.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libstockencoders.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libalsaout.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libpipewireout.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libhttpdatastream.so
+18:38:41 [error] [PluginFactory] exception while loading plugin /home/stankovictab/Apps/musikcube/plugins/libportaudioout.so: libportaudio.so.2: cannot open shared object file: No such file or directory
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libserver.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libpulseout.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libgmedecoder.so
+18:38:41 [error] [PluginFactory] exception while loading plugin /home/stankovictab/Apps/musikcube/plugins/libsndioout.so: libsndio.so.7.0: cannot open shared object file: No such file or directory
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libnullout.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libsupereqdsp.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libmpris.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libtaglibreader.so
+18:38:41 [info] [PluginFactory] loaded: /home/stankovictab/Apps/musikcube/plugins/libffmpegdecoder.so
+18:38:41 [info] [PipeWireOut] shutdown started
+18:38:41 [info] [PipeWireOut] shutdown complete
+18:38:41 [info] [Indexer] indexer source 61233646 running...
+18:38:41 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:41 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:41 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+18:38:42 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:42 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+18:38:42 [info] [GaplessTransport] starting track at /run/media/stankovictab/Vault/Music/Tool/Opiate/02 - Hush.flac
+18:38:42 [info] [Player] new instance created
+18:38:42 [info] [GaplessTransport] stop
+18:38:42 [info] [Stream] opening /run/media/stankovictab/Vault/Music/Tool/Opiate/02 - Hush.flac
+18:38:42 [info] [LocalFileStream] opening file: /run/media/stankovictab/Vault/Music/Tool/Opiate/02 - Hush.flac
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:42 [info] [ffmpegdecoder] parsing data stream...
+18:38:42 [info] [ffmpegdecoder] found audio stream!
+18:38:42 [info] [ffmpegdecoder] resolved codec: FLAC (Free Lossless Audio Codec)
+18:38:42 [info] [Streams] found a decoder for /run/media/stankovictab/Vault/Music/Tool/Opiate/02 - Hush.flac
+18:38:42 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:42 [info] [Indexer] indexer source 61233646 finished
+18:38:42 [info] [Indexer] indexer source -2065323650 running...
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:42 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:42 [info] [Indexer] indexer source -2065323650 finished
+18:38:42 [info] [Indexer] scanning /run/media/stankovictab/Vault/Music/
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:42 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:42 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:42 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:42 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:43 [info] [Indexer] scan completed successfully
+18:38:43 [info] [Indexer] cleanup 1/2
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [Indexer] cleanup 2/2
+18:38:43 [info] [Indexer] optimizing
+18:38:43 [info] [LocalLibrary] query 'SearchTrackListQuery' enqueued
+18:38:43 [info] [Indexer] done!
+18:38:43 [info] [LocalLibrary] query 'SearchTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'SearchTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:44 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
+18:38:44 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
+18:38:44 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
+18:38:44 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
+18:38:44 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
+18:38:44 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
+18:38:48 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+18:38:48 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+18:38:48 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+18:38:48 [info] [GaplessTransport] starting track at /run/media/stankovictab/Vault/Music/Tool/Opiate/03 - Part Of Me.flac
+18:38:48 [info] [Player] new instance created
+18:38:48 [info] [Stream] opening /run/media/stankovictab/Vault/Music/Tool/Opiate/03 - Part Of Me.flac
+18:38:48 [info] [GaplessTransport] stop
+18:38:48 [info] [LocalFileStream] opening file: /run/media/stankovictab/Vault/Music/Tool/Opiate/03 - Part Of Me.flac
+18:38:48 [info] [ffmpegdecoder] parsing data stream...
+18:38:48 [info] [ffmpegdecoder] found audio stream!
+18:38:48 [info] [ffmpegdecoder] resolved codec: FLAC (Free Lossless Audio Codec)
+18:38:48 [info] [Streams] found a decoder for /run/media/stankovictab/Vault/Music/Tool/Opiate/03 - Part Of Me.flac
+18:38:48 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:38:48 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+18:38:48 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+18:38:48 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+18:38:48 [info] [Player] new instance created
+18:38:48 [info] [Stream] opening /run/media/stankovictab/Vault/Music/Tool/Opiate/04 - Cold And Ugly (Live).flac
+18:38:48 [info] [LocalFileStream] opening file: /run/media/stankovictab/Vault/Music/Tool/Opiate/04 - Cold And Ugly (Live).flac
+18:38:48 [info] [ffmpegdecoder] parsing data stream...
+18:38:48 [info] [ffmpegdecoder] found audio stream!
+18:38:48 [info] [ffmpegdecoder] resolved codec: FLAC (Free Lossless Audio Codec)
+18:38:48 [info] [Streams] found a decoder for /run/media/stankovictab/Vault/Music/Tool/Opiate/04 - Cold And Ugly (Live).flac
+18:38:48 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:38:50 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+18:38:50 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+18:38:50 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+18:38:50 [info] [GaplessTransport] starting track at /run/media/stankovictab/Vault/Music/Tool/Opiate/06 - Opiate - The Gaping Lotus Experience.flac
+18:38:50 [info] [Player] new instance created
+18:38:50 [info] [GaplessTransport] stop
+18:38:50 [info] [Stream] opening /run/media/stankovictab/Vault/Music/Tool/Opiate/06 - Opiate - The Gaping Lotus Experience.flac
+18:38:50 [info] [LocalFileStream] opening file: /run/media/stankovictab/Vault/Music/Tool/Opiate/06 - Opiate - The Gaping Lotus Experience.flac
+18:38:50 [info] [ffmpegdecoder] parsing data stream...
+18:38:50 [info] [ffmpegdecoder] found audio stream!
+18:38:50 [info] [ffmpegdecoder] resolved codec: FLAC (Free Lossless Audio Codec)
+18:38:50 [info] [Streams] found a decoder for /run/media/stankovictab/Vault/Music/Tool/Opiate/06 - Opiate - The Gaping Lotus Experience.flac
+18:38:50 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:38:51 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+18:38:51 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+18:38:51 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+18:38:51 [info] [Player] new instance created
+18:38:51 [info] [Stream] opening /run/media/stankovictab/Vault/Music/Tool/Salival/01 - Third Eye (live).flac
+18:38:51 [info] [LocalFileStream] opening file: /run/media/stankovictab/Vault/Music/Tool/Salival/01 - Third Eye (live).flac
+18:38:51 [info] [ffmpegdecoder] parsing data stream...
+18:38:51 [info] [ffmpegdecoder] found audio stream!
+18:38:51 [info] [ffmpegdecoder] resolved codec: FLAC (Free Lossless Audio Codec)
+18:38:51 [info] [Streams] found a decoder for /run/media/stankovictab/Vault/Music/Tool/Salival/01 - Third Eye (live).flac
+18:38:51 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:38:52 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:38:52 [warning] [ffmpegdecoder] invalid packet detected, discarding.
+18:40:58 [info] [LocalLibrary] query 'MarkTrackPlayedQuery' enqueued
+18:40:58 [info] [LocalLibrary] query 'MarkTrackPlayedQuery' running
+18:40:58 [info] [LocalLibrary] query 'MarkTrackPlayedQuery' finished with status=4
