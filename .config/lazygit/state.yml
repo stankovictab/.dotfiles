@@ -1,8 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/stankovictab/.dotfiles
-- /home/stankovictab/Desktop/mgz.nvim
+- /home/stankovictab/Desktop/bramesaas/brame2
+- /home/stankovictab/Desktop/bramesaas/brame2
 - /home/stankovictab/Desktop/mgz-dark-theme
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
+ignorewhitespaceindiffview: false
