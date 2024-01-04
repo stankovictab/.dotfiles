@@ -185,7 +185,7 @@ map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>',
 	{ desc = "Go to Next Diagnostic", noremap = true, silent = true })
 map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>',
 	{ desc = "Go to Previous Diagnostic", noremap = true, silent = true })
-map('n', '<leader>ll', ':Telescope diagnostics<cr>',
+map('n', '<leader>ll', ':Telescope diagnostics severity_bound=0<cr>', -- Stopped working without severity_bound, see #2661
 	{ desc = "Telescope Diagnostics", noremap = true, silent = true })
 -- Formatting through the LSP, if the LSP client supports it
 map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>',
