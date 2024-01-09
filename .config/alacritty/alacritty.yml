@@ -71,6 +71,8 @@ font:
     # family: Monaspace Neon Var # Argon, Krypton, Neon, Radon, Xenon (Variable versions, not really for terminals)
     # family: Monaspace Neon # Argon, Krypton, Neon, Radon, Xenon
     # family: MonispaceNe NF # WIP: See the NerdFont GitHub for more info on the Mon(?)space NF https://github.com/ryanoasis/nerd-fonts/issues/1403
+    # family: GohuFont uni11 Nerd Font Mono # The pixel font, also available as uni14 and non-Mono
+    # family: GeistMono Nerd Font Mono # Also available as non-Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular

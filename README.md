@@ -136,7 +136,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
 `Ctrl + w` - Close buffer\
 `Ctrl + h/j/k/l` - Cycle between windows visible on the screen\
-`Shift + j/k`, `Ctrl + PgUp/PgDn` - Cycle between buffers for the current window\
+`Shift + j/k`, `Ctrl + PgUp/PgDn` - (Normal Mode) Cycle between buffers for the current window\
 `Tab + s + h` - Split horizontally\
 `Tab + s + v` - Split vertically\
 `Space` - Reset window sizes\
@@ -158,7 +158,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `Tab + z` - Zen Mode\
 `Tab + c` - Choose colorscheme\
 `Tab + d` - See LSP diagnostics\
-`Alt + j/k/Up/Down` - Move lines around (works with selected blocks in Visual mode too)\
+`J/K` - (Visual Mode) Move all selected lines up or down\
 `Alt + d` - Duplicate line\
 `w`, `W` - Move forward / backward by word\
 `+`, `-` - Increment / decrement number under cursor\

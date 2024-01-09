@@ -106,14 +106,10 @@ map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then 
 map('i', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
 	{ desc = "Search & Replace", noremap = true, silent = true })
 
--- Alt + movement keys to move lines around - this is a lot better than ddp and ddkP, doesn't mess up the clipboard, and doesn't have the issue of moving the first line up and it disappearing
--- NOTE: If you're using Alt, you need to lock zellij, as it uses that for moving through panes
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+-- Moving selected lines up or down with J/K, only in Visual Mode 
+-- This is a lot better than ddp and ddkP, doesn't mess up the clipboard, doesn't have the issue of moving the first line up and it disappearing, and doesn't use Alt
+map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Alt + h/l to move characters left and right (NOTE - Might be buggy)
 map("n", "<A-h>", "xhP", { desc = "Move character left" })
