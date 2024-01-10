@@ -1,6 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all"
-	-- ensure_installed = "all",
 	ensure_installed = {
 		"bash",
 		"c",
@@ -16,9 +15,9 @@ require 'nvim-treesitter.configs'.setup {
 		"gitignore",
 		"go",
 		"gomod",
-		"groovy",
+		"groovy", -- groovy is for Jenkinsfiles
 		"html",
-		"java",
+		-- "java",
 		"javascript",
 		"jq",
 		"jsdoc",
@@ -30,11 +29,11 @@ require 'nvim-treesitter.configs'.setup {
 		"lua",
 		"markdown",
 		"markdown_inline",
-		"matlab",
+		-- "matlab",
 		"python",
-		"r",
+		-- "r",
 		"regex",
-		"rust",
+		-- "rust",
 		-- "scala",
 		"scss",
 		"sql",
@@ -45,7 +44,7 @@ require 'nvim-treesitter.configs'.setup {
 		"vim",
 		"xml",
 		"yaml",
-		"zig"
+		-- "zig"
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -63,7 +62,7 @@ require 'nvim-treesitter.configs'.setup {
 		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
 		-- Using this option may slow down your editor, and you may see some duplicate highlights.
 		-- Instead of true it can also be a list of languages
-		additional_vim_regex_highlighting = true, -- Default is false
+		additional_vim_regex_highlighting = false, -- Default is false
 	},
 }
 

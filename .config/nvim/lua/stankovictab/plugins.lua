@@ -58,7 +58,7 @@ local plugins = {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = '0.1.2',                        -- Says so in their README
+		-- Don't use the tag, as that'll pin the version, and you'll end up wondering why has no one still not fixed these stupid Telescope bugs when I've known about them for ages, so, just use the latest version, no tag
 		dependencies = { 'nvim-lua/plenary.nvim' }, -- A weird dependency
 		cmd = 'Telescope',
 		config = function() require('stankovictab.specifics.telescope') end
@@ -75,11 +75,16 @@ local plugins = {
 		config = function() require("nvim-autopairs").setup({}) end
 	},
 	{
-		'willothy/nvim-cokeline', -- A better buffer line than BufferLine (tab bar at the top of the screen)
+		"akinsho/bufferline.nvim",
 		dependencies = 'nvim-tree/nvim-web-devicons',
-		event = "BufAdd",   -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event.
-		config = function() require('stankovictab.specifics.cokeline') end,
+		config = function() require('stankovictab.specifics.bufferline') end,
 	},
+	-- {
+	-- 	'willothy/nvim-cokeline', -- Another buffer line (tab bar at the top of the screen)
+	-- 	dependencies = 'nvim-tree/nvim-web-devicons',
+	-- 	event = "BufAdd",   -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event.
+	-- 	config = function() require('stankovictab.specifics.cokeline') end,
+	-- },
 	{
 		'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
 		-- NOTE: The `nvim .` command gets broken if NvimTree is loaded on the NvimTreeToggle event - it can't read the config and doesn't know about the autocmd that opens the tree on directory, so, it needs to be loaded up on startup

@@ -97,11 +97,8 @@ map('c', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true 
 -- Mapping enter when completing the search to do this will mess up other commands, like it did with :hi
 -- This in turn now works with /, n, N, *, # and :%s
 -- Also, this is good to reset the sizes of windows if they get screwed up
--- NOTE And also, I use this to fix cokeline's issue for not updating it's colors when you change colorschemes,
--- it's a known issue, see https://github.com/willothy/nvim-cokeline/issues/72
--- So, if a fix is out, you can remove this
 map('n', ' ',
-	':nohlsearch<cr>:source ~/.config/nvim/lua/stankovictab/specifics/cokeline.lua<cr><c-w>=:lua print("Cleared Screen")<cr>',
+	':nohlsearch<cr><c-w>=:lua print("Cleared Screen")<cr>',
 	{ desc = "Clear Screen (Search Highlights, Reset Window Size, Cokeline Color Reset)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
@@ -275,5 +272,7 @@ map('n', '<leader>sr', ':lua ClearRegisters()<cr>', { desc = "Clear All Register
 -- Also, it's a pain in the ass because the LSP's formatting will in the end use tabs
 -- I wasted 2 hours trying to figure this out whereas VSCode already has this builtin, sometimes I hate this shit
 -- And have I mentioned how much I hate the fact that you need to either cut or fuck with registers to just copy something?
-map('n', '<leader>ss', ':set expandtab<cr>:retab<cr>', { desc = "Change indentation to spaces", noremap = true, silent = true})
-map('n', '<leader>st', ':set noexpandtab<cr>:retab<cr>', { desc = "Change indentation to tabs", noremap = true, silent = true})
+map('n', '<leader>ss', ':set expandtab<cr>:retab<cr>',
+	{ desc = "Change indentation to spaces", noremap = true, silent = true })
+map('n', '<leader>st', ':set noexpandtab<cr>:retab<cr>',
+	{ desc = "Change indentation to tabs", noremap = true, silent = true })

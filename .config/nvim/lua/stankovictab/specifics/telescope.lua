@@ -6,7 +6,7 @@ require('telescope').setup {
 		},
 	},
 	defaults = {
-		-- initial_mode = "normal",             -- Initial mode to open telescope in, default is insert, normal is good to browse
+		initial_mode = "insert",             -- Initial mode to open telescope in, default is insert, normal is good to browse
 		layout_config = {
 			width = 900,                     -- Width of telescope
 			preview_width = 0.5              -- Percentage of the telescope's width that the preview is
@@ -26,6 +26,10 @@ require('telescope').setup {
 
 		-- Map Ctrl + j/k to go up and down
 		mappings = {
+			n = {
+				["<C-k>"] = require("telescope.actions").move_selection_previous, -- Move to previous result
+				["<C-j>"] = require("telescope.actions").move_selection_next -- Move to next result
+			},
 			i = {
 				["<C-k>"] = require("telescope.actions").move_selection_previous, -- Move to previous result
 				["<C-j>"] = require("telescope.actions").move_selection_next -- Move to next result

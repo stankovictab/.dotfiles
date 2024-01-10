@@ -114,7 +114,8 @@ require('lualine').setup {
 		lualine_y = {
 			{ 'filetype' },
 			{ treeshitter_icon, color = treeshitter_color },
-			{ codeium_status,   color = { fg = "#ff7e64" } }
+			-- { codeium_status,   color = { fg = "#ff7e64" } } 
+			-- TODO: Having anything related to Codeium inside of LuaLine will SOMEHOW make it so that any buffer you open with Telescope randomly go into insert mode. Extremely bizzare, see https://github.com/nvim-telescope/telescope.nvim/issues/2027#issuecomment-1523723110
 		},
 		lualine_z = { 'location' }
 	},
