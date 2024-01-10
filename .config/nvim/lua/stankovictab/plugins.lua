@@ -37,18 +37,19 @@ local plugins = {
 	"folke/tokyonight.nvim",
 	"catppuccin/nvim",
 	"shatur/neovim-ayu",
-	-- "rafi/awesome-vim-colorschemes",       -- Collection of colorschemes, including iceberg, nord, onedark, etc
+	"rose-pine/neovim",
+	-- "rafi/awesome-vim-colorschemes",		  -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
 	-- FIXME: Alpha takes 100ms to spin up (a third of the startup time) so I just disabled it for now.
 	-- {
-	-- 	"goolord/alpha-nvim",                                      -- Dashboard shown at nvim start with no file
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	config = function() require('stankovictab.specifics.alpha') end, -- Opens specific config file
-	-- 	cmd = {
-	-- 		"Alpha",
-	-- 		"AlphaRedraw"
-	-- 	},
-	-- 	event = "VimEnter"
+	--	"goolord/alpha-nvim",									   -- Dashboard shown at nvim start with no file
+	--	dependencies = { "nvim-tree/nvim-web-devicons" },
+	--	config = function() require('stankovictab.specifics.alpha') end, -- Opens specific config file
+	--	cmd = {
+	--		"Alpha",
+	--		"AlphaRedraw"
+	--	},
+	--	event = "VimEnter"
 	-- },
 	{
 		"andweeb/presence.nvim", -- The best Discord rich presence plugin
@@ -62,7 +63,7 @@ local plugins = {
 		cmd = 'Telescope',
 		config = function() require('stankovictab.specifics.telescope') end
 	},
-	"nvim-telescope/telescope-symbols.nvim", -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc     (╯°□°）╯︵ ┻━┻
+	"nvim-telescope/telescope-symbols.nvim", -- Symbols search in Telescope, including emoji, gitmoji, kaomoji, Nerd Font icons, etc	 (╯°□°）╯︵ ┻━┻
 	{
 		'NvChad/nvim-colorizer.lua',
 		-- Between this, norcalli/nvim-colorizer.lua and brenoprata10/nvim-highlight-colors, this is the best one, as it's maintained, and it fixes the issue where colors go away when changing themes, however, it still doesn't support var() in css sadly
@@ -124,16 +125,31 @@ local plugins = {
 		config = function() require('stankovictab.specifics.playground') end
 	},
 	{
-		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation
-		-- config = function() require('stankovictab.specifics.indent-blankline') end
+		'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation and horizontal on scope
 		config = function()
 			require("ibl").setup {
-				-- NOTE: v3 has a new config, see the docs (if there are any, seems barren, see :h ibl.config)
-				-- The "scope" in the help text is the function scope that's currently being accessed, meaning the scope for declaring variables, etc
 				indent = {
-					char = "│", -- See :h ib.config.indent for more examples for chars
+					char = "▏", -- ▏ (left), │ (center), ▕ (right), see :h ib.config.indent for more examples for chars
+					-- tab_char = "", -- Indent character for tab characters, overrides default char if set
+					smart_indent_cap = false,
 				},
-				-- For excluding certain filetypes and buftypes, see :h ibl.config.exclude
+				scope = { -- Scope is the highlighted vertical and horizontal line where variables have scope, it uses treeshitter and tanks a little on performance, and just looks bad
+					enabled = false,
+				},
+				exclude = {
+					filetypes = {
+						"help",
+						"alpha",
+						"dashboard",
+						"neo-tree",
+						"Trouble",
+						"lazy",
+						"mason",
+						"notify",
+						"toggleterm",
+						"lazyterm",
+					},
+				}
 			}
 		end,
 	},
@@ -187,7 +203,7 @@ local plugins = {
 	},
 	{
 		'Exafunction/codeium.vim', -- A better Copilot (NOTE: there's also codeium.nvim??)
-		cmd = "Codeium", -- Codeium will be started when performing Codeium command
+		cmd = "Codeium",     -- Codeium will be started when performing Codeium command
 		event = "InsertEnter", -- Codeium will be started when entering insert mode
 		config = function()
 			-- Change '<C-g>' here to any keycode you like.
@@ -197,17 +213,17 @@ local plugins = {
 			-- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true }) -- For now this is the default, Ctrl + ]
 
 			-- This is leftover from Copilot config, might be useful
-			-- 			filetypes = {
-			-- 				yaml = true, -- Changed
-			-- 				markdown = true, -- Changed
-			-- 				help = false,
-			-- 				gitcommit = false,
-			-- 				gitrebase = false,
-			-- 				hgcommit = false,
-			-- 				svn = false,
-			-- 				cvs = false,
-			-- 				["."] = false,
-			-- 			},
+			--			filetypes = {
+			--				yaml = true, -- Changed
+			--				markdown = true, -- Changed
+			--				help = false,
+			--				gitcommit = false,
+			--				gitrebase = false,
+			--				hgcommit = false,
+			--				svn = false,
+			--				cvs = false,
+			--				["."] = false,
+			--			},
 		end
 	},
 	{
@@ -234,7 +250,7 @@ local plugins = {
 					name = "Packages"
 				},
 				s = {
-					name = "Splits & Ducks"
+					name = "Misc"
 				},
 			}, { prefix = "<leader>" })
 		end,
@@ -269,9 +285,9 @@ local plugins = {
 	},
 	{
 		"tamton-aquib/duck.nvim",
-		keys = { -- Only load the plugin on these key presses, and bind these keys
+		keys = {                                                                         -- Only load the plugin on these key presses, and bind these keys
 			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
-			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook" }
+			{ "<leader>sc", function() require("duck").cook() end,            desc = "Duck Cook" }
 		}
 	},
 	{

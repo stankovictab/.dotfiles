@@ -11,9 +11,17 @@ vim.opt.ignorecase = true -- Set search to be case insensitive
 vim.opt.splitbelow = true -- On automatic split, split down instead of up (default)
 vim.opt.splitright = true -- On automatic split, split right instead of left (default)
 vim.opt.hidden = true -- Keeps opened buffers (files) in memory, for faster use
+
+-- Tabs & Spaces --
 vim.opt.tabstop = 4 -- Set tabs to be 4 spaces wide
 vim.opt.shiftwidth = 4 -- Set the width of a newline when indenting to also be 4 spaces wide
--- set expandtab -- Changes tabs into spaces! (tabstop times)
+-- This could also be the amount that gets shifted when using > and < in visual mode (see :h >)
+vim.opt.expandtab = false -- True means that when you press Tab, it'll be spaces, false means tabs are tabs. 
+-- Based on this value, the :retab command will change all tabs to spaces in the buffer, or the other way around
+-- The default value for expandtab is false, which means everything will be tabs on :retab
+-- All spaces is better than all tabs because many programs parse tab in a different way (think GitHub, Discord, etc),
+-- whereas space is space, that's it.
+
 vim.opt.clipboard = 'unnamedplus' -- Enables system clipboard use, copy by yanking and paste with Ctrl + Shift + v
 vim.opt.errorbells = false -- Removes the stupid ass terminal bell sound
 vim.opt.scrolloff = 1 -- Number of lines to keep at the cursor when scrolling up or down the file

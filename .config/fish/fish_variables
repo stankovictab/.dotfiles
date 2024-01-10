@@ -5,7 +5,7 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/stankovictab/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/stankovictab/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/stankovictab\x24
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_ai:ollama\x20run\x20codellama
 SETUVAR _fish_abbr_f264:f\x20\x2di\x20in\x2emkv\x20\x2dc\x3av\x20libx264\x20\x2dpreset\x20medium\x20\x2dcrf\x2030\x20\x2dc\x3aa\x20aac\x20out\x2dx264crf30med\x2emkv
 SETUVAR _fish_abbr_f265:f\x20\x2di\x20in\x2emkv\x20\x2dc\x3av\x20libx265\x20\x2dpreset\x20medium\x20\x2dcrf\x2030\x20\x2dc\x3aa\x20copy\x20out\x2dx265crf30med\x2emkv

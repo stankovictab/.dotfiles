@@ -81,6 +81,10 @@ map('i', '<c-_>', "<esc>:Commentary<cr>a", { desc = "Toggle Comment", noremap = 
 -- Easier indenting, just keep pressing < or >
 map('v', '<', '<gv', { desc = "Indent Left", noremap = true, silent = true })
 map('v', '>', '>gv', { desc = "Indent Right", noremap = true, silent = true })
+-- TODO: Indenting by 1 character doesn't really work like this, I don't even know what this is, and . can't really be used (repeat)
+-- FIXME: A way to do this would be to set the shiftwidth to 1, then move the same way with >gv, then reset shiftwidth back to 4
+-- map('v', '.', ':<C-u>normal! xhP`[v`]<CR>', { desc = "Indent Left By 1 Char", noremap = true, silent = true })
+-- map('v', ',', ':<C-u>normal! xp`[v`]<CR>', { desc = "Indent Right By 1 Char", noremap = true, silent = true })
 
 -- Ctrl + s please come back
 -- This is also a fast way to get out of modes
@@ -106,7 +110,7 @@ map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then 
 map('i', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
 	{ desc = "Search & Replace", noremap = true, silent = true })
 
--- Moving selected lines up or down with J/K, only in Visual Mode 
+-- Moving selected lines up or down with J/K, only in Visual Mode
 -- This is a lot better than ddp and ddkP, doesn't mess up the clipboard, doesn't have the issue of moving the first line up and it disappearing, and doesn't use Alt
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move up" })
@@ -266,3 +270,10 @@ function ClearRegisters()
 end
 
 map('n', '<leader>sr', ':lua ClearRegisters()<cr>', { desc = "Clear All Registers", noremap = true, silent = true })
+
+-- FIXME: Changing from spaces to tabs doesn't work.
+-- Also, it's a pain in the ass because the LSP's formatting will in the end use tabs
+-- I wasted 2 hours trying to figure this out whereas VSCode already has this builtin, sometimes I hate this shit
+-- And have I mentioned how much I hate the fact that you need to either cut or fuck with registers to just copy something?
+map('n', '<leader>ss', ':set expandtab<cr>:retab<cr>', { desc = "Change indentation to spaces", noremap = true, silent = true})
+map('n', '<leader>st', ':set noexpandtab<cr>:retab<cr>', { desc = "Change indentation to tabs", noremap = true, silent = true})
