@@ -662,3 +662,5 @@ key_bindings:
   - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
   - { key: Up,       mods: Shift,   mode: ~Alt,        action: ScrollLineUp }
   - { key: Down,       mods: Shift,   mode: ~Alt,        action: ScrollLineDown }
+  - { key: J,         mods: Control|Shift,             chars: "\x1b[74;5u" } # Used for Ctrl + Shift + j in NeoVim to move buffers around
+  - { key: K,         mods: Control|Shift,             chars: "\x1b[75;5u" } # Used for Ctrl + Shift + j in NeoVim to move buffers around

@@ -136,12 +136,13 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `Ctrl + q` - Save and close window (and/or quit NeoVim), same as :wq\
 `Ctrl + w` - Close buffer\
 `Ctrl + h/j/k/l` - Cycle between windows visible on the screen\
-`Shift + j/k`, `Ctrl + PgUp/PgDn` - (Normal Mode) Cycle between buffers for the current window\
 `Tab + s + h` - Split horizontally\
 `Tab + s + v` - Split vertically\
 `Space` - Reset window sizes\
 `Ctrl + ArrowKeys` - Resize current window\
-`Ctrl + Shift + PgUp/PgDn` - Move buffers in bufferline
+    `Shift + j/k`, `Ctrl + PgUp/PgDn` - (Normal Mode) Cycle between buffers for the current window\
+`Ctrl + Shift + PgUp/PgDn` - Move buffers in cokeline\
+`Ctrl + Shift + PgUp/PgDn`, `Ctrl + Shift + j/k` - Move buffers in bufferline
 
 `Shift + h/l` - Go to beginning / end of line\
 `Ctrl + /` - Toggle comment\

@@ -5,6 +5,8 @@
 -- Also, it's important to note that mason and lspconfig, for some reason, name their language servers differently - here you need to use lspconfig's names
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+-- TODO: For HTML, see emmet-ls
+
 -------------------------------------
 
 require('mason').setup()

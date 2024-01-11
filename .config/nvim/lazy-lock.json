@@ -1,5 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "82108e7e31cc6fc223cc5df5cae6d89f70bb199f" },
+  "alpha-nvim": { "branch": "main", "commit": "29074eeb869a6cbac9ce1fbbd04f5f5940311b32" },
   "bufferline.nvim": { "branch": "main", "commit": "e48ce1805697e4bb97bc171c081e849a65859244" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
@@ -38,7 +39,7 @@
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "rainbow_csv.nvim": { "branch": "main", "commit": "a520dabf1c74d7d7d8341dd3f3570063ef51b3aa" },
   "telescope-symbols.nvim": { "branch": "master", "commit": "a6d0127a53d39b9fc2af75bd169d288166118aec" },
-  "telescope.nvim": { "branch": "master", "commit": "4367e05c06d19f28c514e1498bcd9410f4bc65b2" },
+  "telescope.nvim": { "branch": "master", "commit": "b3ff5f33201f474d58f5be96244869f189bbc091" },
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
   "vim-code-dark": { "branch": "master", "commit": "8def3d890b2087ee4c42af03117d7edc7d693706" },
   "vim-commentary": { "branch": "master", "commit": "e87cd90dc09c2a203e13af9704bd0ef79303d755" },

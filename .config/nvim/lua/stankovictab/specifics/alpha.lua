@@ -36,10 +36,10 @@ end
 dashboard.section.buttons.val = {
 	button("Ctrl + b", "󰉋  File Explorer", ":NvimTreeToggle<cr>"),
 	button("Tab + f", "  Find File", ":Telescope find_files <cr>"),
-	button("Tab + g", "  Find Word", ":Telescope live_grep<cr>"),
-	button("Tab + ,", "  Config", ":e $MYVIMRC<cr>"),
-	button("Tab + ps", "  Reload Plugins", ":Lazy sync<cr>:TSUpdate<cr>"),
-	button("q", "⏻  Quit", ":qa<cr>")
+	button("Tab + gr", "  Find Word", ":Telescope live_grep<cr>"),
+	button("Tab + ,", "  Config", "<Tab>,"),
+	button("Tab + ps", "  Reload Plugins", "<Tab>ps"),
+	button("q", "⏻  Quit", ":q<cr>")
 }
 
 local function footer()
@@ -54,7 +54,7 @@ local heading = {
 	val = "We're miles beyond the sound",
 	opts = {
 		position = "center",
-		hl = "BufferLineHintSelected" -- Highlight of top comment, was "AlphaComment"
+		hl = "@boolean"
 	},
 }
 

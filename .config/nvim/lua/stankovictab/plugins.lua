@@ -13,14 +13,11 @@ if not vim.loop.fs_stat(lazypath) then                       -- Check if lazy.nv
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = '	' -- NOTE - THIS IS TEMPORARY, SEE IF IT WORKS WITHOUT IT HERE, dude says it's needed here
--- TODO: To not leave this here, divide shortcuts into two groups, before plugins and after plugins
--- TODO: I don't remember what these upper two lines mean and what this is for...
+vim.g.mapleader = '	'
 
 -- Markdown Preview, use with :MarkdownPreview (Tab + m)
 -- Because this plugin is ancient, you need to set it up like this, and not with the lazy plugin manager
-vim.g.mkdp_port =
-'8885'                    -- Set port for dark reader to turn off
+vim.g.mkdp_port = '8885'  -- Set port for dark reader to turn off
 vim.g.mkdp_auto_close = 0 -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
 -- Be careful of this, as you'll get an error if you open another preview at the same port. Maybe figure out a way to get around this with mkdp_auto_close and :MarkdownPreviewToggle
 vim.g.mkdp_markdown_css =
@@ -41,16 +38,16 @@ local plugins = {
 	-- "rafi/awesome-vim-colorschemes",		  -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
 	-- FIXME: Alpha takes 100ms to spin up (a third of the startup time) so I just disabled it for now.
-	-- {
-	--	"goolord/alpha-nvim",									   -- Dashboard shown at nvim start with no file
-	--	dependencies = { "nvim-tree/nvim-web-devicons" },
-	--	config = function() require('stankovictab.specifics.alpha') end, -- Opens specific config file
-	--	cmd = {
-	--		"Alpha",
-	--		"AlphaRedraw"
-	--	},
-	--	event = "VimEnter"
-	-- },
+	{
+		"goolord/alpha-nvim",                                      -- Dashboard shown at nvim start with no file
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function() require('stankovictab.specifics.alpha') end, -- Opens specific config file
+		cmd = {
+			"Alpha",
+			"AlphaRedraw"
+		},
+		event = "VimEnter"
+	},
 	{
 		"andweeb/presence.nvim", -- The best Discord rich presence plugin
 		-- event = "VeryLazy", -- TODO: Experimenting with this

@@ -47,8 +47,14 @@ map('n', '<s-k>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true
 map('n', '<c-PageDown>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
 map('n', '<c-PageUp>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
 
-map('n', '<c-s-PageDown>', '<Plug>(cokeline-switch-next)', { desc = "Move Buffer Right", noremap = true, silent = true })
-map('n', '<c-s-PageUp>', '<Plug>(cokeline-switch-prev)', { desc = "Move Buffer Left", noremap = true, silent = true })
+-- Moving buffers in bufferline / cokeline
+map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', { desc = "Move Buffer Right", noremap = true, silent = true })
+map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left", noremap = true, silent = true })
+-- For these two to work a specific mapping in Alacritty is needed to force Ctrl + Shift + key to pass chars
+map('n', '<c-s-k>', ':BufferLineMoveNext<cr>', { desc = "Move Buffer Right", noremap = true, silent = true })
+map('n', '<c-s-j>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left", noremap = true, silent = true })
+-- map('n', '<c-s-PageDown>', '<Plug>(cokeline-switch-next)', { desc = "Move Buffer Right", noremap = true, silent = true })
+-- map('n', '<c-s-PageUp>', '<Plug>(cokeline-switch-prev)', { desc = "Move Buffer Left", noremap = true, silent = true })
 
 map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true })
 map('n', '<c-q>', ':wq<cr>', { desc = "Save & Quit Window", noremap = true, silent = true })
@@ -99,7 +105,7 @@ map('c', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true 
 -- Also, this is good to reset the sizes of windows if they get screwed up
 map('n', ' ',
 	':nohlsearch<cr><c-w>=:lua print("Cleared Screen")<cr>',
-	{ desc = "Clear Screen (Search Highlights, Reset Window Size, Cokeline Color Reset)", noremap = true, silent = true })
+	{ desc = "Clear Screen (Search Highlights, Reset Window Size)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
 map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
