@@ -434,9 +434,14 @@ Hold Shift when over a message to have more options.
 
 ## LazyGit
 
+Open with `g` or `lg` in `fish` shell. 
+
+`?` - Shortcuts, relevant to current panel\
+`/` - Search, vim-like\
 `h/l` - Go to previous/next panel\
 `j/k` - Go to previous/next line\
-`Ctrl + d/u`, `Shift + j/k` - Move line up/down\
+`[/]` - Go to previous/next tab in the panel\
+`Shift + j/k`, `Ctrl + d/u`, `PgUp/PgDn` - Scroll up/down in the changes area\
 `x` - Menu with all the shortcuts (useful!)\
 `a` - Add (stage) all files\
 `Space` - Add (stage) current file\
@@ -446,8 +451,9 @@ Hold Shift when over a message to have more options.
 `f` - Fetch changes from remote repo\
 `p` - Pull changes from remote repo\
 `P` - Push changes to remote repo\
+`s` - Stash all changes\
 `S` - Stash menu\
-`e`, `o` - Edit or open selected file\
+`e`, `o` - Edit/open selected file\
 `d` - Open discard changes menu on selected file\
 `D` - Open reset menu for whole project (haven't used this one)
 
