@@ -318,8 +318,8 @@ Another way you can look at this is that `f` is a click, and `F` is a middle cli
 This means you can search the web with your default search engine, 
 you can search opened tabs, bookmarks, history, etc. 
 
-`J` goes one tab left (`Ctrl` + `PageUp`)
-`K` goes one tab right (`Ctrl` + `PageDown`)
+`J` goes one tab left (`Ctrl` + `PageUp`). 
+`K` goes one tab right (`Ctrl` + `PageDown`). 
 
 `x` closes the tab (`Ctrl` + `w`), `t` opens a new one (`Ctrl` + `t`), `T` searches through tabs.
 (So `T` is like if `o` was filtered only for tabs.)
@@ -434,28 +434,9 @@ Hold Shift when over a message to have more options.
 
 ## LazyGit
 
-Open with `g` or `lg` in `fish` shell. 
-
-`?` - Shortcuts, relevant to current panel\
-`/` - Search, vim-like\
-`h/l` - Go to previous/next panel\
-`j/k` - Go to previous/next line\
-`[/]` - Go to previous/next tab in the panel\
-`Shift + j/k`, `Ctrl + d/u`, `PgUp/PgDn` - Scroll up/down in the changes area\
-`x` - Menu with all the shortcuts (useful!)\
-`a` - Add (stage) all files\
-`Space` - Add (stage) current file\
-`c` - Commit staged files\
-`C` - Commit staged files, write the message via the editor\
-`R` - Refresh local repo for changes\
-`f` - Fetch changes from remote repo\
-`p` - Pull changes from remote repo\
-`P` - Push changes to remote repo\
-`s` - Stash all changes\
-`S` - Stash menu\
-`e`, `o` - Edit/open selected file\
-`d` - Open discard changes menu on selected file\
-`D` - Open reset menu for whole project (haven't used this one)
+Just use `?` and `/` to search for the thing you need.\
+Know that shortcuts are panel-based.\
+For more info, see the LazyGit Notion page. 
 
 ## Qimgv Custom Shortcuts
 
