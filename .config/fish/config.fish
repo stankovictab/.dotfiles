@@ -30,12 +30,12 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias lah='ls -lah --color=auto' # l = All in one column, a = All, including hidden, h = Human readable sizes
 
-alias exa='exa --all --icons --group-directories-first'
-alias e='exa'
-alias ls='exa'
-alias ll='exa -l'
-alias l='exa -l'
-alias la='exa -l'
+alias eza='eza --all --icons --group-directories-first'
+alias e='eza'
+alias ls='eza'
+alias ll='eza -l'
+alias l='eza -l'
+alias la='eza -l'
 
 alias t='tmux'
 alias tls='tmux ls'
