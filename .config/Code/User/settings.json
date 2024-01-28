@@ -127,4 +127,5 @@
     "explorer.confirmDelete": false,
     "workbench.editor.tabActionCloseVisibility": false,
     "editor.renderWhitespace": "all",
+    "editor.fontLigatures": true,
 }
