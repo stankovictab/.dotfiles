@@ -34,6 +34,7 @@ end
 -- You can change up the menu here
 -- The command on the end is just for the Enter press on the menu item
 dashboard.section.buttons.val = {
+	button("Tab + n", "  New File", ":enew<cr>"),
 	button("Ctrl + b", "󰉋  File Explorer", ":NvimTreeToggle<cr>"),
 	button("Tab + f", "  Find File", ":Telescope find_files <cr>"),
 	button("Tab + gr", "  Find Word", ":Telescope live_grep<cr>"),

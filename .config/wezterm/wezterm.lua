@@ -19,6 +19,12 @@ config.colors = {
 
 config.hide_tab_bar_if_only_one_tab = true -- Tabs are hidden by default
 
+config.adjust_window_size_when_changing_font_size = false -- Don't know why it's true by default
+
+-- Change window size
+config.initial_cols = 128 -- Default 80
+config.initial_rows = 34 -- Default 24
+
 config.window_frame = {
 	font = wezterm.font 'JetBrainsMono Nerd Font Mono',
 	font_size = 10,
