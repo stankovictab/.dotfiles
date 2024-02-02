@@ -120,6 +120,7 @@ abbr -a fwebp f -i in.png -c:v libwebp -quality 88 -compression_level 6 out-q88c
 abbr -a fjpg f -i in.png out.jpg
 
 abbr -a ai ollama run codellama
+abbr -a k kubectl -n brame
 
 ### PATH configuration 
 # Folders of binaries that can be run from anywhere
