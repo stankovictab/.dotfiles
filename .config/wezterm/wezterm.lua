@@ -3,7 +3,16 @@ local config = {}
 
 -- Actual config goes here
 
-config.font = wezterm.font 'JetBrainsMono Nerd Font Mono' -- Ligatures are supported OOTB, unlike Alacritty (~~>)
+-- Ligatures are supported in WezTerm OOTB, unlike Alacritty (~~>)
+-- config.font = wezterm.font 'Hack Nerd Font Mono'
+-- config.font = wezterm.font 'FiraCode Nerd Font Mono'
+config.font = wezterm.font 'JetBrainsMono Nerd Font Mono' -- There is also a NL version with No Ligatures.
+-- config.font = wezterm.font 'RobotoMono Nerd Font Mono'
+-- config.font = wezterm.font 'Monaspace Neon Var' -- Argon, Krypton, Neon, Radon, Xenon (Variable versions, not really for terminals)
+-- config.font = wezterm.font 'Monaspace Neon' -- Argon, Krypton, Neon, Radon, Xenon
+-- config.font = wezterm.font 'MonispaceNe NF' -- WIP: See the NerdFont GitHub for more info on the Mon(?)space NF https://github.com/ryanoasis/nerd-fonts/issues/1403
+-- config.font = wezterm.font 'GohuFont uni11 Nerd Font Mono' -- The pixel font, also available as uni14 and non-Mono
+-- config.font = wezterm.font 'GeistMono Nerd Font Mono' -- Also available as non-Mono
 config.color_scheme = 'GitHub Dark'                       -- 950 themes available OOTB, nice ones are GitHub Dark, Catppuccin Mocha, Dracula, Batman
 -- See more here: https://wezfurlong.org/wezterm/colorschemes
 
