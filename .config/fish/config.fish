@@ -132,9 +132,5 @@ fish_add_path ~/.cargo/bin/ # Rust binaries
 fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables, like aichat-cli
 
-# pnpm
-set -gx PNPM_HOME "/home/stankovictab/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
+# kubectl completions
+kubectl completion fish | source
