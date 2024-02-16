@@ -43,12 +43,6 @@ alias ta='tmux attach'
 alias td='tmux detach'
 alias tks='tmux kill-server'
 
-alias zj='zellij'
-alias zjls='zellij ls'
-alias zja='zellij attach'
-alias zjk='zellij k'
-alias zjka='zellij ka'
-
 alias deb='sudo deb-get'
 alias sizes='ncdu'
 alias ffmpeg='ffmpeg -hide_banner'
@@ -81,7 +75,6 @@ alias vim='nvim'
 alias v='nvim'
 alias nvimbackup='nvim -u NONE'
 alias sound='pavucontrol-qt'
-alias dc='setsid discord --enable-gpu-rasterization --disable-smooth-scrolling' # setsid launches it detached from terminal
 alias mediainfo='mediainfo --ParseSpeed=1' # --ParseSpeed=1 makes it so you can always see Stream Size, for some reason???
 alias music='~/Apps/musikcube/musikcube'
 
@@ -121,6 +114,17 @@ abbr -a fjpg f -i in.png out.jpg
 
 abbr -a ai ollama run codellama
 abbr -a k kubectl -n brame
+
+abbr -a zj zellij
+abbr -a zjls zellij ls
+abbr -a zja zellij attach
+abbr -a zjk zellij kill-session
+abbr -a zjka zellij kill-all-sessions
+abbr -a zjd zellij delete-session
+abbr -a zjda zellij delete-all-sessions
+
+abbr -a dc docker container ls -a
+abbr -a di docker image ls -a
 
 ### PATH configuration 
 # Folders of binaries that can be run from anywhere

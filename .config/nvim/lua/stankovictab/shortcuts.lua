@@ -31,7 +31,7 @@ map('n', '<leader>ps', ":Lazy sync<cr>:TSUpdate<cr>",
 	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
 map('n', '<leader>pz', ":Lazy<cr>", { desc = "Lazy Package Manager", noremap = true, silent = true })
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
-map('n', '<leader>n', ":enew<cr>", { desc = "New File", noremap = true, silent = true })
+map('n', '<leader>n', ":enew<cr>:lua print('Current working directory:', vim.fn.getcwd())<cr>", { desc = "New File", noremap = true, silent = true })
 map('n', '<leader>gg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
 map('n', '<leader>gs', ":Telescope git_status<cr>", { desc = "Telescope Git Status", noremap = true, silent = true })
 map('n', '<leader>gb', ":Gitsigns toggle_current_line_blame<cr>:lua print('Git Blame Toggled!')<cr>", { desc = "Toggle Line Blame", noremap = true, silent = true })
