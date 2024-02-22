@@ -131,6 +131,7 @@ abbr -a zjka zellij kill-all-sessions
 abbr -a zjd zellij delete-session
 abbr -a zjda zellij delete-all-sessions
 
+abbr -a d docker
 abbr -a dc docker container ls -a
 abbr -a di docker image ls -a
 
