@@ -58,4 +58,8 @@ config.window_padding = {
 
 -- config.window_decorations = "RESIZE" -- "RESIZE" keeps the resize feature but removes the titlebar
 
+-- Disable update check
+config.check_for_updates = false
+config.show_update_window = false
+
 return config
