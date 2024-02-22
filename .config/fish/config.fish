@@ -147,4 +147,4 @@ fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables, like aichat-cli
 
 # kubectl completions
-kubectl completion fish | source
+# kubectl completion fish | source

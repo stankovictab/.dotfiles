@@ -7,3 +7,4 @@ scripts/upf.sh
 .config/musikcube/playback.json
 .config/lazygit/state.yml
 .config/nvim/lazy-lock.json
+.config/qimgv/savedState.conf
