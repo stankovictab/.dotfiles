@@ -3,5 +3,7 @@ scripts/upf.sh
 .config/musikcube/1/thumbs/
 .config/musikcube/log.txt
 .config/musikcube/stderr.txt
+.config/musikcube/session.json
+.config/musikcube/playback.json
 .config/lazygit/state.yml
 .config/nvim/lazy-lock.json
