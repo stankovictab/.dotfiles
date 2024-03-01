@@ -354,6 +354,14 @@ You can use this in combination with `/` to quickly yank whatever text you need.
 `Ctrl + F{Number}` - Go to virtual desktop {Number}\
 `Ctrl + Alt + Esc` - Run `xkill` to kill a process with a window
 
+## Spectacle
+
+`Shift + PrtScr` - Capture Current Monitor\
+`Ctrl + Shift + PrtScr` - Capture Window Under Cursor\
+`Ctrl + PrtScr` - Open Spectacle\
+`PrtScr` - Capture Rectangluar Region\
+To pin, export the rectangular region to qimgv and pin that window.
+
 ## Dolphin
 
 `F2` - Rename\

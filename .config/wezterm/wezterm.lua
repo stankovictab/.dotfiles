@@ -19,7 +19,7 @@ config.color_scheme = 'GitHub Dark'                       -- 950 themes availabl
 -- These are colors that override colors from the color scheme selected
 config.colors = {
 	foreground = 'white',
-	-- background = 'black',
+	background = '#121212', -- Background of Nobara title bar, matches well (in Zellij too)
 	-- Cursor override works in NeoVim aswell, like it should
 	cursor_bg = 'white',
 	cursor_fg = 'black',
@@ -60,6 +60,6 @@ config.window_padding = {
 
 -- Disable update check
 config.check_for_updates = false
-config.show_update_window = false
+-- config.show_update_window = false
 
 return config

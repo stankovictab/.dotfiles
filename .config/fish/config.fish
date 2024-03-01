@@ -70,7 +70,8 @@ alias switchjava='sudo update-alternatives --config java'
 alias switchjavac='sudo update-alternatives --config javac'
 alias ports='sudo lsof -i -P -n | grep LISTEN'
 alias dotdesktops='echo "/usr/share/applications/ <-- Most of the stuff"\n"~/.local/share/applications <-- Mainly Proton and Wine"\n"/var/lib/flatpak/exports/share/applications/ <-- For Flatpaks"\n\n"You can run `sudo update-desktop-database` to update the dotdesktop list of your DE."\n"Make sure that the app and icons are available, if something isn\'t correctly set, the dotdesktop won\'t update."'
-alias fd='which fd &> /dev/null && fd -H || fdfind -H' # A check to see if fd (Feodra) or fdfind (Debian) package is present, also uses -H to show hidden files
+alias fd='fd -H'
+alias fdfind='fdfind -H'
 alias rg='rg --no-ignore --hidden' # Includes hidden and git-ignored files
 alias typeracer='toipe'
 alias shortcuts='nvim ~/.dotfiles/README.md'
@@ -146,5 +147,7 @@ fish_add_path ~/.cargo/bin/ # Rust binaries
 fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables, like aichat-cli
 
-# kubectl completions
+### Completion configuration
+
+# Uncomment this to include kubectl completions (you need it installed however)
 # kubectl completion fish | source

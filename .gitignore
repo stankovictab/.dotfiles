@@ -8,3 +8,4 @@ scripts/upf.sh
 .config/lazygit/state.yml
 .config/nvim/lazy-lock.json
 .config/qimgv/savedState.conf
+.config/mpv/persistent_config.json

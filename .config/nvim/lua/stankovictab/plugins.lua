@@ -13,7 +13,7 @@ if not vim.loop.fs_stat(lazypath) then                       -- Check if lazy.nv
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = '	'
+vim.g.mapleader = '	' -- Tab is the leader, not space
 
 -- Markdown Preview, use with :MarkdownPreview (Tab + m)
 -- Because this plugin is ancient, you need to set it up like this, and not with the lazy plugin manager
@@ -37,7 +37,6 @@ local plugins = {
 	"rose-pine/neovim",
 	-- "rafi/awesome-vim-colorschemes",		  -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
-	-- FIXME: Alpha takes 100ms to spin up (a third of the startup time) so I just disabled it for now.
 	{
 		"goolord/alpha-nvim",                                      -- Dashboard shown at nvim start with no file
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -48,11 +47,12 @@ local plugins = {
 		},
 		event = "VimEnter"
 	},
-	{
-		"andweeb/presence.nvim", -- The best Discord rich presence plugin
-		-- event = "VeryLazy", -- TODO: Experimenting with this
-		config = function() require('stankovictab.specifics.presence') end
-	},
+	-- NOTE: Kinda useless and invasive and slow for boot up, uncomment if you need it
+	-- {
+	-- 	"andweeb/presence.nvim", -- The best Discord rich presence plugin
+	-- 	-- event = "VeryLazy", -- TODO: Experimenting with this
+	-- 	config = function() require('stankovictab.specifics.presence') end
+	-- },
 	{
 		"nvim-telescope/telescope.nvim",
 		-- Don't use the tag, as that'll pin the version, and you'll end up wondering why has no one still not fixed these stupid Telescope bugs when I've known about them for ages, so, just use the latest version, no tag
@@ -76,6 +76,7 @@ local plugins = {
 		dependencies = 'nvim-tree/nvim-web-devicons',
 		config = function() require('stankovictab.specifics.bufferline') end,
 	},
+	-- NOTE: I've stopped using nvim-cokeline, instead using bufferline.nvim
 	-- {
 	-- 	'willothy/nvim-cokeline', -- Another buffer line (tab bar at the top of the screen)
 	-- 	dependencies = 'nvim-tree/nvim-web-devicons',
@@ -287,9 +288,9 @@ local plugins = {
 	},
 	{
 		"tamton-aquib/duck.nvim",
-		keys = {                                                                         -- Only load the plugin on these key presses, and bind these keys
+		keys = { -- Only load the plugin on these key presses, and bind these keys
 			{ "<leader>sd", function() require("duck").hatch("🐧", 10) end, desc = "Duck Hatch" }, -- Default is a duck
-			{ "<leader>sc", function() require("duck").cook() end,            desc = "Duck Cook" }
+			{ "<leader>sc", function() require("duck").cook() end, desc = "Duck Cook" }
 		}
 	},
 	{

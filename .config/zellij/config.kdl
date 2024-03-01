@@ -236,6 +236,19 @@ pane_frames false
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
+	mgz {
+		bg "#333333" // Highlighted of selected text in shell, and in session manager, the background of the highlighted session
+		fg "#ffffff" // Mode tabs background
+		red "#9560f0" // Mode tab primary keys foreground
+		green "#58f5ab" // Selected tab and layout background, active pane frame and keybind second part, most present color
+		yellow "#ff00ff" // ???
+		blue "#ffff00" // ???
+		magenta "#00ff00" // ???
+		orange "#955ae7" // Keybind first part, and hovered pane frame
+		cyan "#ffff00" // ???
+		black "#121212" // Vertical line background, and mode tab description foreground, #121212 is the background of the Nobara title bar, matches well
+		white "#ffffff" // Text
+	}
     dracula {
         fg 248 248 242
         bg 40 42 54
@@ -275,19 +288,6 @@ themes {
         black "#16161D"
         white "#DCD7BA"
     }
-	mgz {
-		bg "#333333" // Highlighted of selected text in shell, and in session manager, the background of the highlighted session
-		fg "#ffffff" // Mode tabs background
-		red "#9560f0" // Mode tab primary keys foreground
-		green "#58f5ab" // Selected tab and layout background, active pane frame and keybind second part, most present color
-		yellow "#ff00ff" // ???
-		blue "#ffff00" // ???
-		magenta "#00ff00" // ???
-		orange "#955ae7" // Keybind first part, and hovered pane frame
-		cyan "#ffff00" // ???
-		black "#070707" // Vertical line, and mode tab description foreground
-		white "#ffffff" // Text
-	}
 }
 
 // Choose the theme that is specified in the themes section.
