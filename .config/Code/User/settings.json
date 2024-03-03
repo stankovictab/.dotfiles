@@ -128,4 +128,5 @@
     "workbench.editor.tabActionCloseVisibility": false,
     "editor.renderWhitespace": "all",
     "editor.fontLigatures": true,
+    "workbench.productIconTheme": "material-product-icons",
 }
