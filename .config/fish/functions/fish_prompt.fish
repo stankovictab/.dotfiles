@@ -34,6 +34,9 @@ set fish_pager_color_description 4e79f0 # Color of the description inside parent
 set fish_pager_color_prefix 8edfff # Color of the first matching letters of tabbed parameter, was normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 set fish_pager_color_progress 955ae7 --bold # Color of the progress in bottom left, was brwhite\x1e\x2d\x2dbackground\x3dcyan
 set fish_pager_color_selected_background --background=0D1A3A # Color of selection of tab element background, was \x2d\x2dbackground\x3dE6B450
+# set fish_kube_color ffffff \x2d\x2dbackground\x3d135381
+set fish_kube_color a25dfc \x2d\x2dbackground\x3d281641
+set fish_kube_color_alt 281641 # #852aa7 #a25dfc #281641
 
 function _git_branch_name
     echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
@@ -90,13 +93,24 @@ function fish_prompt
     end
 
     ###
-    set kube " 󱃾"
-    set kube_context (kubectl config current-context | awk -F'/' '{print $NF}')
-    if test -z "$kube_context"
-        set kube_context "Not connected"
+
+    if command -v kubectl >/dev/null
+        set kube "󰠳"
+        # TODO: Note that this will print out an ugly message if there is no context, and kubectl is installed
+        set kube_context (kubectl config current-context | awk -F'/' '{print $NF}')
+        if test -z "$kube_context"
+            set kube_context "Not Connected"
+        end
+        set kube "$kube $kube_context"
+        set_color $fish_kube_color_alt
+        printf ''
+        set_color -o $fish_kube_color
+        printf "$kube"
+        set_color normal # To reset the background
+        set_color $fish_kube_color_alt
+        printf ' '
+        set_color normal
     end
-    set kube "$kube $kube_context"
-    ###
 
     if fish_is_root_user # Root user check
         set_color -o $fish_color_cwd_root
@@ -107,9 +121,6 @@ function fish_prompt
     printf '%s' (prompt_pwd)
     set_color normal
     printf $git_info
-    set_color normal
-    set_color -o $fish_pager_color_progress
-    printf $kube
     set_color normal
 
     echo
