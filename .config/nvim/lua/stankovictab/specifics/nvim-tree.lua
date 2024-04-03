@@ -26,9 +26,19 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
 	hijack_cursor = true,    -- Locks the cursor to the first letter of file names
 	sync_root_with_cwd = true, -- To be able to change the working directory of NeoVim with :cd, default false
 	respect_buf_cwd = true,  -- (Needed for project.nvim?)
-	update_focused_file = { -- Automatically shows the current file in the tree
+	update_focused_file = {  -- Automatically shows the current file in the tree
 		enable = true,
 		update_root = true
+	},
+	filters = {
+		dotfiles = false, -- Show hidden files, toggle with `H`
+	},
+	view = {
+		width = 40,
+	},
+	git = {
+		enable = true,
+		ignore = false, -- Show gitignored files (like .env, .gitignore and everything git-ignored)
 	},
 	renderer = {
 		icons = {

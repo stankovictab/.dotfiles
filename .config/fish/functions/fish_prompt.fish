@@ -40,18 +40,18 @@ function _git_branch_name
 end
 
 function _is_git_dirty
-	# Display the blue dot only if there are unstaged changes (if there's anything in the ordinary diff)
-	echo (command git diff 2> /dev/null) 
+    # Display the blue dot only if there are unstaged changes (if there's anything in the ordinary diff)
+    echo (command git diff 2> /dev/null)
 end
 
 function _does_git_have_staged
-	# Display the green dot only if there are staged changes (if there's anything in diff --cached)
-    echo (command git diff --cached) 
+    # Display the green dot only if there are staged changes (if there's anything in diff --cached)
+    echo (command git diff --cached)
 end
 
 function _does_git_have_stashed
-	# Display stash info only if there is something in git stash
-    echo (command git stash list) 
+    # Display stash info only if there is something in git stash
+    echo (command git stash list)
 end
 
 function _git_ahead_count -a branch_name
@@ -63,8 +63,8 @@ function fish_prompt
     if [ (_git_branch_name) ] # If in a git repo
         set -l git_branch_name (_git_branch_name)
         set -l git_ahead_count (_git_ahead_count $git_branch_name)
-        set -l salmon (set_color -o white)
-        set git_info "$salmon 󰘬 $git_branch_name"
+        set -l branch_color (set_color -o white)
+        set git_info "$branch_color 󰘬 $git_branch_name"
 
         if [ (_is_git_dirty) ]
             set -l blue (set_color -o $fish_color_param)
@@ -80,7 +80,7 @@ function fish_prompt
             set -l yellow (set_color -o $fish_color_selection)
             set git_info "$git_info$yellow (stash)"
         end
-		
+
         if [ $git_ahead_count != 0 ]
             set -l green (set_color -o $fish_color_quote)
             set -l normal (set_color normal)
@@ -89,15 +89,27 @@ function fish_prompt
         end
     end
 
+    ###
+    set kube " 󱃾"
+    set kube_context (kubectl config current-context | awk -F'/' '{print $NF}')
+    if test -z "$kube_context"
+        set kube_context "Not connected"
+    end
+    set kube "$kube $kube_context"
+    ###
+
     if fish_is_root_user # Root user check
-		set_color -o $fish_color_cwd_root
-	else
-    	set_color -o $fish_color_cwd
-	end
+        set_color -o $fish_color_cwd_root
+    else
+        set_color -o $fish_color_cwd
+    end
     set -g fish_prompt_pwd_dir_length 0 # A new way of doing things
     printf '%s' (prompt_pwd)
     set_color normal
     printf $git_info
+    set_color normal
+    set_color -o $fish_pager_color_progress
+    printf $kube
     set_color normal
 
     echo
@@ -118,6 +130,6 @@ function fish_right_prompt
     set -l st $status
 
     if [ $st != 0 ]
-        echo (set_color red)  $st(set_color normal)
+        echo (set_color red) 󱐋 $st(set_color normal)
     end
 end

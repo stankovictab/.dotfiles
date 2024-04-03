@@ -198,8 +198,10 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `Ctrl + ]` - `cd` into selected folder, but only in NvimTree (doesn't affect Vim's :cd)\
 `Ctrl + k` - Show info about selected file\
 `Ctrl + x` - Open selected file in a horizontal split\
-`Ctrl + v` - Open selected file in a vertical split
+`Ctrl + v` - Open selected file in a vertical split\
 `g?` - Show shortcuts\
+`I` - Show gitignored files (off by default)\
+`H` - Show hidden files
 
 ## VSCode
 
@@ -223,6 +225,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `Ctrl + k + Ctrl + t` - Change theme\
 `Ctrl + k + z` - Zen mode\
 `Ctrl + k + v` - Markdown preview\
+`Ctrl + k + s` - Save without formatting\
 `Ctrl + Up/Down` - Scroll
 
 `Ctrl + PgUp/PgDn` - Switch between tabs, through windows\

@@ -14,6 +14,8 @@ set -g fish_greeting # Removes the fish welcome message
 bind \b backward-kill-word # Ctrl + Backspace
 bind \e\[3\;5~ kill-word # Ctrl + Delete
 bind \cl forward-char # Ctrl + l to autofill (don't need a clear terminal shortcut when I have 'c' alias)
+bind \ck history-search-backward # Ctrl + k for previous command in history
+bind \cj history-search-forward # Ctrl + j for next command in history
 
 # Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
 fzf_configure_bindings --directory=\cf --variables=\e\cv 
@@ -149,5 +151,7 @@ fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python e
 
 ### Completion configuration
 
-# Uncomment this to include kubectl completions (you need it installed however)
-# kubectl completion fish | source
+# Check if kubectl is installed
+if command -v kubectl >/dev/null
+    kubectl completion fish | source # If kubectl is installed, load its completions
+end
