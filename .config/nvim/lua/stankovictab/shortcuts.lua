@@ -16,8 +16,9 @@ local map = vim.api.nvim_set_keymap
 -- :luafile also doesn't work. nvim-reload also doesn't seem to work.
 -- This shortcut will basically reload the current config file you're in, so, if you're in lualine's config and you make a change, you can reload instantly
 -- Note that if you're changing something regarding plugins, this simple reload won't always work, sometimes you need to sync with Lazy
-map('n', '<leader>r', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
+map('n', '<leader>rc', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
 	{ desc = "Reload Config", noremap = true, silent = true })
+map('n', '<leader>rf', ':e<cr>', { desc = "Reload File", noremap = true, silent = true })
 
 -- Telescope is configured in a seperate file, because of that config find_files and live_grep search hidden files
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>',

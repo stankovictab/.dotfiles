@@ -57,8 +57,6 @@
             "backgroundColor": "#106670"
         }
     ],
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.gpuAcceleration": "canvas",
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.persistentSessionReviveProcess": "never",
     "color-highlight.markRuler": false,
@@ -97,7 +95,6 @@
     "markdown.styles": [
         "https://stankovictab.github.io/vscode-markdown-mgz.css"
     ],
-    "terminal.integrated.shellIntegration.enabled": true,
     "svelte.enable-ts-plugin": true,
     // Colour of the matching brackets if the option is turned on
     "editor.bracketPairColorization.enabled": false,
@@ -129,4 +126,7 @@
     "editor.renderWhitespace": "all",
     "editor.fontLigatures": true,
     "workbench.productIconTheme": "material-product-icons",
+    "terminal.integrated.gpuAcceleration": "canvas",
+    "terminal.external.linuxExec": "xterm-256color",
+    "terminal.integrated.shellIntegration.enabled": false,
 }

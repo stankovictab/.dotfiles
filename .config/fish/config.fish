@@ -124,7 +124,6 @@ abbr -a fwebp f -i in.png -c:v libwebp -quality 88 -compression_level 6 out-q88c
 abbr -a fjpg f -i in.png out.jpg
 
 abbr -a ai ollama run codellama
-abbr -a k kubectl -n brame
 
 abbr -a zj zellij
 abbr -a zjls zellij ls
@@ -155,3 +154,15 @@ fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python e
 if command -v kubectl >/dev/null
     kubectl completion fish | source # If kubectl is installed, load its completions
 end
+
+### Work specific abbrs
+
+abbr -a kube-dev aws eks update-kubeconfig --name develop-kube
+abbr -a kube-test aws eks update-kubeconfig --name test-kube
+abbr -a kube-stage aws eks update-kubeconfig --name stage-kube
+abbr -a kube-prod aws eks update-kubeconfig --name prod-kube
+abbr -a kube-penny aws eks update-kubeconfig --name penny-kube
+
+abbr -a k kubectl -n brame
+abbr -a kp kubectl -n brame get pods
+abbr -a kpw watch -d -n 1 kubectl -n brame get pods

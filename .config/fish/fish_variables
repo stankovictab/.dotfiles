@@ -32,6 +32,13 @@ SETUVAR _fish_abbr_gl:git\x20log
 SETUVAR _fish_abbr_gp:git\x20pull
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_k:kubectl\x20\x2dn\x20brame
+SETUVAR _fish_abbr_kp:kubectl\x20\x2dn\x20brame\x20get\x20pods
+SETUVAR _fish_abbr_kpw:watch\x20\x2dd\x20\x2dn\x201\x20kubectl\x20\x2dn\x20brame\x20get\x20pods
+SETUVAR _fish_abbr_kube_2D_dev:aws\x20eks\x20update\x2dkubeconfig\x20\x2d\x2dname\x20develop\x2dkube
+SETUVAR _fish_abbr_kube_2D_penny:aws\x20eks\x20update\x2dkubeconfig\x20\x2d\x2dname\x20penny\x2dkube
+SETUVAR _fish_abbr_kube_2D_prod:aws\x20eks\x20update\x2dkubeconfig\x20\x2d\x2dname\x20prod\x2dkube
+SETUVAR _fish_abbr_kube_2D_stage:aws\x20eks\x20update\x2dkubeconfig\x20\x2d\x2dname\x20stage\x2dkube
+SETUVAR _fish_abbr_kube_2D_test:aws\x20eks\x20update\x2dkubeconfig\x20\x2d\x2dname\x20test\x2dkube
 SETUVAR _fish_abbr_lg:lazygit
 SETUVAR _fish_abbr_zj:zellij
 SETUVAR _fish_abbr_zja:zellij\x20attach
