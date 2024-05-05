@@ -54,7 +54,7 @@ alias td='tmux detach'
 alias tks='tmux kill-server'
 
 alias deb='sudo deb-get'
-alias sizes='ncdu'
+alias sizes='gdu'
 alias ffmpeg='ffmpeg -hide_banner'
 alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
