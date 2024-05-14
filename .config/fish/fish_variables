@@ -5,7 +5,7 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/stankovictab/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/stankovictab/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/stankovictab\x24
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_ai:ollama\x20run\x20codellama
 SETUVAR _fish_abbr_d:docker
 SETUVAR _fish_abbr_dc:docker\x20container\x20ls\x20\x2da

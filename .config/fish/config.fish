@@ -59,8 +59,6 @@ alias ffmpeg='ffmpeg -hide_banner'
 alias f='ffmpeg -hide_banner'
 alias mc='cd ~/Games/ && java -jar TLauncher.jar && exit'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash' # <3
-alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
-alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 alias ch='cd ~/Games/Clone\ Hero && ./clonehero && exit'
 alias obsisdead='pkill obs && sudo modprobe -r v4l2loopback' # Virtual Camera Fix
 alias notion='notion-app-enhanced'
@@ -92,6 +90,7 @@ alias music='~/Apps/musikcube/musikcube'
 alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'
 alias sd='cd ~/Desktop/StableDiffusion/stable-diffusion-webui/ && bash webui.sh' # Needs to be a cd because if not, it'll clone the whole repo inside the already cloned repo and make a mess
+alias vesktop='flatpak run dev.vencord.Vesktop --disable-gpu'
 
 ### Abbreviations
 # These are like aliases, but with a little improvement 
@@ -137,6 +136,11 @@ abbr -a d docker
 abbr -a dc docker container ls -a
 abbr -a di docker image ls -a
 
+abbr -a kdewhereyouat setsid plasmashell --replace # Will run as a background process, so setsid is needed
+# Old X11 Aliases for Restarting KDE Related Services
+# alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
+# alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
+
 ### PATH configuration 
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash
@@ -147,13 +151,6 @@ fish_add_path ~/binaries/
 fish_add_path ~/.cargo/bin/ # Rust binaries
 fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables, like aichat-cli
-
-### Completion configuration
-
-# Check if kubectl is installed
-if command -v kubectl >/dev/null
-    kubectl completion fish | source # If kubectl is installed, load its completions
-end
 
 ### Work specific abbrs
 
@@ -166,3 +163,16 @@ abbr -a kube-penny aws eks update-kubeconfig --name penny-kube
 abbr -a k kubectl -n brame
 abbr -a kp kubectl -n brame get pods
 abbr -a kpw watch -d -n 1 kubectl -n brame get pods
+
+### Completion configuration
+
+if command -v kubectl >/dev/null # Check if kubectl is installed
+    kubectl completion fish | source # If kubectl is installed, load its completions
+end
+
+# pnpm
+set -gx PNPM_HOME "/home/stankovictab/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
