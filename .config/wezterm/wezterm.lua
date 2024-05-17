@@ -13,7 +13,8 @@ config.font = wezterm.font 'JetBrainsMono Nerd Font Mono' -- There is also a NL 
 -- config.font = wezterm.font 'MonispaceNe NF' -- WIP: See the NerdFont GitHub for more info on the Mon(?)space NF https://github.com/ryanoasis/nerd-fonts/issues/1403
 -- config.font = wezterm.font 'GohuFont uni11 Nerd Font Mono' -- The pixel font, also available as uni14 and non-Mono
 -- config.font = wezterm.font 'GeistMono Nerd Font Mono' -- Also available as non-Mono
-config.color_scheme = 'GitHub Dark'                       -- 950 themes available OOTB, nice ones are GitHub Dark, Catppuccin Mocha, Dracula, Batman
+config.color_scheme =
+'GitHub Dark'                       -- 950 themes available OOTB, nice ones are GitHub Dark, Catppuccin Mocha, Dracula, Batman
 -- See more here: https://wezfurlong.org/wezterm/colorschemes
 
 -- These are colors that override colors from the color scheme selected
@@ -26,13 +27,13 @@ config.colors = {
 	-- cursor_border = 'white',
 }
 
-config.hide_tab_bar_if_only_one_tab = true -- Tabs are hidden by default
+config.hide_tab_bar_if_only_one_tab = true                -- Tabs are hidden by default
 
 config.adjust_window_size_when_changing_font_size = false -- Don't know why it's true by default
 
 -- Change window size
 config.initial_cols = 128 -- Default 80
-config.initial_rows = 34 -- Default 24
+config.initial_rows = 34  -- Default 24
 
 config.window_frame = {
 	font = wezterm.font 'JetBrainsMono Nerd Font Mono',
@@ -62,4 +63,18 @@ config.window_padding = {
 config.check_for_updates = false
 -- config.show_update_window = false
 
+config.keys = {
+	-- Bind Shift + Up to scroll up
+	{
+		key = 'UpArrow',
+		mods = 'SHIFT',
+		action = wezterm.action.ScrollByLine(-1),
+	},
+	-- Bind Shift + Down to scroll down
+	{
+		key = 'DownArrow',
+		mods = 'SHIFT',
+		action = wezterm.action.ScrollByLine(1),
+	},
+}
 return config
