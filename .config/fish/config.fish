@@ -145,6 +145,7 @@ abbr -a kdewhereyouat setsid plasmashell --replace # Will run as a background pr
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash
 
+fish_add_path /opt/nvim-linux64/bin # NeoVim
 fish_add_path ~/.spicetify/
 fish_add_path ~/scripts/ # Use {scriptName}.sh in shell to execute scripts
 fish_add_path ~/binaries/
