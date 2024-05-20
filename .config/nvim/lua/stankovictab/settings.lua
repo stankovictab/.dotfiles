@@ -13,14 +13,14 @@ vim.opt.splitright = true -- On automatic split, split right instead of left (de
 vim.opt.hidden = true -- Keeps opened buffers (files) in memory, for faster use
 
 -- Tabs & Spaces --
-vim.opt.tabstop = 4 -- Set tabs to be 4 spaces wide
-vim.opt.shiftwidth = 4 -- Set the width of a newline when indenting to also be 4 spaces wide
--- This could also be the amount that gets shifted when using > and < in visual mode (see :h >)
-vim.opt.expandtab = false -- True means that when you press Tab, it'll be spaces, false means tabs are tabs. 
--- Based on this value, the :retab command will change all tabs to spaces in the buffer, or the other way around
--- The default value for expandtab is false, which means everything will be tabs on :retab
--- All spaces is better than all tabs because many programs parse tab in a different way (think GitHub, Discord, etc),
--- whereas space is space, that's it.
+-- When you press tab, you get 4 spaces - end of discussion
+-- See the Spaces vs Tabs Debate in the Vim Notion for explanation
+-- By default NeoVim uses a width of 8 and tabs are tab chars, disgusting
+vim.opt.tabstop = 4 -- Set tabs (result of pressing the tab key) to be 4 spaces WIDE
+vim.opt.shiftwidth = 4 -- Set the width of a newline when indenting to also be 4 spaces wide, and the amount that gets shifted when using > and < in visual mode (see :h >) - ALWAYS make it the same as tabstop - don't change these two settings if you want tabs of 4 width, whether they're actual tab chars or spaces
+vim.opt.expandtab = true -- Setting that if set to true, makes any new tabs be spaces, therefore you will no longer have any tabs when writing. false means that the tab key will insert tab chars. It doesn’t change the whole doc instantly, rather just newly typed tabs (it is a setting after all). Again, doesn’t change current tab chars in the file. 
+-- expandtab is used with the :retab command to convert all tabs in the buffer to whatever you set here
+vim.opt.smarttab = true -- Changes the behaviour of backspace, if it's on, it'll delete the 4 space chars that made up the tab, if false it'll delete them one by one
 
 vim.opt.clipboard = 'unnamedplus' -- Enables system clipboard use, copy by yanking and paste with Ctrl + Shift + v
 vim.opt.errorbells = false -- Removes the stupid ass terminal bell sound

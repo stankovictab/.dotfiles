@@ -133,8 +133,8 @@ local plugins = {
 			require("ibl").setup {
 				indent = {
 					char = "▏", -- ▏ (left), │ (center), ▕ (right), see :h ib.config.indent for more examples for chars
-					-- tab_char = "", -- Indent character for tab characters, overrides default char if set
-					smart_indent_cap = false,
+					tab_char = "", -- Indent character for tab characters, overrides default char if char isn't set
+					smart_indent_cap = false, -- ?
 				},
 				scope = { -- Scope is the highlighted vertical and horizontal line where variables have scope, it uses treeshitter and tanks a little on performance, and just looks bad
 					enabled = false,

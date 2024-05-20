@@ -32,11 +32,13 @@ map('n', '<leader>ps', ":Lazy sync<cr>:TSUpdate<cr>",
 	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
 map('n', '<leader>pz', ":Lazy<cr>", { desc = "Lazy Package Manager", noremap = true, silent = true })
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
-map('n', '<leader>n', ":enew<cr>:lua print('Current working directory:', vim.fn.getcwd())<cr>", { desc = "New File", noremap = true, silent = true })
+map('n', '<leader>n', ":enew<cr>:lua print('Current working directory:', vim.fn.getcwd())<cr>",
+	{ desc = "New File", noremap = true, silent = true })
 map('n', '<leader>gg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
 map('n', '<leader>lg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
 map('n', '<leader>gs', ":Telescope git_status<cr>", { desc = "Telescope Git Status", noremap = true, silent = true })
-map('n', '<leader>gb', ":Gitsigns toggle_current_line_blame<cr>:lua print('Git Blame Toggled!')<cr>", { desc = "Toggle Line Blame", noremap = true, silent = true })
+map('n', '<leader>gb', ":Gitsigns toggle_current_line_blame<cr>:lua print('Git Blame Toggled!')<cr>",
+	{ desc = "Toggle Line Blame", noremap = true, silent = true })
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })
@@ -271,18 +273,19 @@ function ClearRegisters()
 	vim.cmd [[
 		let regs = split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
 		for r in regs
-		  call setreg(r, [])
+			call setreg(r, [])
 		endfor
 	]]
 end
 
 map('n', '<leader>sr', ':lua ClearRegisters()<cr>', { desc = "Clear All Registers", noremap = true, silent = true })
 
--- FIXME: Changing from spaces to tabs doesn't work.
--- Also, it's a pain in the ass because the LSP's formatting will in the end use tabs
--- I wasted 2 hours trying to figure this out whereas VSCode already has this builtin, sometimes I hate this shit
--- And have I mentioned how much I hate the fact that you need to either cut or fuck with registers to just copy something?
+-- Convert tabs to spaces, as 4 spaces should ALWAYS be used for indentation - use this!
+-- NOTE: This will convert ALL tabs to spaces, regardless if it's indentation or in-code (after the first non-blank character)
 map('n', '<leader>ss', ':set expandtab<cr>:retab<cr>',
-	{ desc = "Change indentation to spaces", noremap = true, silent = true })
-map('n', '<leader>st', ':set noexpandtab<cr>:retab<cr>',
-	{ desc = "Change indentation to tabs", noremap = true, silent = true })
+	{ desc = "Convert All Tabs to Spaces", noremap = true, silent = true })
+
+-- NOTE: I haven't been able to figure out how to convert indentation to tabs, BUT, as I'll never use that, and sometimes I might need an actual tab, I made this
+-- A special shortcut that inserts a tab character
+-- So, in no other way would I ever need tabs, only in special circumstances like the Vim leader key
+map('n', '<leader>st', ':set expandtab!<cr>a\t<Esc>:set expandtab<cr>', { desc = "Insert Tab Character", noremap = true, silent = true })
