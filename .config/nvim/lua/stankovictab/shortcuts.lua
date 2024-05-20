@@ -17,28 +17,28 @@ local map = vim.api.nvim_set_keymap
 -- This shortcut will basically reload the current config file you're in, so, if you're in lualine's config and you make a change, you can reload instantly
 -- Note that if you're changing something regarding plugins, this simple reload won't always work, sometimes you need to sync with Lazy
 map('n', '<leader>rc', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
-	{ desc = "Reload Config", noremap = true, silent = true })
+    { desc = "Reload Config", noremap = true, silent = true })
 map('n', '<leader>rf', ':e<cr>', { desc = "Reload File", noremap = true, silent = true })
 
 -- Telescope is configured in a seperate file, because of that config find_files and live_grep search hidden files
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>',
-	{ desc = "Find Config Files", noremap = true, silent = true }) -- Opening the config file directory, better than using :e, because this doesn't put you into that working directory
+    { desc = "Find Config Files", noremap = true, silent = true }) -- Opening the config file directory, better than using :e, because this doesn't put you into that working directory
 map('n', '<leader>f', ':Telescope find_files<cr>', { desc = "File Browser", noremap = true, silent = true })
 map('n', '<leader>gr', ':Telescope live_grep<cr>',
-	{ desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
+    { desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
 map('n', '<leader>b', ':Telescope buffers<cr>', { desc = "Buffer Browser", noremap = true, silent = true })
 
 map('n', '<leader>ps', ":Lazy sync<cr>:TSUpdate<cr>",
-	{ desc = "Compile & Update Plugins", noremap = true, silent = true })
+    { desc = "Compile & Update Plugins", noremap = true, silent = true })
 map('n', '<leader>pz', ":Lazy<cr>", { desc = "Lazy Package Manager", noremap = true, silent = true })
 map('n', '<leader>c', ":Telescope colorscheme<cr>", { desc = "Change Colorscheme", noremap = true, silent = true })
 map('n', '<leader>n', ":enew<cr>:lua print('Current working directory:', vim.fn.getcwd())<cr>",
-	{ desc = "New File", noremap = true, silent = true })
+    { desc = "New File", noremap = true, silent = true })
 map('n', '<leader>gg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
 map('n', '<leader>lg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silent = true })
 map('n', '<leader>gs', ":Telescope git_status<cr>", { desc = "Telescope Git Status", noremap = true, silent = true })
 map('n', '<leader>gb', ":Gitsigns toggle_current_line_blame<cr>:lua print('Git Blame Toggled!')<cr>",
-	{ desc = "Toggle Line Blame", noremap = true, silent = true })
+    { desc = "Toggle Line Blame", noremap = true, silent = true })
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })
@@ -110,14 +110,14 @@ map('c', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true 
 -- This in turn now works with /, n, N, *, # and :%s
 -- Also, this is good to reset the sizes of windows if they get screwed up
 map('n', ' ',
-	':nohlsearch<cr><c-w>=:lua print("Cleared Screen")<cr>',
-	{ desc = "Clear Screen (Search Highlights, Reset Window Size)", noremap = true, silent = true })
+    ':nohlsearch<cr><c-w>=:lua print("Cleared Screen")<cr>',
+    { desc = "Clear Screen (Search Highlights, Reset Window Size)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
 map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
-	{ desc = "Search & Replace", noremap = true, silent = true })
+    { desc = "Search & Replace", noremap = true, silent = true })
 map('i', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
-	{ desc = "Search & Replace", noremap = true, silent = true })
+    { desc = "Search & Replace", noremap = true, silent = true })
 
 -- Moving selected lines up or down with J/K, only in Visual Mode
 -- This is a lot better than ddp and ddkP, doesn't mess up the clipboard, doesn't have the issue of moving the first line up and it disappearing, and doesn't use Alt
@@ -176,31 +176,31 @@ map('n', 'W', 'b', { desc = "Previous Word", noremap = true, silent = true })
 -- LSP Shortcuts
 map('n', '<leader>ld', ':lua vim.lsp.buf.definition()<cr>', { desc = "Go to Definition", noremap = true, silent = true })
 map('n', '<leader>lD', ':lua vim.lsp.buf.declaration()<cr>',
-	{ desc = "Go to Declaration", noremap = true, silent = true })
+    { desc = "Go to Declaration", noremap = true, silent = true })
 map('n', '<leader>lh', ':lua vim.lsp.buf.hover()<cr>', { desc = "Show Hover", noremap = true, silent = true })
 map('n', '<leader>li', ':lua vim.lsp.buf.implementation()<cr>',
-	{ desc = "Go to Implementation", noremap = true, silent = true })
+    { desc = "Go to Implementation", noremap = true, silent = true })
 map('n', '<leader>ls', ':lua vim.lsp.buf.signature_help()<cr>',
-	{ desc = "See Signature Help", noremap = true, silent = true }) -- See signature help, or, info for function parameters
+    { desc = "See Signature Help", noremap = true, silent = true }) -- See signature help, or, info for function parameters
 map('n', '<leader>lt', ':lua vim.lsp.buf.type_definition()<cr>',
-	{ desc = "Go to Type Definition", noremap = true, silent = true })
+    { desc = "Go to Type Definition", noremap = true, silent = true })
 map('n', '<leader>ln', ':lua vim.lsp.buf.rename()<cr>',
-	{ desc = "(Smartly) Rename Variable", noremap = true, silent = true })                                                 -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
+    { desc = "(Smartly) Rename Variable", noremap = true, silent = true })                                                 -- Rename variable accross the whole project that the LSP loads, but only where it makes sense to do so
 map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', { desc = "See Code Actions", noremap = true, silent = true }) -- See code actions for hovered error, like adding imports, etc
 map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', { desc = "Go to References", noremap = true, silent = true })
 map('n', '<leader>lR', ':LspRestart<cr>:lua print("LSP Restarted.")<cr>',
-	{ desc = "LSP Restart", noremap = true, silent = true })
+    { desc = "LSP Restart", noremap = true, silent = true })
 map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>',
-	{ desc = "Go to Next Diagnostic", noremap = true, silent = true })
+    { desc = "Go to Next Diagnostic", noremap = true, silent = true })
 map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>',
-	{ desc = "Go to Previous Diagnostic", noremap = true, silent = true })
+    { desc = "Go to Previous Diagnostic", noremap = true, silent = true })
 map('n', '<leader>ll', ':Telescope diagnostics severity_bound=0<cr>', -- Stopped working without severity_bound, see #2661
-	{ desc = "Telescope Diagnostics", noremap = true, silent = true })
+    { desc = "Telescope Diagnostics", noremap = true, silent = true })
 -- Formatting through the LSP, if the LSP client supports it
 map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>',
-	{ desc = "Format File", noremap = true, silent = true })
+    { desc = "Format File", noremap = true, silent = true })
 map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>',
-	{ desc = "Format File", noremap = true, silent = true })
+    { desc = "Format File", noremap = true, silent = true })
 
 -- For me to stop using the arrow keys
 -- The biggest problem here is moving around in insert mode
@@ -230,19 +230,19 @@ map('v', '<leader>a', '<esc>gg0vG$', { desc = 'Select All', noremap = true, sile
 map('n', ';t', ':Telescope<cr>', { desc = 'Telescope Main Menu', noremap = true, silent = true })
 map('n', ';r', ':Telescope resume<cr>', { desc = 'Telescope Resume', noremap = true, silent = true })
 map('n', ';e', ':lua require"telescope.builtin".symbols{ sources = {"emoji"} }<cr>',
-	{ desc = 'System Emojis', noremap = true, silent = true })
+    { desc = 'System Emojis', noremap = true, silent = true })
 map('n', ';g', ':lua require"telescope.builtin".symbols{ sources = {"gitmoji"} }<cr>',
-	{ desc = 'Gitmoji', noremap = true, silent = true })
+    { desc = 'Gitmoji', noremap = true, silent = true })
 map('n', ';j', ':lua require"telescope.builtin".symbols{ sources = {"julia"} }<cr>',
-	{ desc = 'Julia Symbols', noremap = true, silent = true })
+    { desc = 'Julia Symbols', noremap = true, silent = true })
 map('n', ';k', ':lua require"telescope.builtin".symbols{ sources = {"kaomoji"} }<cr>',
-	{ desc = 'Kaomoji  (╯°□°）╯︵ ┻━┻ ', noremap = true, silent = true })
+    { desc = 'Kaomoji  (╯°□°）╯︵ ┻━┻ ', noremap = true, silent = true })
 map('n', ';l', ':lua require"telescope.builtin".symbols{ sources = {"latex"} }<cr>',
-	{ desc = 'LaTeX', noremap = true, silent = true })     -- Won't work without LaTeX installed on your system
+    { desc = 'LaTeX', noremap = true, silent = true })        -- Won't work without LaTeX installed on your system
 map('n', ';m', ':lua require"telescope.builtin".symbols{ sources = {"math"} }<cr>',
-	{ desc = 'Math Symbols', noremap = true, silent = true }) -- 2500 math symbols, not requiring LaTeX
+    { desc = 'Math Symbols', noremap = true, silent = true }) -- 2500 math symbols, not requiring LaTeX
 map('n', ';n', ':lua require"telescope.builtin".symbols{ sources = {"nerd"} }<cr>',
-	{ desc = 'Nerd Font Symbols', noremap = true, silent = true })
+    { desc = 'Nerd Font Symbols', noremap = true, silent = true })
 map('n', ';h', ':Telescope highlights<cr>', { desc = 'Telescope Highlight Search', noremap = true, silent = true })
 
 -- gx doesn't work without netrw, which I don't use, so I'm reimplementing it
@@ -250,12 +250,12 @@ map('n', ';h', ':Telescope highlights<cr>', { desc = 'Telescope Highlight Search
 -- I made this and I'm very proud of it
 -- NOTE: I have a feeling this won't work with file paths with spaces in them... :(
 function FuckOuttaHere()
-	local pathOrUrl = vim.fn.expand('<cfile>')
-	if pathOrUrl ~= nil then
-		vim.cmd(('!xdg-open %s'):format(pathOrUrl))
-	else
-		print('No path, or https or http URI found in line.')
-	end
+    local pathOrUrl = vim.fn.expand('<cfile>')
+    if pathOrUrl ~= nil then
+        vim.cmd(('!xdg-open %s'):format(pathOrUrl))
+    else
+        print('No path, or https or http URI found in line.')
+    end
 end
 
 map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })
@@ -264,18 +264,18 @@ map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with Syste
 map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
 
 map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>',
-	{ desc = "Toggle TS Highlight" })
+    { desc = "Toggle TS Highlight" })
 
 map('n', 'q', '<esc>:lua print("I like ESC better!")<cr>', { desc = "Disable q" })
 
 function ClearRegisters()
-	-- Sets the contents of every register named here to empty
-	vim.cmd [[
-		let regs = split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
-		for r in regs
-			call setreg(r, [])
-		endfor
-	]]
+    -- Sets the contents of every register named here to empty
+    vim.cmd [[
+        let regs = split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+        for r in regs
+            call setreg(r, [])
+        endfor
+    ]]
 end
 
 map('n', '<leader>sr', ':lua ClearRegisters()<cr>', { desc = "Clear All Registers", noremap = true, silent = true })
@@ -283,9 +283,29 @@ map('n', '<leader>sr', ':lua ClearRegisters()<cr>', { desc = "Clear All Register
 -- Convert tabs to spaces, as 4 spaces should ALWAYS be used for indentation - use this!
 -- NOTE: This will convert ALL tabs to spaces, regardless if it's indentation or in-code (after the first non-blank character)
 map('n', '<leader>ss', ':set expandtab<cr>:retab<cr>',
-	{ desc = "Convert All Tabs to Spaces", noremap = true, silent = true })
+    { desc = "Convert All Tabs to Spaces", noremap = true, silent = true })
 
 -- NOTE: I haven't been able to figure out how to convert indentation to tabs, BUT, as I'll never use that, and sometimes I might need an actual tab, I made this
 -- A special shortcut that inserts a tab character
 -- So, in no other way would I ever need tabs, only in special circumstances like the Vim leader key
-map('n', '<leader>st', ':set expandtab!<cr>a\t<Esc>:set expandtab<cr>', { desc = "Insert Tab Character", noremap = true, silent = true })
+map('n', '<leader>st', ':set expandtab!<cr>a\t<Esc>:set expandtab<cr>',
+    { desc = "Insert Tab Character", noremap = true, silent = true })
+
+-- Toggle showing whitespace characters in the whole file
+-- Spaces are +, trailing spaces are - and tabs are >- (or just > or >---)
+-- indent-blankline is overriding these just so you know
+-- NOTE: To change the color of the whitespace characters, go to :hi NonText guifg=#226666 (theme default is #1b1b1b)
+function ToggleWhitespace()
+    if vim.opt.list:get() then
+        vim.opt.list = false
+        vim.api.nvim_set_hl(0, 'NonText', { fg = '#1b1b1b' })
+        return
+    else
+        vim.opt.list = true
+        vim.api.nvim_set_hl(0, 'NonText', { fg = '#226666' })
+        return
+    end
+end
+
+map('n', '<leader>sl', ':lua ToggleWhitespace()<cr>',
+    { desc = "Toggle Show Whitespace Chars", noremap = true, silent = true })

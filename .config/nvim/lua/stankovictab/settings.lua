@@ -21,6 +21,8 @@ vim.opt.shiftwidth = 4 -- Set the width of a newline when indenting to also be 4
 vim.opt.expandtab = true -- Setting that if set to true, makes any new tabs be spaces, therefore you will no longer have any tabs when writing. false means that the tab key will insert tab chars. It doesn’t change the whole doc instantly, rather just newly typed tabs (it is a setting after all). Again, doesn’t change current tab chars in the file. 
 -- expandtab is used with the :retab command to convert all tabs in the buffer to whatever you set here
 vim.opt.smarttab = true -- Changes the behaviour of backspace, if it's on, it'll delete the 4 space chars that made up the tab, if false it'll delete them one by one
+vim.opt.listchars = "tab:>-,trail:-,space:+,extends:>,precedes:<,eol:⏎" -- Toggle with :set list! (or Tab + s + l)
+-- Good options - Space: , Tabs: -
 
 vim.opt.clipboard = 'unnamedplus' -- Enables system clipboard use, copy by yanking and paste with Ctrl + Shift + v
 vim.opt.errorbells = false -- Removes the stupid ass terminal bell sound

@@ -262,12 +262,14 @@ local plugins = {
 		'nvim-lualine/lualine.nvim', -- Way better status line than Airline
 		config = function() require('stankovictab.specifics.lualine') end
 	},
-	{
-		"Lilja/zellij.nvim", -- NeoVim + Zellij Navigation
-		config = function()
-			require('zellij').setup({})
-		end
-	},
+	-- TODO: This plugin is in development and I haven't configured it fully, it might need some dependencies
+	-- See more here - https://github.com/hiasr/vim-zellij-navigator
+	-- {
+	-- 	"hiasr/vim-zellij-navigator", -- NeoVim + Zellij Navigation
+	-- 	config = function()
+	-- 		require('vim-zellij-navigator').setup({})
+	-- 	end
+	-- },
 	{
 		"kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
 		cmd = "LazyGit",
