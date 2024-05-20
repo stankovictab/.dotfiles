@@ -1,6 +1,8 @@
 scripts/lpf.sh
 scripts/upf.sh
 .config/musikcube/1/thumbs/
+.config/musikcube/1/musik.db-shm
+.config/musikcube/1/musik.db-wal
 .config/musikcube/log.txt
 .config/musikcube/stderr.txt
 .config/musikcube/session.json
