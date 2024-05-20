@@ -11,3 +11,4 @@ scripts/upf.sh
 .config/nvim/lazy-lock.json
 .config/qimgv/savedState.conf
 .config/mpv/persistent_config.json
+.config/fish/fish_variables
