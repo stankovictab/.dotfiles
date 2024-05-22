@@ -46,8 +46,6 @@ map('n', '<leader>sv', ':vsplit<cr>', { desc = "Split Vertically", noremap = tru
 
 map('n', '<leader>z', ':ZenMode<cr>', { desc = "Zen Mode", noremap = true, silent = true })
 
--- ToggleTerm's shortcut (Ctrl + n) is specific and it's set in its config (~/.config/nvim/lua/stankovictab/specifics/toggleterm.lua)
-
 map('n', '<s-j>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
 map('n', '<s-k>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
 map('n', '<c-PageDown>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
@@ -309,3 +307,16 @@ end
 
 map('n', '<leader>sl', ':lua ToggleWhitespace()<cr>',
     { desc = "Toggle Show Whitespace Chars", noremap = true, silent = true })
+
+-- Visual Multi (Multi-Cursor)
+-- <Tab> changes the mode to visual (AKA "Extend mode"), so you can keep on selecting from where the cursors are
+-- Double tap <Esc> to exit VM insert mode
+-- TODO: Tab + v + n is broken rn, you can't use Tab for that when in VM mode
+map('n', '<leader>va', '<Plug>(VM-Select-All)',
+    { desc = "On All Same Words", noremap = true, silent = true })
+map('n', '<leader>vn', '<Plug>(VM-Find-Under)',
+    { desc = "On Next Same Word", noremap = true, silent = true })
+map('n', '<C-Down>', '<Plug>(VM-Add-Cursor-Down)',
+    { desc = "Add Cursor Down", noremap = true, silent = true })
+map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
+    { desc = "Add Cursor Up", noremap = true, silent = true })

@@ -79,7 +79,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 -> `d` - Detach session\
 -> `w` - Session manager
 
-`Alt + h/j/k/l` - Move between panes\
+`Alt + h/j/k/l` - Move between panes (and tabs)\
 `Alt + +(=)/-` -  Increase / decrease the size of the pane
 
 Note that the Tmux mode is unbound, as I don't need it.\
