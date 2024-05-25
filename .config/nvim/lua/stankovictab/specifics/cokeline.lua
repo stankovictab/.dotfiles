@@ -1,3 +1,5 @@
+-- WARN: DEPRECATED! Use bufferline!
+--
 -- The highlighting of cokeline should be fixed, see #72 for more details
 -- But of course, it's not
 

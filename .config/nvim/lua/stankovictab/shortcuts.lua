@@ -51,14 +51,12 @@ map('n', '<s-k>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true
 map('n', '<c-PageDown>', ':bprevious<cr>', { desc = "Go to Next Buffer", noremap = true, silent = true })
 map('n', '<c-PageUp>', ':bnext<cr>', { desc = "Go to Previous Buffer", noremap = true, silent = true })
 
--- Moving buffers in bufferline / cokeline
+-- Moving buffers in bufferline
 map('n', '<c-s-PageDown>', ':BufferLineMoveNext<cr>', { desc = "Move Buffer Right", noremap = true, silent = true })
 map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left", noremap = true, silent = true })
 -- For these two to work a specific mapping in Alacritty is needed to force Ctrl + Shift + key to pass chars
 map('n', '<c-s-k>', ':BufferLineMoveNext<cr>', { desc = "Move Buffer Right", noremap = true, silent = true })
 map('n', '<c-s-j>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left", noremap = true, silent = true })
--- map('n', '<c-s-PageDown>', '<Plug>(cokeline-switch-next)', { desc = "Move Buffer Right", noremap = true, silent = true })
--- map('n', '<c-s-PageUp>', '<Plug>(cokeline-switch-prev)', { desc = "Move Buffer Left", noremap = true, silent = true })
 
 map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true })
 map('n', '<c-q>', ':wq<cr>', { desc = "Save & Quit Window", noremap = true, silent = true })
@@ -320,3 +318,8 @@ map('n', '<C-Down>', '<Plug>(VM-Add-Cursor-Down)',
     { desc = "Add Cursor Down", noremap = true, silent = true })
 map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
     { desc = "Add Cursor Up", noremap = true, silent = true })
+-- TODO: Haven't figured out how to bind Ctrl + Shift + Key in WezTerm
+-- map('n', '<C-S-j>', '<Plug>(VM-Add-Cursor-Down)',
+--     { desc = "Add Cursor Up", noremap = true, silent = true })
+-- map('n', '<C-S-k>', '<Plug>(VM-Add-Cursor-Up)',
+--     { desc = "Add Cursor Up", noremap = true, silent = true })
