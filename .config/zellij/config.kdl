@@ -1,4 +1,3 @@
-// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -188,6 +187,39 @@ keybinds clear-defaults=true {
     shared_except "tmux" "locked" {
         // bind "Ctrl b" { SwitchToMode "Tmux"; } // I don't need tmux mode
     }
+    shared_except "locked" {
+        bind "Ctrl h" { // As in "help"
+            LaunchOrFocusPlugin "file:~/.config/zellij/zellij_forgot.wasm" {
+                "LOAD_ZELLIJ_BINDINGS" "false"
+                "Help" "Ctrl + h"
+                "Lock" "Ctrl + g"
+                "Pane" "Ctrl + p"
+                "Tab" "Ctrl + t"
+                "Resize" "Ctrl + n"
+                "Move" "Ctrl + e"
+                "Search, Scroll, Editor" "Ctrl + a"
+                "Session" "Ctrl + y"
+                "Navigate" "Alt + h/j/k/l"
+                "Increase/Decrease Pane" "Alt + +/-"
+                "Change Layout" "Alt + [/]"
+                "New Pane" "Ctrl + p + n"
+                "New Pane to Right" "Ctrl + p + r"
+                "Close Pane" "Ctrl + p + x (or Ctrl + d)"
+                "Fullscreen" "Ctrl + p + f"
+                "Floating" "Ctrl + p + w"
+                "Embed" "Ctrl + p + e"
+                "Rename Tab" "Ctrl + t + r"
+                "Move Pane to New Tab" "Ctrl + t + b"
+                "Move Pane to Tab" "Ctrl + t + [/]"
+                "Search" "Ctrl + a + s"
+                "Scroll" "Ctrl + a + j/k"
+                "Edit Scrollback" "Ctrl + a + e"
+                "Detach Session" "Ctrl + y + d"
+                "Session Manager" "Ctrl + y + w"
+                floating true
+            }
+        }
+    }
 }
 
 plugins {
@@ -210,7 +242,7 @@ plugins {
 //    - true
 //    - false (Default)
 //
-// simplified_ui true
+simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -299,7 +331,7 @@ theme "mgz"
 // Default: "default"
 // "compact" is very good, if you know the shortcuts
 //
-default_layout "default"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal

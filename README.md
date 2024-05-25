@@ -41,13 +41,11 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 ## Zellij
 
-`zj`, `zjls`, `zja`, `zjk`, `zjka` - Fish shell aliases
+> Note that all of these should be in the zellij_forgot plugin config for the `Ctrl + h` shortcut
 
-> **Current conflicts with NeoVim :**\
-> (Not a big problem) `Ctrl + t` is the tag stack\
-> Available keybinds :\
-> ctrl+\[, ctrl+\], ctrl+\\, ctrl+;, ctrl+'
+`zj`, `zjls`, `zja`, `zjk`, `zjka`, `zjda` - Fish shell aliases
 
+`Ctrl + h` - Help / Keybinds\
 `Ctrl + g` - Lock mode\
 `Ctrl + p` - Pane mode\
 -> `h/j/k/l` - Move between panes\
