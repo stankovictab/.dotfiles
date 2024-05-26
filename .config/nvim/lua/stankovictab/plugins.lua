@@ -354,20 +354,13 @@ local plugins = {
             }
         end
     },
-    -- {
-    --     -- Simple file explorer that uses native vim keybinds for editing
-    --     -- Use with :Oil, or :Oil --float
-    --     'stevearc/oil.nvim',
-    --     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    --     config = function()
-    --         require('oil').setup({
-    --             columns = { 'icon' },
-    --             view_options = {
-    --                 show_hidden = true
-    --             }
-    --         })
-    --     end
-    -- },
+    {
+        -- Simple file explorer that uses native vim keybinds for editing
+        -- Use with :Oil, or :Oil --float
+        'stevearc/oil.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function() require('stankovictab.specifics.oil') end
+    },
     {
         'echasnovski/mini.files', -- The newest file explorer
         version = '*',
