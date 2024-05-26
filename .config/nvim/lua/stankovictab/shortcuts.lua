@@ -312,7 +312,7 @@ map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
 -- map('n', '<C-S-k>', '<Plug>(VM-Add-Cursor-Up)',
 --     { desc = "Add Cursor Up", noremap = true, silent = true })
 
--- File Explorers 
+-- File Explorers
 -- map('n', '<s-b>', ':NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
 -- map('i', '<s-b>', '<esc>:NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
 

@@ -35,6 +35,7 @@ local plugins = {
     "catppuccin/nvim",
     "shatur/neovim-ayu",
     "rose-pine/neovim",
+    "sam4llis/nvim-tundra",
     -- "rafi/awesome-vim-colorschemes", -- Collection of colorschemes, including iceberg, nord, onedark, etc
 
     {
