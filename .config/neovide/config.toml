@@ -1,0 +1,21 @@
+# Config file for NeoVide, the GUI NeoVim client, written in Rust
+# For NeoVide's NeoVim specific config, see the NeoVide section in ~/.config/nvim/lua/stankovictab/settings.lua
+
+# ALL OF THESE ARE THE DEFAULTS (I just needed this file for NeoVide to stop complaining and for dotfile sync)
+
+[font]
+    normal = [] # Will use the bundled Fira Code Nerd Font by default
+    size = 14.0
+
+fork = false
+frame = "full"
+idle = true
+maximized = false
+neovim-bin = "/usr/bin/nvim" # in reality found dynamically on $PATH if unset
+no-multigrid = false
+srgb = false
+tabs = true
+theme = "auto"
+title-hidden = true
+vsync = true
+wsl = false

@@ -10,6 +10,7 @@
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap
+local map2 = vim.keymap.set -- TODO: What is this? A newer better map set? Seems so, fixed some of my issues.
 
 -- TODO: :source % is the old way, and that just reloads the config (sources) from the file (buffer) you're currently in, so it won't work in the wild.
 -- In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, and then also the rest of the files, and that makes no sense.
@@ -58,7 +59,7 @@ map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left",
 map('n', '<c-s-k>', ':BufferLineMoveNext<cr>', { desc = "Move Buffer Right", noremap = true, silent = true })
 map('n', '<c-s-j>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left", noremap = true, silent = true })
 
-map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true })
+map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true }) -- TODO: Lagging because of some LSP thing on Ctrl + w + d, see :map <c-w>
 map('n', '<c-q>', ':wq<cr>', { desc = "Save & Quit Window", noremap = true, silent = true })
 
 -- Better window navigation
@@ -78,13 +79,10 @@ map('n', '<c-up>', ':resize +2<cr>', { desc = "Resize Up", noremap = true, silen
 map('n', '<c-down>', ':resize -2<cr>', { desc = "Resize Down", noremap = true, silent = true })
 map('n', '<c-right>', ':vertical resize +2<cr>', { desc = "Resize to Right", noremap = true, silent = true })
 
-map('n', '<c-b>', ':NvimTreeToggle<cr>', { desc = "File Explorer", noremap = true, silent = true })
-map('i', '<c-b>', '<esc>:NvimTreeToggle<cr>', { desc = "File Explorer", noremap = true, silent = true })
-
--- Toggle comments with vim-commentary (c-_ is Ctrl + /)
-map('n', '<c-_>', ':Commentary<cr>', { desc = "Toggle Comment", noremap = true, silent = true })
-map('v', '<c-_>', ':Commentary<cr>', { desc = "Toggle Comment", noremap = true, silent = true })
-map('i', '<c-_>', "<esc>:Commentary<cr>a", { desc = "Toggle Comment", noremap = true, silent = true })
+-- nvim >=0.10 has built-in commenting, so no need for a plugin
+map2('n', '<c-_>', 'gcc', { desc = "Toggle Comment", remap = true })                           -- NOTE: remap = true (!)
+map2('v', '<c-_>', 'gc', { desc = "Toggle Comment", remap = true, silent = true })
+map2('i', '<c-_>', '<esc>gcca', { desc = "Toggle Line Comment", remap = true, silent = true }) -- This brings you back to the beginning of the line unfortunately
 
 -- Easier indenting, just keep pressing < or >
 map('v', '<', '<gv', { desc = "Indent Left", noremap = true, silent = true })
@@ -186,6 +184,11 @@ map('n', '<leader>la', ':lua vim.lsp.buf.code_action()<cr>', { desc = "See Code 
 map('n', '<leader>lr', ':lua vim.lsp.buf.references()<cr>', { desc = "Go to References", noremap = true, silent = true })
 map('n', '<leader>lR', ':LspRestart<cr>:lua print("LSP Restarted.")<cr>',
     { desc = "LSP Restart", noremap = true, silent = true })
+-- These two are NeoVim native mappings, which make my Ctrl + w shortcut for closing tab lag, and I'm already using Tab + l + c for that
+vim.api.nvim_del_keymap('n', '<C-W>d')
+vim.api.nvim_del_keymap('n', '<C-W><C-D>')
+map('n', '<leader>lc', ':lua vim.diagnostic.open_float()<cr>', -- Stopped working without severity_bound, see #2661
+    { desc = "Show Diagnostic On Current Line", noremap = true, silent = true })
 map('n', '<leader>lN', ':lua vim.diagnostic.goto_next()<cr>',
     { desc = "Go to Next Diagnostic", noremap = true, silent = true })
 map('n', '<leader>lP', ':lua vim.diagnostic.goto_prev()<cr>',
@@ -197,21 +200,6 @@ map('n', '<c-f>', ':lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜
     { desc = "Format File", noremap = true, silent = true })
 map('i', '<c-f>', '<esc>:lua vim.lsp.buf.format()<cr>:lua print("File formatted! 📜")<cr>',
     { desc = "Format File", noremap = true, silent = true })
-
--- For me to stop using the arrow keys
--- The biggest problem here is moving around in insert mode
--- map('n', '<Up>', '', { desc = "", noremap = true, silent = true})
--- map('i', '<Up>', '', { desc = "", noremap = true, silent = true})
--- map('v', '<Up>', '', { desc = "", noremap = true, silent = true})
--- map('n', '<Down>', '', { desc = "", noremap = true, silent = true})
--- map('i', '<Down>', '', { desc = "", noremap = true, silent = true})
--- map('v', '<Down>', '', { desc = "", noremap = true, silent = true})
--- map('n', '<Left>', '', { desc = "", noremap = true, silent = true})
--- map('i', '<Left>', '', { desc = "", noremap = true, silent = true})
--- map('v', '<Left>', '', { desc = "", noremap = true, silent = true})
--- map('n', '<Right>', '', { desc = "", noremap = true, silent = true})
--- map('i', '<Right>', '', { desc = "", noremap = true, silent = true})
--- map('v', '<Right>', '', { desc = "", noremap = true, silent = true})
 
 -- Incrementing and decrementing (as Ctrl + a no longer increments), + and - moved across lines before
 map('n', '+', '<esc><c-a>', { desc = "Increment", noremap = true, silent = true })
@@ -323,3 +311,15 @@ map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
 --     { desc = "Add Cursor Up", noremap = true, silent = true })
 -- map('n', '<C-S-k>', '<Plug>(VM-Add-Cursor-Up)',
 --     { desc = "Add Cursor Up", noremap = true, silent = true })
+
+-- File Explorers 
+-- map('n', '<s-b>', ':NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
+-- map('i', '<s-b>', '<esc>:NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
+
+function MiniFilesToggle()
+    if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
+end
+
+map('n', '<c-b>', ':lua MiniFilesToggle()<cr>', { desc = "File Explorer", noremap = true, silent = true })
+map2({ 'i', 'v' }, '<c-b>', '<esc>:lua MiniFilesToggle()<cr>',
+    { desc = "File Explorer", noremap = true, silent = true })

@@ -188,10 +188,10 @@ keybinds clear-defaults=true {
         // bind "Ctrl b" { SwitchToMode "Tmux"; } // I don't need tmux mode
     }
     shared_except "locked" {
-        bind "Ctrl h" { // As in "help"
+        bind "Ctrl x" { // As in "help"
             LaunchOrFocusPlugin "file:~/.config/zellij/zellij_forgot.wasm" {
                 "LOAD_ZELLIJ_BINDINGS" "false"
-                "Help" "Ctrl + h"
+                "Help" "Ctrl + x"
                 "Lock" "Ctrl + g"
                 "Pane" "Ctrl + p"
                 "Tab" "Ctrl + t"

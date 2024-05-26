@@ -95,6 +95,8 @@ alias vesktop='flatpak run dev.vencord.Vesktop --disable-gpu'
 alias jellyfin-start='bash ~/scripts/jellyfin-start.sh'
 alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
 
+alias neovide='~/AppImages/gearlever_neovide*'
+
 ### Abbreviations
 # These are like aliases, but with a little improvement 
 # where they're expanded in the shell so you know what the command actually is

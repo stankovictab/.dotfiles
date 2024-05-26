@@ -60,6 +60,8 @@ rm -rf ~/.config/lazygit
 ln -sf ~/.dotfiles/.config/lazygit ~/.config/lazygit
 rm -rf ~/.config/nvim
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
+rm -rf ~/.config/neovide
+ln -sf ~/.dotfiles/.config/neovide ~/.config/neovide
 rm -rf ~/.config/ranger
 ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
 mkdir -p ~/.config/spicetify/

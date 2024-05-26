@@ -77,4 +77,8 @@ config.keys = {
 		action = wezterm.action.ScrollByLine(1),
 	},
 }
+
+-- Disabling the exit dialog, shouldn't be an issue if you're doing everything in zellij
+config.window_close_confirmation = 'NeverPrompt'
+
 return config

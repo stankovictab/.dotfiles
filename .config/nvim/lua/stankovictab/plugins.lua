@@ -80,16 +80,13 @@ local plugins = {
     -- {
     -- 	'willothy/nvim-cokeline', -- Another buffer line (tab bar at the top of the screen)
     -- 	dependencies = 'nvim-tree/nvim-web-devicons',
-    -- 	event = "BufAdd",   -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event.
-    -- 	config = function() require('stankovictab.specifics.cokeline') end,
+    -- 	event = "BufAdd",   -- Only load cokeline after you open up another buffer. NOTE: This is specific for my config, so if you want CokeLine to always be visible, load it up on some other event. config = function() require('stankovictab.specifics.cokeline') end, },
+    -- {
+    --     'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
+    --     -- NOTE: The `nvim .` command gets broken if NvimTree is loaded on the NvimTreeToggle event - it can't read the config and doesn't know about the autocmd that opens the tree on directory, so, it needs to be loaded up on startup
+    --     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    --     config = function() require('stankovictab.specifics.nvim-tree') end
     -- },
-    {
-        'nvim-tree/nvim-tree.lua', -- File explorer in the left sidebar
-        -- NOTE: The `nvim .` command gets broken if NvimTree is loaded on the NvimTreeToggle event - it can't read the config and doesn't know about the autocmd that opens the tree on directory, so, it needs to be loaded up on startup
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function() require('stankovictab.specifics.nvim-tree') end
-    },
-    "tpope/vim-commentary",        -- Ctrl + /, gc (block) and gcc (line) to comment out code
     {
         'lewis6991/gitsigns.nvim', -- Git signs in the gutter, better than airblade/vim-gitgutter
         config = function()
@@ -351,9 +348,29 @@ local plugins = {
         init = function()
             vim.g.VM_default_mappings = 0 -- Disable ALL default mappings, except for Ctrl + n (puts a cursor on the same current word)
             vim.g.VM_maps = {
-                ["Find Under"] = '' -- Find Under is Ctrl + n by default, here it can be changed, for example to '' to unbind it (as I'm using it for zellij)
+                -- Find Under is Ctrl + n by default, here it can be changed, for example to '' to unbind it (as I'm using it for zellij)
+                ["Find Under"] = ''
             }
         end
+    },
+    -- {
+    --     -- Simple file explorer that uses native vim keybinds for editing
+    --     -- Use with :Oil, or :Oil --float
+    --     'stevearc/oil.nvim',
+    --     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    --     config = function()
+    --         require('oil').setup({
+    --             columns = { 'icon' },
+    --             view_options = {
+    --                 show_hidden = true
+    --             }
+    --         })
+    --     end
+    -- },
+    {
+        'echasnovski/mini.files', -- The newest file explorer
+        version = '*',
+        config = function() require('stankovictab.specifics.mini-files') end
     }
 }
 

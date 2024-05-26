@@ -45,7 +45,7 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 `zj`, `zjls`, `zja`, `zjk`, `zjka`, `zjda` - Fish shell aliases
 
-`Ctrl + h` - Help / Keybinds\
+`Ctrl + x` - Help / Keybinds\
 `Ctrl + g` - Lock mode\
 `Ctrl + p` - Pane mode\
 -> `h/j/k/l` - Move between panes\
