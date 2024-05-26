@@ -331,7 +331,7 @@ local plugins = {
     },
     {
         -- Replaces s key to be used for surrounding. Also fills WhichKey with bindings.
-        -- Examples are saiw", saiw], saiw?[[<CR>]]<CR>
+        -- Examples are saiw", saiw], saiw?[[<CR>]]<CR>, or maybe with visual first, viwsa"
         -- Can be repeated with .
         'echasnovski/mini.surround',
         version = '*',
