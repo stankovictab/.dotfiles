@@ -3,17 +3,17 @@ require('oil').setup({
     default_file_explorer = true,
     columns = {
         "icon",
-        "permissions",
+        -- "permissions",
         -- "size",
-        "mtime",
+        -- "mtime",
     },
     keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
         ["<C-s>"] = "actions.select_vsplit", -- Default: <C-s>
-        ["<C-h>"] = "actions.select_split", -- Default: <C-h>
-        ["<C-t>"] = "actions.select_tab", -- Don't do this
-        ["<C-p>"] = "actions.preview", -- Default: <C-p>
+        ["<C-h>"] = "actions.select_split",  -- Default: <C-h>
+        ["<C-t>"] = "actions.select_tab",    -- Don't do this
+        ["<C-p>"] = "actions.preview",       -- Default: <C-p>
         ["<C-c>"] = "actions.close",
         ["q"] = "actions.close",
         ["<C-l>"] = "actions.refresh", -- Default: <C-l>
@@ -26,6 +26,9 @@ require('oil').setup({
         ["gx"] = "actions.open_external",
         ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
+    },
+    win_options = {
+        signcolumn = "yes:2",             -- Used by the oil-git-status.nvim plugin
     },
     view_options = {
         show_hidden = true,

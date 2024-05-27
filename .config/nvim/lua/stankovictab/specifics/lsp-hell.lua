@@ -58,11 +58,11 @@ require('lspconfig').bashls.setup {}
 -- require('lspconfig').shellcheck.setup {}
 
 -- CSS LSP, just shows errors and has cmp completions, but no formatting, for that you need Prettier
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-require('lspconfig').cssls.setup {
-    capabilities = capabilities,
-    on_attach = function()
-        print("LSP cssls () attached!")
-    end
-}
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- require('lspconfig').cssls.setup {
+--     capabilities = capabilities,
+--     on_attach = function()
+--         print("LSP cssls () attached!")
+--     end
+-- }

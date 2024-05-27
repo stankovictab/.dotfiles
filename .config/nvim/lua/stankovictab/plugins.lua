@@ -354,6 +354,13 @@ local plugins = {
         config = function() require('stankovictab.specifics.oil') end
     },
     {
+        "refractalize/oil-git-status.nvim",
+        dependencies = {
+            "stevearc/oil.nvim",
+        },
+        config = true,
+    },
+    {
         'stevearc/dressing.nvim', -- A nicer interface for vim.ui.select (various input fields)
         opts = {},
     }
