@@ -89,18 +89,22 @@ local plugins = {
     --     config = function() require('stankovictab.specifics.nvim-tree') end
     -- },
     {
+        "kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
+        cmd = "LazyGit",
+    },
+    {
         'lewis6991/gitsigns.nvim', -- Git signs in the gutter, better than airblade/vim-gitgutter
         config = function()
             require('gitsigns').setup {
                 signs                        = {
                     add          = { text = '│' }, -- │
-                    change       = { text = '│' },
-                    delete       = { text = '_' },
-                    topdelete    = { text = '‾' },
-                    changedelete = { text = '~' },
-                    untracked    = { text = '┆' },
+                    change       = { text = '│' }, -- │
+                    delete       = { text = '_' }, -- _
+                    topdelete    = { text = '‾' }, -- ‾
+                    changedelete = { text = '~' }, -- ~
+                    untracked    = { text = '┆' }, -- ┆
                 },
-                signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`, signs in the line number gutter
+                signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`, signs in the line number gutter
                 numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`, highlight line numbers
                 linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`, highlight line changes, could be useful to toggle sometimes, but the theme needs to support this well in order to see it
                 word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -108,7 +112,7 @@ local plugins = {
                 current_line_blame_opts      = {
                     virt_text = true,
                     virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-                    delay = 1000,
+                    delay = 200,
                     ignore_whitespace = false,
                 },
                 current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
@@ -212,19 +216,6 @@ local plugins = {
             vim.keymap.set('i', '<M-p>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
             vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
             -- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true }) -- For now this is the default, Ctrl + ]
-
-            -- This is leftover from Copilot config, might be useful
-            --			filetypes = {
-            --				yaml = true, -- Changed
-            --				markdown = true, -- Changed
-            --				help = false,
-            --				gitcommit = false,
-            --				gitrebase = false,
-            --				hgcommit = false,
-            --				svn = false,
-            --				cvs = false,
-            --				["."] = false,
-            --			},
         end
     },
     {
@@ -273,10 +264,6 @@ local plugins = {
     -- 		require('vim-zellij-navigator').setup({})
     -- 	end
     -- },
-    {
-        "kdheepak/lazygit.nvim", -- Git UI in Neovim, use with :LazyGit (same as opening a terminal and running lazygit)
-        cmd = "LazyGit",
-    },
     {
         "folke/flash.nvim", -- Better text navigation
         event = "VeryLazy",

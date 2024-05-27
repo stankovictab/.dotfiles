@@ -40,6 +40,8 @@ map('n', '<leader>lg', ":LazyGit<cr>", { desc = "LazyGit", noremap = true, silen
 map('n', '<leader>gs', ":Telescope git_status<cr>", { desc = "Telescope Git Status", noremap = true, silent = true })
 map('n', '<leader>gb', ":Gitsigns toggle_current_line_blame<cr>:lua print('Git Blame Toggled!')<cr>",
     { desc = "Toggle Line Blame", noremap = true, silent = true })
+map('n', '<leader>gl', ":Gitsigns toggle_linehl<cr>", { desc = "Toggle Line Highlight", noremap = true, silent = true })
+map('n', '<leader>gn', ":Gitsigns toggle_numhl<cr>", { desc = "Toggle Number Highlight", noremap = true, silent = true })
 
 -- Splits
 map('n', '<leader>sh', ':split<cr>', { desc = "Split Horizontally", noremap = true, silent = true })
@@ -323,3 +325,6 @@ end
 map('n', '<c-b>', ':lua MiniFilesToggle()<cr>', { desc = "File Explorer", noremap = true, silent = true })
 map2({ 'i', 'v' }, '<c-b>', '<esc>:lua MiniFilesToggle()<cr>',
     { desc = "File Explorer", noremap = true, silent = true })
+
+map2({ 'n', 'v', 'i' }, '<leader>o', ':Oil<cr><c-p>',
+    { desc = "Oil", noremap = true, silent = true })
