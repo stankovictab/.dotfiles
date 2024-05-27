@@ -1,14 +1,14 @@
--- Out of all file explorers (netrw, nvim-tree, oil) this is the best one imo
 -- Similarly to oil it uses native vim keybinds for editing the fs
 -- And similarly to ranger you can use h/l to move around
 -- NOTE: If preview or editing isn't working, check on directory permissions
 -- See :help mini.files
+-- 
+-- CON: Pressing = every time you do a change is kinda bad imo
+-- CON: It can very easily crash and mess your screen up if you do something you shouldn't while it's open (open Telescope, open Oil inside it, etc)
+-- CON: It doesn't support git integration ootb, no plans to, there is https://www.reddit.com/r/neovim/comments/1cfd5w1/minifiles_git_status_integration/, but I haven't gotten it to work
 --
--- For git integration see https://www.reddit.com/r/neovim/comments/1cfd5w1/minifiles_git_status_integration/
--- FIXME: I didn't manage to get it working, and the dev of mini.files has no plans on integrating git status into this
 --
 -- TODO: Shouldn't ESC and Ctrl + c also quit? And shouldn't <CR> be bound for go_in?
--- FIXME: Trying to open Telescope while in mini.files closes everything, it's weird
 
 require('mini.files').setup({
     mappings = {           -- Use `''` (empty string) to not create one.
@@ -20,7 +20,7 @@ require('mini.files').setup({
         reset       = '<BS>', -- Reset the window
         reveal_cwd  = '@',
         show_help   = 'g?',
-        synchronize = '=', -- To apply your changes (important)
+        synchronize = '=', -- NOTE: Used to apply your changes (important)
         trim_left   = '<',
         trim_right  = '>',
     },

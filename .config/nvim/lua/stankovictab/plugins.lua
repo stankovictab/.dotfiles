@@ -341,6 +341,11 @@ local plugins = {
             }
         end
     },
+    -- {
+    --     'echasnovski/mini.files', -- The newest file explorer
+    --     version = '*',
+    --     config = function() require('stankovictab.specifics.mini-files') end
+    -- },
     {
         -- Simple file explorer that uses native vim keybinds for editing
         -- Use with :Oil, or :Oil --float
@@ -349,9 +354,8 @@ local plugins = {
         config = function() require('stankovictab.specifics.oil') end
     },
     {
-        'echasnovski/mini.files', -- The newest file explorer
-        version = '*',
-        config = function() require('stankovictab.specifics.mini-files') end
+        'stevearc/dressing.nvim', -- A nicer interface for vim.ui.select (various input fields)
+        opts = {},
     }
 }
 

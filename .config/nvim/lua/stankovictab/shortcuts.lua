@@ -61,7 +61,7 @@ map('n', '<c-s-PageUp>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left",
 map('n', '<c-s-k>', ':BufferLineMoveNext<cr>', { desc = "Move Buffer Right", noremap = true, silent = true })
 map('n', '<c-s-j>', ':BufferLineMovePrev<cr>', { desc = "Move Buffer Left", noremap = true, silent = true })
 
-map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true }) -- TODO: Lagging because of some LSP thing on Ctrl + w + d, see :map <c-w>
+map('n', '<c-w>', ':bdelete<cr>', { desc = "Close Buffer", noremap = true, silent = true })
 map('n', '<c-q>', ':wq<cr>', { desc = "Save & Quit Window", noremap = true, silent = true })
 
 -- Better window navigation
@@ -319,13 +319,23 @@ map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
 -- map('n', '<s-b>', ':NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
 -- map('i', '<s-b>', '<esc>:NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
 
-function MiniFilesToggle()
-    if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
+-- function MiniFilesToggle()
+--     if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
+-- end
+--
+-- map('n', '<c-b>', ':lua MiniFilesToggle()<cr>', { desc = "File Explorer", noremap = true, silent = true })
+-- map2({ 'i', 'v' }, '<c-b>', '<esc>:lua MiniFilesToggle()<cr>',
+--     { desc = "File Explorer", noremap = true, silent = true })
+
+function OilToggle()
+    if vim.bo.filetype == "oil" then
+        require("oil").close()
+    else
+        require("oil").open()
+        vim.defer_fn(function() -- Wait for .1s, as oil needs time to spin up
+            require("oil").open_preview()
+        end, 100)
+    end
 end
 
-map('n', '<c-b>', ':lua MiniFilesToggle()<cr>', { desc = "File Explorer", noremap = true, silent = true })
-map2({ 'i', 'v' }, '<c-b>', '<esc>:lua MiniFilesToggle()<cr>',
-    { desc = "File Explorer", noremap = true, silent = true })
-
-map2({ 'n', 'v', 'i' }, '<leader>o', ':Oil<cr><c-p>',
-    { desc = "Oil", noremap = true, silent = true })
+map2({ 'n', 'v', 'i' }, '<c-b>', '<esc>:lua OilToggle()<cr>', { desc = "Oil", noremap = true, silent = true })

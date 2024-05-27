@@ -4,9 +4,7 @@ vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 -- MGZ Theme Settings
 vim.g.mgz_disable_background = false     -- Disable the setting of background color so that NeoVim can use your terminal background (default false)
-vim.g.mgz_cursorline_transparent = false -- Set the cursorline transparent/visible (default false)
-vim.g.mgz_italic = false                 -- Whether to render in italics (default true)
-vim.g.mgz_uniform_diff_background = true -- Enables or disables colorful backgrounds when used in diff mode (default false)
+vim.g.mgz_italic = false                 -- Whether to render text in italics or not. Default is true.
 
 -- Material Theme Settings
 require('material').setup {

@@ -1,3 +1,4 @@
+-- Previews don't work in floating mode for some reason
 require('oil').setup({
     default_file_explorer = true,
     columns = {
@@ -9,13 +10,15 @@ require('oil').setup({
     keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
-        ["<C-s>"] = "actions.select_vsplit",
-        ["<C-h>"] = "actions.select_split",
-        ["<C-t>"] = "actions.select_tab",
-        ["<C-p>"] = "actions.preview",
+        ["<C-s>"] = "actions.select_vsplit", -- Default: <C-s>
+        ["<C-h>"] = "actions.select_split", -- Default: <C-h>
+        ["<C-t>"] = "actions.select_tab", -- Don't do this
+        ["<C-p>"] = "actions.preview", -- Default: <C-p>
         ["<C-c>"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
+        ["q"] = "actions.close",
+        ["<C-l>"] = "actions.refresh", -- Default: <C-l>
         ["-"] = "actions.parent",
+        ["<BS>"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",
         ["~"] = "actions.tcd",
