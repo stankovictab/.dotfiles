@@ -55,7 +55,7 @@ require('lspconfig').lua_ls.setup {
 }
 
 require('lspconfig').bashls.setup {}
-require('lspconfig').shellcheck.setup {}
+-- require('lspconfig').shellcheck.setup {}
 
 -- CSS LSP, just shows errors and has cmp completions, but no formatting, for that you need Prettier
 local capabilities = vim.lsp.protocol.make_client_capabilities()

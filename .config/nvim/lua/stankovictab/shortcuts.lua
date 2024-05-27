@@ -82,6 +82,7 @@ map('n', '<c-down>', ':resize -2<cr>', { desc = "Resize Down", noremap = true, s
 map('n', '<c-right>', ':vertical resize +2<cr>', { desc = "Resize to Right", noremap = true, silent = true })
 
 -- nvim >=0.10 has built-in commenting, so no need for a plugin
+-- FIXME: For some reason works only inside of zellij, and not in native wezterm???
 map2('n', '<c-_>', 'gcc', { desc = "Toggle Comment", remap = true })                           -- NOTE: remap = true (!)
 map2('v', '<c-_>', 'gc', { desc = "Toggle Comment", remap = true, silent = true })
 map2('i', '<c-_>', '<esc>gcca', { desc = "Toggle Line Comment", remap = true, silent = true }) -- This brings you back to the beginning of the line unfortunately
