@@ -45,5 +45,5 @@ vim.opt.whichwrap:append "h,l"    -- This is for h and l
 -- NeoVide Settings (GUI NeoVim) --
 
 if vim.g.neovide then
-    vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+    vim.o.guifont = "JetBrainsMono Nerd Font Mono:h12"
 end
