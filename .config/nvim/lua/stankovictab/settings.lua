@@ -3,6 +3,7 @@
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.g.loaded_netrw = 1       -- Disable netrw
 
+vim.opt.showmode = false -- LuaLine already shows the mode, this is for the print in the status line, it adds -- INSERT -- and clears the last msg
 vim.opt.number = true        -- Absolute line numbering
 vim.opt.mouse =
 'a'                          -- Enable mouse support - enables clicking, dragging puts you into visual mode, scroll is fixed - 'a' is for mouse support, 'r' disables it.

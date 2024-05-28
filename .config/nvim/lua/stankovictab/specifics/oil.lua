@@ -10,6 +10,7 @@ require('oil').setup({
     keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
+        ["l"] = "actions.select",
         ["<C-s>"] = "actions.select_vsplit", -- Default: <C-s>
         ["<C-h>"] = "actions.select_split",  -- Default: <C-h>
         ["<C-t>"] = "actions.select_tab",    -- Don't do this
@@ -17,8 +18,9 @@ require('oil').setup({
         ["<C-c>"] = "actions.close",
         ["q"] = "actions.close",
         ["<C-l>"] = "actions.refresh", -- Default: <C-l>
-        ["-"] = "actions.parent",
+        -- ["-"] = "actions.parent", -- Planning to use - as decrement
         ["<BS>"] = "actions.parent",
+        ["h"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",
         ["~"] = "actions.tcd",

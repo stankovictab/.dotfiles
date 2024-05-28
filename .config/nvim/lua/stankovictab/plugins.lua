@@ -163,8 +163,8 @@ local plugins = {
         config = function() require('stankovictab.specifics.nvim-cursorline') end
     },
     {
-        'petertriho/nvim-scrollbar', -- Scrollbar so that I don't get lost
-        config = function() require('stankovictab.specifics.nvim-scrollbar') end
+        "dstein64/nvim-scrollview",
+        config = function() require('stankovictab.specifics.nvim-scrollview') end
     },
     "rafamadriz/friendly-snippets", -- Snippet collection
     "L3MON4D3/LuaSnip",             -- LuaSnip snippet engine
