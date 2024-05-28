@@ -331,7 +331,7 @@ theme "mgz"
 // Default: "default"
 // "compact" is very good, if you know the shortcuts
 //
-default_layout "compact"
+default_layout "mgz"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal

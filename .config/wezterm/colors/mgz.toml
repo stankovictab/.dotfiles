@@ -1,0 +1,88 @@
+# To see the changes instantly, save this file, then save wezterm.lua
+# The color names in the comments are what programs can fetch from the terminal emulator
+
+[colors]
+ansi = [
+    '#474747', # black 
+    '#F44336', # maroon
+    '#54A746', # green
+    '#FF9800', # olive
+    '#1BABFF', # navy
+    '#A86AFF', # purple
+    '#2ADEDE', # teal
+    '#FFFFFF', # silver
+]
+background = '#121212'
+brights = [
+    '#BBBBBB', # grey
+    '#FF6D59', # red
+    '#5FD24B', # lime
+    '#F4DA58', # yellow
+    '#8EDFFF', # blue
+    '#B66CFF', # fuchsia
+    '#78FFFF', # aqua
+    '#FFFFFF', # white
+]
+
+# TODO: Haven't touched the rest down here, the colors are from Dracula
+
+compose_cursor = '#ffb86c'
+cursor_bg = '#f8f8f2'
+cursor_border = '#f8f8f2'
+cursor_fg = '#282a36'
+foreground = '#f8f8f2'
+scrollbar_thumb = '#44475a'
+selection_bg = 'rgba(26.666668% 27.843138% 35.294117% 50%)'
+selection_fg = 'rgba(0% 0% 0% 0%)'
+split = '#6272a4'
+
+[colors.indexed]
+
+[colors.tab_bar]
+background = '#282a36'
+
+[colors.tab_bar.active_tab]
+bg_color = '#bd93f9'
+fg_color = '#282a36'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab]
+bg_color = '#282a36'
+fg_color = '#f8f8f2'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = '#6272a4'
+fg_color = '#f8f8f2'
+intensity = 'Normal'
+italic = true
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab]
+bg_color = '#282a36'
+fg_color = '#f8f8f2'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab_hover]
+bg_color = '#ff79c6'
+fg_color = '#f8f8f2'
+intensity = 'Normal'
+italic = true
+strikethrough = false
+underline = 'None'
+
+[metadata]
+aliases = []
+author = 'stankovictab'
+name = 'mgz'
+origin_url = 'https://github.com/stankovictab/.dotfiles'
