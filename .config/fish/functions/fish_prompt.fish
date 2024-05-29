@@ -62,6 +62,24 @@ function _git_ahead_count -a branch_name
 	  grep '^commit' | wc -l | tr -d ' ')
 end
 
+function __git_cherry_pick_prompt
+    # Get the git status message
+    set status_message (git status 2>&1)
+    
+    # Split the status message into lines
+    set status_lines (echo $status_message | string split \n)
+    
+    # Check if we are in a git repository by examining the second line
+    if test (echo $status_lines[2] | string split ' ' | head -n 1) != "Stopping"
+        # Check if we are cherry-picking
+        if string match -q "*You are currently cherry-picking commit*" $status_message
+            set -l git_cherry_pick_color (set_color -o red)
+            printf "$git_cherry_pick_color (🍒 cherry-pick)"
+            # NOTE: If you want to, you can expand this function to include the current commit hash of the cherry-pick
+        end
+    end
+end
+
 function fish_prompt
     if [ (_git_branch_name) ] # If in a git repo
         set -l git_branch_name (_git_branch_name)
@@ -103,7 +121,6 @@ function fish_prompt
     printf '%s' (prompt_pwd)
     set_color normal
     printf $git_info
-    set_color normal
 
     # NOTE: Uncomment to bring back k8s status to fish (it's in zellij now)
     #if command -v kubectl >/dev/null
@@ -123,6 +140,9 @@ function fish_prompt
     #    printf " "
     #    set_color normal
     #end
+
+    __git_cherry_pick_prompt
+    set_color normal
 
     echo
     # tput colors check is to see if we're in a color terminal or tty
