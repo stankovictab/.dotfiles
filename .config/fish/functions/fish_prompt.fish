@@ -105,23 +105,24 @@ function fish_prompt
     printf $git_info
     set_color normal
 
-    if command -v kubectl >/dev/null
-        set kube "󰠳"
-        # FIXME: Note that this will print out an ugly message if there is no context, and kubectl is installed, fix it
-        set kube_context (kubectl config current-context | awk -F'/' '{print $NF}')
-        if test -z "$kube_context"
-            set kube_context "Not Connected"
-        end
-        set kube "$kube $kube_context"
-        set_color $fish_kube_color_dark
-        printf " "
-        set_color $fish_kube_color_bright
-        printf "$kube"
-        set_color normal # Necessary, to reset the background
-        set_color $fish_kube_color_dark
-        printf " "
-        set_color normal
-    end
+    # NOTE: Uncomment to bring back k8s status to fish (it's in zellij now)
+    #if command -v kubectl >/dev/null
+    #    set kube "󰠳"
+    #    # FIXME: Note that this will print out an ugly message if there is no context, and kubectl is installed, fix it
+    #    set kube_context (kubectl config current-context | awk -F'/' '{print $NF}')
+    #    if test -z "$kube_context"
+    #        set kube_context "Not Connected"
+    #    end
+    #    set kube "$kube $kube_context"
+    #    set_color $fish_kube_color_dark
+    #    printf " "
+    #    set_color $fish_kube_color_bright
+    #    printf "$kube"
+    #    set_color normal # Necessary, to reset the background
+    #    set_color $fish_kube_color_dark
+    #    printf " "
+    #    set_color normal
+    #end
 
     echo
     # tput colors check is to see if we're in a color terminal or tty
