@@ -11,10 +11,11 @@ layout {
                     hide_frame_for_single_pane "false" // Pane frame toggle - Default: true
 
                         // Sections
-                        format_left   "{mode} #[fg=#89B4FA,bold]{session} {notifications}"
+                        // Also available is {session}, but I don't need it
+                        format_left   "{mode}#[fg=#89B4FA,bold]{notifications}{command_spotify}"
                         format_center "{tabs}"
                         // TODO: Add k8s cluster info here
-                        format_right  "#[fg=#333333]Help: Ctrl + x {datetime} #[fg=#89b4fa,bold]{swap_layout} "
+                        format_right  "#[fg=#333333]Ctrl + x {datetime} #[fg=#89b4fa,bold]{swap_layout} "
                         format_space  "" // Format of the space between sections, chars and fg color don't impact it seems
 
                         border_enabled  "false" // zjstatus border, needs a pane size of 2 to work (from up there)
@@ -22,20 +23,20 @@ layout {
                         border_format   "#[fg=#6C7086]{char}"
                         border_position "top"
 
-                        mode_normal        "#[fg=#000000,bg=#8edfff,bold] NORMAL "
-                        mode_locked        "#[fg=#000000,bg=#ff6d59,bold] LOCKED "
-                        mode_resize        "#[fg=#000000,bg=#b66cff,bold] RESIZE "
-                        mode_pane          "#[fg=#000000,bg=#2adede,bold] PANE "
-                        mode_rename_pane   "#[fg=#000000,bg=#0fffff,bold] PANE RENAME "
-                        mode_tab           "#[fg=#000000,bg=#5fd24b,bold] TAB "
-                        mode_rename_tab    "#[fg=#000000,bg=#5ff22b,bold] TAB RENAME "
-                        mode_scroll        "#[fg=#000000,bg=#f4da58,bold] SCROLL "
-                        mode_enter_search  "#[fg=#000000,bg=#ff9800,bold] SCROLL SEARCH "
-                        mode_search        "#[fg=#000000,bg=#cf7800,bold] SEARCH RESULTS "
-                        mode_session       "#[fg=#000000,bg=#54a746,bold] SESSION "
-                        mode_move          "#[fg=#000000,bg=#ffc387,bold] MOVE "
-                        mode_prompt        "#[fg=#000000,bg=#bd93f9,bold] PROMPT "
-                        mode_tmux          "#[fg=#000000,bg=#ffffff,bold] TMUX " // Not using this
+                        mode_normal        "#[fg=#000000,bg=#8edfff,bold] NORMAL #[fg=#83dfff]"
+                        mode_locked        "#[fg=#000000,bg=#ff6d59,bold] LOCKED #[fg=#ff6d59]"
+                        mode_resize        "#[fg=#000000,bg=#b66cff,bold] RESIZE #[fg=#b66cff]"
+                        mode_pane          "#[fg=#000000,bg=#2adede,bold] PANE #[fg=#2adede]"
+                        mode_rename_pane   "#[fg=#000000,bg=#0fffff,bold] PANE RENAME #[fg=#0fffff]"
+                        mode_tab           "#[fg=#000000,bg=#5fd24b,bold] TAB #[fg=#5fd24b]"
+                        mode_rename_tab    "#[fg=#000000,bg=#5ff22b,bold] TAB RENAME #[fg=#5ff22b]"
+                        mode_scroll        "#[fg=#000000,bg=#f4da58,bold] SCROLL #[fg=#f4da58]"
+                        mode_enter_search  "#[fg=#000000,bg=#ff9800,bold] SCROLL SEARCH #[fg=#ff9800]"
+                        mode_search        "#[fg=#000000,bg=#cf7800,bold] SEARCH RESULTS #[fg=#cf7800]"
+                        mode_session       "#[fg=#000000,bg=#54a746,bold] SESSION #[fg=#54a746]"
+                        mode_move          "#[fg=#000000,bg=#ffc387,bold] MOVE #[fg=#ffc387]"
+                        mode_prompt        "#[fg=#000000,bg=#bd93f9,bold] PROMPT #[fg=#bd93f9]"
+                        mode_tmux          "#[fg=#000000,bg=#ffffff,bold] TMUX #[fg=#ffffff]" // Not using this
 
                         notification_format_unread           "#[fg=#89B4FA,blink]  #[fg=#8974ff] {message} "
                         notification_format_no_notifications "#[fg=#89B4FA,dim] "
@@ -45,8 +46,25 @@ layout {
                         tab_active   "#[fg=#90a0ff,bold,italic] {name} "
 
                         datetime        "#[fg=#6C7086,bold]{format}"
-                        datetime_format "%A, %d %b %Y %H:%M"
+                        datetime_format "%a %d %b %H:%M"
                         datetime_timezone "Europe/Berlin"
+
+                        // NOTE: You need playerctl installed for this to work
+                        // FIX: If zjstatus suddenly disappears, it's because of not enough space - so either expand the window, zoom out, or turn down the cutoff for Spotify in the script
+                        command_spotify_command  "bash -c \"~/scripts/spotify-status.sh\""
+                        command_spotify_format   "#[fg=#34ad6d,italic,bold]{stdout}" // Available are {exit_code}, {stdout}, {stderr}
+                        command_spotify_interval "4" // Interval in seconds, between two command runs
+                        // render mode of the command. ["static", "dynamic", "raw"]
+                        //
+                        // "static"  :: format the command with the given format from the config and don't
+                        //              consider any other formatting directives
+                        // "dynamic" :: format the command based on the command output. When the command
+                        //              output contains formatting strings for zjstatus, zjstatus will
+                        //              try to render them. This might lead to unexpected behavior, in case
+                        //              the formatting is not correct.
+                        // "raw"     :: do not apply any formatting. This can be used to properly render
+                        //              ansi escape sequences from the command output.
+                        command_spotify_rendermode "static"
                 }
             }
     }
