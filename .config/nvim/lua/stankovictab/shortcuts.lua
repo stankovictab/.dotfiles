@@ -1,16 +1,20 @@
--- TODO: Use up :ZellijRenamePane and :ZellijRenameTab somehow?
--- NOTE: Free keys are: ` (' already shows marks), @ (" already shows registers),
+-- NOTE: Here are the free keys you can use :
+-- ` (' already shows marks) - you should map ' to be ` as ` is more useful as it jumps to exact position, rather than line
 -- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut),
--- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones, see what you can come up with
--- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
+-- F, ,, e, E, b, B, t & T are all available to rebind, as I don't use them, I just use w, W and f
 -- What to do with Caps Lock?
 -- Tab + Tab + keys is also a possibility
--- e, E, b, B, t & T are all available to rebind, as I don't use them, I just use w, W, f and F
+-- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
+-- And many more with Tab (<leader>), Alt (Meta, <M>), Ctrl and Shift are available - see :map or :WhichKey for already used ones
 
 vim.g.mapleader = '	' -- Setting the leader key to Tab instead of the default \
 
 local map = vim.api.nvim_set_keymap
 local map2 = vim.keymap.set -- TODO: What is this? A newer better map set? Seems so, fixed some of my issues.
+
+-- NOTE: q and @ are used for macros, if you feel like you need them, disable this
+map('n', 'q', '<esc>:lua print("I like ESC better!")<cr>', { desc = "Disable q" })
+map('n', '@', '<esc>:lua print("I like ESC better!")<cr>', { desc = "Disable q" })
 
 -- TODO: :source % is the old way, and that just reloads the config (sources) from the file (buffer) you're currently in, so it won't work in the wild.
 -- In order to reload the whole config this way, you'd need to do :source ~/.config/nvim/init.lua, and then also the rest of the files, and that makes no sense.
@@ -248,12 +252,10 @@ end
 map('n', 'gx', ':lua FuckOuttaHere()<cr>', { desc = "Open File or URL with System App", noremap = true, silent = true })
 
 -- This requires , to be unbound from flash's config, and to use <cmd> instead of : for some reason
-map('n', ',', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
+map('n', 'f', '<cmd>lua require("flash").jump()<cr>', { desc = "Flash Jump" })
 
 map('n', '<leader>t', '<cmd>TSToggle highlight<cr>:lua print("TreeSitter Toggled!")<cr>',
     { desc = "Toggle TS Highlight" })
-
-map('n', 'q', '<esc>:lua print("I like ESC better!")<cr>', { desc = "Disable q" })
 
 function ClearRegisters()
     -- Sets the contents of every register named here to empty

@@ -244,12 +244,21 @@ local plugins = {
                 ["<leader>v"] = { name = "Visual Multi (Multi-Cursor)" },
                 ["s"] = { name = "Surround" },
                 ["g"] = { name = "Go" },
-                ["z"] = { name = "Folds" },
                 ["["] = { name = "Jump To Previous" },
                 ["]"] = { name = "Jump To Next" },
                 [";"] = { name = "Bonus" },
+                ["z"] = { name = "Folds" },
+                -- ["zE"] = { name = "Delete All Folds" }
                 -- You can also add things like <leader>gs
             })
+
+            -- WhichKey sometimes doesn't have some entries, even though they exist in Vim, so I add them here
+            require("which-key").register({
+                z = {
+                    ["E"] = "Delete All Folds",
+                    ["d"] = "Delete Fold Under Cursor",
+                },
+            }, {})
         end,
     },
     {
@@ -273,7 +282,7 @@ local plugins = {
                     enabled = false, -- Disabled flash on / as it messes up with my workflow, and I have , which works great
                 },
                 char = {
-                    keys = { "f", "F" } -- Removed t, T, ; and , as I need ; for WhichKey, , for .jump(), and t and T for other things
+                    keys = {} -- Removed f, F, t, T, ; and , as I need ; for WhichKey, , for .jump(), and t and T for other things
                 }
             }
         }
