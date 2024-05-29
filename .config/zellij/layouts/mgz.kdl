@@ -5,16 +5,19 @@
 layout {
     default_tab_template {
         children
+            // As zjstatus is itself a pane, it can have a height (size) and border
             pane size=1 borderless=true {
                 plugin location="file:~/.config/zellij/zjstatus.wasm" {
-                    hide_frame_for_single_pane "false" // Default: true
+                    hide_frame_for_single_pane "false" // Pane frame toggle - Default: true
 
+                        // Sections
                         format_left   "{mode} #[fg=#89B4FA,bold]{session} {}"
                         format_center "{tabs}"
-                        format_right  "Help: Ctrl + x - {datetime}"
-                        format_space  ""
+                        // TODO: Add k8s cluster info here
+                        format_right  "#[fg=#333333]Help: Ctrl + x {datetime} #[fg=#89b4fa,bold]{swap_layout} "
+                        format_space  "" // Format of the space between sections, chars and fg color don't impact it seems
 
-                        border_enabled  "false"
+                        border_enabled  "false" // zjstatus border, needs a pane size of 2 to work (from up there)
                         border_char     "─"
                         border_format   "#[fg=#6C7086]{char}"
                         border_position "top"
@@ -35,12 +38,50 @@ layout {
                         mode_tmux          "#[fg=#000000,bg=#ffffff,bold] {name} " // Not using this
 
                         tab_normal   "#[fg=#6C7086] {name} "
-                        tab_active   "#[fg=#9399B2,bold,italic] {name} "
+                        tab_active   "#[fg=#90a0ff,bold,italic] {name} "
 
-                        datetime        "#[fg=#6C7086,bold] {format} "
+                        datetime        "#[fg=#6C7086,bold]{format}"
                         datetime_format "%A, %d %b %Y %H:%M"
                         datetime_timezone "Europe/Berlin"
                 }
             }
+    }
+
+    // Swap layouts need to be configured here, as they're independant of the default zellij layouts
+
+    swap_tiled_layout name="BEST" {
+        tab {
+            pane split_direction="vertical" {
+                pane split_direction="horizontal" {
+                    pane
+                }
+                pane split_direction="horizontal" { 
+                    pane
+                    pane
+                }
+            }
+        }
+    }
+
+    swap_tiled_layout name="VERTICAL" {
+        tab max_panes=5 {
+            pane split_direction="vertical" {
+                pane
+                    pane { children; }
+            }
+        }
+        tab max_panes=8 {
+            pane split_direction="vertical" {
+                pane { children; }
+                pane { pane; pane; pane; pane; }
+            }
+        }
+        tab max_panes=12 {
+            pane split_direction="vertical" {
+                pane { children; }
+                pane { pane; pane; pane; pane; }
+                pane { pane; pane; pane; pane; }
+            }
+        }
     }
 }
