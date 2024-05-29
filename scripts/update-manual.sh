@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This is my script for installing and updating vital packages on any Linux distro. 
+# This is my script for installing and updating vital packages on *ANY* Linux distro. 
 # Usually this happens when devs publish releases on GitHub and don't update distro repositories.
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic. 
 
@@ -18,6 +18,14 @@ wget "https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_6
 tar -xzvf zellij-x86_64-unknown-linux-musl.tar.gz
 sudo mv zellij /usr/bin/
 rm zellij-x86_64-unknown-linux-musl.tar.gz
+
+# Installing / updating LazyGit
+
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+rm lazygit*
 
 # Installing / updating LazyDocker
 
