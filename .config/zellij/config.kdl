@@ -1,3 +1,5 @@
+// See the actions - https://zellij.dev/documentation/keybindings-possible-actions.html
+
 keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -206,6 +208,7 @@ keybinds clear-defaults=true {
                 "New Pane to Right" "Ctrl + p + r"
                 "Close Pane" "Ctrl + p + x (or Ctrl + d)"
                 "Fullscreen" "Ctrl + p + f"
+                "Toggle Pane Frames" "Ctrl + p + z"
                 "Floating" "Ctrl + p + w"
                 "Embed" "Ctrl + p + e"
                 "Rename Tab" "Ctrl + t + r"
@@ -272,7 +275,7 @@ themes {
 		bg "#333333" // Highlighted of selected text in shell, and in session manager, the background of the highlighted session
 		fg "#ffffff" // Mode tabs background
 		red "#9560f0" // Mode tab primary keys foreground
-		green "#58f5ab" // Selected tab and layout background, active pane frame and keybind second part, most present color
+		green "#90a0ff" // Selected tab and layout background, active pane frame and keybind second part, most present color
 		yellow "#ff00ff" // ???
 		blue "#ffff00" // ???
 		magenta "#00ff00" // ???
