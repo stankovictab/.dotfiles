@@ -11,7 +11,7 @@ layout {
                     hide_frame_for_single_pane "false" // Pane frame toggle - Default: true
 
                         // Sections
-                        format_left   "{mode} #[fg=#89B4FA,bold]{session} {}"
+                        format_left   "{mode} #[fg=#89B4FA,bold]{session} {notifications}"
                         format_center "{tabs}"
                         // TODO: Add k8s cluster info here
                         format_right  "#[fg=#333333]Help: Ctrl + x {datetime} #[fg=#89b4fa,bold]{swap_layout} "
@@ -22,20 +22,24 @@ layout {
                         border_format   "#[fg=#6C7086]{char}"
                         border_position "top"
 
-                        mode_normal        "#[fg=#000000,bg=#8edfff,bold] {name} "
-                        mode_locked        "#[fg=#000000,bg=#ff6d59,bold] {name} "
-                        mode_resize        "#[fg=#000000,bg=#b66cff,bold] {name} "
-                        mode_pane          "#[fg=#000000,bg=#2adede,bold] {name} "
-                        mode_rename_pane   "#[fg=#000000,bg=#0fffff,bold] {name} "
-                        mode_tab           "#[fg=#000000,bg=#5fd24b,bold] {name} "
-                        mode_rename_tab    "#[fg=#000000,bg=#5ff22b,bold] {name} "
-                        mode_scroll        "#[fg=#000000,bg=#f4da58,bold] {name} "
-                        mode_enter_search  "#[fg=#000000,bg=#ff9800,bold] {name} "
-                        mode_search        "#[fg=#000000,bg=#cf7800,bold] {name} "
-                        mode_session       "#[fg=#000000,bg=#54a746,bold] {name} "
-                        mode_move          "#[fg=#000000,bg=#ffc387,bold] {name} "
-                        mode_prompt        "#[fg=#000000,bg=#bd93f9,bold] {name} "
-                        mode_tmux          "#[fg=#000000,bg=#ffffff,bold] {name} " // Not using this
+                        mode_normal        "#[fg=#000000,bg=#8edfff,bold] NORMAL "
+                        mode_locked        "#[fg=#000000,bg=#ff6d59,bold] LOCKED "
+                        mode_resize        "#[fg=#000000,bg=#b66cff,bold] RESIZE "
+                        mode_pane          "#[fg=#000000,bg=#2adede,bold] PANE "
+                        mode_rename_pane   "#[fg=#000000,bg=#0fffff,bold] PANE RENAME "
+                        mode_tab           "#[fg=#000000,bg=#5fd24b,bold] TAB "
+                        mode_rename_tab    "#[fg=#000000,bg=#5ff22b,bold] TAB RENAME "
+                        mode_scroll        "#[fg=#000000,bg=#f4da58,bold] SCROLL "
+                        mode_enter_search  "#[fg=#000000,bg=#ff9800,bold] SCROLL SEARCH "
+                        mode_search        "#[fg=#000000,bg=#cf7800,bold] SEARCH RESULTS "
+                        mode_session       "#[fg=#000000,bg=#54a746,bold] SESSION "
+                        mode_move          "#[fg=#000000,bg=#ffc387,bold] MOVE "
+                        mode_prompt        "#[fg=#000000,bg=#bd93f9,bold] PROMPT "
+                        mode_tmux          "#[fg=#000000,bg=#ffffff,bold] TMUX " // Not using this
+
+                        notification_format_unread           "#[fg=#89B4FA,blink]  #[fg=#8974ff] {message} "
+                        notification_format_no_notifications "#[fg=#89B4FA,dim] "
+                        notification_show_interval           "10"
 
                         tab_normal   "#[fg=#6C7086] {name} "
                         tab_active   "#[fg=#90a0ff,bold,italic] {name} "
@@ -49,7 +53,7 @@ layout {
 
     // Swap layouts need to be configured here, as they're independant of the default zellij layouts
 
-    swap_tiled_layout name="BEST" {
+    swap_tiled_layout name="IDFK" {
         tab {
             pane split_direction="vertical" {
                 pane split_direction="horizontal" {
@@ -57,7 +61,7 @@ layout {
                 }
                 pane split_direction="horizontal" { 
                     pane
-                    pane
+                        pane
                 }
             }
         }
