@@ -15,7 +15,7 @@ layout {
                         format_left   "{mode}#[fg=#89B4FA,bold]{notifications}{command_spotify}"
                         format_center "{tabs}"
                         // TODO: Add k8s cluster info here
-                        format_right  "#[fg=#333333]Ctrl + x {datetime} #[fg=#89b4fa,bold]{swap_layout} "
+                        format_right  "#[fg=#333333]Ctrl + x #[fg=#281641,bold]{command_k8s}#[fg=#281641,bold] {datetime} #[fg=#89b4fa,bold]{swap_layout} "
                         format_space  "" // Format of the space between sections, chars and fg color don't impact it seems
 
                         border_enabled  "false" // zjstatus border, needs a pane size of 2 to work (from up there)
@@ -52,19 +52,14 @@ layout {
                         // NOTE: You need playerctl installed for this to work
                         // FIX: If zjstatus suddenly disappears, it's because of not enough space - so either expand the window, zoom out, or turn down the cutoff for Spotify in the script
                         command_spotify_command  "bash -c \"~/scripts/spotify-status.sh\""
-                        command_spotify_format   "#[fg=#34ad6d,italic,bold]{stdout}" // Available are {exit_code}, {stdout}, {stderr}
+                        command_spotify_format   "#[fg=#34ad6d,italic,bold]{stdout}" // Available are {exit_code}, {stdout}, {stderr}. Also, can support only one #[] it seems?
                         command_spotify_interval "4" // Interval in seconds, between two command runs
-                        // render mode of the command. ["static", "dynamic", "raw"]
-                        //
-                        // "static"  :: format the command with the given format from the config and don't
-                        //              consider any other formatting directives
-                        // "dynamic" :: format the command based on the command output. When the command
-                        //              output contains formatting strings for zjstatus, zjstatus will
-                        //              try to render them. This might lead to unexpected behavior, in case
-                        //              the formatting is not correct.
-                        // "raw"     :: do not apply any formatting. This can be used to properly render
-                        //              ansi escape sequences from the command output.
-                        command_spotify_rendermode "static"
+                        command_spotify_rendermode "static" // See the docs about this, just set static
+
+                        command_k8s_command "bash -c \"~/scripts/k8s-status.sh\""
+                        command_k8s_format "#[fg=#a25dfc,bg=#281641]󰠳 {stdout}"
+                        command_k8s_interval "7"
+                        command_k8s_rendermode "static"
                 }
             }
     }

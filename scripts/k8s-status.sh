@@ -16,7 +16,3 @@ if command -v kubectl &> /dev/null; then
 else
     echo "no kube"
 fi
-
-
-
-
