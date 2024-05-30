@@ -2,6 +2,7 @@
 -- ` (' already shows marks) - you should map ' to be ` as ` is more useful as it jumps to exact position, rather than line
 -- ~ (used to toggle case of selection (cASE to Case), I'm not using that shit and it's a good shortcut),
 -- F, ,, e, E, b, B, t & T are all available to rebind, as I don't use them, I just use w, W and f
+-- # is free as it's the same as *N
 -- What to do with Caps Lock?
 -- Tab + Tab + keys is also a possibility
 -- Enter, Backspace, and those in combinations with Ctrl, Alt, Shift
@@ -25,9 +26,10 @@ map('n', '<leader>rc', ':source %<cr> :lua print("Config Reloaded! 🚀")<cr>',
     { desc = "Reload Config", noremap = true, silent = true })
 map('n', '<leader>rf', ':e<cr>', { desc = "Reload File", noremap = true, silent = true })
 
--- Telescope is configured in a seperate file, because of that config find_files and live_grep search hidden files
-map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.config/nvim/"})<cr>',
-    { desc = "Find Config Files", noremap = true, silent = true }) -- Opening the config file directory, better than using :e, because this doesn't put you into that working directory
+-- Telescope is configured in a seperate file, and in there find_files and live_grep are configured to search hidden files
+-- Opening the config file directory, making sure it's in .dotfiles for lualine to print the branch
+map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.dotfiles/.config/nvim/"})<cr>',
+    { desc = "Find Config Files", noremap = true, silent = true })
 map('n', '<leader>f', ':Telescope find_files<cr>', { desc = "File Browser", noremap = true, silent = true })
 map('n', '<leader>gr', ':Telescope live_grep<cr>',
     { desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
