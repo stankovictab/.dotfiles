@@ -445,14 +445,19 @@ Hold Shift when over a message to have more options.
 
 Just use `?` and `/` to search for the thing you need.\
 Know that shortcuts are panel-based.\
-For more info, see the LazyGit Notion page. 
+For more info, see the LazyGit Notion page.
+
+Notable shortcuts :\
+`+` - Zoom into the current pane, useful for diffs\
+`@` - Command log options
 
 ## Qimgv Custom Shortcuts
 
 `a` - AVIF Convert CRF 19\
 `d` - Upscale\
-`s` - AVIF Convert CRF 27\
-TODO: Add a script to convert with WEBp.
+`s` - AVIF Convert CRF 27
+
+**TODO** - Add a script to convert with WEBp.
 
 ## MusikCube
 
