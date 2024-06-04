@@ -10,10 +10,6 @@ Clone this repo into `~/.dotfiles`, and make symlinks to the configs with `./syn
 
 The point of this is to make sure all of the shortcuts that I use (both default and custom) are consistent across the environments, to avoid confusion.
 
-## Miscellaneous Shortcuts
-
-`RightShift + F12` - Toggle MangoHUD on a MangoHUD-attached game
-
 ## Universal Shell Shortcuts
 
 `Ctrl + d` - Kill shell (but not when a process is running)\
@@ -177,7 +173,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 `:cd` - Change working directory for NeoVim and NvimTree\
 `:e` - Edit another file
 
-### NvimTree - File Browser in the Sidebar
+### NvimTree (DEPRICATED FROM CONFIG)
 
 `Ctrl + b` - Toggle file browser\
 `a` - New file or folder. If you want to make a folder, add a / at the end\
@@ -285,8 +281,8 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 `Ctrl + PgUp/PgDn` - Switch between tabs\
 `Ctrl + Shift + PgUp/PgDn` - Move tabs around
 
-`Ctrl + Tab` - Cycle recently used tabs\
-`Ctrl + Shift + Tab` - Cycle recently used tabs in reverse order
+`Ctrl + q` - Cycle recently used tabs (`Ctrl` + `Tab` by default)\
+`Ctrl + Shift + q` - Cycle recently used tabs in reverse order (`Ctrl` + `Shift` + `Tab` by default)
 
 `Ctrl + t` - New tab\
 `Ctrl + w` - Close tab\
@@ -296,40 +292,30 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 
 ### Vimium Extension
 
-NOTE: This is copied over from the Notion page. 
+`?` - List of shortcuts
 
-`?` is the list of all shortcuts. 
+`i` - Insert Mode, or "Ignore Mode", as it ignores Vimium shortcuts and allows native site navigation\
+`v` - Visual Mode\
+`c` - Caret Mode when in Visual Mode, to move the cursor\
+`Esc` - Leave Mode
 
-`i` is for Insert Mode, which allows you to work on the website as you normally would 
-(so it’s ignore mode more than insert mode). 
-`Esc` goes out of it. 
+`h/j/k/l`, `d`, `u`, `gg`, `G` - Work how you’d expect
 
-`j`, `k`, `d`, `u`, `gg`, `G` work how you’d expect. And they work really, really well.
+`r` - Reload the page\
+`/`, `n`, `N` - Search, working as expected
 
-`r` reloads the page.
-`/` is search, `n` and `N` work after you press `Enter` to search. 
-`yy` copies the URL.
-`H` goes backward, `L` goes forward. 
+`yy` - Copy the URL
 
-`f` opens the selected link in the current tab, `F` in a new one. 
-Another way you can look at this is that `f` is a click, and `F` is a middle click. 
-`Esc` closes those options.
+`f`, `F` - Opens anchor in the current/new tab (click and middle click)\
+`o`, `O` - Browser search (web search, tabs, bookmarks, history) and open in current/new tab
 
-`o` is browser search, `O` is the same, just in a new tab. 
-This means you can search the web with your default search engine, 
-you can search opened tabs, bookmarks, history, etc. 
+`J`, `K` - Go to tab left/right (`Ctrl` + `PageUp`/`PageDown`)\
+`H`, `L` - Go back/forward\
+`^` - Jump to last used tab (like doing `Ctrl` + `q` in Vivaldi)
 
-`J` goes one tab left (`Ctrl` + `PageUp`). 
-`K` goes one tab right (`Ctrl` + `PageDown`). 
-
-`x` closes the tab (`Ctrl` + `w`), `t` opens a new one (`Ctrl` + `t`), `T` searches through tabs.
-(So `T` is like if `o` was filtered only for tabs.)
-
-`^` goes to the last used tab (like doing `Ctrl` + `Tab` in Vivaldi), very useful. 
-
-`v` is visual mode, works as you’d expect. 
-`c` when you’re in visual mode throws you into caret mode, where you can move through the text and select what you want with only the keyboard. 
-You can use this in combination with `/` to quickly yank whatever text you need.
+`x` - Close tab (`Ctrl` + `w`)\
+`t` - New tab (`Ctrl` + `t`)\
+`T` - Search tabs (`T` is like if `o` was filtered only for tabs)
 
 ## KDE
 
@@ -355,7 +341,7 @@ You can use this in combination with `/` to quickly yank whatever text you need.
 `Ctrl + F{Number}` - Go to virtual desktop {Number}\
 `Ctrl + Alt + Esc` - Run `xkill` to kill a process with a window
 
-## Spectacle
+### Spectacle
 
 `Shift + PrtScr` - Capture Current Monitor\
 `Ctrl + Shift + PrtScr` - Capture Window Under Cursor\
@@ -363,7 +349,7 @@ You can use this in combination with `/` to quickly yank whatever text you need.
 `PrtScr` - Capture Rectangluar Region\
 To pin, export the rectangular region to qimgv and pin that window.
 
-## Dolphin
+### Dolphin
 
 `F2` - Rename\
 `F4` - Open terminal inside of Dolphin\
@@ -376,7 +362,7 @@ To pin, export the rectangular region to qimgv and pin that window.
 `Ctrl + w` - Close tab\
 `Ctrl + h` - Show hidden files (the ones starting with .)
 
-## Konsole
+### Konsole
 
 `Shift + ArrowUp/ArrowDown` - Move up or down\
 `Shift + PgUp/PgDown` - Move up or down, but faster!\
@@ -410,15 +396,6 @@ Hold Shift when over a message to have more options.
 `Ctrl + Shift + M` - Mute\
 `Ctrl + Shift + D` - Deafen
 
-## Notion
-
-`Ctrl + p` - Global search\
-`Ctrl + \` - Sidebar\
-`Ctrl + Shift + Up/Down` - Move block up/down\
-`Ctrl + e` - Code\
-`Ctrl + Shift + e` - Inline equation\
-`Ctrl + Shift + h` - Color text
-
 ## Qtile
 
 `Meta + h/j/k/l` - Move between windows\
@@ -451,7 +428,7 @@ Notable shortcuts :\
 `+` - Zoom into the current pane, useful for diffs\
 `@` - Command log options
 
-## Qimgv Custom Shortcuts
+## `qimgv` Custom Shortcuts
 
 `a` - AVIF Convert CRF 19\
 `d` - Upscale\
@@ -477,3 +454,21 @@ Alias set to `music`.
 `Ctrl + r` - Rescan library\
 `?` - Shortcuts\
 `Ctrl + d` - Quit
+
+## MangoHUD
+
+`RightShift + F12` - Toggle MangoHUD in a MangoHUD-attached game\
+`F10` - Toggle FPS limit in a MangoHUD-attached game
+
+## Notion
+
+`Ctrl + p` - Global search\
+`Ctrl + \` - Sidebar\
+`Ctrl + Shift + Up/Down` - Move block up/down\
+`Ctrl + e` - Inline code\
+`Ctrl + Shift + e` - Inline equation\
+`Ctrl + Shift + h` - Color text
+
+## Obsidian
+
+`Ctrl + ,` - Settings

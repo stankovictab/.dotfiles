@@ -69,7 +69,7 @@ alias p='ipython3 --no-banner --no-confirm-exit'
 alias switchjava='sudo update-alternatives --config java'
 alias switchjavac='sudo update-alternatives --config javac'
 alias ports='sudo lsof -i -P -n | grep LISTEN'
-alias dotdesktops='echo "/usr/share/applications/ <-- Most of the stuff"\n"~/.local/share/applications <-- Mainly Proton and Wine"\n"/var/lib/flatpak/exports/share/applications/ <-- For Flatpaks"\n\n"You can run `sudo update-desktop-database` to update the dotdesktop list of your DE."\n"Make sure that the app and icons are available, if something isn\'t correctly set, the dotdesktop won\'t update."'
+alias dotdesktops='echo "/usr/share/applications/ <-- Most of the stuff"\n"~/.local/share/applications <-- Gear Lever, Proton and Wine"\n"/var/lib/flatpak/exports/share/applications/ <-- For Flatpaks"\n\n"You can run `sudo update-desktop-database` to update the dotdesktop list of your DE."\n"Make sure that the app and icons are available, if something isn\'t correctly set, the dotdesktop won\'t update."'
 alias fd='fd -H'
 alias fdfind='fdfind -H'
 alias rg='rg --no-ignore --hidden' # Includes hidden and git-ignored files
@@ -95,7 +95,7 @@ alias vesktop='flatpak run dev.vencord.Vesktop --disable-gpu'
 alias jellyfin-start='bash ~/scripts/jellyfin-start.sh'
 alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
 
-alias neovide='~/AppImages/gearlever_neovide*'
+alias neovide='neovide.appimage'
 
 ### Abbreviations
 # These are like aliases, but with a little improvement 
@@ -158,6 +158,7 @@ fish_add_path ~/binaries/
 fish_add_path ~/.cargo/bin/ # Rust binaries
 fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables, like aichat-cli
+fish_add_path ~/AppImages/ # Gear Lever allows for CLI execution of AppImages
 
 ### Work specific abbrs
 
