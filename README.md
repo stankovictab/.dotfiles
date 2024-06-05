@@ -471,4 +471,35 @@ Alias set to `music`.
 
 ## Obsidian
 
-`Ctrl + ,` - Settings
+You can always open the keybinds menu and filter by assigned to see all of them.
+
+`Ctrl + ,` - Settings\
+`Ctrl + Shift + i` - Developer tools\
+`Ctrl + r` - Reload Obsidian
+
+`Ctrl` + `+/-/0` - Zoom UI in/out/reset\
+`Ctrl` + `Scroll` - Zoom font
+
+`Ctrl + p` - Quick switcher (file browser)\
+`Ctrl + Shift + p` - Command palette\
+`Ctrl + e` - Reading mode\
+`Ctrl + Hover` - Link preview\
+`Ctrl + ;` - Add property to file
+
+`Alt + Enter` - Open link under cursor in the current tab (if unpinned)\
+`Ctrl + Enter` - Open link under cursor in a new tab\
+`Ctrl + PgUp/PgDn` - Previous/next tab\
+`Ctrl + g` - Global graph view\
+`Ctrl + Shift + g` - Local graph view\
+`Ctrl + k` - Insert markdown link
+
+`Ctrl + f` - Search file\
+`Ctrl + h` - Search and replace in file\
+`Ctrl + Shift + f` - Search whole vault
+
+`Ctrl + Shift + Up/Down` - Move line up/down\
+`Ctrl + /` - Comment\
+`Ctrl + l` - Toggle checkbox status
+
+`Alt + Left` - Toggle left sidebar\
+`Alt + Right` - Toggle right sidebar

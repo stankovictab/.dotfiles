@@ -90,7 +90,7 @@ alias music='~/Apps/musikcube/musikcube'
 alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'
 alias sd='cd ~/Desktop/StableDiffusion/stable-diffusion-webui/ && bash webui.sh' # Needs to be a cd because if not, it'll clone the whole repo inside the already cloned repo and make a mess
-alias vesktop='flatpak run dev.vencord.Vesktop --disable-gpu'
+alias vesktop='setsid flatpak run dev.vencord.Vesktop --disable-gpu'
 
 alias jellyfin-start='bash ~/scripts/jellyfin-start.sh'
 alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
