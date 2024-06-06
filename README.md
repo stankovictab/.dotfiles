@@ -498,8 +498,14 @@ You can always open the keybinds menu and filter by assigned to see all of them.
 `Ctrl + Shift + f` - Search whole vault
 
 `Ctrl + Shift + Up/Down` - Move line up/down\
+`Ctrl + Up/Down` - Add multi-cursor up/down\
 `Ctrl + /` - Comment\
 `Ctrl + l` - Toggle checkbox status
 
 `Alt + Left` - Toggle left sidebar\
 `Alt + Right` - Toggle right sidebar
+
+`f` - Jump to link's flash jump\
+`Ctrl + '` - Jump to link's link open\
+`Ctrl + x` - Jump to link's regex search
+
