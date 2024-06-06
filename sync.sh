@@ -113,6 +113,8 @@ rm -rf ~/.config/MangoHud
 ln -sf ~/.dotfiles/.config/MangoHud ~/.config/MangoHud
 rm -rf ~/.config/musikcube
 ln -sf ~/.dotfiles/.config/musikcube ~/.config/musikcube
+rm -rf ~/.config/systemd
+ln -sf ~/.dotfiles/.config/systemd ~/.config/systemd
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
