@@ -494,7 +494,7 @@ You can always open the keybinds menu and filter by assigned to see all of them.
 `Ctrl + k` - Insert markdown link
 
 `Ctrl + f` - Search file\
-`Ctrl + h` - Search and replace in file\
+`Ctrl + Shift + r` - Search and replace in file\
 `Ctrl + Shift + f` - Search whole vault
 
 `Ctrl + Shift + Up/Down` - Move line up/down\
@@ -507,5 +507,9 @@ You can always open the keybinds menu and filter by assigned to see all of them.
 
 `f` - Jump to link's flash jump\
 `Ctrl + '` - Jump to link's link open\
-`Ctrl + x` - Jump to link's regex search
+`Ctrl + x` - Jump to link's regex search\
+`Ctrl + h` - Homepage
 
+`Ctrl + Num` - Wrapper - Foreground coloring\
+`Ctrl + Shift + Num` - Wrapper - Background coloring\
+`Alt + Num` - Wrapper - Special highlighting
