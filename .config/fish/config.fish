@@ -97,6 +97,9 @@ alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
 
 alias neovide='neovide.appimage'
 
+alias ai='ollama run codellama'
+alias askai='~/scripts/openrouter.sh'
+
 ### Abbreviations
 # These are like aliases, but with a little improvement 
 # where they're expanded in the shell so you know what the command actually is
@@ -128,8 +131,6 @@ abbr -a favif f -i in.png -c:v libaom-av1 -crf 24 -cpu-used 8 out-crf24cpu8.avif
 abbr -a fwebp f -i in.png -c:v libwebp -quality 88 -compression_level 6 out-q88cl6.webp
 abbr -a fjpg f -i in.png out.jpg
 
-abbr -a ai ollama run codellama
-
 abbr -a zj zellij
 abbr -a zjls zellij ls
 abbr -a zja zellij attach
@@ -157,7 +158,7 @@ fish_add_path ~/scripts/ # Use {scriptName}.sh in shell to execute scripts
 fish_add_path ~/binaries/
 fish_add_path ~/.cargo/bin/ # Rust binaries
 fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
-fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables, like aichat-cli
+fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables
 fish_add_path ~/AppImages/ # Gear Lever allows for CLI execution of AppImages
 
 ### Work specific abbrs
