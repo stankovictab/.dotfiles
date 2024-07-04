@@ -3,7 +3,8 @@
 # --- Script that queries OpenRouter API and prints out the response ---
 # It doesn't remember previous queries, obviously. 
 
-OPENROUTER_API_KEY=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
+# OPENROUTER_API_KEY is in this file
+source "/home/stankovictab/api-keys.sh"
 
 # NOTE: Here are some free models :
 # meta-llama/llama-3-8b-instruct:free
