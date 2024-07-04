@@ -11,6 +11,8 @@ sudo echo "Root check passed!"
 
 rm -rf ~/.tmux.conf
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf 
+rm -rf ~/.shellcheckrc
+ln -sf ~/.dotfiles/.shellcheckrc ~/.shellcheckrc
 
 # Folders
 # Every folder has `rm -rf` to avoid the infinite loop of symlinks bug
