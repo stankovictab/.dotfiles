@@ -4,9 +4,10 @@
 # Usually this happens when devs publish releases on GitHub and don't update distro repositories.
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic. 
 
+cd "/home/stankovictab/Downloads/" || exit
+
 # Installing / updating NeoVim
 
-cd ~
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
@@ -36,3 +37,12 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
 chmod +x gdu_linux_amd64
 sudo mv gdu_linux_amd64 /usr/bin/gdu
+
+# Installing / updating 1Password
+
+curl -sSO https://downloads.1password.com/linux/tar/stable/x86_64/1password-latest.tar.gz
+sudo tar -xf 1password-latest.tar.gz
+sudo mkdir -p /opt/1Password
+sudo mv 1password-*/* /opt/1Password
+sudo /opt/1Password/after-install.sh
+rm -rf 1password-*
