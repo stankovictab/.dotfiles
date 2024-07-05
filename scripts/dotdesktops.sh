@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Dotdesktops
-echo "/usr/share/applications/ <-- Most of the stuff"
-echo -e "$HOME/.local/share/applications <-- \033[0;34mYour own addons,\033[0m, Gear Lever, Proton and Wine"
+echo -e "$HOME/.local/share/applications <-- \033[0;34mYour own addons,\033[0m, Gear Lever, Proton and Wine. The sync.sh script puts dotdesktops in here."
+echo "/usr/share/applications/ <-- Most of the system app stuff."
 echo "/var/lib/flatpak/exports/share/applications/ <-- For Flatpaks"
 # Icons
 echo "/home/stankovictab/.local/share/icons/ <-- Icons from KDE icon packs" 

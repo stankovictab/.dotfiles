@@ -1,5 +1,6 @@
 # This script will sync up all dotfiles' symlinks
 # Linux distro agnostic
+# This script is meant to be able to be run at any time, it should be non-destructive
 
 # Check for root, as a failsafe
 sudo echo "Root check passed!"
@@ -126,3 +127,12 @@ ln -sf ~/.dotfiles/binaries ~/binaries
 # Fonts
 sudo cp -r ~/.dotfiles/fonts/* /usr/share/fonts/
 echo "🎉 Sync finished! 🎉"
+
+# Dotdesktops
+# They should go into ~/.local/share/applications/
+
+rm -rf ~/.local/share/applications/1Password.desktop
+ln -sf ~/.dotfiles/dotdesktops/1Password/1Password.desktop ~/.local/share/applications/1Password.desktop
+
+rm -rf ~/.local/share/applications/Vesktop.desktop
+ln -sf ~/.dotfiles/dotdesktops/Vesktop/Vesktop.desktop ~/.local/share/applications/Vesktop.desktop
