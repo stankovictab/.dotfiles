@@ -166,7 +166,7 @@ fish_add_path ~/AppImages/ # Gear Lever allows for CLI execution of AppImages
 abbr -a kube-dev aws eks update-kubeconfig --name develop-kube
 abbr -a kube-test aws eks update-kubeconfig --name test-kube
 abbr -a kube-stage aws eks update-kubeconfig --name stage-kube
-abbr -a kube-prod aws eks update-kubeconfig --name prod-kube
+abbr -a kube-prod aws eks update-kubeconfig --name production-kube
 abbr -a kube-penny aws eks update-kubeconfig --name penny-kube
 
 abbr -a k kubectl -n brame
