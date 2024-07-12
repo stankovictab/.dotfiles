@@ -2,7 +2,7 @@
 
 # This is my script for installing and updating vital packages on *ANY* Linux distro. 
 # Usually this happens when devs publish releases on GitHub and don't update distro repositories.
-# It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic. 
+# It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic (to remove or replace old installation). 
 
 cd "/home/stankovictab/Downloads/" || exit
 

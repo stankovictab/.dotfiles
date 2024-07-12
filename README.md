@@ -20,11 +20,11 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + Shift + c` - Copy selected text\
 `Ctrl + Shift + v`, `Ctrl + v`, `Shift + Insert` - Paste text
 
-### fish
+## fish
 
-`Ctrl + l` - Autocomplete line
+`Ctrl + l`, `RightArrow` - Autocomplete line
 
-## fzf-fish
+### fzf-fish
 
 `Ctrl + f` - Search files and folders\
 `Ctrl + Alt + l` - Seach git log for the repo you’re currently in\
@@ -34,6 +34,10 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Ctrl + Alt + p` - Search processes
 
 `Ctrl + v` - Paste text (as fish-fzf allows for this if Search Shell Variables is unbound)
+
+## 1Password
+
+`Ctrl + Shift + Space` - Quick Access
 
 ## Zellij
 
