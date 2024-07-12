@@ -46,3 +46,15 @@ sudo mkdir -p /opt/1Password
 sudo mv 1password-*/* /opt/1Password
 sudo /opt/1Password/after-install.sh
 rm -rf 1password-*
+
+# Installing / updating 1Password CLI
+
+# NOTE: THEY LOCK THE VERSION HERE, NO LATEST RELEASE URL
+# SEE THE DOCS FOR NEWER RELEASES
+wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.29.0/op_linux_amd64_v2.29.0.zip" -O op.zip && \
+unzip -d op op.zip && \
+sudo mv op/op /usr/local/bin/ && \
+rm -r op.zip op && \
+sudo groupadd -f onepassword-cli && \
+sudo chgrp onepassword-cli /usr/local/bin/op && \
+sudo chmod g+s /usr/local/bin/op
