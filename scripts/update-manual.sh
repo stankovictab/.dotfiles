@@ -58,3 +58,6 @@ rm -r op.zip op && \
 sudo groupadd -f onepassword-cli && \
 sudo chgrp onepassword-cli /usr/local/bin/op && \
 sudo chmod g+s /usr/local/bin/op
+
+# Installing / updating zed
+curl https://zed.dev/install.sh | sh

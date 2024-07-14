@@ -220,46 +220,13 @@ local plugins = {
     },
     {
         "folke/which-key.nvim",
+        dependencies = 'echasnovski/mini.icons',
         event = "VeryLazy", -- Can't be loaded on cmd :WhichKey because that cmd isn't being ran
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300 -- Time before WhichKey opens
         end,
-        config = function()
-            require("which-key").setup {
-                icons = {
-                    -- breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-                    -- separator = "➜", -- symbol used between a key and it's label
-                    group = " ", -- symbol prepended to a group
-                },
-            }
-            -- WhichKey can name groups, I name groups here but all the shortcuts are in shortcuts.lua
-            require("which-key").register({
-                ["<leader>"] = { name = "Leader Key" },
-                ["<leader>l"] = { name = "LSP" },
-                ["<leader>p"] = { name = "Packages" },
-                ["<leader>s"] = { name = "Misc" },
-                ["<leader>r"] = { name = "Reload" },
-                ["<leader>g"] = { name = "Git" },
-                ["<leader>v"] = { name = "Visual Multi (Multi-Cursor)" },
-                ["s"] = { name = "Surround" },
-                ["g"] = { name = "Go" },
-                ["["] = { name = "Jump To Previous" },
-                ["]"] = { name = "Jump To Next" },
-                [";"] = { name = "Bonus" },
-                ["z"] = { name = "Folds" },
-                -- ["zE"] = { name = "Delete All Folds" }
-                -- You can also add things like <leader>gs
-            })
-
-            -- WhichKey sometimes doesn't have some entries, even though they exist in Vim, so I add them here
-            require("which-key").register({
-                z = {
-                    ["E"] = "Delete All Folds",
-                    ["d"] = "Delete Fold Under Cursor",
-                },
-            }, {})
-        end,
+        config = function() require('stankovictab.specifics.which-key') end
     },
     {
         'nvim-lualine/lualine.nvim', -- Way better status line than Airline
