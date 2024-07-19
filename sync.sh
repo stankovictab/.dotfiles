@@ -118,6 +118,8 @@ rm -rf ~/.config/musikcube
 ln -sf ~/.dotfiles/.config/musikcube ~/.config/musikcube
 rm -rf ~/.config/systemd
 ln -sf ~/.dotfiles/.config/systemd ~/.config/systemd
+rm -rf ~/.config/zed
+ln -sf ~/.dotfiles/.config/zed ~/.config/zed
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
