@@ -320,26 +320,6 @@ map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
 --     { desc = "Add Cursor Up", noremap = true, silent = true })
 
 -- File Explorers
+-- For mini.files and Oil see their respective configs
 -- map('n', '<s-b>', ':NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
 -- map('i', '<s-b>', '<esc>:NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
-
--- function MiniFilesToggle()
---     if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
--- end
---
--- map('n', '<c-b>', ':lua MiniFilesToggle()<cr>', { desc = "File Explorer", noremap = true, silent = true })
--- map2({ 'i', 'v' }, '<c-b>', '<esc>:lua MiniFilesToggle()<cr>',
---     { desc = "File Explorer", noremap = true, silent = true })
-
-function OilToggle()
-    if vim.bo.filetype == "oil" then
-        require("oil").close()
-    else
-        require("oil").open()
-        vim.defer_fn(function() -- Wait for .1s, as oil needs time to spin up
-            require("oil").open_preview()
-        end, 100)
-    end
-end
-
-map2({ 'n', 'v', 'i' }, '<c-b>', '<esc>:lua OilToggle()<cr>', { desc = "Oil", noremap = true, silent = true })

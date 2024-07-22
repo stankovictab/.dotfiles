@@ -1,14 +1,24 @@
+-- mini.files configuration - an in-buffer file explorer
 -- Similarly to oil it uses native vim keybinds for editing the fs
 -- And similarly to ranger you can use h/l to move around
 -- NOTE: If preview or editing isn't working, check on directory permissions
 -- See :help mini.files
--- 
+--
 -- CON: Pressing = every time you do a change is kinda bad imo
 -- CON: It can very easily crash and mess your screen up if you do something you shouldn't while it's open (open Telescope, open Oil inside it, etc)
 -- CON: It doesn't support git integration ootb, no plans to, there is https://www.reddit.com/r/neovim/comments/1cfd5w1/minifiles_git_status_integration/, but I haven't gotten it to work
 --
---
 -- TODO: Shouldn't ESC and Ctrl + c also quit? And shouldn't <CR> be bound for go_in?
+--
+-- Here are the available highlight groups (see :help mini.files) :
+-- * `MiniFilesBorder` - border of regular windows.
+-- * `MiniFilesBorderModified` - border of windows showing modified buffer.
+-- * `MiniFilesCursorLine` - cursor line in explorer windows.
+-- * `MiniFilesDirectory` - text and icon representing directory.
+-- * `MiniFilesFile` - text representing file.
+-- * `MiniFilesNormal` - basic foreground/background highlighting.
+-- * `MiniFilesTitle` - title of regular windows.
+-- * `MiniFilesTitleFocused` - title of focused window.
 
 require('mini.files').setup({
     mappings = {           -- Use `''` (empty string) to not create one.
@@ -25,7 +35,7 @@ require('mini.files').setup({
         trim_right  = '>',
     },
     options = {
-        permanent_delete = true,        -- Whether to delete permanently or move into module-specific trash
+        permanent_delete = false,        -- Whether to delete permanently or move into module-specific trash
         use_as_default_explorer = true, -- Whether to use for editing directories
     },
     windows = {
@@ -36,3 +46,10 @@ require('mini.files').setup({
         width_preview = 50, -- Default: 25
     },
 })
+
+function MiniFilesToggle()
+    if not MiniFiles.close() then MiniFiles.open(vim.api.nvim_buf_get_name(0)) end
+end
+
+vim.keymap.set({ 'n', 'i', 'v' }, '<c-b>', '<esc>:lua MiniFilesToggle()<cr>',
+    { desc = "File Explorer", noremap = true, silent = true })

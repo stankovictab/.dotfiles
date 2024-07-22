@@ -317,25 +317,25 @@ local plugins = {
             }
         end
     },
+    {
+        'echasnovski/mini.files', -- The newest file explorer
+        version = '*',
+        config = function() require('stankovictab.specifics.mini-files') end
+    },
     -- {
-    --     'echasnovski/mini.files', -- The newest file explorer
-    --     version = '*',
-    --     config = function() require('stankovictab.specifics.mini-files') end
+    --     -- Simple file explorer that uses native vim keybinds for editing
+    --     -- Use with :Oil, or :Oil --float
+    --     'stevearc/oil.nvim',
+    --     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    --     config = function() require('stankovictab.specifics.oil') end
     -- },
-    {
-        -- Simple file explorer that uses native vim keybinds for editing
-        -- Use with :Oil, or :Oil --float
-        'stevearc/oil.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function() require('stankovictab.specifics.oil') end
-    },
-    {
-        "refractalize/oil-git-status.nvim",
-        dependencies = {
-            "stevearc/oil.nvim",
-        },
-        config = true,
-    },
+    -- {
+    --     "refractalize/oil-git-status.nvim",
+    --     dependencies = {
+    --         "stevearc/oil.nvim",
+    --     },
+    --     config = true,
+    -- },
     {
         'stevearc/dressing.nvim', -- A nicer interface for vim.ui.select (various input fields)
         opts = {},

@@ -1,3 +1,5 @@
+-- File explorer in a new buffer, that allows for vim-like file navigating and editing
+
 -- Previews don't work in floating mode for some reason
 require('oil').setup({
     default_file_explorer = true,
@@ -52,3 +54,16 @@ require('oil').setup({
         },
     },
 })
+
+function OilToggle()
+    if vim.bo.filetype == "oil" then
+        require("oil").close()
+    else
+        require("oil").open()
+        vim.defer_fn(function() -- Wait for .1s, as oil needs time to spin up
+            require("oil").open_preview()
+        end, 100)
+    end
+end
+
+vim.keymap.set({ 'n', 'v', 'i' }, '<c-b>', '<esc>:lua OilToggle()<cr>', { desc = "Oil", noremap = true, silent = true })
