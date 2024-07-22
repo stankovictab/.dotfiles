@@ -60,4 +60,18 @@ sudo chgrp onepassword-cli /usr/local/bin/op && \
 sudo chmod g+s /usr/local/bin/op
 
 # Installing / updating zed
+
+# When installed zed does automatic updates itself
 curl https://zed.dev/install.sh | sh
+
+# Installing / updating AWS CLI v2
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws/
+# Run `aws configure` and enter in your details
+
+# Installing / updating kubectl
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+rm kubectl
+kubectl version --client

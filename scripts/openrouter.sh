@@ -5,7 +5,7 @@
 
 # OPENROUTER_API_KEY="op://Personal/OpenRouter API/credential" # Fetch from 1P
 OPENROUTER_API_KEY=$(op read "op://Personal/OpenRouter API/credential") # Fetch from 1P
-echo $OPENROUTER_API_KEY
+# echo $OPENROUTER_API_KEY
 
 # NOTE: Here are some free models :
 # meta-llama/llama-3-8b-instruct:free
