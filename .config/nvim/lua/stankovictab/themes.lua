@@ -3,7 +3,7 @@ vim.g.material_style = "deep ocean"
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 -- MGZ Theme Settings
-vim.g.mgz_disable_background = true -- Disable the setting of background color so that NeoVim can use your terminal background (default false)
+vim.g.mgz_disable_background = false -- Disable the setting of background color so that NeoVim can use your terminal background (default false) - Leaving false for NeoVide as it can't have a background color
 vim.g.mgz_disable_nc_coloring = true -- Disable the setting of coloring the non-focused splits (NC = Non-Current window)
 vim.g.mgz_italic_comments = false    -- Whether to render comments in italics or not. Default is true.
 

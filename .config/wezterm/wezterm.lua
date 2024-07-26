@@ -7,6 +7,9 @@ local config = {
     -- Disabling the exit dialog, shouldn't be an issue if you're doing everything in zellij
     window_close_confirmation = 'NeverPrompt',
 
+    -- Disabling the font problem notification. NOTE: This might be useful though!
+    warn_about_missing_glyphs = false,
+
     ----- Fonts -----
     -- Ligatures are supported in WezTerm OOTB, unlike Alacritty (~~>)
     font = wezterm.font 'JetBrainsMono Nerd Font Mono', -- There is also a NL version with No Ligatures.

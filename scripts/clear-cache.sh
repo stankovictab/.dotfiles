@@ -5,5 +5,11 @@ sudo rm -rf ~/.cache/pip/http
 sudo rm -rf ~/.cache/huggingface
 sudo rm -rf ~/.cache/spotify/Data
 sudo rm -rf ~/.var/app/com.spotify.Client/cache/spotify/Data
+sudo rm -rf ~/.var/app/dev.vencord.Vesktop/config/vesktop/sessionData/Cache/Cache_Data
+sudo rm -rf "/home/stankovictab/.var/app/dev.vencord.Vesktop/config/vesktop/sessionData/Code Cache"
+sudo rm -rf ~/.var/app/com.discordapp.Discord/config/discord/Cache/Cache_Data
+
+# sudo rm -rf "/home/stankovictab/.cache/vivaldi/Default/Code Cache"
+# sudo rm -rf "/home/stankovictab/.cache/vivaldi/Default/Cache"
 
 notify-send "Cache cleared!" "Remember to empty the trash! 🗑️"

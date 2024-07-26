@@ -25,7 +25,7 @@ require 'nvim-treesitter.configs'.setup {
         "jsonc",
         "kdl", -- kdl is for zellij
         -- "kotlin",
-        "latex",
+        -- "latex",
         "lua",
         "markdown",
         "markdown_inline",
@@ -42,6 +42,7 @@ require 'nvim-treesitter.configs'.setup {
         "toml",
         "typescript",
         "vim",
+        "vimdoc", -- vimdoc is for :help - you need this for help pages
         "xml",
         "yaml",
         -- "zig"
@@ -56,7 +57,7 @@ require 'nvim-treesitter.configs'.setup {
         -- NOTE: These are the names of the parsers and not the filetype.
         -- For example, if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser.
         -- List of language that will be disabled :
-        disable = { "" },
+        disable = {},
 
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

@@ -11,7 +11,7 @@ sudo echo "Root check passed!"
 # ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
 
 rm -rf ~/.tmux.conf
-ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf 
+ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 rm -rf ~/.shellcheckrc
 ln -sf ~/.dotfiles/.shellcheckrc ~/.shellcheckrc
 

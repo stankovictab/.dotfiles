@@ -3,6 +3,7 @@
 
 # ALL OF THESE ARE THE DEFAULTS (I just needed this file for NeoVide to stop complaining and for dotfile sync)
 
+# NOTE: NeoVide doesn't have the ability to set it's background color like a terminal would, so you need to set it via the theme
 # NOTE: Font is overridden in the NeoVim settings
 [font]
     normal = [] # Will use the bundled Fira Code Nerd Font by default

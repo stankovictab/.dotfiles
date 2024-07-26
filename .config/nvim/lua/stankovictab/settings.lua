@@ -3,7 +3,7 @@
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.g.loaded_netrw = 1       -- Disable netrw
 
-vim.opt.showmode = false -- LuaLine already shows the mode, this is for the print in the status line, it adds -- INSERT -- and clears the last msg
+vim.opt.showmode = false     -- LuaLine already shows the mode, this is for the print in the status line, it adds -- INSERT -- and clears the last msg
 vim.opt.number = true        -- Absolute line numbering
 vim.opt.mouse =
 'a'                          -- Enable mouse support - enables clicking, dragging puts you into visual mode, scroll is fixed - 'a' is for mouse support, 'r' disables it.
@@ -44,7 +44,8 @@ vim.opt.whichwrap:append "h,l"    -- This is for h and l
 -- DiffOpt are settings for diff mode
 -- Default is internal,filler,closeoff so I just append to it
 vim.opt.diffopt = "internal,filler,closeoff,vertical"
-vim.opt.fillchars = "diff:-" -- Set the character for the deleted diff block https://www.reddit.com/r/vim/comments/j9fijy/how_to_disable_showing_for_empty_line_in_difftool/
+vim.opt.fillchars =
+"diff:-"                     -- Set the character for the deleted diff block https://www.reddit.com/r/vim/comments/j9fijy/how_to_disable_showing_for_empty_line_in_difftool/
 
 
 -- NeoVide Settings (GUI NeoVim) --
