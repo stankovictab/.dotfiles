@@ -41,6 +41,11 @@ vim.opt.whichwrap:append "h,l"    -- This is for h and l
 -- vim.opt.ch = 0 -- Hides the command line until you start writing one
 -- vim.opt.laststatus = 3 -- Always show the status line, even if there's only one window
 
+-- DiffOpt are settings for diff mode
+-- Default is internal,filler,closeoff so I just append to it
+vim.opt.diffopt = "internal,filler,closeoff,vertical"
+vim.opt.fillchars = "diff:-" -- Set the character for the deleted diff block https://www.reddit.com/r/vim/comments/j9fijy/how_to_disable_showing_for_empty_line_in_difftool/
+
 
 -- NeoVide Settings (GUI NeoVim) --
 
