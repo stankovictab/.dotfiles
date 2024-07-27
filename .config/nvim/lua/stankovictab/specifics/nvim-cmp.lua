@@ -1,3 +1,7 @@
+-- Plugin for completion
+-- https://github.com/hrsh7th/nvim-cmp
+-- Has it's own highlight groups (e.g. CmpItemKindFolder)
+
 local cmp = require('cmp')
 
 require("luasnip/loaders/from_vscode").lazy_load() -- Loading vscode snippets from friendly-snippets
@@ -93,7 +97,10 @@ cmp.setup {
     }),
     sources = cmp.config.sources({
         -- Sources are laid out in this order, following a recommendation algorithm
-        { name = 'buffer' }, -- Importing buffer (file) text sources
-        { name = 'path' } -- Importing system path sources
+        { name = 'path' }, -- Importing system path sources
+        { name = 'buffer' }, -- Importing buffer (file) text sources (words in the current file)
+        { name = 'nvim_lsp' }, -- Importing LSP sources
+        -- { name = 'luasnip' }, -- Importing snippet sources
+        -- { name = 'cmdline' } -- Importing command line sources TODO: REQUIRES A NEW PLUGIN?
     })
 }
