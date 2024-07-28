@@ -5,7 +5,7 @@
 -- See :help scrollview
 -- ScrollView has some pretty useful commands like :ScrollViewLegend, :ScrollViewNext, :ScrollViewPrev, etc
 require('scrollview').setup({
-    excluded_filetypes = { 'nerdtree' },
+    excluded_filetypes = { 'nerdtree', 'help' },
     current_only = true, -- Whether to display only in current window
     base = 'right',
     -- Available signs: conflicts, cursor, diagnostics, folds, loclist, marks, quickfix, search, spell, textwidth, trail

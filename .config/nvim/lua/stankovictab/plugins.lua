@@ -344,23 +344,40 @@ local plugins = {
         'stevearc/dressing.nvim', -- A nicer interface for vim.ui.select (various input fields)
         opts = {},
     },
-    -- Noice is a collection of features which include a nicer command line, different ways of displaying notifications, better search result showing, and a fidget.nvim substiture (LSP progress)
-    -- It completely replaces everything that the vim status line shows, so you get a bonus line
-    -- mini.notify does a similar thing
+    -- NOTIFICATIONS --
+    -- You have a couple of options here, depending on what you need
+    -- NOTE: nvim-notify is just an API either for other plugins or for your own custom notifications - by default it doesn't do anything. In order to redirect vim messages (like the :lua print) to nvim-notify, you'll need to use noice.nvim.
+    -- Option 1 - Noice
+    -- For details on Noice, see the plugin configuration
+    {
+        "rcarriga/nvim-notify",
+        event = "VeryLazy",
+        config = function() require("stankovictab.specifics.nvim-notify") end
+    },
     {
         "folke/noice.nvim",
         event = "VeryLazy",
         dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
+            "MunifTanjim/nui.nvim", -- NeoVim UI library dependency
             -- OPTIONAL:
             --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            --   These are the notifications in the bottom right
-            -- "rcarriga/nvim-notify",
+            --   If not available, Noice uses the `mini` view as the fallback, meaning it'll show notifications in the bottom right, like the fidget.nvim part of the plugin
+            "rcarriga/nvim-notify",
         },
         config = function() require('stankovictab.specifics.noice') end
     },
+    -- Option 2 - Mini.Notify
+    -- {
+    --     'echasnovski/mini.notify',
+    --     version = '*',
+    --     config = function() require('stankovictab.specifics.mini-notify') end
+    -- },
+    -- Option 3 - fidget.nvim and modified nvim-notify
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     event = "VeryLazy",
+    --     config = function() require('fidget').setup() end
+    -- },
 }
 
 local opts = {}
