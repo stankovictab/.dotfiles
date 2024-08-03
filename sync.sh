@@ -52,17 +52,6 @@ ln -sf ~/.dotfiles/.spicetify/Themes/Jotaro-Vapor ~/.spicetify/Themes/Jotaro-Vap
 ln -sf ~/.dotfiles/.config/konsolerc ~/.config/konsolerc
 ln -sf ~/.dotfiles/.config/shapecornersrc ~/.config/shapecornersrc
 
-# Shell for current user
-mkdir -p ~/.config/fish/
-ln -sf ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-rm -rf ~/.config/fish/functions
-ln -sf ~/.dotfiles/.config/fish/functions ~/.config/fish/functions
-ln -sf ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
-# Shell for sudo
-sudo rm -rf /root/.config/fish/
-sudo mkdir -p /root/.config/fish/
-sudo cp -r /home/$USER/.dotfiles/.config/fish/ /root/.config/ # $USER is still stankovictab
-
 # Fish shell for current user
 rm -rf ~/.config/fish
 ln -sf ~/.dotfiles/.config/fish ~/.config/fish

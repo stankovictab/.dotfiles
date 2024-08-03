@@ -5,7 +5,6 @@
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic (to remove or replace old installation). 
 
 # TODO: Add npm, node, yarn - before NeoVim!
-# TODO: Rerunning gives errors I think
 
 cd "/home/stankovictab/Downloads/" || exit
 
@@ -16,6 +15,7 @@ sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
 sudo mv /opt/nvim-linux64/ /opt/nvim/ # The /opt/nvim/bin folder needs to be in fish PATH
+sudo ln -s /opt/nvim/bin/nvim /usr/bin/nvim # Adding "sudo nvim" as a possible command
 echo -e "\033[32mNeoVim Installed! \033[0m"
 echo -e "\033[34mMake sure to install node, npm and yarn!\033[0m"
 echo -e "\033[34mMake sure to run the script for the Markdown plugin!\033[0m"
