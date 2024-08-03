@@ -1,14 +1,17 @@
 # This script will sync up all dotfiles' symlinks
-# Linux distro agnostic
-# This script is meant to be able to be run at any time, it should be non-destructive
+# It is meant to be Linux distro agnostic, and able to be run at any time - it should be non-destructive
 
 # Check for root, as a failsafe
 sudo echo "Root check passed!"
 
 # Files
 
-# ln -sf ~/.dotfiles/.bashrc ~/.bashrc # Don't need bash
+rm -rf ~/.bashrc
+ln -sf ~/.dotfiles/.bashrc ~/.bashrc # The most basic bash config
+# Don't need zsh, but if you want to use it some day, uncomment the ln commands
+rm -rf ~/.zsh ~/.zshrc
 # ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
+# ln -sf ~/.dotfiles/.zsh ~/.zsh
 
 rm -rf ~/.tmux.conf
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
@@ -24,10 +27,6 @@ ln -sf ~/.dotfiles/.local/share/konsole/ ~/.local/share/konsole
 # ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
 mkdir -p ~/.local/share/color-schemes/
 ln -sf ~/.dotfiles/.local/share/color-schemes/MGZTheme.colors ~/.local/share/color-schemes/MGZTheme.colors
-
-# Don't need zsh
-# rm -rf ~/.zsh
-# ln -sf ~/.dotfiles/.zsh ~/.zsh
 
 mkdir -p ~/.spicetify/Themes/
 rm -rf ~/.spicetify/Themes/MGZ
