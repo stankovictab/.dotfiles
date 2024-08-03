@@ -1,6 +1,8 @@
 # This script will sync up all dotfiles' symlinks
 # It is meant to be Linux distro agnostic, and able to be run at any time - it should be non-destructive
 
+# ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
+
 # Check for root, as a failsafe
 sudo echo "Root check passed!"
 
@@ -24,7 +26,8 @@ ln -sf ~/.dotfiles/.shellcheckrc ~/.shellcheckrc
 rm -rf ~/.local/share/konsole
 ln -sf ~/.dotfiles/.local/share/konsole/ ~/.local/share/konsole
 
-# ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
+# KDE Color Schemes - custom ones go into ~/.local/share/color-schemes
+# They can also be found in /usr/share/color-schemes for all users
 mkdir -p ~/.local/share/color-schemes/
 ln -sf ~/.dotfiles/.local/share/color-schemes/MGZTheme.colors ~/.local/share/color-schemes/MGZTheme.colors
 
