@@ -1,5 +1,6 @@
 # This script will sync up all dotfiles' symlinks
 # It is meant to be Linux distro agnostic, and able to be run at any time - it should be non-destructive
+# NOTE: Don't run this script as super user! It's meant to be ran as the current user. 
 
 # ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
 
@@ -61,6 +62,13 @@ ln -sf ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 sudo rm -rf /root/.config/fish/
 sudo mkdir -p /root/.config/fish/
 sudo cp -r /home/$USER/.dotfiles/.config/fish/ /root/.config/ # $USER is still stankovictab
+
+# Fish shell for current user
+rm -rf ~/.config/fish
+ln -sf ~/.dotfiles/.config/fish ~/.config/fish
+# Fish shell for super user
+sudo rm -rf /root/.config/fish
+sudo ln -sf /home/$USER/.dotfiles/.config/fish/ /root/.config/fish
 
 rm -rf ~/.config/lazygit
 ln -sf ~/.dotfiles/.config/lazygit ~/.config/lazygit

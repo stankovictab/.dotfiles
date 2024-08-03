@@ -15,6 +15,7 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
+sudo mv /opt/nvim-linux64/ /opt/nvim/ # The /opt/nvim/bin folder needs to be in fish PATH
 echo -e "\033[32mNeoVim Installed! \033[0m"
 echo -e "\033[34mMake sure to install node, npm and yarn!\033[0m"
 echo -e "\033[34mMake sure to run the script for the Markdown plugin!\033[0m"
