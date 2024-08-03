@@ -30,6 +30,7 @@ ln -sf ~/.dotfiles/.local/share/konsole/ ~/.local/share/konsole
 # They can also be found in /usr/share/color-schemes for all users
 mkdir -p ~/.local/share/color-schemes/
 ln -sf ~/.dotfiles/.local/share/color-schemes/MGZTheme.colors ~/.local/share/color-schemes/MGZTheme.colors
+ln -sf ~/.dotfiles/.local/share/color-schemes/Nobara.colors ~/.local/share/color-schemes/Nobara.colors
 
 mkdir -p ~/.spicetify/Themes/
 rm -rf ~/.spicetify/Themes/MGZ
