@@ -53,22 +53,24 @@ echo -e "\033[32mgdu Installed! \033[0m"
 
 curl -sSO https://downloads.1password.com/linux/tar/stable/x86_64/1password-latest.tar.gz
 sudo tar -xf 1password-latest.tar.gz
+sudo rm -rf /opt/1Password
 sudo mkdir -p /opt/1Password
 sudo mv 1password-*/* /opt/1Password
 sudo /opt/1Password/after-install.sh
-rm -rf 1password-*
+sudo rm -rf 1password-*
 echo -e "\033[32m1Password Installed! \033[0m"
 
 # Installing / updating 1Password CLI
 
 # NOTE: THEY LOCK THE VERSION HERE, NO LATEST RELEASE URL
 # SEE THE DOCS FOR NEWER RELEASES
-wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.29.0/op_linux_amd64_v2.29.0.zip" -O op.zip && \
-unzip -d op op.zip && \
-sudo mv op/op /usr/local/bin/ && \
-rm -r op.zip op && \
-sudo groupadd -f onepassword-cli && \
-sudo chgrp onepassword-cli /usr/local/bin/op && \
+wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.29.0/op_linux_amd64_v2.29.0.zip" -O op.zip
+unzip -d op op.zip
+sudo rm -rf /usr/local/bin/op
+sudo mv op/op /usr/local/bin/
+sudo rm -rf op.zip op
+sudo groupadd -f onepassword-cli
+sudo chgrp onepassword-cli /usr/local/bin/op
 sudo chmod g+s /usr/local/bin/op
 echo -e "\033[32m1Password CLI Installed! \033[0m"
 
@@ -80,9 +82,11 @@ echo -e "\033[32mZed Installed! \033[0m"
 
 # Installing / updating AWS CLI v2
 
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
+nohup unzip awscliv2.zip
+sudo rm nohup.out
 sudo nohup ./aws/install # Run the script in the background so that it doesn't fill up the log
-rm nohup.out # NOTE: Optional, comment out if you want to see the aws install output
+sudo rm nohup.out # NOTE: Optional, comment out if you want to see the aws install output
 rm awscliv2.zip && rm -rf aws/
 # Run `aws configure` and enter in your details
 echo -e "\033[32mAWS CLI v2 Installed! \033[0m"
