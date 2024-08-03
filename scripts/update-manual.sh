@@ -4,6 +4,9 @@
 # Usually this happens when devs publish releases on GitHub and don't update distro repositories.
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic (to remove or replace old installation). 
 
+# TODO: Add npm, node, yarn - before NeoVim!
+# TODO: Rerunning gives errors I think
+
 cd "/home/stankovictab/Downloads/" || exit
 
 # Installing / updating NeoVim
@@ -13,6 +16,9 @@ sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
 echo -e "\033[32mNeoVim Installed! \033[0m"
+echo -e "\033[34mMake sure to install node, npm and yarn!\033[0m"
+echo -e "\033[34mMake sure to run the script for the Markdown plugin!\033[0m"
+echo -e "\033[34mMake sure to do :Codeium Auth!\033[0m"
 
 # Installing / updating Zellij
 
@@ -74,7 +80,10 @@ echo -e "\033[32mZed Installed! \033[0m"
 
 # Installing / updating AWS CLI v2
 
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws/
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
+sudo nohup ./aws/install # Run the script in the background so that it doesn't fill up the log
+rm nohup.out # NOTE: Optional, comment out if you want to see the aws install output
+rm awscliv2.zip && rm -rf aws/
 # Run `aws configure` and enter in your details
 echo -e "\033[32mAWS CLI v2 Installed! \033[0m"
 
