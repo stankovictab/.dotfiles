@@ -215,6 +215,8 @@ keybinds clear-defaults=true {
                 "Move Pane to New Tab" "Ctrl + t + b"
                 "Move Pane to Tab" "Ctrl + t + [/]"
                 "Search" "Ctrl + a + s"
+                "Search Next" "n"
+                "Search Previous" "p"
                 "Scroll" "Ctrl + a + j/k"
                 "Edit Scrollback" "Ctrl + a + e"
                 "Detach Session" "Ctrl + y + d"
