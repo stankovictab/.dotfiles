@@ -129,4 +129,7 @@
     "terminal.integrated.gpuAcceleration": "canvas",
     "terminal.external.linuxExec": "xterm-256color",
     "terminal.integrated.shellIntegration.enabled": false,
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
 }
