@@ -5,14 +5,15 @@
 # Check if the kubectl command exists
 if command -v kubectl &> /dev/null; then
     # If kubectl exists, get the current context and extract the last field using awk
-    current_context=$(kubectl config current-context | awk -F'/' '{print $NF}')
-    
-    # Check if the output is "Not Connected"
-    if [ "$current_context" = "Not Connected" ]; then
-        echo "Not Connected"
+    # Redirect stderr to stdout so we can capture the error message if any
+    current_context=$(kubectl config current-context 2>&1 | awk -F'/' '{print $NF}')
+
+    # Check if the output is "Not Connected" or contains an error message
+    if [ "$current_context" = "Not Connected" ] || [[ "$current_context" == *"error"* ]]; then
+        echo "not-connected"
     else
         echo "$current_context"
     fi
 else
-    echo "no kube"
+    echo "not-installed"
 fi

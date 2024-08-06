@@ -14,7 +14,6 @@ layout {
                         // Also available is {session}, but I don't need it
                         format_left   "{mode}#[fg=#89B4FA,bold]{notifications}{command_spotify}"
                         format_center "{tabs}"
-                        // TODO: Add k8s cluster info here
                         format_right  "#[fg=#333333]Ctrl + x #[fg=#281641,bold]{command_k8s}#[fg=#281641,bold] {datetime} #[fg=#89b4fa,bold]{swap_layout} "
                         format_space  "" // Format of the space between sections, chars and fg color don't impact it seems
 
