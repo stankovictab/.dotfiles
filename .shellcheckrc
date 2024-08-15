@@ -3,4 +3,4 @@
 # Disable "Double quote to prevent globbing and word splitting"
 # It's annoying and doesn't always work as they think it does
 # https://www.shellcheck.net/wiki/SC2086
-disable=SC2086
+# disable=SC2086
