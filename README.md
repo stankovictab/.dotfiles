@@ -347,7 +347,7 @@ Mouse to the Left, `Alt + LeftArrow` - Go back\
 
 ### Spectacle
 
-`Shift + PrtScr` - Capture Current Monitor\
+`PauseBreak`, `Shift + PrtScr` - Capture Current Monitor\
 `Ctrl + Shift + PrtScr` - Capture Window Under Cursor\
 `Ctrl + PrtScr` - Open Spectacle\
 `PrtScr` - Capture Rectangluar Region\
@@ -461,7 +461,7 @@ Alias set to `music`.
 
 ## MangoHUD
 
-`RightShift + F12` - Toggle MangoHUD in a MangoHUD-attached game\
+`F11` - Toggle MangoHUD in a MangoHUD-attached game\
 `F10` - Toggle FPS limit in a MangoHUD-attached game
 
 ## Notion
