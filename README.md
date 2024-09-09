@@ -434,11 +434,14 @@ Notable shortcuts :\
 
 ## `qimgv` Custom Shortcuts
 
-`a` - AVIF Convert CRF 19\
-`d` - Upscale\
-`s` - AVIF Convert CRF 27
-
-**TODO** - Add a script to convert with WEBp.
+`s` - Copy to special folder\
+`u` - Upscale using my upscaler\
+`a` - Convert to AVIF CRF 25\
+`d` - Convert to AVIF CRF 19\
+`w` - Convert to WEBP Q88 CL6\
+`j` - Convert to JXL EFF7 DIST1\
+`b` - Convert to JPEG\
+`g` - Convert to PNG
 
 ## MusikCube
 
