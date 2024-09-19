@@ -1,9 +1,0 @@
-/* Make the chat text completely white */
-.markup-eYLPri {
-    color: white;
-}
-
-:root {
-    /* Lighten up the scrollbar handle */
-    --background-secondary-alt: rgb(55 55 55) !important;
-}
