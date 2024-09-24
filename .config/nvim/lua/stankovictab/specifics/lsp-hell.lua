@@ -15,7 +15,7 @@ require('mason').setup()
 
 require('mason-lspconfig').setup({
     -- You can preinstall LSPs here, or do it manually with :Mason
-    ensure_installed = { "tsserver", "pyright", "lua_ls", "bashls" }
+    ensure_installed = { "pyright", "lua_ls", "bashls" }
 })
 
 -------------------------------------
@@ -23,11 +23,12 @@ require('mason-lspconfig').setup({
 -- Specific lspconfig's setups for various LSPs, from server_configurations.md
 -- Each one can have it's own on_attach function, which is called when the language server is attached to the buffer
 
-require('lspconfig').tsserver.setup {
-    on_attach = function()
-        -- print("LSP tsserver () attached!")
-    end
-}
+-- NOTE: tsserver is no longer supported, ts_ls is now recommended
+-- require('lspconfig').tsserver.setup {
+--     on_attach = function()
+--         -- print("LSP tsserver () attached!")
+--     end
+-- }
 
 require('lspconfig').pyright.setup {}
 
