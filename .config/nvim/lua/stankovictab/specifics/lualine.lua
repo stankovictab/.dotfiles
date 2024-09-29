@@ -23,6 +23,28 @@ local function codeium_status()
     end
 end
 
+local function supermaven_icon()
+    -- return ""
+    -- return "󱙺"
+    return "󰚩"
+end
+
+local function supermaven_color()
+    local status_output = ""
+    local success, _ = pcall(function()
+        status_output = vim.fn.execute('SupermavenStatus')
+    end)
+    if not success then
+        -- print("SupermavenStatus command not available yet") -- This gets printed around 6 times when starting NeoVim
+        return { fg = "#444444" } -- Default to "not running" color
+    end
+    if string.find(status_output:lower(), "not running") then
+        return { fg = "#444444" }
+    else
+        return { fg = "#58f5ab" }
+    end
+end
+
 require('lualine').setup {
     options = {
         theme = 'auto', -- If the current colorscheme has a lualine theme built in, it'll recognize it
@@ -80,7 +102,7 @@ require('lualine').setup {
                     -- Last folder of the current working directory
                     return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
                 end,
-                color = { fg = '#444444', gui='italic,bold' }
+                color = { fg = '#444444', gui = 'italic,bold' }
             },
             {
                 function()
@@ -119,6 +141,7 @@ require('lualine').setup {
         -- lualine_y = { require('copilot_status').status_string, },
         lualine_y = {
             { 'filetype' },
+            { supermaven_icon,  color = supermaven_color },
             { treeshitter_icon, color = treeshitter_color },
             -- { codeium_status,   color = { fg = "#ff7e64" } }
             -- TODO: Having anything related to Codeium inside of LuaLine will SOMEHOW make it so that any buffer you open with Telescope randomly go into insert mode. Extremely bizzare, see https://github.com/nvim-telescope/telescope.nvim/issues/2027#issuecomment-1523723110

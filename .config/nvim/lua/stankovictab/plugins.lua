@@ -209,17 +209,45 @@ local plugins = {
         end,
         ft = { "markdown" },
     },
+    -- {
+    --     'Exafunction/codeium.vim', -- A better Copilot (NOTE: there's also codeium.nvim??)
+    --     cmd = "Codeium",           -- Codeium will be started when performing Codeium command
+    --     event = "InsertEnter",     -- Codeium will be started when entering insert mode
+    --     config = function()
+    --         -- Change '<C-g>' here to any keycode you like.
+    --         vim.keymap.set('i', '	', function() return vim.fn['codeium#Accept']() end, { expr = true })
+    --         vim.keymap.set('i', '<M-p>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+    --         vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+    --         -- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true }) -- For now this is the default, Ctrl + ]
+    --     end
+    -- },
     {
-        'Exafunction/codeium.vim', -- A better Copilot (NOTE: there's also codeium.nvim??)
-        cmd = "Codeium",           -- Codeium will be started when performing Codeium command
-        event = "InsertEnter",     -- Codeium will be started when entering insert mode
+        "supermaven-inc/supermaven-nvim",
+        -- A way better Copilot, better than Codeium
+        -- It has support for being a source in CMP
+        -- Used with :Supermaven
+        -- TODO: It doesn't look like you can cycle through the suggestions?
         config = function()
-            -- Change '<C-g>' here to any keycode you like.
-            vim.keymap.set('i', '	', function() return vim.fn['codeium#Accept']() end, { expr = true })
-            vim.keymap.set('i', '<M-p>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-            vim.keymap.set('i', '<M-n>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-            -- vim.keymap.set('i', '<M-k>', function() return vim.fn['codeium#Clear']() end, { expr = true }) -- For now this is the default, Ctrl + ]
-        end
+            require("supermaven-nvim").setup({
+                -- Config created from the default on the GitHub page
+                keymaps = {
+                    accept_suggestion = "<Tab>",
+                    clear_suggestion = "<C-]>",
+                    accept_word = "<C-'>", -- Default is <C-j>
+                },
+                ignore_filetypes = { "alpha" },     -- Example is { "cpp" }
+                color = {
+                    -- suggestion_color = "#ffffff", -- Overrides the theme
+                    -- cterm = 244,
+                },
+                -- log_level = "info",                -- set to "off" to disable logging completely
+                -- disable_inline_completion = false, -- disables inline completion for use with cmp
+                -- disable_keymaps = false,           -- disables built in keymaps for more manual control
+                -- condition = function()
+                --     return false
+                -- end
+            })
+        end,
     },
     {
         "folke/which-key.nvim",
