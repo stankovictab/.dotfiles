@@ -39,7 +39,16 @@ set fish_kube_color_bright purple --background 281641 # #a25dfc, #281641
 set fish_kube_color_dark 281641 # #852aa7 #a25dfc #281641
 
 function _git_branch_name
-    echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
+    set -l branch (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
+    if test -z "$branch"
+        # We might be in detached HEAD state, so let's get the commit hash
+        set branch (command git rev-parse --short HEAD 2> /dev/null)
+        if test -n "$branch"
+            echo "(HEAD detached at $branch)"
+        end
+    else
+        echo $branch
+    end
 end
 
 function _is_git_dirty
@@ -80,6 +89,10 @@ function __git_cherry_pick_prompt
     end
 end
 
+function _is_git_merging
+    test -f (git rev-parse --git-dir)/MERGE_HEAD
+end
+
 function fish_prompt
     if [ (_git_branch_name) ] # If in a git repo
         set -l git_branch_name (_git_branch_name)
@@ -107,6 +120,14 @@ function fish_prompt
             set -l normal (set_color normal)
             set -l ahead_count "$green+$git_ahead_count$normal"
             set git_info "$git_info $ahead_count"
+        end
+
+        __git_cherry_pick_prompt
+        set_color normal
+
+        if [ (_is_git_merging) ]
+            set -l merge_color (set_color -o magenta)
+            set git_info "$git_info $merge_color(merging)"
         end
     end
 
@@ -140,9 +161,6 @@ function fish_prompt
     #    printf " "
     #    set_color normal
     #end
-
-    __git_cherry_pick_prompt
-    set_color normal
 
     echo
     # tput colors check is to see if we're in a color terminal or tty
