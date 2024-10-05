@@ -21,6 +21,8 @@ sudo rm -rf ~/.local/state/nvim
 
 # sudo rm -rf "/home/stankovictab/.cache/vivaldi/Default/Code Cache"
 # sudo rm -rf "/home/stankovictab/.cache/vivaldi/Default/Cache"
+# sudo rm -rf "/home/stankovictab/.cache/vivaldi/Profile 1/Code Cache"
+# sudo rm -rf "/home/stankovictab/.cache/vivaldi/Profile 1/Cache"
 
 # If on Arch, clear the pacman cache (old versions of packages)
 if command -v paru &>/dev/null; then

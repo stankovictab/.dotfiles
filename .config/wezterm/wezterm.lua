@@ -27,11 +27,10 @@ local config = {
     -- See more here: https://wezfurlong.org/wezterm/colorschemes
     color_scheme = 'mgz',
 
-    -- These are colors that override colors from the color scheme selected
-    -- I recommend leaving this even if you set your own theme
+    -- These colors override the ones from the selected color scheme
     colors = {
-        foreground = 'white',
-        background = '#121212', -- Background of Nobara title bar, matches well (in Zellij too)
+        -- foreground = 'white',
+        -- background = '#121212', -- Background of Nobara title bar, matches well (in Zellij too)
         -- Cursor override works in NeoVim aswell, like it should
         cursor_bg = 'white',
         cursor_fg = 'black',
