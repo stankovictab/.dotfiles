@@ -70,8 +70,6 @@ alias switchjava='sudo update-alternatives --config java'
 alias switchjavac='sudo update-alternatives --config javac'
 alias ports='sudo lsof -i -P -n | grep LISTEN'
 alias dotdesktops='/home/stankovictab/scripts/dotdesktops.sh'
-alias fd='fd -H'
-alias fdfind='fdfind -H'
 alias rg='rg --no-ignore --hidden' # Includes hidden and git-ignored files
 alias typeracer='toipe'
 alias shortcuts='nvim ~/.dotfiles/README.md'
@@ -97,6 +95,14 @@ alias neovide='neovide.appimage'
 
 alias ai='ollama run codellama'
 alias askai='~/scripts/openrouter.sh'
+
+# fd is a faster alternative to find
+# Ubuntu - sudo apt install fd-find, Fedora - sudo dnf install fd-find, Arch - sudo pacman -S fd
+if command -v fd >/dev/null
+    alias fd='fd --hidden'
+else if command -v fd-find >/dev/null
+    alias fd='fdfind --hidden'
+end
 
 ### Abbreviations
 # These are like aliases, but with a little improvement 

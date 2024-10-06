@@ -23,9 +23,10 @@ convert_image() {
 }
 
 copy_to_special() {
-    mkdir -p "Special"
-    cp "$1" "Special"
-    notify-send "Copied file to Special folder."
+    # The current working directory is the directory of the file
+    mkdir -p "🌟"
+    cp "$1" "🌟"
+    notify-send "Copied file to Special 🌟 folder."
 }
 
 upscaler_run() {
