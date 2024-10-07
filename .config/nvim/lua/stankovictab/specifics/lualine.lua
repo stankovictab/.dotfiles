@@ -27,7 +27,7 @@ local function supermaven_color()
     if string.find(status_output:lower(), "not running") then
         return { fg = "#444444" }
     else
-        return { fg = "#58f5ab" }
+        return { fg = "#1babff" }
     end
 end
 
@@ -42,7 +42,7 @@ end
 
 local function visualmulti_color()
     if vim.fn.exists(":VMQfix") == 2 then -- This command is only available in VisualMulti
-        return { fg = "#58f5ab" }
+        return { fg = "#c25dfc" }
     else
         return { fg = "#444444" }
     end
