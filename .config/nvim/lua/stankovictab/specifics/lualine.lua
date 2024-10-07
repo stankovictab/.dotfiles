@@ -32,7 +32,7 @@ local function supermaven_color()
 end
 
 local function visualmulti_icon()
-    -- return "󰡀" 
+    -- return "󰡀"
     if vim.fn.exists(":VMQfix") == 2 then -- This command is only available in VisualMulti
         return '󰈈'
     else
