@@ -11,22 +11,8 @@ local function treeshitter_color()
     end
 end
 
-local function codeium_status()
-    local status = vim.fn["codeium#GetStatusString"]()
-    -- Print the status for debugging or informational purposes
-    -- print("Codeium Status:", status)
-    -- Check if Codeium highlighting is active in the current buffer - this is dynamic, I love lualine
-    if status == " ON" then -- For some reason, the ON string has a space before it (OFF is ok)
-        return "󱉋" -- , 󱉋
-    else
-        return status
-    end
-end
-
 local function supermaven_icon()
-    -- return ""
-    -- return "󱙺"
-    return "󰚩"
+    return "󰚩" -- Also  "", "󱙺"
 end
 
 local function supermaven_color()
@@ -42,6 +28,23 @@ local function supermaven_color()
         return { fg = "#444444" }
     else
         return { fg = "#58f5ab" }
+    end
+end
+
+local function visualmulti_icon()
+    -- return "󰡀" 
+    if vim.fn.exists(":VMQfix") == 2 then -- This command is only available in VisualMulti
+        return '󰈈'
+    else
+        return '󰈉' -- Also "󰈉", """
+    end
+end
+
+local function visualmulti_color()
+    if vim.fn.exists(":VMQfix") == 2 then -- This command is only available in VisualMulti
+        return { fg = "#58f5ab" }
+    else
+        return { fg = "#444444" }
     end
 end
 
@@ -141,10 +144,9 @@ require('lualine').setup {
         -- lualine_y = { require('copilot_status').status_string, },
         lualine_y = {
             { 'filetype' },
+            { visualmulti_icon, color = visualmulti_color },
             { supermaven_icon,  color = supermaven_color },
             { treeshitter_icon, color = treeshitter_color },
-            -- { codeium_status,   color = { fg = "#ff7e64" } }
-            -- TODO: Having anything related to Codeium inside of LuaLine will SOMEHOW make it so that any buffer you open with Telescope randomly go into insert mode. Extremely bizzare, see https://github.com/nvim-telescope/telescope.nvim/issues/2027#issuecomment-1523723110
         },
         lualine_z = { 'location' }
     },
