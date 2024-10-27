@@ -130,6 +130,9 @@ abbr -a fav1 f -i in.mkv -c:v libaom-av1 -crf 40 -cpu-used 8 -c:a copy out-aomav
 abbr -a f264 f -i in.mkv -c:v libx264 -preset medium -crf 30 -c:a aac out-x264crf30med.mkv
 abbr -a f265 f -i in.mkv -c:v libx265 -preset medium -crf 30 -c:a copy out-x265crf30med.mkv
 
+abbr -a fm4a f -i in.mkv -vn -c:a aac out-aac.m4a # -vn is for no video, -c:v none doesn't exist
+abbr -a faac f -i in.mkv -vn -c:a aac out-aac.m4a # -vn is for no video, -c:v none doesn't exist
+
 abbr -a favif f -i in.png -c:v libaom-av1 -crf 25 -cpu-used 8 out-crf25cpu8.avif
 abbr -a fwebp f -i in.png -c:v libwebp -quality 88 -compression_level 6 out-q88cl6.webp
 abbr -a fjxl f -i in.png -c:v libjxl -effort 7 -distance 1 out-eff7dist1.jxl

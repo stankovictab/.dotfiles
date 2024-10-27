@@ -4,7 +4,7 @@
 -- Don't know how good of an idea that is
 
 require("fidget").setup({
-    -- TODO: This is just a random config that Codeium spit out, make a better one
+    -- TODO: This is just a random config that an LLM spit out - make a better one if you can
     text = {
         spinner = "line",
     },

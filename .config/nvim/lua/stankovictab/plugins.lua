@@ -169,6 +169,12 @@ local plugins = {
         },
         config = function() require('stankovictab.specifics.nvim-cmp') end
     },
+    -- {
+    --     "Saghen/blink.cmp", -- TODO: A newer completion engine, with builtin support for sources, unlike nvim-cmp
+    --     lazy = false, -- lazy loading handled internally
+    --     dependencies = 'rafamadriz/friendly-snippets',
+    --     version = 'v0.*',
+    -- },
     -- The configuration for the following 3 packages is in lsp-hell
     {
         "williamboman/mason.nvim", -- LSP installer and manager, a new replacement for nvim-lsp-installer

@@ -101,6 +101,6 @@ cmp.setup {
         { name = 'buffer' }, -- Importing buffer (file) text sources (words in the current file)
         { name = 'nvim_lsp' }, -- Importing LSP sources
         -- { name = 'luasnip' }, -- Importing snippet sources
-        -- { name = 'cmdline' } -- Importing command line sources TODO: REQUIRES A NEW PLUGIN?
+        -- { name = 'cmdline' } -- Importing command line sources TODO: Requires a new plugin?
     })
 }
