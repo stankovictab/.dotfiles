@@ -19,6 +19,8 @@ sudo rm -rf ~/.cache/nvim
 sudo rm -rf ~/.local/share/nvim
 sudo rm -rf ~/.local/state/nvim
 
+sudo rm -rf ~/.config/obsidian/GPUCache # Fixes a lot of graphical issues with Obsidian
+
 # sudo rm -rf "/home/stankovictab/.cache/vivaldi/Default/Code Cache"
 # sudo rm -rf "/home/stankovictab/.cache/vivaldi/Default/Cache"
 # sudo rm -rf "/home/stankovictab/.cache/vivaldi/Profile 1/Code Cache"
