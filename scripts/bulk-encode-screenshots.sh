@@ -1,4 +1,7 @@
-# NOTE: Use fd . png to find all png files in current directory
+#!/bin/bash
+
+# NOTE: Use `fd -e png --type f | sort -d` to find all png files in current directory and sort them by directory
+
 for i in *.png
 	do 
 	echo "Processing: ${i%.*}" # ${i%.*} is the file name before the extension
