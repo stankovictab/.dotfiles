@@ -474,7 +474,9 @@ Alias set to `music`.
 `Ctrl + Shift + Up/Down` - Move block up/down\
 `Ctrl + e` - Inline code\
 `Ctrl + Shift + e` - Inline equation\
-`Ctrl + Shift + h` - Color text
+`Ctrl + Shift + h` - Color text\
+`Ctrl + o` - Voice dictation (very nice! it totally doesn't spy on you!)\
+`Ctrl + j` - Ask AI, inline
 
 ## Obsidian
 
