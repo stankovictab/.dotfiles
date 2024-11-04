@@ -127,9 +127,9 @@ abbr -a gS git stash
 abbr -a gSP git stash pop
 
 # && doesn't work well with abbr, so quotes are needed
-abbr -a fav1 'f -i in.mkv -c:v libaom-av1 -crf 40 -cpu-used 8 -c:a copy out-aomav1crf40cpu8.mkv && notify-send -u critical "FFmpeg" "Your FFmpeg job is complete!"'
-abbr -a f264 'f -i in.mkv -c:v libx264 -preset medium -crf 30 -c:a aac out-x264crf30med.mkv && notify-send -u critical "FFmpeg" "Your FFmpeg job is complete!"'
-abbr -a f265 'f -i in.mkv -c:v libx265 -preset medium -crf 30 -c:a copy out-x265crf30med.mkv && notify-send -u critical "FFmpeg" "Your FFmpeg job is complete!"'
+abbr -a fav1 'time f -i in.mkv -c:v libaom-av1 -crf 40 -cpu-used 8 -c:a copy out-aomav1crf40cpu8.mkv && notify-send -u critical "FFmpeg" "Your FFmpeg job is complete!"'
+abbr -a f264 'time f -i in.mkv -c:v libx264 -preset medium -crf 30 -c:a aac out-x264crf30med.mkv && notify-send -u critical "FFmpeg" "Your FFmpeg job is complete!"'
+abbr -a f265 'time f -i in.mkv -c:v libx265 -preset medium -crf 30 -c:a copy out-x265crf30med.mkv && notify-send -u critical "FFmpeg" "Your FFmpeg job is complete!"'
 
 abbr -a fm4a f -i in.mkv -vn -c:a aac out-aac.m4a # -vn is for no video, -c:v none doesn't exist
 abbr -a faac f -i in.mkv -vn -c:a aac out-aac.m4a # -vn is for no video, -c:v none doesn't exist
