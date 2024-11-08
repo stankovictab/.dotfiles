@@ -121,8 +121,9 @@ local plugins = {
     },
     {
         'lukas-reineke/indent-blankline.nvim', -- Vertical lines on indentation and horizontal on scope
+        version = 'v3.8.2', -- TODO: Remove when this issue is fixed - https://github.com/lukas-reineke/indent-blankline.nvim/issues/936
         config = function()
-            require("ibl").setup {
+            require("ibl").setup({
                 indent = {
                     char = "▏", -- ▏ (left), │ (center), ▕ (right), see :h ib.config.indent for more examples for chars
                     tab_char = "", -- Indent character for tab characters, overrides default char if char isn't set
@@ -145,7 +146,7 @@ local plugins = {
                         "lazyterm",
                     },
                 }
-            }
+            })
         end,
     },
     {
@@ -243,8 +244,8 @@ local plugins = {
                 },
                 ignore_filetypes = { "alpha" },     -- Example is { "cpp" }
                 color = {
-                    -- suggestion_color = "#ffffff", -- Overrides the theme
-                    -- cterm = 244,
+                    -- suggestion_color = "#ffffff", -- Should override the theme, but for some reason doesn't - it uses the "Comment" highlight group, not @comment
+                    cterm = 244,
                 },
                 -- log_level = "info",                -- set to "off" to disable logging completely
                 -- disable_inline_completion = false, -- disables inline completion for use with cmp
