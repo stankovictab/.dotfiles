@@ -11,7 +11,7 @@ require('telescope').setup {
             width = 900,                     -- Width of telescope
             preview_width = 0.5              -- Percentage of the telescope's width that the preview is
         },
-        file_ignore_patterns = { "node_modules" }, -- Ignore node_modules folder
+        file_ignore_patterns = {"node_modules", ".git/", ".cache", "%.o", "%.a", "%.out", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip"},
         -- Allowing live_grep to search through hidden files
         vimgrep_arguments = {
             "rg",

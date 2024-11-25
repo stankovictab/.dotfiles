@@ -11,6 +11,7 @@ require 'nvim-treesitter.configs'.setup {
         "fish",
         "git_config",
         "git_rebase",
+        "gitattributes",
         "gitcommit",
         "gitignore",
         "go",
