@@ -300,6 +300,8 @@ end
 
 map('n', '<leader>sl', ':lua ToggleWhitespace()<cr>',
     { desc = "Toggle Show Whitespace Chars", noremap = true, silent = true })
+map('n', '<leader>se', '/\\s\\n<cr>',
+    { desc = "Show spaces at EOL", noremap = true, silent = true })
 
 -- Visual Multi (Multi-Cursor)
 -- <Tab> changes the mode to visual (AKA "Extend mode"), so you can keep on selecting from where the cursors are
