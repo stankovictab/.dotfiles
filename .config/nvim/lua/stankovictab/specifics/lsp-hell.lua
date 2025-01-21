@@ -24,15 +24,15 @@ require('mason-lspconfig').setup({
 -- Each one can have it's own on_attach function, which is called when the language server is attached to the buffer
 
 -- NOTE: tsserver is no longer supported, ts_ls is now recommended
--- require('lspconfig').tsserver.setup {
+-- require('lspconfig').tsserver.setup({
 --     on_attach = function()
 --         -- print("LSP tsserver () attached!")
 --     end
--- }
+-- })
 
-require('lspconfig').pyright.setup {}
+require('lspconfig').pyright.setup({})
 
-require('lspconfig').lua_ls.setup {
+require('lspconfig').lua_ls.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.semanticTokensProvider = nil -- This disables LSP's syntax highlighting, which overrides my (and others') theme's styling for Treeshitter, and it's generally not that good
     end,
@@ -53,17 +53,17 @@ require('lspconfig').lua_ls.setup {
             },
         },
     },
-}
+})
 
-require('lspconfig').bashls.setup {}
--- require('lspconfig').shellcheck.setup {}
+require('lspconfig').bashls.setup({})
+-- require('lspconfig').shellcheck.setup({})
 
 -- CSS LSP, just shows errors and has cmp completions, but no formatting, for that you need Prettier
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
--- require('lspconfig').cssls.setup {
+-- require('lspconfig').cssls.setup({
 --     capabilities = capabilities,
 --     on_attach = function()
 --         print("LSP cssls () attached!")
 --     end
--- }
+-- })
