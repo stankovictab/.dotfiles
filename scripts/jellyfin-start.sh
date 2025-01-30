@@ -16,7 +16,7 @@ docker run -d \
  --restart=unless-stopped \
  jellyfin/jellyfin
 
-#  --mount "type=bind,source=/run/media/stankovictab/sdb2/Standup,target=/Standup,readonly" \
+# --mount "type=bind,source=/run/media/stankovictab/sdb2/Standup,target=/Standup,readonly" \
 # --mount "type=bind,source=/run/media/stankovictab/sdb2/Manga,target=/Manga,readonly" \
 # --mount "type=bind,source=/run/media/stankovictab/sdb2/Books,target=/Books,readonly" \
 
@@ -24,7 +24,6 @@ docker run -d \
 if [ $? -ne 0 ]; then
   echo "Failed to start Jellyfin server. Please check the logs for more information."
   exit 1
-  # else, print a success message
 else
   echo "Jellyfin server started successfully."
 fi

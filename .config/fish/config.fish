@@ -90,6 +90,8 @@ alias vesktop='setsid flatpak run dev.vencord.Vesktop --disable-gpu'
 
 alias jellyfin-start='bash ~/scripts/jellyfin-start.sh'
 alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
+alias librechat-start='bash ~/scripts/librechat-start.sh'
+alias librechat-stop='bash ~/scripts/librechat-stop.sh'
 
 alias neovide='neovide.appimage'
 
