@@ -18,3 +18,6 @@ if [ $? -ne 0 ]; then
 else
   echo "Jellyfin server started successfully."
 fi
+
+# Open localhost:3080 in the default browser
+xdg-open http://localhost:3080 &
