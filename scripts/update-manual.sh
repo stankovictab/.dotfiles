@@ -1,25 +1,75 @@
 #!/bin/bash
 
-# This is my script for installing and updating vital packages on *ANY* Linux distro. 
-# Usually this happens when devs publish releases on GitHub and don't update distro repositories.
+# Universal script for installing and updating vital packages on *ANY* Linux distro.
+# Needed for when devs publish releases on GitHub and don't update distro repositories.
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic (to remove or replace old installation). 
-
-# TODO: Add npm, node, yarn - before NeoVim!
 
 cd "/home/stankovictab/Downloads/" || exit
 
+echo "Welcome to the updater! Please authenticate."
+sudo -v # Allow sudo commands (extend sudo timeout period)
+
+# --- fisher installation and updates ---
+# Needs to be run inside of fish shell in non-sudo mode, so a seperate fish script is needed
+
+cat > fisher_setup.fish << 'EOF'
+# Check if fisher is installed, if not install it, if yes update the plugins
+if not functions -q fisher
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+    echo -e "\033[32mFisher Installed! \033[0m"
+
+    # Installing / updating fisher plugins
+    fisher install jorgebucaran/nvm.fish
+    fisher install jethrokuan/z
+    fisher install franciscolourenco/done
+    echo -e "\033[32mFisher Plugins Installed! \033[0m"
+else
+    fisher update
+    echo -e "\033[32mFisher Updated! \033[0m"
+end
+
+# Installing / updating node, npm and yarn
+nvm install lts
+npm install -g npm yarn
+set --universal nvm_default_version lts # Set the default node version to LTS for all programs
+echo -e "\033[32mNode LTS Installed! \033[0m"
+EOF
+
+# Execute the fish script as the current user
+fish fisher_setup.fish
+
+# Clean up the temporary fish script
+rm fisher_setup.fish
+
+# ---
+
 # Installing / updating NeoVim
 
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-rm nvim-linux64.tar.gz
-sudo mv /opt/nvim-linux64/ /opt/nvim/ # The /opt/nvim/bin folder needs to be in fish PATH
-sudo ln -s /opt/nvim/bin/nvim /usr/bin/nvim # Adding "sudo nvim" as a possible command
+echo -e "\033[34mInstalling/updating NeoVim... \033[0m"
+# Download the latest release
+wget -O nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+# Check if download was successful
+if [ $? -ne 0 ]; then
+    echo -e "\033[31mError downloading NeoVim\033[0m"
+    exit 1
+fi
+sudo rm -rf /opt/nvim # Remove old installation if it exists
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz # Extract the archive
+# Check if extraction was successful
+if [ $? -ne 0 ]; then
+    echo -e "\033[31mError extracting archive\033[0m"
+    rm nvim-linux64.tar.gz
+    exit 1
+fi
+# Clean up downloaded archive
+rm nvim-linux-x86_64.tar.gz
+# Move to final location
+sudo mv /opt/nvim-linux-x86_64 /opt/nvim
+# Create symlink (with force flag to handle existing link)
+sudo ln -sf /opt/nvim/bin/nvim /usr/bin/nvim
 echo -e "\033[32mNeoVim Installed! \033[0m"
-echo -e "\033[34mMake sure to install node, npm and yarn!\033[0m"
-echo -e "\033[34mMake sure to run the script for the Markdown plugin!\033[0m"
-echo -e "\033[34mMake sure to do :Codeium Auth!\033[0m"
+echo -e "\033[34m-> Make sure to run the script for the Markdown plugin!\033[0m"
+echo -e "\033[34m-> Make sure to do :Codeium Auth!\033[0m"
 
 # Installing / updating Zellij
 
