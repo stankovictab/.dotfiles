@@ -1,5 +1,6 @@
 // zjstatus config
 // NOTE: To update zjstatus plugin you need to manually download from GitHub Releases and overwrite
+// It's in update-manual.sh
 // The colors (e.g. blue, green) are taken from the terminal colors, or can be something like #123f60
 
 layout {
@@ -11,10 +12,12 @@ layout {
                     hide_frame_for_single_pane "false" // Pane frame toggle - Default: true
 
                         // Sections
-                        // Also available is {session}, but I don't need it
+                        // Also available is {session} (like wandering-gorilla), but I don't need it
+                        // To add a section, just add it in the format_{section} section, 
+                        // and create the 4 necessary command variables
                         format_left   "{mode}#[fg=#89B4FA,bold]{notifications}{command_spotify}"
                         format_center "{tabs}"
-                        format_right  "#[fg=#333333]Ctrl + x #[fg=#281641,bold]{command_k8s}#[fg=#281641,bold] {datetime} #[fg=#89b4fa,bold]{swap_layout} "
+                        format_right  "#[fg=#333333]Ctrl + x #[fg=#281641,bold]{command_k8s}#[fg=#281641,bold] {command_syncthing} {datetime} #[fg=#89b4fa,bold]{swap_layout} "
                         format_space  "" // Format of the space between sections, chars and fg color don't impact it seems
 
                         border_enabled  "false" // zjstatus border, needs a pane size of 2 to work (from up there)
@@ -53,12 +56,18 @@ layout {
                         command_spotify_command  "bash -c \"~/scripts/spotify-status.sh\""
                         command_spotify_format   "#[fg=#34ad6d,italic,bold]{stdout}" // Available are {exit_code}, {stdout}, {stderr}. Also, can support only one #[] it seems?
                         command_spotify_interval "4" // Interval in seconds, between two command runs
-                        command_spotify_rendermode "static" // See the docs about this, just set static
+                        command_spotify_rendermode "static" // See the docs about this
+                        // https://github.com/dj95/zjstatus/wiki/4-%E2%80%90-Widgets
 
                         command_k8s_command "bash -c \"~/scripts/k8s-status.sh\""
                         command_k8s_format "#[fg=#a25dfc,bg=#281641]󰠳 {stdout}"
                         command_k8s_interval "7"
                         command_k8s_rendermode "static"
+
+                        command_syncthing_command "bash -c \"~/scripts/syncthing-status.sh\""
+                        command_syncthing_format "{stdout}"
+                        command_syncthing_interval "7"
+                        command_syncthing_rendermode "dynamic" // dynamic takes in zjstatus format aswell, useful for conditional formatting, very useful
                 }
             }
     }
