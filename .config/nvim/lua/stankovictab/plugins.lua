@@ -195,27 +195,13 @@ local plugins = {
             }
         }
     },
-    -- NOTE: If this piece of shit doesn't open up again see https://github.com/iamcco/markdown-preview.nvim/issues/424, you have to run a script manually
-    -- bash ~/.local/share/nvim/lazy/markdown-preview.nvim/app/install.sh
-    -- NOTE: The maintainer bailed on this project, look for alternatives. vivify.nvim (and Vivify in general) is a good alternative it seems, but might be overkill.
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-            -- Markdown Preview, use with :MarkdownPreview (Tab + m)
-            -- Because this plugin is ancient, you need to set it up like this, and not with the lazy plugin manager
-            vim.g.mkdp_port = '8885'  -- Set port for dark reader to turn off
-            vim.g.mkdp_auto_close = 0 -- To not close the preview when changing buffers, the preview stays open while the markdown buffer is open
-            -- Be careful of this, as you'll get an error if you open another preview at the same port. Maybe figure out a way to get around this with mkdp_auto_close and :MarkdownPreviewToggle
-            vim.g.mkdp_markdown_css =
-            '~/.config/nvim/lua/stankovictab/specifics/mkdp_mgz.css'           -- CSS file to style the preview
-            vim.g.mkdp_highlight_css =
-            '~/.config/nvim/lua/stankovictab/specifics/mkdp_mgz_highlight.css' -- CSS file to style the preview
-        end,
-        ft = { "markdown" },
-    },
+    -- markdown-preview.nvim is a dead project, the maintainer bailed
+    -- Vivify is an alternative, a standalone program with a NeoVim plugin
+    -- You can use it with `viv README.md` - it'll spin up a local server
+    -- The NeoVim plugin also follows scrolling
+    -- I added it to update-manual.sh
+    -- TODO: For styling I'll need to port over the specifics/mkdp-mgz.css theme to it
+    { "jannis-baum/vivify.vim" },
     -- {
     --     'Exafunction/codeium.vim', -- A better Copilot (NOTE: there's also codeium.nvim??)
     --     cmd = "Codeium",           -- Codeium will be started when performing Codeium command

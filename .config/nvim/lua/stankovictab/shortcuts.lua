@@ -131,7 +131,7 @@ map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("n", "<A-h>", "xhP", { desc = "Move character left" })
 map("n", "<A-l>", "xp", { desc = "Move character right" })
 
-map('n', '<leader>m', ":MarkdownPreview<cr>", { desc = "Markdown Preview" }) -- Markdown Preview
+map('n', '<leader>m', ":Vivify<cr>", { desc = "Markdown Preview via Vivify" }) -- Markdown Preview
 
 -- Better scrolling through the document
 map('n', '<PageUp>', '<c-u>', { desc = "Scroll Up", noremap = true, silent = true })

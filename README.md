@@ -28,9 +28,9 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 
 `Ctrl + f` - Search files and folders\
 `Ctrl + Alt + l` - Seach git log for the repo you’re currently in\
-`Ctrl + Alt + s` - Search git status for the repo you’re currently in\ 
+`Ctrl + Alt + s` - Search git status for the repo you’re currently in\
 `Ctrl + r` - Search shell command history\
-`Ctrl + Alt + v` - Search shell variables\ 
+`Ctrl + Alt + v` - Search shell variables\
 `Ctrl + Alt + p` - Search processes
 
 `Ctrl + v` - Paste text (as fish-fzf allows for this if Search Shell Variables is unbound)
@@ -85,7 +85,7 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 ## TMUX
 
-> Note that I use the word tab, and not window. 
+> Note that I use the word tab, and not window.
 
 `t`, `ta`, `td`, `tls`, `tks` - Fish shell aliases
 
