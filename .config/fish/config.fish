@@ -93,6 +93,11 @@ alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
 alias librechat-start='bash ~/scripts/librechat-start.sh'
 alias librechat-stop='bash ~/scripts/librechat-stop.sh'
 
+alias update='bash ~/scripts/update-manual.sh'
+
+alias upf='bash ~/scripts/upf.sh'
+alias lpf='bash ~/scripts/lpf.sh'
+
 alias neovide='neovide.appimage'
 
 alias ai='ollama run codellama'
