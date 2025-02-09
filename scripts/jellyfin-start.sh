@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the Jellyfin server is already running, if so, run the jellyfin-stop.sh script, and then start the server
+if docker ps -a | grep -q jellyfin; then
+  echo "Jellyfin server is already running. Stopping it..."
+  bash /home/stankovictab/scripts/jellyfin-stop.sh
+fi
+
 echo "Starting up Jellyfin server..."
 
 docker run -d \
@@ -8,11 +14,10 @@ docker run -d \
  --net=host \
  --volume /home/stankovictab/.config/jellyfin:/config \
  --volume /home/stankovictab/.cache/jellyfin:/cache \
- --mount "type=bind,source=/run/media/stankovictab/sdb2/Movies,target=/Movies,readonly" \
- --mount "type=bind,source=/home/stankovictab/Downloads/New Movies/,target=/New Movies,readonly" \
- --mount "type=bind,source=/run/media/stankovictab/sdb2/TV Shows,target=/TV Shows,readonly" \
- --mount "type=bind,source=/run/media/stankovictab/sdb2/Music,target=/Music,readonly" \
- --mount "type=bind,source=/run/media/stankovictab/sdb2/Music Uncategorized,target=/Music Uncategorized,readonly" \
+ --mount "type=bind,source=/run/media/stankovictab/sda1/Movies,target=/Movies,readonly" \
+ --mount "type=bind,source=/run/media/stankovictab/sda1/TV Shows,target=/TV Shows,readonly" \
+ --mount "type=bind,source=/run/media/stankovictab/sda1/Music,target=/Music,readonly" \
+ --mount "type=bind,source=/run/media/stankovictab/sda1/Music Uncategorized,target=/Music Uncategorized,readonly" \
  --restart=unless-stopped \
  jellyfin/jellyfin
 
