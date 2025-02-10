@@ -29,7 +29,7 @@ if [ $? -ne 0 ]; then
     echo "Failed to start LibreChat server. Please check the logs for more information."
     exit 1
 else
-    echo "Jellyfin server started successfully. Sleeping for 2 seconds before opening the browser..."
+    echo "LibreChat server started successfully. Sleeping for 2 seconds before opening the browser..."
     sleep 2
 fi
 
