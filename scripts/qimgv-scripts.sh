@@ -35,6 +35,13 @@ upscaler_run() {
     $TERMINAL "/home/stankovictab/Desktop/upscaler/upscale.sh" "$1"
 }
 
+open-qimgv() {
+    notify-send "Opening image in qimgv..."
+    # The current working directory is the directory of the file
+    qimgv "$1"
+    # $TERMINAL "qimgv" "$1"
+}
+
 # -------------------------------------
 
 # Check if file argument is provided
@@ -68,6 +75,10 @@ case "$2" in
         ;;
     --png) # Tied to "g" shortcut
         convert_image "$1" "${1%.*}.png" "ffmpeg -i \"$1\" \"${1%.*}.png\""
+        ;;
+    --open) # Open the same image in another instance of qimgv
+        notify-send "Opening image in qimgv..."
+        open-qimgv "$1"
         ;;
     *)
         notify-send "Error: Unknown argument $2"
