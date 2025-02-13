@@ -180,11 +180,13 @@ fish_add_path ~/AppImages/ # Gear Lever allows for CLI execution of AppImages
 ### k8s specific abbrs
 # You can also use a GUI like Lens
 
-abbr -a kube-dev aws eks update-kubeconfig --name develop-kube
-abbr -a kube-test aws eks update-kubeconfig --name test-kube
-abbr -a kube-stage aws eks update-kubeconfig --name stage-kube
-abbr -a kube-prod aws eks update-kubeconfig --name production-kube
-abbr -a kube-penny aws eks update-kubeconfig --name penny-kube
+abbr -a k-shortcuts "cat ~/.config/fish/config.fish | grep 'kubectl -n brame'" # Abbr to print out all kubectl related abbrs
+
+abbr -a k-dev aws eks update-kubeconfig --name develop-kube
+abbr -a k-test aws eks update-kubeconfig --name test-kube
+abbr -a k-stage aws eks update-kubeconfig --name stage-kube # TODO: Remove after stage is deprecated
+abbr -a k-prod aws eks update-kubeconfig --name production-kube
+abbr -a k-penny aws eks update-kubeconfig --name penny-kube
 
 abbr -a k kubectl -n brame
 abbr -a kp kubectl -n brame get pods
@@ -194,6 +196,7 @@ abbr -a kdn kubectl -n brame describe node # add node name, tabbable
 abbr -a wkp watch -d -n 1 "kubectl -n brame get pods" # greppable
 abbr -a wkt watch -d -n 1 "kubectl -n brame top pods" # greppable
 abbr -a wktn watch -d -n 1 "kubectl -n brame top nodes" # greppable
+# TODO: There's also the `-o wide` argument that can be used somewhere
 
 ### Completion configuration
 
