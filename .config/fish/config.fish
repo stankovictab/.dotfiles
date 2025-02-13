@@ -177,7 +177,8 @@ fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables
 fish_add_path ~/AppImages/ # Gear Lever allows for CLI execution of AppImages
 
-### Work specific abbrs
+### k8s specific abbrs
+# You can also use a GUI like Lens
 
 abbr -a kube-dev aws eks update-kubeconfig --name develop-kube
 abbr -a kube-test aws eks update-kubeconfig --name test-kube
@@ -187,7 +188,12 @@ abbr -a kube-penny aws eks update-kubeconfig --name penny-kube
 
 abbr -a k kubectl -n brame
 abbr -a kp kubectl -n brame get pods
-abbr -a kpw watch -d -n 1 kubectl -n brame get pods
+abbr -a kl kubectl -n brame logs -f # add pod name
+abbr -a kdp kubectl -n brame describe pod # add pod name, tabbable
+abbr -a kdn kubectl -n brame describe node # add node name, tabbable
+abbr -a wkp watch -d -n 1 "kubectl -n brame get pods" # greppable
+abbr -a wkt watch -d -n 1 "kubectl -n brame top pods" # greppable
+abbr -a wktn watch -d -n 1 "kubectl -n brame top nodes" # greppable
 
 ### Completion configuration
 
