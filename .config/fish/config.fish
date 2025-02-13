@@ -101,7 +101,7 @@ alias lpf='bash ~/scripts/lpf.sh'
 alias neovide='neovide.appimage'
 
 alias ai='ollama run codellama'
-alias askai='~/scripts/openrouter.sh'
+alias askai='~/scripts/askai.sh'
 
 # fd is a faster alternative to find
 # Ubuntu - sudo apt install fd-find, Fedora - sudo dnf install fd-find, Arch - sudo pacman -S fd

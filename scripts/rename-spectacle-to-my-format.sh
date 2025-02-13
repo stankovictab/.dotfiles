@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script renames all screenshots in the format of "Screenshot_2022-01-01_00-00-00.png" to "2022-01-01_00-00-00.png"
+
 for file in Screenshot_*.png; do
     if [[ $file =~ Screenshot_([0-9]{4})([0-9]{2})([0-9]{2})_([0-9]{2})([0-9]{2})([0-9]{2}).png ]]; then
         year="${BASH_REMATCH[1]}"
