@@ -193,9 +193,9 @@ abbr -a kp kubectl -n brame get pods
 abbr -a kl kubectl -n brame logs -f # add pod name
 abbr -a kdp kubectl -n brame describe pod # add pod name, tabbable
 abbr -a kdn kubectl -n brame describe node # add node name, tabbable
-abbr -a wkp watch -d -n 1 "kubectl -n brame get pods" # greppable
-abbr -a wkt watch -d -n 1 "kubectl -n brame top pods" # greppable
-abbr -a wktn watch -d -n 1 "kubectl -n brame top nodes" # greppable
+abbr -a wkp watch -d -n 1 \"kubectl -n brame get pods\" # greppable
+abbr -a wkt watch -d -n 1 \"kubectl -n brame top pods\" # greppable
+abbr -a wktn watch -d -n 1 \"kubectl -n brame top nodes\" # greppable
 # TODO: There's also the `-o wide` argument that can be used somewhere
 
 ### Completion configuration
