@@ -5,6 +5,12 @@
 
 echo "Starting up LibreChat server..."
 
+# Check if the LibreChat directory exists
+if [ ! -d "/home/stankovictab/Desktop/LibreChat" ]; then
+    echo "LibreChat directory not found. Please make sure it exists and and that LibreChat is configured, and try again."
+    exit 1
+fi
+
 # Will return to the current directory after the script finishes
 cd /home/stankovictab/Desktop/LibreChat
 
