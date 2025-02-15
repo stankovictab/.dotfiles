@@ -17,7 +17,7 @@ layout {
                         // and create the 4 necessary command variables
                         format_left   "{mode}#[fg=#89B4FA,bold]{notifications}{command_spotify}"
                         format_center "{tabs}"
-                        format_right  "#[fg=#333333]Ctrl + x #[fg=#281641,bold]{command_k8s}#[fg=#281641,bold] {command_syncthing} {datetime} #[fg=#89b4fa,bold]{swap_layout} "
+                        format_right  "#[fg=#333333]Ctrl + x #[fg=#281641,bold]{command_k8s}#[fg=#281641,bold] {command_syncthing} {command_tailscale} {datetime} #[fg=#89b4fa,bold]{swap_layout} "
                         format_space  "" // Format of the space between sections, chars and fg color don't impact it seems
 
                         border_enabled  "false" // zjstatus border, needs a pane size of 2 to work (from up there)
@@ -68,6 +68,11 @@ layout {
                         command_syncthing_format "{stdout}"
                         command_syncthing_interval "7"
                         command_syncthing_rendermode "dynamic" // dynamic takes in zjstatus format aswell, useful for conditional formatting, very useful
+
+                        command_tailscale_command "bash -c \"~/scripts/tailscale-status.sh\""
+                        command_tailscale_format "{stdout}"
+                        command_tailscale_interval "7"
+                        command_tailscale_rendermode "dynamic"
                 }
             }
     }
