@@ -1,4 +1,6 @@
-# Usage: python ~/scripts/video_bitrate_sort.py
+# Usage: 
+# cd /run/media/stankovictab/Black Pearl/Recordings
+# python ~/scripts/video_bitrate_sort.py > video_bitrate_sort.txt
 
 # NOTE: The videos that are erroring out where they can't process the duration,
 # usually means that the OBS recording was corrupted and not stopped properly

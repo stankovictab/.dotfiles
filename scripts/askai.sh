@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# --- Script that queries OpenRouter API and prints out the response ---
+# It doesn't remember previous queries, obviously.
+
 # Available models
 CLAUDE="anthropic/claude-3.5-sonnet:beta"
 MISTRAL="mistralai/mistral-7b-instruct:free"
