@@ -47,11 +47,11 @@ alias ll='exa -l'
 alias l='exa -l'
 alias la='exa -l'
 
-alias t='tmux'
-alias tls='tmux ls'
-alias ta='tmux attach'
-alias td='tmux detach'
-alias tks='tmux kill-server'
+#alias t='tmux'
+#alias tls='tmux ls'
+#alias ta='tmux attach'
+#alias td='tmux detach'
+#alias tks='tmux kill-server'
 
 alias deb='sudo deb-get'
 alias sizes='gdu'
@@ -158,6 +158,8 @@ abbr -a zjda zellij delete-all-sessions
 abbr -a d lazydocker
 abbr -a dc docker container ls -a
 abbr -a di docker image ls -a
+
+abbr -a t tailscale
 
 abbr -a kdewhereyouat setsid plasmashell --replace # Will run as a background process, so setsid is needed
 # Old X11 Aliases for Restarting KDE Related Services
