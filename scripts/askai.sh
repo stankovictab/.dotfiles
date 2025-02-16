@@ -7,6 +7,7 @@
 CLAUDE="anthropic/claude-3.5-sonnet:beta"
 MISTRAL="mistralai/mistral-7b-instruct:free"
 GEMINI="google/gemini-2.0-flash-exp:free"
+DEEPSEEK="deepseek/deepseek-r1:free"
 
 # Default model
 MODEL=$CLAUDE
@@ -18,6 +19,7 @@ show_usage() {
     echo "  -m claude   : Use Claude 3.5 Sonnet (default)"
     echo "  -m mistral  : Use Mistral 7B"
     echo "  -m gemini   : Use Gemini 2.0"
+    echo "  -m deepseek : Use Deepseek R1 Free"
     exit 1
 }
 
@@ -34,6 +36,9 @@ while getopts "m:h" opt; do
                     ;;
                 gemini)
                     MODEL=$GEMINI
+                    ;;
+                deepseek)
+                    MODEL=$DEEPSEEK
                     ;;
                 *)
                     echo "Invalid model: ${OPTARG}"
@@ -60,6 +65,7 @@ fi
 
 # Fetch API key from 1Password
 OPENROUTER_API_KEY=$(op read "op://Personal/OpenRouter API/credential")
+# DEBUG: echo $OPENROUTER_API_KEY
 
 # Prepare the API request payload
 request_payload='{
