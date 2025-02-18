@@ -18,7 +18,7 @@ bind \ck history-search-backward # Ctrl + k for previous command in history
 bind \cj history-search-forward # Ctrl + j for next command in history
 
 # Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
-fzf_configure_bindings --directory=\cf --variables=\e\cv 
+fzf_configure_bindings --directory=\cf --variables=\e\cv
 
 ### Aliases
 
@@ -76,7 +76,6 @@ alias shortcuts='nvim ~/.dotfiles/README.md'
 alias fonts='cd /usr/share/fonts/'
 alias nf='neofetch'
 alias rx='rxfetch'
-alias colors='gpick'
 alias nsx='nsxiv-rifle'
 alias nvimclean='nvim -u NONE'
 alias sound='pavucontrol-qt'
@@ -112,7 +111,7 @@ else if command -v fd-find >/dev/null
 end
 
 ### Abbreviations
-# These are like aliases, but with a little improvement 
+# These are like aliases, but with a little improvement
 # where they're expanded in the shell so you know what the command actually is
 # For instance, if you have "gp" as an alias, you wouldn't know if it was git push or git pull
 
@@ -166,7 +165,7 @@ abbr -a kdewhereyouat setsid plasmashell --replace # Will run as a background pr
 # alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
 # alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 
-### PATH configuration 
+### PATH configuration
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash
 

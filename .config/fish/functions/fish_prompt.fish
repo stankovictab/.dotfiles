@@ -12,6 +12,13 @@
 # To deactivate the venv, run `deactivate` (command offered by the same fish script)
 # Use `which python` to check if you're using the venv or the system Python
 
+# TIP: Don't use
+# set -l some_color (set_color $fish_some_color )
+# Use
+# set_color $fish_some_color
+
+# TIP: set_color is normal, -o is bold, -i is italic
+
 set fish_color_cancel red # Color of Ctrl + c in command, was \x2d\x2dreverse
 set fish_color_command 2adede # Like git, was 39BAE6
 set fish_color_comment 658595 # Comment, was 626A73
@@ -43,8 +50,11 @@ set fish_pager_color_progress 955ae7 --bold # Color of the progress in bottom le
 set fish_pager_color_selected_background --background=0D1A3A # Color of selection of tab element background, was \x2d\x2dbackground\x3dE6B450
 set fish_kube_color_bright purple --background 281641 # #a25dfc, #281641
 set fish_kube_color_dark 281641 # #852aa7 #a25dfc #281641
-set fish_docker_color_background_element 041824
-set fish_docker_color_foreground_background 1babff --background 041824
+set fish_docker_color_background_element 041830
+set fish_docker_color_foreground_background 1babff --background 041830
+
+# WARN: wezterm doesn't handle colors in ssh pretty well
+# The color 041824 will default back to black, it'll blend in with the background, but 041830 won't, it'll be gray
 
 function _git_branch_name
     set -l branch (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
@@ -153,11 +163,21 @@ function fish_prompt
     printf '%s' (prompt_pwd)
     set_color normal
 
+    # SSH Indicator - SSH_CONNECTION env var tells if session is SSH
+    if set -q SSH_CONNECTION
+        set_color magenta
+        printf " 󰌘:%s" (hostname)
+        set_color normal
+    else
+        #printf " no ssh connection"
+        set_color normal
+    end
+
     # Background Job Indicator
     set -l jobs (jobs | wc -l | tr -d ' ')
     if test $jobs -gt 0
-        set -l job_color (set_color -o $fish_color_selection )
-        printf " $job_color $jobs"
+        set_color -o $fish_color_selection
+        printf "  $jobs"
         set_color normal
     end
 

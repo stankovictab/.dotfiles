@@ -13,8 +13,9 @@ local config = {
     ----- Fonts -----
     -- Ligatures are supported in WezTerm OOTB, unlike Alacritty (~~>)
     font = wezterm.font 'JetBrainsMono Nerd Font Mono', -- There is also a NL version with No Ligatures.
-    -- font = wezterm.font 'Hack Nerd Font Mono'
-    -- font = wezterm.font 'FiraCode Nerd Font Mono'
+    -- font = wezterm.font('JetBrains Mono Nerd Font Mono', { weight = 'Bold' }),
+    -- font = wezterm.font 'Hack Nerd Font Mono',
+    -- font = wezterm.font 'FiraCode Nerd Font Mono',
     -- font = wezterm.font 'RobotoMono Nerd Font Mono'
     -- font = wezterm.font 'Monaspace Neon Var' -- Argon, Krypton, Neon, Radon, Xenon (Variable versions, not really for terminals)
     -- font = wezterm.font 'Monaspace Neon' -- Argon, Krypton, Neon, Radon, Xenon
