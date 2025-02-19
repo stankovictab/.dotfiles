@@ -185,7 +185,6 @@ abbr -a k-shortcuts "cat ~/.config/fish/config.fish | grep 'kubectl -n brame'" #
 
 abbr -a k-dev aws eks update-kubeconfig --name develop-kube
 abbr -a k-test aws eks update-kubeconfig --name test-kube
-abbr -a k-stage aws eks update-kubeconfig --name stage-kube # TODO: Remove after stage is deprecated
 abbr -a k-prod aws eks update-kubeconfig --name production-kube
 abbr -a k-penny aws eks update-kubeconfig --name penny-kube
 
