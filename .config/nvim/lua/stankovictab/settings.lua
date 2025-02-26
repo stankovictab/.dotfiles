@@ -32,7 +32,7 @@ vim.opt.scrolloff = 1             -- Number of lines to keep at the cursor when 
 vim.opt.signcolumn =
 'yes'                             -- Column left of number line, used by git gutter and lsp, by default it's 'auto', and 'yes' means always on
 vim.opt.updatetime = 250          -- The default update time is 4000ms (for things like vim-gitgutter), which is too long
-vim.opt.linebreak = true          -- Word wrap / line break on word, not on character
+vim.opt.linebreak = false          -- Word wrap / line break on word, not on character
 vim.opt.termguicolors = true      -- Enables 24bit color (TrueColor) support for theming, therefore unlocks gui, guifg and guibg attributes for highlight groups (#rrggbb color support), instead of the old cterm attributes
 -- This allows the arrow keys to go to the previous and next line when going left at the stand and right at the end of the line
 vim.opt.whichwrap:append "<>[]"   -- This is for left and right arrow keys
@@ -47,6 +47,9 @@ vim.opt.diffopt = "internal,filler,closeoff,vertical"
 vim.opt.fillchars =
 "diff:-"                     -- Set the character for the deleted diff block https://www.reddit.com/r/vim/comments/j9fijy/how_to_disable_showing_for_empty_line_in_difftool/
 
+vim.opt.wrap = true -- Enable word wrapping, simple
+vim.opt.textwidth = 0 -- 0 disables text width rule (useful for nvim-scrollview)
+vim.opt.wrapmargin = 10 -- NOTE: Doesn't do anything in NeoVim it seems...
 
 -- NeoVide Settings (GUI NeoVim) --
 

@@ -80,10 +80,10 @@ The point of this is to make sure all of the shortcuts that I use (both default 
 `Alt + h/j/k/l` - Move between panes (and tabs)\
 `Alt + +(=)/-` -  Increase / decrease the size of the pane
 
-Note that the Tmux mode is unbound, as I don't need it.\
+Note that the `tmux` mode is unbound, as I don't need it.\
 Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
-## TMUX
+## tmux
 
 > Note that I use the word tab, and not window.
 
@@ -174,32 +174,16 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 `Ctrl + j/k` - Move up and down in Telescope and nvim-cmp (just like in fzf)
 
-`:cd` - Change working directory for NeoVim and NvimTree\
+`:cd` - Change working directory for NeoVim\
 `:e` - Edit another file
 
-### NvimTree (DEPRICATED FROM CONFIG)
+### `mini-files`
 
 `Ctrl + b` - Toggle file browser\
-`a` - New file or folder. If you want to make a folder, add a / at the end\
-`r` - Rename selected item (you can also rename it to ../{name} to move it up)\
-`R` - Refresh files\
-`d` - Delete selected item\
-`x` - Cut item\
-`c` - Copy item\
-`p` - Paste item (you can move items around with `x` and `p`)\
-`y` - Copy selected item name\
-`W` - Collapse all\
-`s` - Open selected file, like an image, in system app\
-`f` - Find, or filter, files (Telescope is better than this though)\
-`F` - Close the find window\
-`-` - Go up\
-`Ctrl + ]` - `cd` into selected folder, but only in NvimTree (doesn't affect Vim's :cd)\
-`Ctrl + k` - Show info about selected file\
-`Ctrl + x` - Open selected file in a horizontal split\
-`Ctrl + v` - Open selected file in a vertical split\
-`g?` - Show shortcuts\
-`I` - Show gitignored files (off by default)\
-`H` - Show hidden files
+`a`, `o` - Edit file structure\
+`=` - Apply changes\
+`l` - Go into or open file in new tab\
+`q` - Exit `mini-files`
 
 ## VSCode
 

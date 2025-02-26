@@ -215,11 +215,13 @@ local plugins = {
     --     end
     -- },
     {
-        "supermaven-inc/supermaven-nvim",
         -- A way better Copilot, better than Codeium
         -- It has support for being a source in CMP
         -- Used with :Supermaven
         -- TODO: It doesn't look like you can cycle through the suggestions?
+        "supermaven-inc/supermaven-nvim",
+        -- lazy = true,
+        -- event = "VeryLazy",
         config = function()
             require("supermaven-nvim").setup({
                 -- Config created from the default on the GitHub page
@@ -230,8 +232,19 @@ local plugins = {
                 },
                 ignore_filetypes = { "alpha" },     -- Example is { "cpp" }
                 color = {
-                    -- suggestion_color = "#ffffff", -- Should override the theme, but for some reason doesn't - it uses the "Comment" highlight group, not @comment
+                    -- NOTE: Overrides the theme, and defaults to the "Comment" highlight group, not @comment
+                    -- TODO: There actually exists the SupermavenSuggestion highlight group,
+                    -- but it doesn't seem to be used, even when this is commented out
+                    -- This doesn't even allow you to set it to italic
+                    -- Ongoing issue, see https://github.com/supermaven-inc/supermaven-nvim/pull/53 and https://github.com/supermaven-inc/supermaven-nvim/pull/51
+                    -- Also, the project seems to be abandoned
+                    suggestion_color = "#555555",
+                    -- Make suggestion_color use the SupermavenSuggestion highlight group
+                    -- suggestion_color = "SupermavenSuggestion",
                     cterm = 244,
+                    -- Doesn't work :
+                    -- suggestion_color = vim.api.nvim_get_hl(0, { name = "Special" }),
+                    -- cterm = vim.api.nvim_get_hl(0, { name = "NonText" }).cterm,
                 },
                 -- log_level = "info",                -- set to "off" to disable logging completely
                 -- disable_inline_completion = false, -- disables inline completion for use with cmp

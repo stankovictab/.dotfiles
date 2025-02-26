@@ -113,8 +113,8 @@ map('c', '<c-s>', '<esc>:w<cr>', { desc = "Save", noremap = true, silent = true 
 -- This in turn now works with /, n, N, *, # and :%s
 -- Also, this is good to reset the sizes of windows if they get screwed up
 map('n', ' ',
-    ':nohlsearch<cr><c-w>=:lua print("Cleared Screen")<cr>',
-    { desc = "Clear Screen (Search Highlights, Reset Window Size)", noremap = true, silent = true })
+    ':e<cr>:nohlsearch<cr><c-w>=:lua print("Cleared Screen and Reloaded File")<cr>',
+    { desc = "Clear Screen (Reload File, Search Highlights, Reset Window Size)", noremap = true, silent = true })
 
 -- Ctrl + r to search and replace instead of redo (why is it redo by default???)
 map('n', '<c-r>', ':lua print("Search & Replace! - Start typing A, then /, then B.")<cr>:%s/',
