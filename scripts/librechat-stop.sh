@@ -2,7 +2,7 @@
 
 echo "Stopping Librechat..."
 
-cd /home/stankovictab/Desktop/LibreChat
+cd "$HOME/Apps/LibreChat"
 
 docker compose down
 
