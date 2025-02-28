@@ -21,6 +21,7 @@ require('scrollview').setup({
     hide_on_cursor_intersect = true, -- Default false, hides scrollbar when it would otherwise intersect with the cursor (when the cursor is on the bar or sign itself)
     -- hide_on_float_intersect = true, -- Default false, hides scrollbar when it would otherwise intersect with a floating window
     signs_hidden_for_insert = { 'all' }, -- Default {}, hides all signs in the current window when in insert mode
+    hide_on_text_intersect = false, -- Default false, hides scrollbar when it would otherwise intersect with text (the whole scrollbar, not just parts of it like nvim-scrollbar does). Also applies to signs if the sign is in the way of the text.
 })
 
 -- TODO: Don't know how to put this into the setup function, but this works
