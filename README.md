@@ -466,6 +466,9 @@ Alias set to `music`.
 
 You can always open the keybinds menu and filter by assigned to see all of them.
 
+Vim shortcuts only work in the editor.\
+Special pages won't have Vim mode loaded, so the shortcuts won't work.
+
 `Ctrl + ,` - Settings\
 `Ctrl + Shift + i` - Developer tools\
 `Ctrl + r` - Reload Obsidian
@@ -497,7 +500,7 @@ You can always open the keybinds menu and filter by assigned to see all of them.
 
 `Alt + Left/Right` - Toggle left/right sidebar
 
-`f` - Jump to Link's flash jump (two characters needed)\
+(Vim) `f` - Jump to Link's flash jump (two characters needed)\
 `Ctrl + '` - Jump to Link's link open\
 Unassigned - Jump to Link's regex search
 
@@ -505,7 +508,9 @@ Unassigned - Jump to Link's regex search
 
 `Ctrl + Num` - Wrapper - Foreground coloring\
 `Ctrl + Shift + Num` - Wrapper - Background coloring\
-`Alt + Num` - Wrapper - Special highlighting
+(TODO) `Alt + Num` - Wrapper - Special highlighting
 
-`Backspace` - Go back\
-`Shift + Backspace` - Go forward
+(Vim) `Backspace` - Go back\
+(Vim) `Shift + Backspace` - Go forward
+
+`>>` - Callout Suggestions
