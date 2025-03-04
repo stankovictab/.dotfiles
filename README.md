@@ -495,14 +495,17 @@ You can always open the keybinds menu and filter by assigned to see all of them.
 `Ctrl + /` - Comment\
 `Ctrl + l` - Toggle checkbox status
 
-`Alt + Left` - Toggle left sidebar\
-`Alt + Right` - Toggle right sidebar
+`Alt + Left/Right` - Toggle left/right sidebar
 
-`f` - Jump to link's flash jump\
-`Ctrl + '` - Jump to link's link open\
-`Ctrl + x` - Jump to link's regex search\
+`f` - Jump to Link's flash jump (two characters needed)\
+`Ctrl + '` - Jump to Link's link open\
+Unassigned - Jump to Link's regex search
+
 `Ctrl + h` - Homepage
 
 `Ctrl + Num` - Wrapper - Foreground coloring\
 `Ctrl + Shift + Num` - Wrapper - Background coloring\
 `Alt + Num` - Wrapper - Special highlighting
+
+`Backspace` - Go back\
+`Shift + Backspace` - Go forward
