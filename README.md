@@ -483,7 +483,7 @@ Special pages won't have Vim mode loaded, so the shortcuts won't work.
 `Ctrl + ;` - Add property to file
 
 `Alt + Enter` - Open link under cursor in the current tab (if unpinned)\
-`Ctrl + Enter` - Open link under cursor in a new tab\
+`Ctrl + Enter`, `gf` (Vim) - Open link/image under cursor in a new tab or browser\
 `Ctrl + PgUp/PgDn` - Previous/next tab\
 `Ctrl + g` - Global graph view\
 `Ctrl + Shift + g` - Local graph view\
