@@ -28,6 +28,8 @@ require('bufferline').setup({
         show_buffer_close_icons = false, -- true | false
         sort_by = 'insert_at_end',       -- 'insert_after_current' |'insert_at_end' | etc...
         always_show_bufferline = false,  -- Whether to show only at >=2 buffers
+        truncate_names = false, -- Whether or not tab names should be truncated, default is true - bad setting, always keep false, you don't even need to change the tab size, it'll expand until it fits
+        tab_size = 18, -- Default is 18
         offsets = {
             {
                 filetype = "NvimTree",
