@@ -244,6 +244,24 @@ install_vivify() {
     fi
 }
 
+install_terragrunt() {
+    if confirm_install "terragrunt"; then
+        print_info "Installing/updating terragrunt..."
+
+        wget -O terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.77.17/terragrunt_linux_amd64
+
+        if [ $? -ne 0 ]; then
+            print_error "Error downloading terragrunt"
+            return 1
+        fi
+
+        chmod +x terragrunt
+        sudo mv terragrunt /usr/local/bin/terragrunt
+        print_success "terragrunt Installed!"
+    fi
+}
+
+
 # Main script
 
 print_info "Welcome to the updater! Please authenticate."
@@ -264,5 +282,6 @@ install_zed
 install_aws_cli
 install_kubectl
 install_vivify
+install_terragrunt
 
 print_success "All installations completed!   "
