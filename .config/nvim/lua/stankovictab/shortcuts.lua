@@ -101,6 +101,12 @@ map('v', '>', '>gv', { desc = "Indent Right", noremap = true, silent = true })
 -- map('v', '.', ':<C-u>normal! xhP`[v`]<CR>', { desc = "Indent Left By 1 Char", noremap = true, silent = true })
 -- map('v', ',', ':<C-u>normal! xp`[v`]<CR>', { desc = "Indent Right By 1 Char", noremap = true, silent = true })
 
+-- Jumplist
+-- Default is Ctrl + o and Ctrl + i (Tab), but can't use tab
+map('n', '<M-o>', '<C-o>', { desc = "Jump Back", noremap = true, silent = true })
+map('n', '<M-i>', '<C-i>', { desc = "Jump Forward", noremap = true, silent = true })
+map('n', '<c-o>', ':lua print("Use Alt + o / Alt + i to traverse the jumplist!")<cr>', { desc = "Jump Forward", noremap = true, silent = true })
+
 -- Ctrl + s please come back
 -- This is also a fast way to get out of modes
 map('n', '<c-s>', ':w<cr>', { desc = "Save", noremap = true, silent = true })
