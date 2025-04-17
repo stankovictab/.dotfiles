@@ -244,10 +244,31 @@ install_vivify() {
     fi
 }
 
-install_terragrunt() {
-    if confirm_install "terragrunt"; then
-        print_info "Installing/updating terragrunt..."
+install_tofu_terragrunt() {
+    if confirm_install "opentofu_terragrunt"; then
+        print_info "Installing/updating opentofu and terragrunt..."
 
+        # Terraform itself doesn't need to be installed, as tofu handles it
+
+        # --- OpenTofu
+        # https://opentofu.org/docs/intro/install/standalone/
+        # Download the installer script:
+        curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
+        # Alternatively: wget --secure-protocol=TLSv1_2 --https-only https://get.opentofu.org/install-opentofu.sh -O install-opentofu.sh
+
+        # Grant execution permissions:
+        chmod +x install-opentofu.sh
+
+        # Please inspect the downloaded script at this point.
+
+        # Run the installer:
+        ./install-opentofu.sh --install-method standalone
+
+        # Remove the installer:
+        rm -f install-opentofu.sh
+        print_success "OpenTofu Installed!"
+
+        # --- Terragrunt
         wget -O terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.77.17/terragrunt_linux_amd64
 
         if [ $? -ne 0 ]; then
@@ -257,7 +278,7 @@ install_terragrunt() {
 
         chmod +x terragrunt
         sudo mv terragrunt /usr/local/bin/terragrunt
-        print_success "terragrunt Installed!"
+        print_success "Terragrunt Installed!"
     fi
 }
 
@@ -282,6 +303,6 @@ install_zed
 install_aws_cli
 install_kubectl
 install_vivify
-install_terragrunt
+install_tofu_terragrunt
 
 print_success "All installations completed!   "
