@@ -174,6 +174,8 @@ Also don't need the `Ctrl + q` to quit, since I have `Ctrl + d`.
 
 `Ctrl + j/k` - Move up and down in Telescope and nvim-cmp (just like in fzf)
 
+`Alt + o/i` - Traverse the jumplist
+
 `:cd` - Change working directory for NeoVim\
 `:e` - Edit another file
 
