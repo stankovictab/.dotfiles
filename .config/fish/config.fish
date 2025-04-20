@@ -165,6 +165,9 @@ abbr -a kdewhereyouat setsid plasmashell --replace # Will run as a background pr
 # alias kwinwhereyouat='setsid kwin_x11 --replace &' # Restarts KWin
 # alias plasmawhereyouat='kquitapp5 plasmashell && kstart5 plasmashell' # Restarts Plasma
 
+# Gear Lever supports CLI execution as of version 3.0.0, you can use --help, --integrate, --update, --list-installed, etc
+abbr -a gearlever flatpak run it.mijorus.gearlever
+
 ### PATH configuration
 # Folders of binaries that can be run from anywhere
 # fish_add_path is the same as export PATH in bash
