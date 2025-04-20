@@ -244,11 +244,11 @@ install_vivify() {
     fi
 }
 
-install_tofu_terragrunt() {
+install_opentofu_terragrunt() {
     if confirm_install "opentofu_terragrunt"; then
         print_info "Installing/updating opentofu and terragrunt..."
 
-        # Terraform itself doesn't need to be installed, as tofu handles it
+        # Terraform itself doesn't need to be installed, as OpenTofu handles it
 
         # --- OpenTofu
         # https://opentofu.org/docs/intro/install/standalone/
@@ -282,8 +282,7 @@ install_tofu_terragrunt() {
     fi
 }
 
-
-# Main script
+# --- Main Section ---
 
 print_info "Welcome to the manual updater! Please authenticate."
 sudo -v # Allow sudo commands
@@ -303,7 +302,7 @@ install_zed
 install_aws_cli
 install_kubectl
 install_vivify
-install_tofu_terragrunt
+install_opentofu_terragrunt
 
 print_success "All installations completed!   "
 
