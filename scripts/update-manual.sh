@@ -285,7 +285,7 @@ install_tofu_terragrunt() {
 
 # Main script
 
-print_info "Welcome to the updater! Please authenticate."
+print_info "Welcome to the manual updater! Please authenticate."
 sudo -v # Allow sudo commands
 
 cd "/home/stankovictab/Downloads/" || exit
@@ -306,3 +306,5 @@ install_vivify
 install_tofu_terragrunt
 
 print_success "All installations completed!   "
+
+print_success "\nPlease remember to update Flatpak packages with \`flatpak update\`!"
