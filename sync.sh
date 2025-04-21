@@ -1,6 +1,8 @@
+#!/bin/bash
+
 # This script will sync up all dotfiles' symlinks
 # It is meant to be Linux distro agnostic, and able to be run at any time - it should be non-destructive
-# NOTE: Don't run this script as super user! It's meant to be ran as the current user. 
+# NOTE: Don't run this script as super user! It's meant to be ran as the current user.
 
 # ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
 
