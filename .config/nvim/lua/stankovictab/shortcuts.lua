@@ -103,8 +103,8 @@ map('v', '>', '>gv', { desc = "Indent Right", noremap = true, silent = true })
 
 -- Jumplist
 -- Default is Ctrl + o and Ctrl + i (Tab), but can't use tab
-map('n', '<M-o>', '<C-o>', { desc = "Jump Back", noremap = true, silent = true })
-map('n', '<M-i>', '<C-i>', { desc = "Jump Forward", noremap = true, silent = true })
+map('n', '<M-i>', '<C-o>', { desc = "Jump Back", noremap = true, silent = true })
+map('n', '<M-o>', '<C-i>', { desc = "Jump Forward", noremap = true, silent = true })
 map('n', '<c-o>', ':lua print("Use Alt + o / Alt + i to traverse the jumplist!")<cr>', { desc = "Jump Forward", noremap = true, silent = true })
 
 -- Ctrl + s please come back

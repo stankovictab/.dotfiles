@@ -186,8 +186,9 @@ function fish_prompt
     # Count the number of docker containers running
     set -l docker_count (docker ps -q | wc -l | tr -d ' ')
     if test $docker_count -gt 0
+        printf " " # Needs to be seperated in order for the coloring to work, don't know why
         set_color $fish_docker_color_background_element
-        printf " "
+        printf ""
         set_color $fish_docker_color_foreground_background
         printf "󰡨 $docker_count"
         set_color normal # Necessary, to reset the background

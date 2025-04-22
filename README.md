@@ -515,4 +515,6 @@ Unassigned - Jump to Link's regex search
 (Vim) `Backspace` - Go back\
 (Vim) `Shift + Backspace` - Go forward
 
+(Vim) `Alt + o/i` - Traverse the jumplist
+
 `>>` - Callout Suggestions
