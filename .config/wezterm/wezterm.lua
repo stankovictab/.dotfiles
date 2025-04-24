@@ -44,8 +44,8 @@ local config = {
     adjust_window_size_when_changing_font_size = false, -- Don't know why it's true by default
 
     -- Change window size
-    initial_cols = 128, -- Default 80
-    initial_rows = 34,  -- Default 24
+    initial_cols = 176, -- Default 80, previous 128
+    initial_rows = 44,  -- Default 24, previous 34
 
     window_frame = {
         font = wezterm.font 'JetBrainsMono Nerd Font Mono',
