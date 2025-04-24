@@ -333,3 +333,7 @@ map('n', '<C-Up>', '<Plug>(VM-Add-Cursor-Up)',
 -- For mini.files and Oil see their respective configs
 -- map('n', '<s-b>', ':NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
 -- map('i', '<s-b>', '<esc>:NvimTreeToggle<cr>', { desc = "Old File Explorer", noremap = true, silent = true })
+
+-- Open in VSCode
+map('n', '<leader>vc', ':!code %<cr>', { desc = "Open Current File in VSCode", noremap = true, silent = true })
+map('n', '<leader>vx', ':!code .<cr>', { desc = "Open Current Directory in VSCode", noremap = true, silent = true })
