@@ -1,30 +1,37 @@
 #!/bin/bash
 
 # --- Script that queries OpenRouter API and prints out the response ---
-# It doesn't remember previous queries, obviously.
 
-# Available models
-CLAUDE="anthropic/claude-3.7-sonnet:beta"
-MISTRAL="mistralai/mistral-7b-instruct:free"
-GEMINI="google/gemini-2.0-flash-exp:free"
-DEEPSEEK="deepseek/deepseek-r1:free"
-GPT4OMINI="openai/gpt-4o-mini"
-GPTO4MINIHIGH="openai/o4-mini-high"
+# NOTE: It doesn't remember previous queries (obviously)!
+
+# Define models as an associative array for easier management
+declare -A MODELS=(
+    ["claude"]="anthropic/claude-3.7-sonnet:beta"
+    ["mistral"]="mistralai/mistral-7b-instruct:free"
+    ["gemini"]="google/gemini-2.0-flash-exp:free"
+    ["deepseek"]="deepseek/deepseek-r1:free"
+    ["gpt4omini"]="openai/gpt-4o-mini"
+    ["gpto4minihigh"]="openai/o4-mini-high"
+)
 
 # Default model
-MODEL=$CLAUDE
+MODEL_KEY="claude"
+MODEL="${MODELS[$MODEL_KEY]}"
 
 # Function to show usage
 show_usage() {
     echo "Usage: askai.sh [-m model] <prompt>"
     echo "Example: askai.sh -m claude \"What is the meaning of life?\""
     echo "Models:"
-    echo "  -m claude   : Use Claude 3.7 Sonnet (default)"
-    echo "  -m mistral  : Use Mistral 7B"
-    echo "  -m gemini   : Use Gemini 2.0"
-    echo "  -m deepseek : Use Deepseek R1 Free"
-    echo "  -m gpt4omini: Use GPT-4O Mini"
-    echo "  -m gpto4minihigh: Use GPT o4 Mini High"
+
+    # Dynamically list all available models with the default marked
+    for key in "${!MODELS[@]}"; do
+        if [[ "$key" == "$MODEL_KEY" ]]; then
+            echo "  -m $key : Use ${MODELS[$key]} (default)"
+        else
+            echo "  -m $key : Use ${MODELS[$key]}"
+        fi
+    done
     exit 1
 }
 
@@ -32,30 +39,13 @@ show_usage() {
 while getopts "m:h" opt; do
     case $opt in
         m)
-            case "${OPTARG}" in
-                claude)
-                    MODEL=$CLAUDE
-                    ;;
-                mistral)
-                    MODEL=$MISTRAL
-                    ;;
-                gemini)
-                    MODEL=$GEMINI
-                    ;;
-                deepseek)
-                    MODEL=$DEEPSEEK
-                    ;;
-                gpt4omini)
-                    MODEL=$GPT4OMINI
-                    ;;
-                gpto4minihigh)
-                    MODEL=$GPTO4MINIHIGH
-                    ;;
-                *)
-                    echo "Invalid model: ${OPTARG}"
-                    show_usage
-                    ;;
-            esac
+            if [[ -n "${MODELS[${OPTARG}]}" ]]; then
+                MODEL_KEY="${OPTARG}"
+                MODEL="${MODELS[$MODEL_KEY]}"
+            else
+                echo "Invalid model: ${OPTARG}"
+                show_usage
+            fi
             ;;
         h)
             show_usage
@@ -93,8 +83,8 @@ request_payload='{
   "stream": true
 }'
 
-# Print out the model used in blue color
-echo -e "\033[34mModel: $MODEL\033[0m"
+# Print out the model used in gray color
+echo -e "\e[0;30mModel: $MODEL\e[0m"
 
 # Send the API request and process the streaming response
 curl -N -s -X POST \
@@ -114,8 +104,12 @@ curl -N -s -X POST \
     # Parse the JSON and extract the content
     content=$(echo "$line" | jq -r '.choices[0].delta.content // empty' 2>/dev/null)
 
-    # Print the content without newline if it's not empty
-    [ ! -z "$content" ] && printf "%s" "$content"
+    # Print the content if it's not empty, properly handling escape sequences
+    if [ ! -z "$content" ]; then
+        # Process the content to properly handle escape sequences like \n
+        content=$(echo -e "$content")
+        printf "%s" "$content"
+    fi
 done
 
 # Print a final newline
