@@ -99,8 +99,7 @@ alias lpf='bash ~/scripts/lpf.sh'
 
 alias neovide='neovide.appimage'
 
-alias ai='ollama run codellama'
-alias askai='~/scripts/askai.sh'
+alias ai='~/scripts/askai.sh'
 
 # fd is a faster alternative to find
 # Ubuntu - sudo apt install fd-find, Fedora - sudo dnf install fd-find, Arch - sudo pacman -S fd
@@ -170,12 +169,12 @@ abbr -a gearlever flatpak run it.mijorus.gearlever
 
 ### PATH configuration
 # Folders of binaries that can be run from anywhere
-# fish_add_path is the same as export PATH in bash
+# fish_add_path is the same as export PATH concatenation in bash
 
 fish_add_path /opt/nvim/bin # NeoVim
 fish_add_path ~/.spicetify/
 fish_add_path ~/scripts/ # Use {scriptName}.sh in shell to execute scripts
-fish_add_path ~/binaries/
+fish_add_path ~/binaries/ # Binaries from dotfiles
 fish_add_path ~/.cargo/bin/ # Rust binaries
 fish_add_path ~/.local/bin/ # Python's binaries, like syncedlyrics, etc
 fish_add_path ~/.local/lib/python3.11/site-packages # For pip installed Python executables
