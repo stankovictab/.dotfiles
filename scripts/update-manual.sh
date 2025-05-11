@@ -72,30 +72,24 @@ EOF
 install_neovim() {
     if confirm_install "NeoVim"; then
         print_info "Installing/updating NeoVim..."
-        if command -v pacman >/dev/null; then
-            echo "User is on Arch Linux, using AUR."
-            paru -S cachyos-extra-znver4/neovim
-        else
-            echo "Not on Arch Linux, using manual method."
 
-            wget -O nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-            if [ $? -ne 0 ]; then
-                print_error "Error downloading NeoVim"
-                return 1
-            fi
-
-            sudo rm -rf /opt/nvim
-            sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-            if [ $? -ne 0 ]; then
-                print_error "Error extracting archive"
-                rm nvim-linux64.tar.gz
-                return 1
-            fi
-
-            rm nvim-linux-x86_64.tar.gz
-            sudo mv /opt/nvim-linux-x86_64 /opt/nvim
-            sudo ln -sf /opt/nvim/bin/nvim /usr/bin/nvim
+        wget -O nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+        if [ $? -ne 0 ]; then
+            print_error "Error downloading NeoVim"
+            return 1
         fi
+
+        sudo rm -rf /opt/nvim
+        sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+        if [ $? -ne 0 ]; then
+            print_error "Error extracting archive"
+            rm nvim-linux64.tar.gz
+            return 1
+        fi
+
+        rm nvim-linux-x86_64.tar.gz
+        sudo mv /opt/nvim-linux-x86_64 /opt/nvim
+        sudo ln -sf /opt/nvim/bin/nvim /usr/bin/nvim
 
         print_success "NeoVim Installed!"
         print_info "-> Make sure to run the script for the Markdown plugin!"
@@ -107,17 +101,10 @@ install_zellij() {
     if confirm_install "Zellij"; then
         print_info "Installing/updating Zellij..."
 
-        if command -v pacman >/dev/null; then
-            echo "User is on Arch Linux, using AUR."
-            paru -S cachyos-extra-znver4/zellij
-        else
-            echo "Not on Arch Linux, using manual method."
-
-            wget "https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz"
-            tar -xzvf zellij-x86_64-unknown-linux-musl.tar.gz
-            sudo mv zellij /usr/bin/
-            rm zellij-x86_64-unknown-linux-musl.tar.gz
-        fi
+        wget "https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz"
+        tar -xzvf zellij-x86_64-unknown-linux-musl.tar.gz
+        sudo mv zellij /usr/bin/
+        rm zellij-x86_64-unknown-linux-musl.tar.gz
 
         print_success "Zellij Installed!"
     fi
@@ -299,6 +286,17 @@ install_opentofu_terragrunt() {
 
 print_info "Welcome to the manual updater! Please authenticate."
 sudo -v # Allow sudo commands
+
+if command -v pacman >/dev/null; then
+    print_info "We've detected that you're on Arch Linux, for which this script is not recommended."
+    print_info "As all of these packages are already available on the AUR, please run the following command to update your system :"
+
+    # TODO: This command is not tested.
+    # TODO: Things like vivify need manual intervention, idk if just the AUR package is enough
+    # Think about other packages that might not be working out of the box from the AUR
+    print_success "paru -S fisher nvim zellij lazygit lazydocker gdu 1password 1password-cli zed awscli kubectl vivify opentofu terragrunt"
+    exit
+fi
 
 cd "/home/stankovictab/Downloads/" || exit
 
