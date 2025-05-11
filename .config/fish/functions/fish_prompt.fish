@@ -183,18 +183,20 @@ function fish_prompt
 
     printf $git_info
 
-    # Count the number of docker containers running
-    set -l docker_count (docker ps -q | wc -l | tr -d ' ')
-    if test $docker_count -gt 0
-        printf " " # Needs to be seperated in order for the coloring to work, don't know why
-        set_color $fish_docker_color_background_element
-        printf ""
-        set_color $fish_docker_color_foreground_background
-        printf "󰡨 $docker_count"
-        set_color normal # Necessary, to reset the background
-        set_color $fish_docker_color_background_element
-        printf " "
-        set_color normal
+    if command -v docker >/dev/null # If the docker command exists
+        # Count the number of docker containers running
+        set -l docker_count (docker ps -q | wc -l | tr -d ' ')
+        if test $docker_count -gt 0
+            printf " " # Needs to be seperated in order for the coloring to work, don't know why
+            set_color $fish_docker_color_background_element
+            printf ""
+            set_color $fish_docker_color_foreground_background
+            printf "󰡨 $docker_count"
+            set_color normal # Necessary, to reset the background
+            set_color $fish_docker_color_background_element
+            printf " "
+            set_color normal
+        end
     end
 
     # NOTE: Uncomment to bring back k8s status to fish (it's in zellij now)

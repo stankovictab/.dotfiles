@@ -4,10 +4,10 @@
 # It is meant to be Linux distro agnostic, and able to be run at any time - it should be non-destructive
 # NOTE: Don't run this script as super user! It's meant to be ran as the current user.
 
-# ln fails if there is no directory, so mkdir is needed (-p is so that it isn't dumb)
+# ln fails if there is no directory, so mkdir -p is needed
 
 # Check for root, as a failsafe
-sudo echo "Root check passed!"
+sudo echo -e "Root check passed!"
 
 # Files
 
@@ -59,6 +59,7 @@ rm -rf ~/.config/fish
 ln -sf ~/.dotfiles/.config/fish ~/.config/fish
 # Fish shell for super user
 sudo rm -rf /root/.config/fish
+sudo mkdir -p /root/.config/fish
 sudo ln -sf /home/$USER/.dotfiles/.config/fish/ /root/.config/fish
 
 rm -rf ~/.config/lazygit
@@ -113,6 +114,7 @@ ln -sf ~/.dotfiles/.config/spotify-player ~/.config/spotify-player
 rm -rf ~/.config/btop
 ln -sf ~/.dotfiles/.config/btop ~/.config/btop
 sudo rm -rf /root/.config/btop
+sudo mkdir -p /root/.config/btop
 sudo ln -sf /home/$USER/.dotfiles/.config/btop/ /root/.config/btop
 rm -rf ~/.config/MangoHud
 ln -sf ~/.dotfiles/.config/MangoHud ~/.config/MangoHud
@@ -128,9 +130,12 @@ ln -sf ~/.dotfiles/scripts ~/scripts
 rm -rf ~/binaries
 ln -sf ~/.dotfiles/binaries ~/binaries
 
+echo -e "links created ✅"
+
 # Fonts
 sudo cp -r ~/.dotfiles/fonts/* /usr/share/fonts/
-echo "🎉 Sync finished! 🎉"
+
+echo -e "fonts installed ✅"
 
 # Dotdesktops
 # They should go into ~/.local/share/applications/
@@ -140,3 +145,7 @@ ln -sf ~/.dotfiles/dotdesktops/1Password/1Password.desktop ~/.local/share/applic
 
 rm -rf ~/.local/share/applications/Vesktop.desktop
 ln -sf ~/.dotfiles/dotdesktops/Vesktop/Vesktop.desktop ~/.local/share/applications/Vesktop.desktop
+
+echo -e "dotdesktops moved ✅"
+
+echo "🎉 Sync finished! 🎉"
