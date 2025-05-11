@@ -40,7 +40,7 @@ install_fisher() {
     if confirm_install "Fisher"; then
         print_info "Setting up Fisher..."
 
-        cat > fisher_setup.fish << 'EOF'
+        cat >fisher_setup.fish <<'EOF'
 # Check if fisher is installed, if not install it, if yes update the plugins
 if not functions -q fisher
     curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
@@ -72,24 +72,30 @@ EOF
 install_neovim() {
     if confirm_install "NeoVim"; then
         print_info "Installing/updating NeoVim..."
+        if command -v pacman >/dev/null; then
+            echo "User is on Arch Linux, using AUR."
+            paru -S cachyos-extra-znver4/neovim
+        else
+            echo "Not on Arch Linux, using manual method."
 
-        wget -O nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-        if [ $? -ne 0 ]; then
-            print_error "Error downloading NeoVim"
-            return 1
+            wget -O nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+            if [ $? -ne 0 ]; then
+                print_error "Error downloading NeoVim"
+                return 1
+            fi
+
+            sudo rm -rf /opt/nvim
+            sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+            if [ $? -ne 0 ]; then
+                print_error "Error extracting archive"
+                rm nvim-linux64.tar.gz
+                return 1
+            fi
+
+            rm nvim-linux-x86_64.tar.gz
+            sudo mv /opt/nvim-linux-x86_64 /opt/nvim
+            sudo ln -sf /opt/nvim/bin/nvim /usr/bin/nvim
         fi
-
-        sudo rm -rf /opt/nvim
-        sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-        if [ $? -ne 0 ]; then
-            print_error "Error extracting archive"
-            rm nvim-linux64.tar.gz
-            return 1
-        fi
-
-        rm nvim-linux-x86_64.tar.gz
-        sudo mv /opt/nvim-linux-x86_64 /opt/nvim
-        sudo ln -sf /opt/nvim/bin/nvim /usr/bin/nvim
 
         print_success "NeoVim Installed!"
         print_info "-> Make sure to run the script for the Markdown plugin!"
@@ -101,10 +107,17 @@ install_zellij() {
     if confirm_install "Zellij"; then
         print_info "Installing/updating Zellij..."
 
-        wget "https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz"
-        tar -xzvf zellij-x86_64-unknown-linux-musl.tar.gz
-        sudo mv zellij /usr/bin/
-        rm zellij-x86_64-unknown-linux-musl.tar.gz
+        if command -v pacman >/dev/null; then
+            echo "User is on Arch Linux, using AUR."
+            paru -S cachyos-extra-znver4/zellij
+        else
+            echo "Not on Arch Linux, using manual method."
+
+            wget "https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz"
+            tar -xzvf zellij-x86_64-unknown-linux-musl.tar.gz
+            sudo mv zellij /usr/bin/
+            rm zellij-x86_64-unknown-linux-musl.tar.gz
+        fi
 
         print_success "Zellij Installed!"
     fi
