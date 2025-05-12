@@ -4,9 +4,6 @@
 # Needed for when devs publish releases on GitHub and don't update distro repositories.
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic (to remove or replace old installation).
 
-# TODO: Rework fisher for Arch
-# TODO: Add docker
-
 # Colors
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'

@@ -39,24 +39,27 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+alias ls='ls --color=auto' # Replaced by eza and exa below
 alias lah='ls -lah --color=auto' # l = All in one column, a = All, including hidden, h = Human readable sizes
 
-alias eza='eza --all --icons --group-directories-first'
-alias e='eza'
-alias ls='eza'
-alias ll='eza -l'
-alias l='eza -l'
-alias la='eza -l'
-
-# Uncomment when on Ubuntu
-alias exa='exa --all --icons --group-directories-first'
-alias e='exa'
-alias ls='exa'
-alias ll='exa -l'
-alias l='exa -l'
-alias la='exa -l'
+# Ubuntu still uses exa unfortunately
+if command -v eza >/dev/null
+    alias eza='eza --all --icons --group-directories-first'
+    alias e='eza'
+    alias ls='eza'
+    alias ll='eza -l'
+    alias l='eza -l'
+    alias la='eza -l'
+else if command -v exa >/dev/null
+    alias exa='exa --all --icons --group-directories-first'
+    alias e='exa'
+    alias ls='exa'
+    alias ll='exa -l'
+    alias l='exa -l'
+    alias la='exa -l'
+end
 
 #alias t='tmux'
 #alias tls='tmux ls'
