@@ -35,6 +35,10 @@ alias reload='source ~/.config/fish/config.fish'
 alias c='clear'
 alias :q='exit'
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias lah='ls -lah --color=auto' # l = All in one column, a = All, including hidden, h = Human readable sizes
@@ -92,7 +96,6 @@ alias music='~/Apps/musikcube/musikcube'
 alias upscale='~/Desktop/upscaler/upscale.sh'
 alias s='~/Apps/spotify_player'
 alias sd='cd ~/Desktop/StableDiffusion/stable-diffusion-webui/ && bash webui.sh' # Needs to be a cd because if not, it'll clone the whole repo inside the already cloned repo and make a mess
-alias vesktop='setsid flatpak run dev.vencord.Vesktop --disable-gpu'
 
 alias jellyfin-start='bash ~/scripts/jellyfin-start.sh'
 alias jellyfin-stop='bash ~/scripts/jellyfin-stop.sh'
@@ -107,6 +110,14 @@ alias lpf='bash ~/scripts/lpf.sh'
 alias neovide='neovide.appimage'
 
 alias ai='~/scripts/askai.sh'
+
+# Things copied over from the CachyOS fish config
+alias fixpacman="sudo rm /var/lib/pacman/db.lck" # pacman runs this when it finishes, this fixes a broken pacman run
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # Cleanup orphaned packages
+alias tarnow='tar -acf '
+alias untar='tar -zxvf '
+alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size in MB
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" # Recent installed packages
 
 # fd is a faster alternative to find
 # Ubuntu - sudo apt install fd-find, Fedora - sudo dnf install fd-find, Arch - sudo pacman -S fd
