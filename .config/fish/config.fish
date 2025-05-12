@@ -1,3 +1,7 @@
+# Fish Config
+# NOTE: fish only needs config.fish and functions/fish_prompt.fish to function on a new system
+# Everything else is filled up by fisher plugins and using fish
+
 ### General Options
 
 export EDITOR="nvim" # Default editor for sudoedit for example
