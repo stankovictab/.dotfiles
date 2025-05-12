@@ -26,6 +26,9 @@ local config = {
     ----- Colors -----
     -- 950 themes available OOTB, nice ones are GitHub Dark, Catppuccin Mocha, Dracula, Batman
     -- See more here: https://wezfurlong.org/wezterm/colorschemes
+    -- color_scheme = 'Tokyo Night',
+    -- color_scheme = 'Catppuccin Mocha',
+    -- color_scheme = 'Dracula',
     color_scheme = 'mgz',
 
     -- These colors override the ones from the selected color scheme

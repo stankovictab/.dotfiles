@@ -12,7 +12,6 @@ ansi = [
     '#2ADEDE', # teal
     '#FFFFFF', # silver
 ]
-background = '#121212'
 brights = [
     '#BBBBBB', # grey
     '#FF6D59', # red
@@ -23,6 +22,8 @@ brights = [
     '#78FFFF', # aqua
     '#FFFFFF', # white
 ]
+
+background = '#121212'
 
 # TODO: Haven't touched the rest down here, the colors are from Dracula
 
