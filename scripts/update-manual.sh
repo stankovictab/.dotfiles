@@ -4,6 +4,7 @@
 # Needed for when devs publish releases on GitHub and don't update distro repositories.
 # It's important to link the latest release, obviously, to always pull the latest one - it needs to be dynamic (to remove or replace old installation).
 
+# TODO: Rework fisher for Arch
 # TODO: Add docker
 
 # Colors
@@ -85,6 +86,7 @@ if not functions -q fisher
     fisher install jorgebucaran/nvm.fish
     fisher install jethrokuan/z
     fisher install franciscolourenco/done
+    fisher install decors/fish-colors
     echo -e "\033[32mFisher Plugins Installed! \033[0m"
 else
     fisher update
@@ -268,7 +270,7 @@ install_1password_cli() {
 
 # AWS CLI is recommended to be installed directly, not via AUR
 install_aws_cli() {
-    if confirm_install "AWS CLI v2"; then
+    if confirm_install "AWS CLI v2 (directly)"; then
         print_info "Installing/updating AWS CLI v2 directly (special installation method)..."
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         nohup unzip awscliv2.zip
@@ -301,9 +303,14 @@ install_kubectl() {
 }
 
 # Markdown previewer, both standalone and a dependency for the NeoVim plugin
-# Always use direct method for vivify regardless of distro (special installation)
 install_vivify() {
     if confirm_install "vivify"; then
+        # Try AUR install first if on Arch
+        if try_aur_install "vivify-bin"; then
+            return 0
+        fi
+
+        # Fall back to direct install
         print_info "Installing/updating vivify directly (special installation method)..."
         wget -O vivify-linux.tar.gz https://github.com/jannis-baum/vivify/releases/latest/download/vivify-linux.tar.gz
 

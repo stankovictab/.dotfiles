@@ -91,8 +91,6 @@ rm -rf ~/.config/nomacs
 ln -sf ~/.dotfiles/.config/nomacs ~/.config/nomacs
 rm -rf ~/.config/flameshot
 ln -sf ~/.dotfiles/.config/flameshot ~/.config/flameshot
-rm -rf ~/.config/BetterDiscord
-ln -sf ~/.dotfiles/.config/BetterDiscord ~/.config/BetterDiscord
 rm -rf ~/.config/htop
 ln -sf ~/.dotfiles/.config/htop ~/.config/htop
 rm -rf ~/.config/alacritty
