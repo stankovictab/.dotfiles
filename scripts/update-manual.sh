@@ -74,9 +74,24 @@ try_aur_install() {
 
 install_fisher() {
     if confirm_install "Fisher"; then
-        print_info "Setting up Fisher..."
+        # Try AUR install first if on Arch
+        if try_aur_install "fisher"; then
+            # Installing / updating fisher plugins
+            fisher install jorgebucaran/nvm.fish
+            fisher install jethrokuan/z
+            fisher install franciscolourenco/done
+            fisher install decors/fish-colors
+            print_success "Fisher and Plugins Installed!"
 
-        cat >fisher_setup.fish <<'EOF'
+            # TODO: Will install also update? Test out with done plugin.
+
+            return 0
+        fi
+
+        # Fall back to direct install
+        print_info "Setting up Fisher directly..."
+
+        cat >setup_fisher.fish <<'EOF'
 # Check if fisher is installed, if not install it, if yes update the plugins
 if not functions -q fisher
     curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
@@ -100,9 +115,22 @@ set --universal nvm_default_version lts # Set the default node version to LTS fo
 echo -e "\033[32mNode LTS Installed! \033[0m"
 EOF
 
-        fish fisher_setup.fish
-        rm fisher_setup.fish
+        fish setup_fisher.fish
+        rm setup_fisher.fish
         print_success "Fisher setup completed!"
+
+    fi
+}
+
+install_node() {
+    if confirm_install "Node"; then
+        # TODO: This needs to be done through fish, so make a setup_node.fish script here
+
+        # Node will be set up by the Fisher plugin nvm.fish
+        nvm install lts
+        npm install -g npm yarn
+        set --universal nvm_default_version lts # Set the default node version to LTS for all programs
+        print_success "Node LTS Installed!"
     fi
 }
 

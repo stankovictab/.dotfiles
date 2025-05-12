@@ -21,8 +21,11 @@ bind \cl forward-char # Ctrl + l to autofill (don't need a clear terminal shortc
 bind \ck history-search-backward # Ctrl + k for previous command in history
 bind \cj history-search-forward # Ctrl + j for next command in history
 
-# Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
-fzf_configure_bindings --directory=\cf --variables=\e\cv
+# If the fzf fisher plugin isn't installed, this errors
+if command -v fzf_configure_bindings >/dev/null
+    # Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
+    fzf_configure_bindings --directory=\cf --variables=\e\cv
+end
 
 ### Aliases
 
