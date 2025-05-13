@@ -18,6 +18,9 @@ rm -rf ~/.zsh ~/.zshrc
 # ln -sf ~/.dotfiles/.zshrc ~/.zshrc # Don't need zsh
 # ln -sf ~/.dotfiles/.zsh ~/.zsh
 
+rm -rf ~/.fzfrc
+ln -sf ~/.dotfiles/.fzfrc ~/.fzfrc # fzf config and styling, sourced in shell config
+
 rm -rf ~/.tmux.conf
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
 rm -rf ~/.shellcheckrc

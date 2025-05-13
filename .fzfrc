@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Catppuccin theme
+export FZF_DEFAULT_OPTS="
+    --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#2b2b2b
+    --color=hl:#fe8c46,hl+:#f5b567,info:#c17ce1,marker:#00ffd9
+    --color=prompt:#009dff,spinner:#5effcf,pointer:#74ff5e,header:#39d5e3
+    --color=border:#3c827b,query:#d9d9d9
+    --border="rounded" --preview-window="border-rounded" --prompt="> "
+    --marker=">" --pointer="=>" --separator="─" --scrollbar="│"
+    --layout="reverse" --info="right"'
+"

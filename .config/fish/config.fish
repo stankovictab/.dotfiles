@@ -1,6 +1,11 @@
 # Fish Config
+
 # NOTE: fish only needs config.fish and functions/fish_prompt.fish to function on a new system
 # Everything else is filled up by fisher plugins and using fish
+
+# This file is applied only on first startup of fish, it's not dynamic
+# So, "heavier" commands in here are tolerated, but not in function/ directory,
+# which is dynamic and reloads instantly, on each Enter key pressed
 
 ### General Options
 
@@ -21,6 +26,11 @@ bind \cl forward-char # Ctrl + l to autofill (don't need a clear terminal shortc
 bind \ck history-search-backward # Ctrl + k for previous command in history
 bind \cj history-search-forward # Ctrl + j for next command in history
 
+# fzf
+
+# Config and styling is in a bash script, so it can be sourced in various shells
+source ~/.fzfrc
+
 # If the fzf fisher plugin isn't installed, this errors
 if command -v fzf_configure_bindings >/dev/null
     # Better fzf binds, Ctrl + f for file and folder search, Ctrl + Alt + v for variables, so that you can do Ctrl + v for paste :)
@@ -38,11 +48,11 @@ if test -e /etc/os-release; and grep -q "Ubuntu" /etc/os-release
     function __fzf_search_history
         # Save current command line content
         set -l commandline (commandline)
-        
+
         # Run history through fzf and set the selected command as the current commandline
         history | fzf --query=(commandline) | read -l result
         and commandline $result
-        
+
         # Redraw commandline
         commandline -f repaint
     end
