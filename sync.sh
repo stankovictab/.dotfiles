@@ -141,11 +141,14 @@ echo -e "fonts installed ✅"
 # Dotdesktops
 # They should go into ~/.local/share/applications/
 
-rm -rf ~/.local/share/applications/1Password.desktop
-ln -sf ~/.dotfiles/dotdesktops/1Password/1Password.desktop ~/.local/share/applications/1Password.desktop
+# rm -rf ~/.local/share/applications/1Password.desktop
+# ln -sf ~/.dotfiles/dotdesktops/1Password/1Password.desktop ~/.local/share/applications/1Password.desktop
 
-rm -rf ~/.local/share/applications/Vesktop.desktop
-ln -sf ~/.dotfiles/dotdesktops/Vesktop/Vesktop.desktop ~/.local/share/applications/Vesktop.desktop
+# rm -rf ~/.local/share/applications/Vesktop.desktop
+# ln -sf ~/.dotfiles/dotdesktops/Vesktop/Vesktop.desktop ~/.local/share/applications/Vesktop.desktop
+
+rm -rf ~/.local/share/applications/obsidian.desktop
+ln -sf ~/.dotfiles/dotdesktops/Obsidian/obsidian.desktop ~/.local/share/applications/obsidian.desktop
 
 echo -e "dotdesktops moved ✅"
 

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=Office;
+Comment=Obsidian
+Exec=/usr/bin/obsidian %U
+Icon=/home/stankovictab/.dotfiles/dotdesktops/Obsidian/obsidian-icon-light-cyan.svg
+MimeType=x-scheme-handler/obsidian;
+Name=Obsidian
+NoDisplay=false
+Path=
+StartupNotify=true
+StartupWMClass=obsidian
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
