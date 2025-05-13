@@ -28,21 +28,24 @@ if command -v fzf_configure_bindings >/dev/null
 end
 
 # Fallback for Ubuntu that still doesn't have fish 3.4.0 which fzf.fish requires
-function fish_user_key_bindings
-    # Bind Ctrl+R for history search using fzf
-    bind \cr '__fzf_search_history'
-end
+# Only applies this configuration on Ubuntu systems
+if test -e /etc/os-release; and grep -q "Ubuntu" /etc/os-release
+    function fish_user_key_bindings
+        # Bind Ctrl+R for history search using fzf
+        bind \cr '__fzf_search_history'
+    end
 
-function __fzf_search_history
-    # Save current command line content
-    set -l commandline (commandline)
-
-    # Run history through fzf and set the selected command as the current commandline
-    history | fzf --query=(commandline) | read -l result
-    and commandline $result
-
-    # Redraw commandline
-    commandline -f repaint
+    function __fzf_search_history
+        # Save current command line content
+        set -l commandline (commandline)
+        
+        # Run history through fzf and set the selected command as the current commandline
+        history | fzf --query=(commandline) | read -l result
+        and commandline $result
+        
+        # Redraw commandline
+        commandline -f repaint
+    end
 end
 
 ### Aliases
