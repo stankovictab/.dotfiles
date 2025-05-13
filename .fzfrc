@@ -8,5 +8,5 @@ export FZF_DEFAULT_OPTS="
     --color=border:#3c827b,query:#d9d9d9
     --border="rounded" --preview-window="border-rounded" --prompt="> "
     --marker=">" --pointer="=>" --separator="─" --scrollbar="│"
-    --layout="reverse" --info="right"'
+    --layout="reverse" --info="right"
 "
