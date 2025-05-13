@@ -3,7 +3,7 @@ Name=Vesktop
 Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=startvesktop dev.vencord.Vesktop --disable-gpu
 Terminal=false
 Type=Application
-Icon=/home/stankovictab/.dotfiles/dotdesktops/Vesktop/vesktop.webp
+Icon=/home/stankovictab/.dotfiles/dotdesktops/Discord/discord-2.png
 StartupWMClass=Vesktop
 X-AppImage-Version=1.5.2
 GenericName=Internet Messenger
