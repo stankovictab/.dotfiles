@@ -82,3 +82,5 @@ else
     echo "Skipping the browser opening..."
     echo -e "\e[32mLibreChat server started successfully!\nLibreChat is now running at http://localhost:3080\e[0m"
 fi
+
+echo -e "Remember to apply icons to agents from the icons/ folder."
