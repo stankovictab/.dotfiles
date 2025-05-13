@@ -23,6 +23,8 @@ local config = {
     -- font = wezterm.font 'GohuFont uni11 Nerd Font Mono' -- The pixel font, also available as uni14 and non-Mono
     -- font = wezterm.font 'GeistMono Nerd Font Mono' -- Also available as non-Mono
 
+    font_size = 11,
+
     ----- Colors -----
     -- 950 themes available OOTB, nice ones are GitHub Dark, Catppuccin Mocha, Dracula, Batman
     -- See more here: https://wezfurlong.org/wezterm/colorschemes
