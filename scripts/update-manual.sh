@@ -80,7 +80,6 @@ install_fisher() {
         print_info "Setting up Fisher directly..."
         cat >setup_fisher.fish <<'EOF'
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-echo -e "\033[32mFisher Installed! \033[0m"
 EOF
         fish setup_fisher.fish
         rm setup_fisher.fish
@@ -96,6 +95,7 @@ fisher install jorgebucaran/nvm.fish
 fisher install jethrokuan/z
 fisher install franciscolourenco/done
 fisher install decors/fish-colors
+fisher install PatrickF1/fzf.fish # Requires fish 3.4.0
 EOF
         fish setup_fisher_plugins.fish
         rm setup_fisher_plugins.fish
