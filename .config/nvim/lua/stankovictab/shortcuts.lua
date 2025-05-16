@@ -31,7 +31,7 @@ map('n', '<leader>rf', ':e<cr>', { desc = "Reload File", noremap = true, silent 
 map('n', '<leader>,', ':lua require("telescope.builtin").find_files({cwd = "~/.dotfiles/.config/nvim/"})<cr>',
     { desc = "Find Config Files", noremap = true, silent = true })
 map('n', '<leader>f', ':Telescope find_files<cr>', { desc = "File Browser", noremap = true, silent = true })
-map('n', '<leader>gr', ':Telescope live_grep<cr>',
+map('n', '<leader>rg', ':Telescope live_grep<cr>',
     { desc = "Live Grep (Search Inside Files)", noremap = true, silent = true })
 map('n', '<leader>b', ':Telescope buffers<cr>', { desc = "Buffer Browser", noremap = true, silent = true })
 
