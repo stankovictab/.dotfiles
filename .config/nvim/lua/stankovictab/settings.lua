@@ -49,7 +49,7 @@ vim.opt.fillchars =
 
 vim.opt.wrap = true -- Enable word wrapping, simple
 vim.opt.textwidth = 0 -- 0 disables text width rule (useful for nvim-scrollview)
-vim.opt.wrapmargin = 10 -- NOTE: Doesn't do anything in NeoVim it seems...
+-- vim.opt.wrapmargin = 10 -- Moves the line you're writing to new line if it passes the margin, very annoying
 
 -- NeoVide Settings (GUI NeoVim) --
 
