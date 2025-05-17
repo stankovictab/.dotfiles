@@ -125,6 +125,8 @@ rm -rf ~/.config/systemd
 ln -sf ~/.dotfiles/.config/systemd ~/.config/systemd
 rm -rf ~/.config/zed
 ln -sf ~/.dotfiles/.config/zed ~/.config/zed
+rm -rf ~/.config/yazi
+ln -sf ~/.dotfiles/.config/yazi ~/.config/yazi
 
 rm -rf ~/scripts
 ln -sf ~/.dotfiles/scripts ~/scripts
